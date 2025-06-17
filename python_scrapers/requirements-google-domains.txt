@@ -1,0 +1,33 @@
+# Google Domains Service Requirements
+
+# Web Framework
+flask==3.0.0
+flask-cors==4.0.0
+
+# Database
+psycopg2-binary==2.9.9
+
+# HTTP Client
+aiohttp==3.9.1
+requests==2.31.0
+
+# HTML Parsing
+beautifulsoup4==4.12.3
+lxml==5.1.0
+
+# Text Processing
+unicodedata2==15.1.0
+
+# Address Parsing (optional but recommended)
+# Note: Requires libpostal C library to be installed first
+# postal==1.1.10
+
+# Logging
+python-json-logger==2.0.7
+
+# Testing
+pytest==7.4.4
+pytest-asyncio==0.23.3
+
+# Development
+python-dotenv==1.0.0

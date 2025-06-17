@@ -1,0 +1,56 @@
+==========================================
+Google Domains Data Migration (Automated)
+==========================================
+Starting at: Mo 16 Jun 2025 16:59:41 CEST
+
+1. Creating new table structure...
+psql:create-google-domains-service.sql:5: NOTICE:  extension "pg_trgm" already exists, skipping
+CREATE EXTENSION
+CREATE EXTENSION
+CREATE TABLE
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE FUNCTION
+CREATE FUNCTION
+CREATE TRIGGER
+CREATE VIEW
+CREATE FUNCTION
+CREATE TABLE
+CREATE INDEX
+CREATE TABLE
+INSERT 0 5
+
+2. Migrating data from Odoo tables...
+BEGIN
+psql:migrate-odoo-google-domains.sql:62: ERROR:  regexp_match() does not support the "global" option
+HINT:  Use the regexp_matches function instead.
+psql:migrate-odoo-google-domains.sql:71: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+psql:migrate-odoo-google-domains.sql:93: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+psql:migrate-odoo-google-domains.sql:133: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+psql:migrate-odoo-google-domains.sql:142: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+psql:migrate-odoo-google-domains.sql:212: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+psql:migrate-odoo-google-domains.sql:221: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+psql:migrate-odoo-google-domains.sql:231: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+psql:migrate-odoo-google-domains.sql:245: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+psql:migrate-odoo-google-domains.sql:268: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ROLLBACK
+ query_source | total_records | verified | with_emails 
+--------------+---------------+----------+-------------
+(0 rows)
+
+
+==========================================
+Migration completed at: Mo 16 Jun 2025 16:59:41 CEST
+==========================================
+
+Checking migration results...
+ Migrated from our_google_domains: 0
+
+ Migrated from our_domains: 0
+
+ Total with emails: 0
+

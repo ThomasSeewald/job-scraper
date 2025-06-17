@@ -1,0 +1,4 @@
+🌐 Combined Dashboard gestartet auf Port 3001
+📊 Dashboard: http://localhost:3001
+🔧 Health Check: http://localhost:3001/health
+📊 Dashboard ready - Puppeteer will initialize on-demand for admin mode

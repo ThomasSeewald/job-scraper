@@ -1,0 +1,195 @@
+<%- include('layout', { 
+    title: `PLZ ${plz} - Job Scraper Dashboard`, 
+    currentPage: '',
+    body: `
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="mb-4">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+        <li class="breadcrumb-item active">PLZ ${plz}</li>
+    </ol>
+</nav>
+
+<!-- PLZ Header -->
+<div class="row mb-4">
+    <div class="col-12">
+        <h1 class="display-5">
+            <i class="fas fa-map-marker-alt"></i> PLZ ${plz}
+            ${jobs.length > 0 && jobs[0] ? ` - ${jobs[0].arbeitsort_ort || ''}` : ''}
+        </h1>
+    </div>
+</div>
+
+<!-- Statistics Cards -->
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card metric-card">
+            <div class="card-body text-center">
+                <h2 class="text-primary">${stats.total_jobs || 0}</h2>
+                <p class="mb-0">Gesamt Jobs</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card metric-card" style="border-left-color: #28a745;">
+            <div class="card-body text-center">
+                <h2 class="text-success">${stats.jobs_today || 0}</h2>
+                <p class="mb-0">Jobs heute</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card metric-card" style="border-left-color: #ffc107;">
+            <div class="card-body text-center">
+                <h2 class="text-warning">${stats.unique_employers || 0}</h2>
+                <p class="mb-0">Arbeitgeber</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card metric-card" style="border-left-color: #17a2b8;">
+            <div class="card-body text-center">
+                <h2 class="text-info">
+                    ${stats.latest_job ? Math.floor((new Date() - new Date(stats.latest_job)) / (1000 * 60 * 60 * 24)) : 'N/A'}
+                </h2>
+                <p class="mb-0">Tage seit letztem Job</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Timeline -->
+${stats.first_job && stats.latest_job ? `
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-clock"></i> Aktivitäts-Timeline</h5>
+            </div>
+            <div class="card-body">
+                <p><strong>Erster Job:</strong> ${new Date(stats.first_job).toLocaleString('de-DE')}</p>
+                <p><strong>Letzter Job:</strong> ${new Date(stats.latest_job).toLocaleString('de-DE')}</p>
+                <p><strong>Aktivitätszeitraum:</strong> ${Math.ceil((new Date(stats.latest_job) - new Date(stats.first_job)) / (1000 * 60 * 60 * 24))} Tage</p>
+            </div>
+        </div>
+    </div>
+</div>
+` : ''}
+
+<!-- Top Employers -->
+<div class="row mb-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-building"></i> Top Arbeitgeber</h5>
+            </div>
+            <div class="card-body">
+                ${employers.length > 0 ? `
+                <div class="list-group list-group-flush">
+                    ${employers.slice(0, 10).map((employer, index) => `
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>${employer.arbeitgeber}</strong>
+                            ${employer.jobs_today > 0 ? `<br><small class="text-success">${employer.jobs_today} heute</small>` : ''}
+                        </div>
+                        <span class="badge bg-primary rounded-pill">${employer.job_count}</span>
+                    </div>
+                    `).join('')}
+                </div>
+                ` : `
+                <p class="text-muted text-center">Keine Arbeitgeber gefunden</p>
+                `}
+            </div>
+        </div>
+    </div>
+    
+    <!-- Recent Jobs -->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="fas fa-briefcase"></i> Aktuelle Jobs</h5>
+                <a href="/jobs?plz=${plz}" class="btn btn-sm btn-outline-primary">
+                    Alle anzeigen <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="card-body">
+                ${jobs.length > 0 ? `
+                <div class="list-group list-group-flush">
+                    ${jobs.slice(0, 10).map(job => `
+                    <div class="list-group-item list-group-item-action" onclick="showJobDetail('${job.refnr}')" style="cursor: pointer;">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">${job.titel || 'Unbekannter Titel'}</h6>
+                            <small>${new Date(job.scraped_at_berlin).toLocaleDateString('de-DE')}</small>
+                        </div>
+                        <p class="mb-1">${job.arbeitgeber || 'Unbekannter Arbeitgeber'}</p>
+                        <small class="text-muted">${job.beruf || ''}</small>
+                        ${job.has_contact_info ? `
+                        <span class="badge bg-success ms-2">Kontakt</span>
+                        ` : ''}
+                        ${job.data_completeness_score ? `
+                        <span class="badge bg-info ms-1">${job.data_completeness_score}% Details</span>
+                        ` : ''}
+                    </div>
+                    `).join('')}
+                </div>
+                ` : `
+                <p class="text-muted text-center">Keine Jobs gefunden</p>
+                `}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- All Jobs Table -->
+${jobs.length > 10 ? `
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-list"></i> Alle Jobs in PLZ ${plz}</h5>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Titel</th>
+                                <th>Arbeitgeber</th>
+                                <th>Beruf</th>
+                                <th>Gescrapt</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${jobs.slice(10).map(job => `
+                            <tr class="job-row" onclick="showJobDetail('${job.refnr}')" style="cursor: pointer;">
+                                <td>
+                                    <strong>${job.titel || 'N/A'}</strong>
+                                    <br><small class="text-muted">${job.refnr}</small>
+                                </td>
+                                <td>${job.arbeitgeber || 'N/A'}</td>
+                                <td><small>${job.beruf || 'N/A'}</small></td>
+                                <td><small>${new Date(job.scraped_at_berlin).toLocaleString('de-DE')}</small></td>
+                                <td>
+                                    ${job.data_completeness_score ? `
+                                        <div class="progress progress-small">
+                                            <div class="progress-bar" style="width: ${job.data_completeness_score}%">
+                                                ${job.data_completeness_score}%
+                                            </div>
+                                        </div>
+                                    ` : '<span class="badge bg-secondary">Nein</span>'}
+                                    ${job.has_contact_info ? '<br><span class="badge bg-success">Kontakt</span>' : ''}
+                                </td>
+                            </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+` : ''}
+`,
+script: ''
+}) %>

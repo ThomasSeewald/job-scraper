@@ -1,0 +1,9 @@
+{
+  "isRunning": true,
+  "currentScanId": "complete-scan-1749196378471",
+  "lastUpdate": "2025-06-06T07:57:32.733Z",
+  "status": "completed",
+  "nextScan": "2025-06-06T11:57:32.733Z",
+  "batchSize": 200,
+  "cycleDays": 14
+}

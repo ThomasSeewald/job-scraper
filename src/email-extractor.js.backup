@@ -1,0 +1,286 @@
+const cheerio = require('cheerio');
+
+class EmailExtractor {
+    constructor() {
+        // Unwanted email patterns to filter out
+        this.unwantedPatterns = [
+            'arbeitsagentur',
+            'webmaster',
+            'datenschutz',
+            'privacy',
+            'noreply',
+            'no-reply',
+            'example.com',
+            'test.com',
+            '.jpg',
+            '.jpeg',
+            '.png',
+            '.gif',
+            '.css',
+            '.js',
+            'wixpress',
+            'google.com',
+            'facebook.com',
+            'linkedin.com',
+            'xing.com'
+        ];
+    }
+
+    /**
+     * Extract all valid emails from HTML content
+     * @param {string} html - The HTML content to extract emails from
+     * @param {string} jobTitle - Job title for context (optional)
+     * @param {string} companyName - Company name for context (optional)
+     * @returns {Object} - Object containing extracted emails and domain
+     */
+    extractEmails(html, jobTitle = '', companyName = '') {
+        if (!html) {
+            return {
+                emails: '',
+                domain: '',
+                emailCount: 0
+            };
+        }
+
+        const $ = cheerio.load(html);
+        
+        // Remove script and style tags
+        $('script, style, noscript').remove();
+        
+        // Get clean text content
+        const text = $.text();
+        
+        // Extract emails using comprehensive regex patterns
+        const emails = this.findAllEmails(text);
+        
+        // Filter and clean emails
+        const validEmails = this.filterAndCleanEmails(emails);
+        
+        // Extract domain from first valid email for context
+        const domain = validEmails.length > 0 ? this.extractDomain(validEmails[0]) : '';
+        
+        return {
+            emails: validEmails.join(', '),
+            domain: domain,
+            emailCount: validEmails.length,
+            allFoundEmails: emails.length // For debugging
+        };
+    }
+
+    /**
+     * Find all email patterns in text
+     * @param {string} text - Text to search
+     * @returns {Array} - Array of found email addresses
+     */
+    findAllEmails(text) {
+        const emailPatterns = [
+            // Standard email pattern
+            /\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b/g,
+            // Email with (at) instead of @
+            /\b[a-zA-Z0-9._%+-]+\(at\)[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b/g,
+            // Email with [at] instead of @
+            /\b[a-zA-Z0-9._%+-]+\[at\][a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b/g,
+            // Email with " at " instead of @
+            /\b[a-zA-Z0-9._%+-]+\s+at\s+[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b/g,
+            // Email with (dot) instead of .
+            /\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+\(dot\)[a-zA-Z0-9.-]*\.[a-zA-Z]{2,}\b/g,
+            // Email with [dot] instead of .
+            /\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+\[dot\][a-zA-Z0-9.-]*\.[a-zA-Z]{2,}\b/g
+        ];
+
+        let allEmails = [];
+        
+        emailPatterns.forEach(pattern => {
+            const matches = text.match(pattern) || [];
+            allEmails = allEmails.concat(matches);
+        });
+
+        // Normalize emails (replace obfuscation)
+        return allEmails.map(email => this.normalizeEmail(email));
+    }
+
+    /**
+     * Normalize obfuscated email addresses
+     * @param {string} email - Email to normalize
+     * @returns {string} - Normalized email
+     */
+    normalizeEmail(email) {
+        return email
+            .replace(/\(at\)/g, '@')
+            .replace(/\[at\]/g, '@')
+            .replace(/\s+at\s+/g, '@')
+            .replace(/\(dot\)/g, '.')
+            .replace(/\[dot\]/g, '.')
+            .toLowerCase()
+            .trim();
+    }
+
+    /**
+     * Filter out unwanted emails and remove duplicates
+     * @param {Array} emails - Array of email addresses
+     * @returns {Array} - Filtered and unique email addresses
+     */
+    filterAndCleanEmails(emails) {
+        const cleanedEmails = emails.map(email => this.cleanSingleEmail(email)).filter(Boolean);
+        const uniqueEmails = [...new Set(cleanedEmails)]; // Remove duplicates
+        
+        return uniqueEmails.filter(email => {
+            // Basic email validation
+            if (!email || !email.includes('@') || !email.includes('.')) {
+                return false;
+            }
+
+            // Check for unwanted patterns
+            const emailLower = email.toLowerCase();
+            return !this.unwantedPatterns.some(pattern => 
+                emailLower.includes(pattern.toLowerCase())
+            );
+        });
+    }
+
+    /**
+     * Clean a single email address from common formatting issues
+     * @param {string} email - Email to clean
+     * @returns {string} - Cleaned email or null if invalid
+     */
+    cleanSingleEmail(email) {
+        if (!email || typeof email !== 'string') return null;
+        
+        // Remove common prefixes (phone numbers, etc.)
+        let cleaned = email.replace(/^[\d\s\-\+\(\)]+/, '');
+        
+        // Remove common suffixes (German words like 'kontaktaufnahme', 'nachricht', etc.)
+        const suffixesToRemove = [
+            'kontaktaufnahme',
+            'nachricht', 
+            'bewerbung',
+            'karriere',
+            'jobs',
+            'stellenangebot',
+            'anzeige',
+            'info',
+            'mail',
+            'email'
+        ];
+        
+        suffixesToRemove.forEach(suffix => {
+            // Remove suffix after domain
+            const regex = new RegExp(`\\.(com|de|net|org|ch|at)${suffix}.*$`, 'i');
+            cleaned = cleaned.replace(regex, '.$1');
+        });
+        
+        // Extract the first valid email from the string with word boundaries
+        const emailMatch = cleaned.match(/\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b/);
+        if (emailMatch) {
+            // Additional cleanup for common issues
+            let email = emailMatch[0].toLowerCase();
+            // Remove trailing characters that shouldn't be part of email
+            email = email.replace(/[^a-zA-Z0-9@._-]+$/, '');
+            return email;
+        }
+        
+        return null;
+    }
+
+    /**
+     * Extract domain from email address
+     * @param {string} email - Email address
+     * @returns {string} - Domain part of email
+     */
+    extractDomain(email) {
+        if (!email || !email.includes('@')) return '';
+        
+        const domain = email.split('@')[1];
+        return domain ? domain.toLowerCase() : '';
+    }
+
+    /**
+     * Extract emails with priority for job-related emails
+     * @param {string} html - HTML content
+     * @param {string} jobTitle - Job title for context
+     * @param {string} companyName - Company name for context
+     * @returns {Object} - Prioritized email extraction results
+     */
+    extractPrioritizedEmails(html, jobTitle = '', companyName = '') {
+        const result = this.extractEmails(html, jobTitle, companyName);
+        
+        if (!result.emails) {
+            return result;
+        }
+
+        const emailList = result.emails.split(', ');
+        const prioritizedEmails = this.prioritizeEmails(emailList, companyName);
+        
+        return {
+            ...result,
+            emails: prioritizedEmails.join(', '),
+            bestEmail: prioritizedEmails[0] || '',
+            prioritizedList: prioritizedEmails
+        };
+    }
+
+    /**
+     * Prioritize emails based on relevance
+     * @param {Array} emails - Array of email addresses
+     * @param {string} companyName - Company name for context
+     * @returns {Array} - Prioritized email array
+     */
+    prioritizeEmails(emails, companyName = '') {
+        if (!emails || emails.length === 0) return [];
+
+        const companyDomain = companyName ? this.extractCompanyDomain(companyName) : '';
+        
+        // Priority scoring
+        const scoredEmails = emails.map(email => {
+            let score = 0;
+            const emailLower = email.toLowerCase();
+            const domain = this.extractDomain(email);
+
+            // Higher score for company domain match
+            if (companyDomain && domain.includes(companyDomain)) {
+                score += 100;
+            }
+
+            // Higher score for job-related prefixes
+            const jobPrefixes = ['job', 'career', 'bewerbung', 'personal', 'hr', 'recruiting'];
+            if (jobPrefixes.some(prefix => emailLower.startsWith(prefix))) {
+                score += 50;
+            }
+
+            // Higher score for contact-related prefixes
+            const contactPrefixes = ['info', 'contact', 'kontakt'];
+            if (contactPrefixes.some(prefix => emailLower.startsWith(prefix))) {
+                score += 30;
+            }
+
+            // Lower score for generic emails
+            const genericPrefixes = ['admin', 'webmaster', 'support'];
+            if (genericPrefixes.some(prefix => emailLower.startsWith(prefix))) {
+                score -= 20;
+            }
+
+            return { email, score };
+        });
+
+        // Sort by score (highest first) and return email addresses
+        return scoredEmails
+            .sort((a, b) => b.score - a.score)
+            .map(item => item.email);
+    }
+
+    /**
+     * Extract potential domain from company name
+     * @param {string} companyName - Company name
+     * @returns {string} - Potential domain part
+     */
+    extractCompanyDomain(companyName) {
+        if (!companyName) return '';
+        
+        return companyName
+            .toLowerCase()
+            .replace(/[^a-z0-9]/g, '')
+            .substring(0, 10); // Take first 10 chars for matching
+    }
+}
+
+module.exports = EmailExtractor;

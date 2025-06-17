@@ -1,0 +1,506 @@
+const { Pool } = require('pg');
+const fs = require('fs');
+const path = require('path');
+
+const config = JSON.parse(fs.readFileSync(path.join(__dirname, '../config/database.json'), 'utf8'));
+const pool = new Pool(config.production);
+
+class DataNormalizer {
+    constructor() {
+        this.stats = {
+            processedRecords: 0,
+            employersCreated: 0,
+            employersUpdated: 0,
+            positionsCreated: 0,
+            positionsUpdated: 0,
+            duplicatesSkipped: 0,
+            errorRecords: 0,
+            startTime: new Date()
+        };
+        
+        console.log('🔄 Data Normalizer initialized');
+    }
+    
+    /**
+     * Normalize all data from arbeitsagentur_jobs_v2 into employers and job_positions
+     */
+    async normalizeAllData(batchSize = 2000) {
+        console.log('🚀 Starting data normalization...');
+        
+        const client = await pool.connect();
+        
+        try {
+            // Get total count
+            const countResult = await client.query('SELECT COUNT(*) as total FROM arbeitsagentur_jobs_v2');
+            const totalRecords = parseInt(countResult.rows[0].total);
+            
+            console.log(`📊 Total records to normalize: ${totalRecords.toLocaleString()}`);
+            
+            let offset = 0;
+            let batchNumber = 1;
+            
+            while (offset < totalRecords) {
+                console.log(`\n📦 Processing batch ${batchNumber} (${offset + 1} - ${Math.min(offset + batchSize, totalRecords)})`);
+                
+                await this.normalizeBatch(client, offset, batchSize);
+                
+                offset += batchSize;
+                batchNumber++;
+                
+                // Progress report every 10 batches
+                if (batchNumber % 10 === 0) {
+                    this.printProgress();
+                }
+            }
+            
+            await this.updateEmployerStatistics(client);
+            this.printFinalStats();
+            
+        } finally {
+            client.release();
+        }
+    }
+    
+    /**
+     * Process a batch of records
+     */
+    async normalizeBatch(client, offset, batchSize) {
+        try {
+            // Fetch batch from source table
+            const selectQuery = `
+                SELECT refnr, titel, beruf, arbeitgeber,
+                       arbeitsort_plz, arbeitsort_ort, arbeitsort_region, 
+                       arbeitsort_strasse, arbeitsort_land,
+                       arbeitsort_koordinaten_lat, arbeitsort_koordinaten_lon,
+                       aktuelleVeroeffentlichungsdatum, eintrittsdatum,
+                       email, new_email, website, new_website,
+                       data_source, scraped_at,
+                       CASE 
+                           WHEN raw_api_response->>'angebotsart' = '4' THEN 'ausbildung'
+                           WHEN raw_api_response->>'angebotsart' = '1' THEN 'job'
+                           ELSE 'unknown'
+                       END as job_type
+                FROM arbeitsagentur_jobs_v2 
+                WHERE arbeitgeber IS NOT NULL 
+                AND arbeitgeber != ''
+                ORDER BY id
+                LIMIT $1 OFFSET $2
+            `;
+            
+            const result = await client.query(selectQuery, [batchSize, offset]);
+            
+            for (const record of result.rows) {
+                await this.normalizeRecord(client, record);
+                this.stats.processedRecords++;
+            }
+            
+        } catch (error) {
+            console.error(`❌ Batch normalization failed at offset ${offset}:`, error.message);
+            this.stats.errorRecords += batchSize;
+        }
+    }
+    
+    /**
+     * Normalize a single record
+     */
+    async normalizeRecord(client, record) {
+        try {
+            await client.query('BEGIN');
+            
+            // 1. Process employer (insert or update)
+            const employerId = await this.processEmployer(client, record);
+            
+            // 2. Process job position
+            if (employerId && record.titel && record.beruf) {
+                await this.processJobPosition(client, employerId, record);
+            }
+            
+            await client.query('COMMIT');
+            
+        } catch (error) {
+            await client.query('ROLLBACK');
+            console.error(`❌ Error normalizing record ${record.refnr}:`, error.message);
+            this.stats.errorRecords++;
+        }
+    }
+    
+    /**
+     * Process employer data - create or update
+     */
+    async processEmployer(client, record) {
+        try {
+            // Generate employer hash for duplicate detection
+            const employerHash = await this.generateEmployerHash(
+                client, 
+                record.arbeitgeber, 
+                record.arbeitsort_plz, 
+                record.arbeitsort_ort
+            );
+            
+            // Check if employer exists
+            const existsQuery = 'SELECT id FROM employers WHERE arbeitgeber_hash = $1';
+            const existsResult = await client.query(existsQuery, [employerHash]);
+            
+            if (existsResult.rows.length > 0) {
+                // Update existing employer
+                const employerId = existsResult.rows[0].id;
+                await this.updateEmployer(client, employerId, record);
+                this.stats.employersUpdated++;
+                return employerId;
+            } else {
+                // Create new employer
+                const employerId = await this.createEmployer(client, record, employerHash);
+                this.stats.employersCreated++;
+                return employerId;
+            }
+            
+        } catch (error) {
+            console.error(`❌ Error processing employer ${record.arbeitgeber}:`, error.message);
+            return null;
+        }
+    }
+    
+    /**
+     * Generate employer hash
+     */
+    async generateEmployerHash(client, arbeitgeber, plz, ort) {
+        const hashQuery = 'SELECT generate_employer_hash($1, $2, $3) as hash';
+        const result = await client.query(hashQuery, [arbeitgeber, plz, ort]);
+        return result.rows[0].hash;
+    }
+    
+    /**
+     * Create new employer
+     */
+    async createEmployer(client, record, employerHash) {
+        const insertQuery = `
+            INSERT INTO employers (
+                arbeitgeber, arbeitgeber_hash,
+                email, new_email, website, new_website,
+                arbeitsort_plz, arbeitsort_ort, arbeitsort_region, 
+                arbeitsort_strasse, arbeitsort_land,
+                avg_latitude, avg_longitude,
+                data_completeness_score, data_sources
+            ) VALUES (
+                $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15
+            ) RETURNING id
+        `;
+        
+        const dataCompleteness = await this.calculateDataCompleteness(client, record);
+        const dataSources = JSON.stringify([record.data_source || 'migration']);
+        
+        const result = await client.query(insertQuery, [
+            record.arbeitgeber,
+            employerHash,
+            record.email,
+            record.new_email,
+            record.website,
+            record.new_website,
+            record.arbeitsort_plz,
+            record.arbeitsort_ort,
+            record.arbeitsort_region,
+            record.arbeitsort_strasse,
+            record.arbeitsort_land || 'Deutschland',
+            record.arbeitsort_koordinaten_lat,
+            record.arbeitsort_koordinaten_lon,
+            dataCompleteness,
+            dataSources
+        ]);
+        
+        return result.rows[0].id;
+    }
+    
+    /**
+     * Update existing employer with additional data
+     */
+    async updateEmployer(client, employerId, record) {
+        // Update nur wenn neue Daten besser sind (mehr Vollständigkeit)
+        const updateQuery = `
+            UPDATE employers SET
+                email = COALESCE(NULLIF($1, ''), email),
+                new_email = COALESCE(NULLIF($2, ''), new_email),
+                website = COALESCE(NULLIF($3, ''), website),
+                new_website = COALESCE(NULLIF($4, ''), new_website),
+                arbeitsort_strasse = COALESCE(NULLIF($5, ''), arbeitsort_strasse),
+                avg_latitude = COALESCE($6, avg_latitude),
+                avg_longitude = COALESCE($7, avg_longitude),
+                data_sources = data_sources || $8::jsonb,
+                last_updated = CURRENT_TIMESTAMP
+            WHERE id = $9
+        `;
+        
+        const newDataSource = JSON.stringify([record.data_source || 'migration']);
+        
+        await client.query(updateQuery, [
+            record.email,
+            record.new_email,
+            record.website,
+            record.new_website,
+            record.arbeitsort_strasse,
+            record.arbeitsort_koordinaten_lat,
+            record.arbeitsort_koordinaten_lon,
+            newDataSource,
+            employerId
+        ]);
+        
+        // Recalculate completeness score
+        await this.recalculateEmployerCompleteness(client, employerId);
+    }
+    
+    /**
+     * Calculate data completeness score
+     */
+    async calculateDataCompleteness(client, record) {
+        const scoreQuery = `
+            SELECT calculate_data_completeness($1, $2, $3, $4, $5, $6, $7) as score
+        `;
+        
+        const result = await client.query(scoreQuery, [
+            record.email,
+            record.new_email,
+            record.website,
+            record.new_website,
+            record.arbeitsort_plz,
+            record.arbeitsort_strasse,
+            record.arbeitsort_ort
+        ]);
+        
+        return result.rows[0].score;
+    }
+    
+    /**
+     * Recalculate employer completeness after update
+     */
+    async recalculateEmployerCompleteness(client, employerId) {
+        const recalcQuery = `
+            UPDATE employers 
+            SET data_completeness_score = calculate_data_completeness(
+                email, new_email, website, new_website,
+                arbeitsort_plz, arbeitsort_strasse, arbeitsort_ort
+            )
+            WHERE id = $1
+        `;
+        
+        await client.query(recalcQuery, [employerId]);
+    }
+    
+    /**
+     * Process job position
+     */
+    async processJobPosition(client, employerId, record) {
+        try {
+            // Generate position hash
+            const positionHash = await this.generatePositionHash(
+                client,
+                employerId,
+                record.titel,
+                record.beruf,
+                record.job_type
+            );
+            
+            // Check if position exists
+            const existsQuery = 'SELECT id, times_seen FROM job_positions WHERE position_hash = $1';
+            const existsResult = await client.query(existsQuery, [positionHash]);
+            
+            if (existsResult.rows.length > 0) {
+                // Update existing position (increment times_seen)
+                const positionId = existsResult.rows[0].id;
+                const timesSeen = existsResult.rows[0].times_seen + 1;
+                
+                const updateQuery = `
+                    UPDATE job_positions 
+                    SET times_seen = $1, 
+                        last_seen = CURRENT_TIMESTAMP,
+                        data_sources = data_sources || $2::jsonb
+                    WHERE id = $3
+                `;
+                
+                const newDataSource = JSON.stringify([record.data_source || 'migration']);
+                await client.query(updateQuery, [timesSeen, newDataSource, positionId]);
+                
+                this.stats.positionsUpdated++;
+                
+            } else {
+                // Create new position
+                const insertQuery = `
+                    INSERT INTO job_positions (
+                        employer_id, titel, beruf, job_type, position_hash,
+                        eintrittsdatum, aktuelleVeroeffentlichungsdatum,
+                        data_sources
+                    ) VALUES (
+                        $1, $2, $3, $4, $5, $6, $7, $8
+                    )
+                `;
+                
+                const dataSources = JSON.stringify([record.data_source || 'migration']);
+                
+                await client.query(insertQuery, [
+                    employerId,
+                    record.titel,
+                    record.beruf,
+                    record.job_type,
+                    positionHash,
+                    record.eintrittsdatum,
+                    record.aktuelleVeroeffentlichungsdatum,
+                    dataSources
+                ]);
+                
+                this.stats.positionsCreated++;
+            }
+            
+        } catch (error) {
+            console.error(`❌ Error processing position ${record.titel}:`, error.message);
+        }
+    }
+    
+    /**
+     * Generate position hash
+     */
+    async generatePositionHash(client, employerId, titel, beruf, jobType) {
+        const hashQuery = 'SELECT generate_position_hash($1, $2, $3, $4) as hash';
+        const result = await client.query(hashQuery, [employerId, titel, beruf, jobType]);
+        return result.rows[0].hash;
+    }
+    
+    /**
+     * Update employer statistics
+     */
+    async updateEmployerStatistics(client) {
+        console.log('\n📊 Updating employer statistics...');
+        
+        const updateStatsQuery = `
+            UPDATE employers 
+            SET 
+                total_job_positions = (
+                    SELECT COUNT(*) FROM job_positions 
+                    WHERE employer_id = employers.id AND job_type = 'job'
+                ),
+                total_ausbildung_positions = (
+                    SELECT COUNT(*) FROM job_positions 
+                    WHERE employer_id = employers.id AND job_type = 'ausbildung'
+                ),
+                unique_beruf_count = (
+                    SELECT COUNT(DISTINCT beruf) FROM job_positions 
+                    WHERE employer_id = employers.id
+                )
+        `;
+        
+        await client.query(updateStatsQuery);
+        console.log('✅ Employer statistics updated');
+    }
+    
+    /**
+     * Print progress statistics
+     */
+    printProgress() {
+        const elapsed = Math.round((new Date() - this.stats.startTime) / 1000);
+        const rate = Math.round(this.stats.processedRecords / elapsed);
+        
+        console.log(`\n📈 PROGRESS UPDATE:`);
+        console.log(`   Processed: ${this.stats.processedRecords.toLocaleString()}`);
+        console.log(`   Employers created: ${this.stats.employersCreated.toLocaleString()}`);
+        console.log(`   Employers updated: ${this.stats.employersUpdated.toLocaleString()}`);
+        console.log(`   Positions created: ${this.stats.positionsCreated.toLocaleString()}`);
+        console.log(`   Positions updated: ${this.stats.positionsUpdated.toLocaleString()}`);
+        console.log(`   Errors: ${this.stats.errorRecords.toLocaleString()}`);
+        console.log(`   Rate: ${rate} records/sec`);
+    }
+    
+    /**
+     * Print final statistics
+     */
+    printFinalStats() {
+        const duration = Math.round((new Date() - this.stats.startTime) / 1000);
+        const rate = Math.round(this.stats.processedRecords / duration);
+        
+        console.log(`\n📊 NORMALIZATION COMPLETED`);
+        console.log(`===========================`);
+        console.log(`Processed records: ${this.stats.processedRecords.toLocaleString()}`);
+        console.log(`Employers created: ${this.stats.employersCreated.toLocaleString()}`);
+        console.log(`Employers updated: ${this.stats.employersUpdated.toLocaleString()}`);
+        console.log(`Positions created: ${this.stats.positionsCreated.toLocaleString()}`);
+        console.log(`Positions updated: ${this.stats.positionsUpdated.toLocaleString()}`);
+        console.log(`Errors: ${this.stats.errorRecords.toLocaleString()}`);
+        console.log(`Duration: ${duration} seconds`);
+        console.log(`Average rate: ${rate} records/sec`);
+        console.log(`Success rate: ${((this.stats.processedRecords / (this.stats.processedRecords + this.stats.errorRecords)) * 100).toFixed(1)}%`);
+    }
+    
+    /**
+     * Get normalized data statistics
+     */
+    async getNormalizedStats() {
+        const client = await pool.connect();
+        
+        try {
+            const employerStats = await client.query(`
+                SELECT 
+                    COUNT(*) as total_employers,
+                    COUNT(CASE WHEN email IS NOT NULL THEN 1 END) as with_email,
+                    COUNT(CASE WHEN website IS NOT NULL THEN 1 END) as with_website,
+                    AVG(data_completeness_score) as avg_completeness,
+                    AVG(total_job_positions + total_ausbildung_positions) as avg_positions
+                FROM employers
+            `);
+            
+            const positionStats = await client.query(`
+                SELECT 
+                    COUNT(*) as total_positions,
+                    COUNT(CASE WHEN job_type = 'job' THEN 1 END) as jobs,
+                    COUNT(CASE WHEN job_type = 'ausbildung' THEN 1 END) as ausbildung,
+                    COUNT(DISTINCT beruf) as unique_berufe,
+                    COUNT(DISTINCT employer_id) as employers_with_positions,
+                    AVG(times_seen) as avg_times_seen
+                FROM job_positions
+            `);
+            
+            console.log('\n📊 NORMALIZED DATA STATISTICS:');
+            console.log('===============================');
+            
+            const emp = employerStats.rows[0];
+            console.log(`👥 Employers: ${parseInt(emp.total_employers).toLocaleString()}`);
+            console.log(`   With Email: ${parseInt(emp.with_email).toLocaleString()}`);
+            console.log(`   With Website: ${parseInt(emp.with_website).toLocaleString()}`);
+            console.log(`   Avg Completeness: ${parseFloat(emp.avg_completeness).toFixed(1)}%`);
+            console.log(`   Avg Positions per Employer: ${parseFloat(emp.avg_positions).toFixed(1)}`);
+            
+            const pos = positionStats.rows[0];
+            console.log(`\n💼 Job Positions: ${parseInt(pos.total_positions).toLocaleString()}`);
+            console.log(`   Jobs: ${parseInt(pos.jobs).toLocaleString()}`);
+            console.log(`   Ausbildung: ${parseInt(pos.ausbildung).toLocaleString()}`);
+            console.log(`   Unique Berufe: ${parseInt(pos.unique_berufe).toLocaleString()}`);
+            console.log(`   Employers with Positions: ${parseInt(pos.employers_with_positions).toLocaleString()}`);
+            console.log(`   Avg Times Seen: ${parseFloat(pos.avg_times_seen).toFixed(1)}`);
+            
+        } finally {
+            client.release();
+        }
+    }
+}
+
+async function main() {
+    const normalizer = new DataNormalizer();
+    
+    try {
+        // Run normalization with optimized batch size for Mac M4
+        await normalizer.normalizeAllData(3000);
+        
+        // Show final statistics
+        await normalizer.getNormalizedStats();
+        
+        console.log('\n🎉 Data normalization completed successfully!');
+        console.log('Optimized employer and job position structure ready for intelligent scraping.');
+        
+    } catch (error) {
+        console.error('❌ Normalization failed:', error.message);
+        process.exit(1);
+    } finally {
+        await pool.end();
+    }
+}
+
+if (require.main === module) {
+    main();
+}
+
+module.exports = DataNormalizer;

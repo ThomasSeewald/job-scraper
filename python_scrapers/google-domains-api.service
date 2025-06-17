@@ -1,0 +1,20 @@
+[Unit]
+Description=Google Domains API Service
+After=network.target postgresql.service
+
+[Service]
+Type=simple
+User=jobscraper
+WorkingDirectory=/home/jobscraper/job-scraper/python_scrapers
+Environment="PATH=/usr/local/bin:/usr/bin:/bin"
+Environment="PYTHONPATH=/home/jobscraper/job-scraper/python_scrapers"
+ExecStart=/usr/bin/python3 /home/jobscraper/job-scraper/python_scrapers/google_domains_api.py
+Restart=always
+RestartSec=10
+
+# Logging
+StandardOutput=append:/var/log/google-domains-api/access.log
+StandardError=append:/var/log/google-domains-api/error.log
+
+[Install]
+WantedBy=multi-user.target

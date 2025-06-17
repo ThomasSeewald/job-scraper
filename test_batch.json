@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "name": "Test Employer",
+    "normalized_name": "test employer",
+    "refnr": "10000-1202732275-S",
+    "titel": "Test Job",
+    "arbeitsort_ort": "Berlin",
+    "arbeitsort_plz": "10623",
+    "aktuelleveroeffentlichungsdatum": "2025-06-05T22:00:00.000Z"
+  }
+]

@@ -1,0 +1,281 @@
+<%- include('layout', { 
+    title: `${job.titel} - Job Details`, 
+    currentPage: '',
+    body: `
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb" class="mb-4">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="/jobs">Jobs</a></li>
+        <li class="breadcrumb-item active">${job.refnr}</li>
+    </ol>
+</nav>
+
+<!-- Job Header -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h1 class="h3">${job.titel || 'Unbekannter Titel'}</h1>
+                        <h5 class="text-muted">${job.arbeitgeber || 'Unbekannter Arbeitgeber'}</h5>
+                        <p class="text-secondary">${job.beruf || 'Unbekannter Beruf'}</p>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <a href="https://www.arbeitsagentur.de/jobsuche/jobdetail/${job.refnr}" 
+                           target="_blank" class="btn btn-primary">
+                            <i class="fas fa-external-link-alt"></i> Arbeitsagentur
+                        </a>
+                        ${job.externeurl ? `
+                        <a href="${job.externeurl}" target="_blank" class="btn btn-outline-primary">
+                            <i class="fas fa-link"></i> Externe URL
+                        </a>
+                        ` : ''}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Job Information -->
+<div class="row mb-4">
+    <div class="col-md-8">
+        <!-- Basic Job Info -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-info-circle"></i> Job Informationen</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Referenz:</strong> ${job.refnr}</p>
+                        <p><strong>Veröffentlicht:</strong> ${job.aktuelleveroeffentlichungsdatum ? new Date(job.aktuelleveroeffentlichungsdatum).toLocaleDateString('de-DE') : 'N/A'}</p>
+                        <p><strong>Eintrittsdatum:</strong> ${job.eintrittsdatum ? new Date(job.eintrittsdatum).toLocaleDateString('de-DE') : 'N/A'}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Arbeitsort:</strong></p>
+                        <address>
+                            ${job.arbeitsort_strasse ? `${job.arbeitsort_strasse}<br>` : ''}
+                            ${job.arbeitsort_plz || ''} ${job.arbeitsort_ort || ''}<br>
+                            ${job.arbeitsort_region ? `${job.arbeitsort_region}<br>` : ''}
+                            ${job.arbeitsort_land || 'Deutschland'}
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Description (if available) -->
+        ${details && details.full_description ? `
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-file-text"></i> Stellenbeschreibung</h5>
+            </div>
+            <div class="card-body">
+                <div class="job-description">
+                    ${details.full_description.replace(/\\n/g, '<br>')}
+                </div>
+            </div>
+        </div>
+        ` : ''}
+
+        <!-- Requirements (if available) -->
+        ${details && details.requirements ? `
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-clipboard-check"></i> Anforderungen</h5>
+            </div>
+            <div class="card-body">
+                <div class="job-requirements">
+                    ${details.requirements.replace(/\\n/g, '<br>')}
+                </div>
+            </div>
+        </div>
+        ` : ''}
+
+        <!-- Benefits and Skills -->
+        ${details && (details.benefits && details.benefits.length > 0 || details.skills && details.skills.length > 0) ? `
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-star"></i> Benefits & Skills</h5>
+            </div>
+            <div class="card-body">
+                ${details.benefits && details.benefits.length > 0 ? `
+                <h6>Benefits:</h6>
+                <ul>
+                    ${details.benefits.map(benefit => `<li>${benefit}</li>`).join('')}
+                </ul>
+                ` : ''}
+                
+                ${details.skills && details.skills.length > 0 ? `
+                <h6>Gefragte Skills:</h6>
+                <div class="mb-2">
+                    ${details.skills.map(skill => `<span class="badge bg-secondary me-1">${skill}</span>`).join('')}
+                </div>
+                ` : ''}
+            </div>
+        </div>
+        ` : ''}
+    </div>
+    
+    <div class="col-md-4">
+        <!-- Contact Information -->
+        ${details ? `
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-address-book"></i> Kontakt Informationen
+                    ${details.has_contact_info ? 
+                        '<span class="badge bg-success ms-2">Verfügbar</span>' : 
+                        '<span class="badge bg-secondary ms-2">Nicht verfügbar</span>'
+                    }
+                </h5>
+            </div>
+            <div class="card-body">
+                ${details.contact_email ? `
+                <p><strong>Email:</strong><br>
+                   <a href="mailto:${details.contact_email}" class="text-decoration-none">
+                       <i class="fas fa-envelope"></i> ${details.contact_email}
+                   </a>
+                </p>
+                ` : ''}
+                
+                ${details.contact_phone ? `
+                <p><strong>Telefon:</strong><br>
+                   <a href="tel:${details.contact_phone}" class="text-decoration-none">
+                       <i class="fas fa-phone"></i> ${details.contact_phone}
+                   </a>
+                </p>
+                ` : ''}
+                
+                ${details.contact_website ? `
+                <p><strong>Website:</strong><br>
+                   <a href="${details.contact_website}" target="_blank" class="text-decoration-none">
+                       <i class="fas fa-globe"></i> Website besuchen
+                   </a>
+                </p>
+                ` : ''}
+                
+                ${details.contact_person ? `
+                <p><strong>Ansprechpartner:</strong><br>
+                   ${details.contact_person}
+                </p>
+                ` : ''}
+                
+                ${!details.has_contact_info ? `
+                <p class="text-muted">
+                    <i class="fas fa-info-circle"></i> 
+                    Keine direkten Kontaktdaten verfügbar. 
+                    Bewerbung über Arbeitsagentur oder externe URL.
+                </p>
+                ` : ''}
+            </div>
+        </div>
+        ` : `
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-search-plus"></i> Detail-Scraping
+                    <span class="badge bg-warning ms-2">Ausstehend</span>
+                </h5>
+            </div>
+            <div class="card-body">
+                <p class="text-muted">
+                    <i class="fas fa-info-circle"></i> 
+                    Detaillierte Informationen für diese Stelle wurden noch nicht gescrapt.
+                    Diese werden automatisch beim nächsten Detail-Scraping-Durchlauf erfasst.
+                </p>
+            </div>
+        </div>
+        `}
+
+        <!-- Application Information -->
+        ${details && (details.application_url || details.application_email || details.application_instructions) ? `
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-paper-plane"></i> Bewerbung</h5>
+            </div>
+            <div class="card-body">
+                ${details.application_url ? `
+                <p><strong>Bewerbungs-URL:</strong><br>
+                   <a href="${details.application_url}" target="_blank" class="btn btn-success btn-sm">
+                       <i class="fas fa-external-link-alt"></i> Jetzt bewerben
+                   </a>
+                </p>
+                ` : ''}
+                
+                ${details.application_email ? `
+                <p><strong>Bewerbungs-Email:</strong><br>
+                   <a href="mailto:${details.application_email}" class="text-decoration-none">
+                       <i class="fas fa-envelope"></i> ${details.application_email}
+                   </a>
+                </p>
+                ` : ''}
+                
+                ${details.application_instructions ? `
+                <p><strong>Bewerbungshinweise:</strong><br>
+                   <small>${details.application_instructions}</small>
+                </p>
+                ` : ''}
+            </div>
+        </div>
+        ` : ''}
+
+        <!-- Job Details -->
+        ${details ? `
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-cog"></i> Job Details</h5>
+            </div>
+            <div class="card-body">
+                ${details.job_type ? `
+                <p><strong>Arbeitszeit:</strong><br>
+                   <span class="badge bg-info">${details.job_type}</span>
+                </p>
+                ` : ''}
+                
+                ${details.contract_type ? `
+                <p><strong>Vertrag:</strong><br>
+                   <span class="badge bg-secondary">${details.contract_type}</span>
+                </p>
+                ` : ''}
+                
+                <p><strong>Daten-Vollständigkeit:</strong><br>
+                   <div class="progress">
+                       <div class="progress-bar" style="width: ${details.data_completeness_score || 0}%">
+                           ${details.data_completeness_score || 0}%
+                       </div>
+                   </div>
+                </p>
+                
+                <p><small class="text-muted">
+                   Detail-Scraping: ${details.scraped_at ? new Date(details.scraped_at).toLocaleString('de-DE') : 'N/A'}
+                </small></p>
+            </div>
+        </div>
+        ` : ''}
+
+        <!-- Raw Data (for debugging) -->
+        ${job.raw_api_response ? `
+        <div class="card">
+            <div class="card-header">
+                <h6 class="mb-0">
+                    <button class="btn btn-link p-0" type="button" data-bs-toggle="collapse" data-bs-target="#rawData">
+                        <i class="fas fa-code"></i> Raw API Data
+                    </button>
+                </h6>
+            </div>
+            <div class="collapse" id="rawData">
+                <div class="card-body">
+                    <pre class="small"><code>${JSON.stringify(JSON.parse(job.raw_api_response), null, 2)}</code></pre>
+                </div>
+            </div>
+        </div>
+        ` : ''}
+    </div>
+</div>
+`,
+script: ''
+}) %>

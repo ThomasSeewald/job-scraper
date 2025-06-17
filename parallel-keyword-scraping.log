@@ -1,0 +1,159 @@
+=== PARALLEL KEYWORD SCRAPING WITH NO DUPLICATION ===
+Configuration: 5 workers, 10 domains each
+
+1️⃣ Allocating domains to workers...
+Allocating 10 domains to each of 5 workers...
+Found 50 domains to allocate
+Worker 1: 10 domains (biotest.com to neocube-fire.de)
+Worker 2: 10 domains (jobs.ifm.com to kurtzersa.de)
+Worker 3: 10 domains (norka-automation.de to cmco.com)
+Worker 4: 10 domains (gemu-group.com to medeleschaefer.de)
+Worker 5: 10 domains (budersand.de to lebenshilfe-werke.de)
+✅ Allocated 5 batches
+
+2️⃣ Starting workers...
+[Worker 1] Initializing with 10 domains...
+[Worker 2] Initializing with 10 domains...
+[Worker 3] Initializing with 10 domains...
+[Worker 4] Initializing with 10 domains...
+[Worker 5] Initializing with 10 domains...
+
+3️⃣ Processing domains in parallel...
+[Worker 2] Ready to process domains
+[Worker 2] Processing 10 domains...
+[Worker 2] Visiting: https://jobs.ifm.com
+[Worker 1] Ready to process domains
+[Worker 1] Processing 10 domains...
+[Worker 1] Visiting: https://biotest.com
+[Worker 5] Ready to process domains
+[Worker 5] Processing 10 domains...
+[Worker 5] Visiting: https://budersand.de
+[Worker 4] Ready to process domains
+[Worker 4] Processing 10 domains...
+[Worker 4] Visiting: https://gemu-group.com
+[Worker 3] Ready to process domains
+[Worker 3] Processing 10 domains...
+[Worker 3] Visiting: https://norka-automation.de
+[Worker 1] ✓ biotest.com: 5 emails
+[Worker 2] ✓ jobs.ifm.com: 3 emails
+[Worker 1] Visiting: https://leonhard-weiss.de
+[Worker 2] Visiting: https://opel-haeberlen.de
+[Worker 2] Error visiting https://opel-haeberlen.de: net::ERR_CONNECTION_REFUSED at https://opel-haeberlen.de
+[Worker 2] ✓ opel-haeberlen.de: 0 emails
+[Worker 2] Visiting: https://batzner.de
+[Worker 3] ✓ norka-automation.de: 1 emails
+[Worker 3] Visiting: https://emg.elexis.group
+[Worker 4] ✓ gemu-group.com: 0 emails
+[Worker 4] Visiting: https://delo.de
+[Worker 4] Error visiting https://delo.de: net::ERR_SSL_UNRECOGNIZED_NAME_ALERT at https://delo.de
+[Worker 4] ✓ delo.de: 0 emails
+[Worker 4] Visiting: https://hgk.de
+[Worker 5] ✓ budersand.de: 3 emails
+[Worker 5] Visiting: https://scherdel.com
+[Worker 1] ✓ leonhard-weiss.de: 2 emails
+[Worker 1] Visiting: https://klima-becker.de
+[Worker 4] ✓ hgk.de: 0 emails
+[Worker 4] Visiting: https://bergler.de
+[Worker 3] ✓ emg.elexis.group: 74 emails
+[Worker 3] Visiting: https://truckxxgroup.de
+[Worker 4] ✓ bergler.de: 9 emails
+[Worker 4] Visiting: https://stadtwerke-landshut.de
+[Worker 5] ✓ scherdel.com: 1 emails
+[Worker 5] Visiting: https://melle-gallhoefer.de
+[Worker 2] ✓ batzner.de: 3 emails
+[Worker 2] Visiting: https://prosol-farben.de
+[Worker 1] ✓ klima-becker.de: 2 emails
+[Worker 1] Visiting: https://kippwerk.de
+[Worker 3] ✓ truckxxgroup.de: 1 emails
+[Worker 3] Visiting: https://weigel.de
+[Worker 4] ✓ stadtwerke-landshut.de: 3 emails
+[Worker 4] Visiting: https://orkan-system.de
+[Worker 5] ✓ melle-gallhoefer.de: 2 emails
+[Worker 5] Visiting: https://utzgroup.de
+[Worker 3] ✓ weigel.de: 2 emails
+[Worker 3] Visiting: https://greenit.systems
+[Worker 4] ✓ orkan-system.de: 3 emails
+[Worker 4] Visiting: https://edeka-nordfrischecenter.de
+[Worker 3] Error visiting https://greenit.systems: link.href.startsWith is not a function
+pptr:evaluate;WorkerWithBatch.findKeywordLinks%20(%2FUsers%2Fthomassee%2FDocker%2Fcontainers%2Fjob-scraper%2Fsrc%2Fworker-with-batch.js%3A62%3A43):6:59
+[Worker 3] ✓ greenit.systems: 0 emails
+[Worker 3] Visiting: https://brunel.net
+[Worker 1] ✓ kippwerk.de: 28 emails
+[Worker 1] Visiting: https://hirschvogel.eu
+[Worker 5] ✓ utzgroup.de: 3 emails
+[Worker 5] Visiting: https://gropper.de
+[Worker 4] ✓ edeka-nordfrischecenter.de: 0 emails
+[Worker 4] Visiting: https://www.roller.de
+[Worker 3] ✓ brunel.net: 19 emails
+[Worker 3] Visiting: https://ascarda.com
+[Worker 2] ✓ prosol-farben.de: 5 emails
+[Worker 1] ✓ hirschvogel.eu: 3 emails
+[Worker 2] Visiting: https://karriere.rewe-group.com
+[Worker 1] Visiting: https://unielektro.de
+[Worker 4] ✓ www.roller.de: 2 emails
+[Worker 4] Visiting: https://schloss-wachenheim-pfalz.de
+[Worker 5] ✓ gropper.de: 0 emails
+[Worker 5] Visiting: https://ards-ecmo.de
+[Worker 2] ✓ karriere.rewe-group.com: 2 emails
+[Worker 2] Visiting: https://heidenheim.de
+[Worker 5] ✓ ards-ecmo.de: 1 emails
+[Worker 5] Visiting: https://stadtwerke-erfurt.de
+[Worker 1] ✓ unielektro.de: 2 emails
+[Worker 1] Visiting: https://steuerbuero-juergens.de
+[Worker 4] ✓ schloss-wachenheim-pfalz.de: 1 emails
+[Worker 4] Visiting: https://medeleschaefer.de
+[Worker 3] ✓ ascarda.com: 2 emails
+[Worker 3] Visiting: https://metatec-schueler.de
+[Worker 1] ✓ steuerbuero-juergens.de: 2 emails
+[Worker 1] Visiting: https://knott.de
+[Worker 1] Error visiting https://knott.de: net::ERR_NAME_NOT_RESOLVED at https://knott.de
+[Worker 1] ✓ knott.de: 0 emails
+[Worker 1] Visiting: https://umg.eu
+[Worker 5] ✓ stadtwerke-erfurt.de: 14 emails
+[Worker 5] Visiting: https://jobdb.softgarden.de
+[Worker 3] ✓ metatec-schueler.de: 2 emails
+[Worker 3] Visiting: https://ritzenhoff.de
+[Worker 2] ✓ heidenheim.de: 7 emails
+[Worker 2] Visiting: https://rwth-aachen.de
+[Worker 5] ✓ jobdb.softgarden.de: 0 emails
+[Worker 5] Visiting: https://janner-waagen.com
+[Worker 3] ✓ ritzenhoff.de: 2 emails
+[Worker 3] Visiting: https://cmco.com
+[Worker 1] ✓ umg.eu: 0 emails
+[Worker 1] Visiting: https://neocube-fire.de
+[Worker 2] ✓ rwth-aachen.de: 5 emails
+[Worker 2] Visiting: https://phoenix-online.de
+[Worker 5] ✓ janner-waagen.com: 2 emails
+[Worker 5] Visiting: https://lebenshilfe-werke.de
+[Worker 1] ✓ neocube-fire.de: 1 emails
+[Worker 1] DONE: 10 domains, 10 successful, 45 emails
+[Worker 2] ✓ phoenix-online.de: 1 emails
+[Worker 2] Visiting: https://hoy-geokunststoffe.de
+[Worker 5] ✓ lebenshilfe-werke.de: 4 emails
+[Worker 5] DONE: 10 domains, 10 successful, 30 emails
+[Worker 2] ✓ hoy-geokunststoffe.de: 1 emails
+[Worker 2] Visiting: https://kurtzersa.de
+[Worker 4] ✓ medeleschaefer.de: 9 emails
+[Worker 4] DONE: 10 domains, 10 successful, 27 emails
+[Worker 2] ✓ kurtzersa.de: 1 emails
+[Worker 2] DONE: 10 domains, 10 successful, 28 emails
+[Worker 3] ✓ cmco.com: 17 emails
+[Worker 3] DONE: 10 domains, 10 successful, 120 emails
+
+4️⃣ Aggregating results...
+Worker 1: 10 domains, 45 emails
+Worker 2: 10 domains, 28 emails
+Worker 3: 10 domains, 120 emails
+Worker 4: 10 domains, 27 emails
+Worker 5: 10 domains, 30 emails
+
+🎉 PARALLEL PROCESSING COMPLETE!
+📊 Results:
+   • Total domains processed: 50
+   • Successful: 50 (100.0%)
+   • Total emails found: 250
+   • Average emails per domain: 5.00
+   • Processing time: 210.8 seconds
+   • Processing rate: 14.2 domains/minute
+   • Domains remaining: 6835
+   • Estimated time to completion: 480.3 minutes

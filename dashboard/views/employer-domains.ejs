@@ -1,0 +1,425 @@
+<%- include('layout', { title: 'Employer Domains Coverage' }) %>
+
+<style>
+    .coverage-card {
+        background: white;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+    }
+    .stat-value {
+        font-size: 2.5em;
+        font-weight: bold;
+        margin: 10px 0;
+    }
+    .stat-label {
+        color: #666;
+        font-size: 0.9em;
+    }
+    .progress-bar {
+        background: #e0e0e0;
+        border-radius: 4px;
+        height: 20px;
+        margin: 10px 0;
+        position: relative;
+        overflow: hidden;
+    }
+    .progress-fill {
+        background: #4CAF50;
+        height: 100%;
+        transition: width 0.3s ease;
+    }
+    .progress-label {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        line-height: 20px;
+        font-size: 0.85em;
+        font-weight: bold;
+    }
+    .priority-badge {
+        display: inline-block;
+        padding: 3px 8px;
+        border-radius: 3px;
+        font-size: 0.85em;
+        font-weight: bold;
+    }
+    .priority-1 { background: #ff5252; color: white; }
+    .priority-2 { background: #ff9800; color: white; }
+    .priority-3 { background: #ffc107; color: black; }
+    .priority-4 { background: #8bc34a; color: white; }
+    .priority-5 { background: #607d8b; color: white; }
+    
+    .table-container {
+        max-height: 400px;
+        overflow-y: auto;
+    }
+    .success-indicator {
+        color: #4CAF50;
+        font-weight: bold;
+    }
+    .pending-indicator {
+        color: #ff9800;
+    }
+    .missing-indicator {
+        color: #f44336;
+    }
+</style>
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Employer Domains Coverage</h1>
+        <div>
+            <a href="/" class="btn btn-secondary">← Main Dashboard</a>
+            <button class="btn btn-primary" onclick="refreshStats()">
+                <i class="fas fa-sync"></i> Refresh
+            </button>
+        </div>
+    </div>
+
+    <!-- Overall Statistics -->
+    <div class="row">
+        <div class="col-md-3">
+            <div class="coverage-card text-center">
+                <div class="stat-label">Total Employers</div>
+                <div class="stat-value"><%= stats.total_employers || 0 %></div>
+                <small class="text-muted">in system</small>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="coverage-card text-center">
+                <div class="stat-label">Google Searched</div>
+                <div class="stat-value text-primary"><%= stats.with_google_search || 0 %></div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: <%= stats.search_coverage_pct || 0 %>%"></div>
+                    <div class="progress-label"><%= stats.search_coverage_pct || 0 %>%</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="coverage-card text-center">
+                <div class="stat-label">Verified Domains</div>
+                <div class="stat-value text-success"><%= stats.with_verified_domain || 0 %></div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: <%= stats.domain_coverage_pct || 0 %>%"></div>
+                    <div class="progress-label"><%= stats.domain_coverage_pct || 0 %>%</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="coverage-card text-center">
+                <div class="stat-label">With Emails</div>
+                <div class="stat-value text-info"><%= stats.with_emails || 0 %></div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: <%= stats.email_coverage_pct || 0 %>%; background: #2196F3;"></div>
+                    <div class="progress-label"><%= stats.email_coverage_pct || 0 %>%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pending Search Summary -->
+    <div class="coverage-card">
+        <h3>Search Opportunities</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <h4 class="text-warning"><%= stats.pending_search || 0 %></h4>
+                <p>Employers pending Google search</p>
+            </div>
+            <div class="col-md-4">
+                <h4 class="text-info"><%= stats.with_active_jobs || 0 %></h4>
+                <p>Have active job listings</p>
+            </div>
+            <div class="col-md-4">
+                <h4 class="text-muted"><%= stats.with_address || 0 %></h4>
+                <p>Have searchable addresses</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Priority Queue -->
+        <div class="col-lg-6">
+            <div class="coverage-card">
+                <h3>High Priority Employers <small class="text-muted">(Need Google Search)</small></h3>
+                <div class="table-container">
+                    <table class="table table-sm table-hover">
+                        <thead>
+                            <tr>
+                                <th>Employer</th>
+                                <th>Location</th>
+                                <th>Jobs</th>
+                                <th>Priority</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% priorityQueue.forEach(employer => { %>
+                            <tr>
+                                <td title="<%= employer.employer_address %>">
+                                    <%= employer.employer_name.substring(0, 30) %><%= employer.employer_name.length > 30 ? '...' : '' %>
+                                </td>
+                                <td><%= employer.primary_location || '-' %></td>
+                                <td>
+                                    <strong><%= employer.active_jobs %></strong>
+                                    <small class="text-muted">/ <%= employer.total_jobs %></small>
+                                </td>
+                                <td>
+                                    <span class="priority-badge priority-<%= employer.priority %>">
+                                        P<%= employer.priority %>
+                                    </span>
+                                </td>
+                            </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+                <% if (priorityQueue.length === 0) { %>
+                    <p class="text-muted text-center">No high priority employers found</p>
+                <% } %>
+            </div>
+        </div>
+
+        <!-- Top Missing Domains -->
+        <div class="col-lg-6">
+            <div class="coverage-card">
+                <h3>Most Active Without Domain</h3>
+                <div class="table-container">
+                    <table class="table table-sm table-hover">
+                        <thead>
+                            <tr>
+                                <th>Employer</th>
+                                <th>Location</th>
+                                <th>Active Jobs</th>
+                                <th>Last Posted</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% topMissingDomains.forEach(employer => { %>
+                            <tr>
+                                <td title="<%= employer.employer_name %>">
+                                    <%= employer.employer_name.substring(0, 30) %><%= employer.employer_name.length > 30 ? '...' : '' %>
+                                </td>
+                                <td><%= employer.primary_location || '-' %></td>
+                                <td class="text-center">
+                                    <strong><%= employer.active_jobs %></strong>
+                                </td>
+                                <td>
+                                    <% if (employer.latest_job_date) { %>
+                                        <%= new Date(employer.latest_job_date).toLocaleDateString('de-DE') %>
+                                    <% } else { %>
+                                        -
+                                    <% } %>
+                                </td>
+                            </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PLZ Coverage -->
+    <div class="coverage-card">
+        <h3>Coverage by Region (PLZ)</h3>
+        <div class="table-responsive">
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th>PLZ Region</th>
+                        <th>Employers</th>
+                        <th>Searched</th>
+                        <th>With Domain</th>
+                        <th>With Emails</th>
+                        <th>Active Jobs</th>
+                        <th>Coverage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% plzCoverage.forEach(region => { %>
+                    <tr>
+                        <td><strong><%= region.plz_region %>xxx</strong></td>
+                        <td><%= region.total_employers %></td>
+                        <td>
+                            <span class="<%= region.searched_employers > 0 ? 'text-success' : 'text-muted' %>">
+                                <%= region.searched_employers %>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="<%= region.with_domain > 0 ? 'text-success' : 'text-muted' %>">
+                                <%= region.with_domain %>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="<%= region.with_emails > 0 ? 'text-info' : 'text-muted' %>">
+                                <%= region.with_emails %>
+                            </span>
+                        </td>
+                        <td><strong><%= region.total_active_jobs %></strong></td>
+                        <td>
+                            <div class="progress" style="height: 15px; min-width: 100px;">
+                                <div class="progress-bar" style="width: <%= region.search_coverage_pct %>%">
+                                    <%= region.search_coverage_pct %>%
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Recent Activity -->
+        <div class="col-lg-6">
+            <div class="coverage-card">
+                <h3>Recent Search Activity</h3>
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Source</th>
+                                <th>Searches</th>
+                                <th>Verified</th>
+                                <th>Emails</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% recentActivity.forEach(activity => { %>
+                            <tr>
+                                <td><%= new Date(activity.activity_date).toLocaleDateString('de-DE') %></td>
+                                <td><%= activity.query_source %></td>
+                                <td><%= activity.searches_performed %></td>
+                                <td class="<%= activity.domains_verified > 0 ? 'text-success' : '' %>">
+                                    <%= activity.domains_verified %>
+                                </td>
+                                <td class="<%= activity.emails_found > 0 ? 'text-info' : '' %>">
+                                    <%= activity.emails_found %>
+                                </td>
+                            </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+                <% if (recentActivity.length === 0) { %>
+                    <p class="text-muted text-center">No recent activity</p>
+                <% } %>
+            </div>
+        </div>
+
+        <!-- Recent Successes -->
+        <div class="col-lg-6">
+            <div class="coverage-card">
+                <h3>Recent Successful Discoveries</h3>
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Company</th>
+                                <th>Domain</th>
+                                <th>Emails</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% recentSuccesses.forEach(success => { %>
+                            <tr>
+                                <td title="<%= success.query_company_name %>">
+                                    <%= success.query_company_name.substring(0, 25) %><%= success.query_company_name.length > 25 ? '...' : '' %>
+                                </td>
+                                <td>
+                                    <a href="http://<%= success.result_domain %>" target="_blank">
+                                        <%= success.result_domain %>
+                                    </a>
+                                </td>
+                                <td class="text-center">
+                                    <span class="badge badge-info"><%= success.email_count %></span>
+                                </td>
+                                <td>
+                                    <%= new Date(success.created_at).toLocaleDateString('de-DE') %>
+                                </td>
+                            </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+                <% if (recentSuccesses.length === 0) { %>
+                    <p class="text-muted text-center">No recent successful discoveries</p>
+                <% } %>
+            </div>
+        </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="coverage-card">
+        <h3>Actions</h3>
+        <div class="btn-group" role="group">
+            <button class="btn btn-primary" onclick="exportQueue()">
+                <i class="fas fa-download"></i> Export Priority Queue
+            </button>
+            <button class="btn btn-success" onclick="showMigrationDialog()">
+                <i class="fas fa-database"></i> Migrate Odoo Data
+            </button>
+            <button class="btn btn-info" onclick="startGoogleService()">
+                <i class="fas fa-play"></i> Start Google Service
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+function refreshStats() {
+    location.reload();
+}
+
+async function exportQueue() {
+    try {
+        const response = await fetch('/api/employer-domains/queue?limit=1000');
+        const data = await response.json();
+        
+        // Convert to CSV
+        const csv = [
+            ['Employer', 'Address', 'PLZ', 'Active Jobs', 'Total Jobs', 'Priority'].join(','),
+            ...data.map(row => [
+                `"${row.employer_name}"`,
+                `"${row.employer_address || ''}"`,
+                row.primary_plz || '',
+                row.active_jobs,
+                row.total_jobs,
+                row.priority
+            ].join(','))
+        ].join('\n');
+        
+        // Download
+        const blob = new Blob([csv], { type: 'text/csv' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `employer-queue-${new Date().toISOString().split('T')[0]}.csv`;
+        a.click();
+    } catch (error) {
+        alert('Export failed: ' + error.message);
+    }
+}
+
+function showMigrationDialog() {
+    if (confirm('This will migrate all data from Odoo tables (our_google_domains, our_domains) to the new system. Continue?')) {
+        alert('Migration script ready at:\npython_scrapers/migrate-odoo-google-domains.sql\n\nRun it with:\npsql -h localhost -p 5473 -U odoo -d jetzt -f migrate-odoo-google-domains.sql');
+    }
+}
+
+function startGoogleService() {
+    alert('To start the Google Domains API service:\n\ncd python_scrapers\npython3 google_domains_api.py\n\nThe service will run on port 5000');
+}
+
+// Auto-refresh every 60 seconds
+setTimeout(() => {
+    if (document.visibilityState === 'visible') {
+        location.reload();
+    }
+}, 60000);
+</script>

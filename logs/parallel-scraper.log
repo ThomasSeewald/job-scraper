@@ -1,0 +1,1561 @@
+[2025-06-06T14:58:11.067Z] 🚀 Starting 5 parallel historical employer scraper processes
+[2025-06-06T14:58:11.071Z] 📊 Total: 25000 employers split into 5 batches of 5000 each
+[2025-06-06T14:58:11.071Z] 🔒 Each process has independent browser session and CAPTCHA cycle
+[2025-06-06T14:58:11.113Z] 📊 Preparing 25,000 newest employers for parallel processing...
+[2025-06-06T14:58:14.885Z] ✅ Found 25000 newest employers for processing
+[2025-06-06T14:58:14.895Z] 📁 Batch 1: 5000 employers (Fri Jun 06 2025 00:00:00 GMT+0200 (Mitteleuropäische Sommerzeit) to Tue Jun 03 2025 00:00:00 GMT+0200 (Mitteleuropäische Sommerzeit))
+[2025-06-06T14:58:14.906Z] 📁 Batch 2: 5000 employers (Tue Jun 03 2025 00:00:00 GMT+0200 (Mitteleuropäische Sommerzeit) to Fri May 30 2025 00:00:00 GMT+0200 (Mitteleuropäische Sommerzeit))
+[2025-06-06T14:58:14.915Z] 📁 Batch 3: 5000 employers (Fri May 30 2025 00:00:00 GMT+0200 (Mitteleuropäische Sommerzeit) to Mon May 26 2025 00:00:00 GMT+0200 (Mitteleuropäische Sommerzeit))
+[2025-06-06T14:58:14.924Z] 📁 Batch 4: 5000 employers (Mon May 26 2025 00:00:00 GMT+0200 (Mitteleuropäische Sommerzeit) to Wed May 21 2025 00:00:00 GMT+0200 (Mitteleuropäische Sommerzeit))
+[2025-06-06T14:58:14.933Z] 📁 Batch 5: 5000 employers (Wed May 21 2025 00:00:00 GMT+0200 (Mitteleuropäische Sommerzeit) to Fri May 16 2025 00:00:00 GMT+0200 (Mitteleuropäische Sommerzeit))
+[2025-06-06T14:58:14.933Z] 🔄 Starting process 1/5...
+[2025-06-06T14:58:14.933Z] 📁 Batch 1: 5000 employers (Fri Jun 06 2025 00:00:00 GMT+0200 (Mitteleuropäische Sommerzeit) to Tue Jun 03 2025 00:00:00 GMT+0200 (Mitteleuropäische Sommerzeit))
+[2025-06-06T14:58:14.934Z] ✅ Process 1 started (PID: 55500)
+[2025-06-06T14:58:14.934Z] ⏳ Waiting 10s before starting process 2...
+[2025-06-06T14:58:15.142Z] [P1] 🔧 Independent CAPTCHA Solver initialized
+[2025-06-06T14:58:15.142Z] [P1] 📁 CAPTCHA save directory: /tmp/captcha
+🎯 Batch Employer Scraper initialized (Process 1)
+🚀 [P1] Initializing browser...
+[2025-06-06T14:58:15.793Z] [P1] ✅ [P1] Browser initialized (headless: true)
+📁 [P1] Loading batch file: /Users/thomassee/Docker/containers/job-scraper/temp_batch_1.json
+[2025-06-06T14:58:15.799Z] [P1] ✅ [P1] Loaded 5000 employers from batch
+[2025-06-06T14:58:15.799Z] [P1] \n🔍 [P1] Processing employer 1/5000: Fressnapf Holding SE
+🔗 [P1] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/12489-43435259-65-S
+[2025-06-06T14:58:19.357Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #1)
+[2025-06-06T14:58:19.357Z] [P1] 📊 [P1] Pages since last CAPTCHA: 0
+🔧 [P1] Solving CAPTCHA...
+[2025-06-06T14:58:19.359Z] [P1] 📸 [P1] CAPTCHA image source: https://rest.arbeitsagentur.de/idaas/id-aas-service/ct/v1/captcha/5B0D0C33-C5D1-423A-A765-AAEA34B64A2E?type=image&languageIso639Code=de
+[2025-06-06T14:58:19.359Z] [P1] 🌐 Downloading CAPTCHA from URL: https://rest.arbeitsagentur.de/idaas/id-aas-service/ct/v1/captcha/5B0D0C33-C5D1-423A-A765-AAEA34B64A2E?type=image&languageIso639Code=de
+[2025-06-06T14:58:19.488Z] [P1] 📥 Downloaded CAPTCHA image (5203 bytes)
+[2025-06-06T14:58:19.658Z] [P1] 📤 CAPTCHA submitted with ID: 79807213344
+[2025-06-06T14:58:21.754Z] [P1] ✅ CAPTCHA solved successfully in 2395ms: "nsb3kg" (ID: 79807213344)
+[2025-06-06T14:58:21.786Z] [P1] ✏️ [P1] CAPTCHA solution entered: nsb3kg
+[2025-06-06T14:58:21.815Z] [P1] 📤 [P1] CAPTCHA form submitted
+⏳ [P1] Waiting for CAPTCHA verification...
+[2025-06-06T14:58:22.818Z] [P1] ⌛ [P1] Still waiting for CAPTCHA to disappear... (1/15 seconds)
+[2025-06-06T14:58:23.823Z] [P1] ⌛ [P1] Still waiting for CAPTCHA to disappear... (2/15 seconds)
+[2025-06-06T14:58:24.830Z] [P1] ⌛ [P1] Still waiting for CAPTCHA to disappear... (3/15 seconds)
+[2025-06-06T14:58:24.935Z] 🔄 Starting process 2/5...
+[2025-06-06T14:58:24.935Z] 📁 Batch 2: 5000 employers (Tue Jun 03 2025 00:00:00 GMT+0200 (Mitteleuropäische Sommerzeit) to Fri May 30 2025 00:00:00 GMT+0200 (Mitteleuropäische Sommerzeit))
+[2025-06-06T14:58:24.937Z] ✅ Process 2 started (PID: 55587)
+[2025-06-06T14:58:24.938Z] ⏳ Waiting 10s before starting process 3...
+[2025-06-06T14:58:25.153Z] [P2] 🔧 Independent CAPTCHA Solver initialized
+[2025-06-06T14:58:25.153Z] [P2] 📁 CAPTCHA save directory: /tmp/captcha
+🎯 Batch Employer Scraper initialized (Process 2)
+🚀 [P2] Initializing browser...
+[2025-06-06T14:58:25.643Z] [P2] ✅ [P2] Browser initialized (headless: true)
+[2025-06-06T14:58:25.643Z] [P2] 📁 [P2] Loading batch file: /Users/thomassee/Docker/containers/job-scraper/temp_batch_2.json
+[2025-06-06T14:58:25.650Z] [P2] ✅ [P2] Loaded 5000 employers from batch
+[2025-06-06T14:58:25.650Z] [P2] \n🔍 [P2] Processing employer 1/5000: Röver u. Strüber Inh.Thomas Strüber
+🔗 [P2] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001473470-S
+[2025-06-06T14:58:25.835Z] [P1] ⌛ [P1] Still waiting for CAPTCHA to disappear... (4/15 seconds)
+[2025-06-06T14:58:26.838Z] [P1] ⌛ [P1] Still waiting for CAPTCHA to disappear... (5/15 seconds)
+[2025-06-06T14:58:27.424Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #1)
+📊 [P2] Pages since last CAPTCHA: 0
+🔧 [P2] Solving CAPTCHA...
+[2025-06-06T14:58:27.436Z] [P2] 📸 [P2] CAPTCHA image source: https://rest.arbeitsagentur.de/idaas/id-aas-service/ct/v1/captcha/346BD7AE-DB60-44C3-8672-9EA8B35807E0?type=image&languageIso639Code=de
+🌐 Downloading CAPTCHA from URL: https://rest.arbeitsagentur.de/idaas/id-aas-service/ct/v1/captcha/346BD7AE-DB60-44C3-8672-9EA8B35807E0?type=image&languageIso639Code=de
+[2025-06-06T14:58:27.584Z] [P2] 📥 Downloaded CAPTCHA image (4913 bytes)
+[2025-06-06T14:58:27.730Z] [P2] 📤 CAPTCHA submitted with ID: 79807214207
+[2025-06-06T14:58:27.845Z] [P1] ⌛ [P1] Still waiting for CAPTCHA to disappear... (6/15 seconds)
+[2025-06-06T14:58:28.850Z] [P1] ⌛ [P1] Still waiting for CAPTCHA to disappear... (7/15 seconds)
+[2025-06-06T14:58:29.855Z] [P1] ⌛ [P1] Still waiting for CAPTCHA to disappear... (8/15 seconds)
+[2025-06-06T14:58:30.860Z] [P1] ⌛ [P1] Still waiting for CAPTCHA to disappear... (9/15 seconds)
+[2025-06-06T14:58:31.867Z] [P1] ⌛ [P1] Still waiting for CAPTCHA to disappear... (10/15 seconds)
+[2025-06-06T14:58:32.874Z] [P1] ⌛ [P1] Still waiting for CAPTCHA to disappear... (11/15 seconds)
+[2025-06-06T14:58:33.879Z] [P1] ⌛ [P1] Still waiting for CAPTCHA to disappear... (12/15 seconds)
+[2025-06-06T14:58:34.884Z] [P1] ⌛ [P1] Still waiting for CAPTCHA to disappear... (13/15 seconds)
+[2025-06-06T14:58:34.938Z] 🔄 Starting process 3/5...
+[2025-06-06T14:58:34.939Z] 📁 Batch 3: 5000 employers (Fri May 30 2025 00:00:00 GMT+0200 (Mitteleuropäische Sommerzeit) to Mon May 26 2025 00:00:00 GMT+0200 (Mitteleuropäische Sommerzeit))
+[2025-06-06T14:58:34.943Z] ✅ Process 3 started (PID: 55654)
+[2025-06-06T14:58:34.943Z] ⏳ Waiting 10s before starting process 4...
+[2025-06-06T14:58:35.167Z] [P3] 🔧 Independent CAPTCHA Solver initialized
+[2025-06-06T14:58:35.167Z] [P3] 📁 CAPTCHA save directory: /tmp/captcha
+🎯 Batch Employer Scraper initialized (Process 3)
+🚀 [P3] Initializing browser...
+[2025-06-06T14:58:35.675Z] [P3] ✅ [P3] Browser initialized (headless: true)
+[2025-06-06T14:58:35.676Z] [P3] 📁 [P3] Loading batch file: /Users/thomassee/Docker/containers/job-scraper/temp_batch_3.json
+[2025-06-06T14:58:35.684Z] [P3] ✅ [P3] Loaded 5000 employers from batch
+\n🔍 [P3] Processing employer 1/5000: Vereinigte Kirchenkreise Dortmund
+[2025-06-06T14:58:35.684Z] [P3] 🔗 [P3] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001466924-S
+[2025-06-06T14:58:35.887Z] [P1] ⌛ [P1] Still waiting for CAPTCHA to disappear... (14/15 seconds)
+[2025-06-06T14:58:36.891Z] [P1] ⌛ [P1] Still waiting for CAPTCHA to disappear... (15/15 seconds)
+[2025-06-06T14:58:36.892Z] [P1] ❌ [P1] CAPTCHA still present after 15 seconds - solution may be incorrect
+⚠️ [P1] Attempt 1 failed for employer Fressnapf Holding SE: CAPTCHA solving failed
+🔄 [P1] Retrying employer Fressnapf Holding SE in 5 seconds...
+[2025-06-06T14:58:37.495Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #1)
+📊 [P3] Pages since last CAPTCHA: 0
+🔧 [P3] Solving CAPTCHA...
+[2025-06-06T14:58:37.520Z] [P3] 📸 [P3] CAPTCHA image source: https://rest.arbeitsagentur.de/idaas/id-aas-service/ct/v1/captcha/73C87826-A892-4750-8688-8C0049D27419?type=image&languageIso639Code=de
+[2025-06-06T14:58:37.520Z] [P3] 🌐 Downloading CAPTCHA from URL: https://rest.arbeitsagentur.de/idaas/id-aas-service/ct/v1/captcha/73C87826-A892-4750-8688-8C0049D27419?type=image&languageIso639Code=de
+[2025-06-06T14:58:37.669Z] [P3] 📥 Downloaded CAPTCHA image (4882 bytes)
+[2025-06-06T14:58:37.825Z] [P3] 📤 CAPTCHA submitted with ID: 79807215281
+[2025-06-06T14:58:42.985Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #2)
+📊 [P1] Pages since last CAPTCHA: 0
+⚠️ [P1] Attempt 2 failed for employer Fressnapf Holding SE: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P1] Retrying employer Fressnapf Holding SE in 5 seconds...
+[2025-06-06T14:58:42.985Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T14:58:44.944Z] 🔄 Starting process 4/5...
+[2025-06-06T14:58:44.945Z] 📁 Batch 4: 5000 employers (Mon May 26 2025 00:00:00 GMT+0200 (Mitteleuropäische Sommerzeit) to Wed May 21 2025 00:00:00 GMT+0200 (Mitteleuropäische Sommerzeit))
+[2025-06-06T14:58:44.949Z] ✅ Process 4 started (PID: 55713)
+[2025-06-06T14:58:44.949Z] ⏳ Waiting 10s before starting process 5...
+[2025-06-06T14:58:45.171Z] [P4] 🔧 Independent CAPTCHA Solver initialized
+[2025-06-06T14:58:45.171Z] [P4] 📁 CAPTCHA save directory: /tmp/captcha
+🎯 Batch Employer Scraper initialized (Process 4)
+🚀 [P4] Initializing browser...
+[2025-06-06T14:58:45.754Z] [P4] ✅ [P4] Browser initialized (headless: true)
+[2025-06-06T14:58:45.755Z] [P4] 📁 [P4] Loading batch file: /Users/thomassee/Docker/containers/job-scraper/temp_batch_4.json
+[2025-06-06T14:58:45.762Z] [P4] ✅ [P4] Loaded 5000 employers from batch
+[2025-06-06T14:58:45.762Z] [P4] \n🔍 [P4] Processing employer 1/5000: Leibniz-Institut für Ostseeforschung Warnemünde (IOW)
+🔗 [P4] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001453621-S
+[2025-06-06T14:58:47.509Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #1)
+📊 [P4] Pages since last CAPTCHA: 0
+🔧 [P4] Solving CAPTCHA...
+[2025-06-06T14:58:47.520Z] [P4] 📸 [P4] CAPTCHA image source: https://rest.arbeitsagentur.de/idaas/id-aas-service/ct/v1/captcha/C513CEB0-9EBB-441A-A730-DD7CAF320376?type=image&languageIso639Code=de
+[2025-06-06T14:58:47.520Z] [P4] 🌐 Downloading CAPTCHA from URL: https://rest.arbeitsagentur.de/idaas/id-aas-service/ct/v1/captcha/C513CEB0-9EBB-441A-A730-DD7CAF320376?type=image&languageIso639Code=de
+[2025-06-06T14:58:47.677Z] [P4] 📥 Downloaded CAPTCHA image (4788 bytes)
+[2025-06-06T14:58:47.854Z] [P4] 📤 CAPTCHA submitted with ID: 79807216354
+[2025-06-06T14:58:48.732Z] [P2] ✅ CAPTCHA solved successfully in 21299ms: "awl58c" (ID: 79807214207)
+[2025-06-06T14:58:48.776Z] [P2] ✏️ [P2] CAPTCHA solution entered: awl58c
+[2025-06-06T14:58:48.794Z] [P2] 📤 [P2] CAPTCHA form submitted
+⏳ [P2] Waiting for CAPTCHA verification...
+[2025-06-06T14:58:49.328Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #3)
+📊 [P1] Pages since last CAPTCHA: 0
+[2025-06-06T14:58:49.329Z] [P1] ⚠️ [P1] Attempt 3 failed for employer Fressnapf Holding SE: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P1] Max retries reached for employer Fressnapf Holding SE
+[2025-06-06T14:58:49.329Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T14:58:49.372Z] [P1] 💾 [P1] Results saved for employer: Fressnapf Holding SE
+[2025-06-06T14:58:49.372Z] [P1] 📊 [P1] Processed: 1, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P1] Waiting 3s before next employer...
+[2025-06-06T14:58:49.800Z] [P2] ⌛ [P2] Still waiting for CAPTCHA to disappear... (1/15 seconds)
+[2025-06-06T14:58:49.963Z] [P4] ✅ CAPTCHA solved successfully in 2442ms: "p7zv4r" (ID: 79807216354)
+[2025-06-06T14:58:50.019Z] [P4] ✏️ [P4] CAPTCHA solution entered: p7zv4r
+[2025-06-06T14:58:50.046Z] [P4] 📤 [P4] CAPTCHA form submitted
+⏳ [P4] Waiting for CAPTCHA verification...
+[2025-06-06T14:58:50.805Z] [P2] ⌛ [P2] Still waiting for CAPTCHA to disappear... (2/15 seconds)
+[2025-06-06T14:58:51.051Z] [P4] ⌛ [P4] Still waiting for CAPTCHA to disappear... (1/15 seconds)
+[2025-06-06T14:58:51.809Z] [P2] ⌛ [P2] Still waiting for CAPTCHA to disappear... (3/15 seconds)
+[2025-06-06T14:58:52.056Z] [P4] ⌛ [P4] Still waiting for CAPTCHA to disappear... (2/15 seconds)
+[2025-06-06T14:58:52.377Z] [P1] \n🔍 [P1] Processing employer 2/5000: ZAG Zeitarbeits-Gesellschaft GmbH Hamburg
+[2025-06-06T14:58:52.378Z] [P1] 🔗 [P1] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/13218-210652_2025-S
+[2025-06-06T14:58:52.831Z] [P2] ⌛ [P2] Still waiting for CAPTCHA to disappear... (4/15 seconds)
+[2025-06-06T14:58:53.070Z] [P4] ⌛ [P4] Still waiting for CAPTCHA to disappear... (3/15 seconds)
+[2025-06-06T14:58:53.532Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #4)
+📊 [P1] Pages since last CAPTCHA: 0
+[2025-06-06T14:58:53.533Z] [P1] ⚠️ [P1] Attempt 1 failed for employer ZAG Zeitarbeits-Gesellschaft GmbH Hamburg: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P1] Retrying employer ZAG Zeitarbeits-Gesellschaft GmbH Hamburg in 5 seconds...
+[2025-06-06T14:58:53.533Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T14:58:53.833Z] [P2] ⌛ [P2] Still waiting for CAPTCHA to disappear... (5/15 seconds)
+[2025-06-06T14:58:54.077Z] [P4] ⌛ [P4] Still waiting for CAPTCHA to disappear... (4/15 seconds)
+[2025-06-06T14:58:54.839Z] [P2] ⌛ [P2] Still waiting for CAPTCHA to disappear... (6/15 seconds)
+[2025-06-06T14:58:54.951Z] 🔄 Starting process 5/5...
+[2025-06-06T14:58:54.952Z] 📁 Batch 5: 5000 employers (Wed May 21 2025 00:00:00 GMT+0200 (Mitteleuropäische Sommerzeit) to Fri May 16 2025 00:00:00 GMT+0200 (Mitteleuropäische Sommerzeit))
+[2025-06-06T14:58:54.953Z] ✅ Process 5 started (PID: 55782)
+[2025-06-06T14:58:54.954Z] ✅ All 5 parallel processes started
+[2025-06-06T14:58:54.954Z] 👀 Starting process monitor...
+[2025-06-06T14:58:55.080Z] [P4] ⌛ [P4] Still waiting for CAPTCHA to disappear... (5/15 seconds)
+[2025-06-06T14:58:55.189Z] [P5] 🔧 Independent CAPTCHA Solver initialized
+[2025-06-06T14:58:55.189Z] [P5] 📁 CAPTCHA save directory: /tmp/captcha
+🎯 Batch Employer Scraper initialized (Process 5)
+🚀 [P5] Initializing browser...
+[2025-06-06T14:58:55.757Z] [P5] ✅ [P5] Browser initialized (headless: true)
+[2025-06-06T14:58:55.757Z] [P5] 📁 [P5] Loading batch file: /Users/thomassee/Docker/containers/job-scraper/temp_batch_5.json
+[2025-06-06T14:58:55.763Z] [P5] ✅ [P5] Loaded 5000 employers from batch
+\n🔍 [P5] Processing employer 1/5000: AWO Bezirksverband Baden e. V.
+[2025-06-06T14:58:55.763Z] [P5] 🔗 [P5] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10000-1202568839-S
+[2025-06-06T14:58:55.843Z] [P2] ⌛ [P2] Still waiting for CAPTCHA to disappear... (7/15 seconds)
+[2025-06-06T14:58:56.083Z] [P4] ⌛ [P4] Still waiting for CAPTCHA to disappear... (6/15 seconds)
+[2025-06-06T14:58:56.845Z] [P2] ⌛ [P2] Still waiting for CAPTCHA to disappear... (8/15 seconds)
+[2025-06-06T14:58:57.086Z] [P4] ⌛ [P4] Still waiting for CAPTCHA to disappear... (7/15 seconds)
+[2025-06-06T14:58:57.558Z] [P5] 🧩 [P5] CAPTCHA detected on page 1 (CAPTCHA #1)
+[2025-06-06T14:58:57.559Z] [P5] 📊 [P5] Pages since last CAPTCHA: 0
+🔧 [P5] Solving CAPTCHA...
+[2025-06-06T14:58:57.564Z] [P5] 📸 [P5] CAPTCHA image source: https://rest.arbeitsagentur.de/idaas/id-aas-service/ct/v1/captcha/90CC4A60-13E6-43AA-BA59-BC1765A3F14D?type=image&languageIso639Code=de
+[2025-06-06T14:58:57.564Z] [P5] 🌐 Downloading CAPTCHA from URL: https://rest.arbeitsagentur.de/idaas/id-aas-service/ct/v1/captcha/90CC4A60-13E6-43AA-BA59-BC1765A3F14D?type=image&languageIso639Code=de
+[2025-06-06T14:58:57.705Z] [P5] 📥 Downloaded CAPTCHA image (4869 bytes)
+[2025-06-06T14:58:57.850Z] [P2] ⌛ [P2] Still waiting for CAPTCHA to disappear... (9/15 seconds)
+[2025-06-06T14:58:57.855Z] [P5] 📤 CAPTCHA submitted with ID: 79807217549
+[2025-06-06T14:58:58.091Z] [P4] ⌛ [P4] Still waiting for CAPTCHA to disappear... (8/15 seconds)
+[2025-06-06T14:58:58.853Z] [P2] ⌛ [P2] Still waiting for CAPTCHA to disappear... (10/15 seconds)
+[2025-06-06T14:58:59.050Z] [P3] ✅ CAPTCHA solved successfully in 21530ms: "uwe6AK" (ID: 79807215281)
+[2025-06-06T14:58:59.084Z] [P3] ✏️ [P3] CAPTCHA solution entered: uwe6AK
+[2025-06-06T14:58:59.094Z] [P4] ⌛ [P4] Still waiting for CAPTCHA to disappear... (9/15 seconds)
+[2025-06-06T14:58:59.096Z] [P3] 📤 [P3] CAPTCHA form submitted
+[2025-06-06T14:58:59.096Z] [P3] ⏳ [P3] Waiting for CAPTCHA verification...
+[2025-06-06T14:58:59.600Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #5)
+[2025-06-06T14:58:59.601Z] [P1] 📊 [P1] Pages since last CAPTCHA: 0
+⚠️ [P1] Attempt 2 failed for employer ZAG Zeitarbeits-Gesellschaft GmbH Hamburg: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P1] Retrying employer ZAG Zeitarbeits-Gesellschaft GmbH Hamburg in 5 seconds...
+[2025-06-06T14:58:59.601Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T14:58:59.869Z] [P2] ⌛ [P2] Still waiting for CAPTCHA to disappear... (11/15 seconds)
+[2025-06-06T14:58:59.962Z] [P5] ✅ CAPTCHA solved successfully in 2398ms: "8KREEB" (ID: 79807217549)
+[2025-06-06T14:58:59.997Z] [P5] ✏️ [P5] CAPTCHA solution entered: 8KREEB
+[2025-06-06T14:59:00.037Z] [P5] 📤 [P5] CAPTCHA form submitted
+⏳ [P5] Waiting for CAPTCHA verification...
+[2025-06-06T14:59:00.103Z] [P3] ⌛ [P3] Still waiting for CAPTCHA to disappear... (1/15 seconds)
+[2025-06-06T14:59:00.109Z] [P4] ⌛ [P4] Still waiting for CAPTCHA to disappear... (10/15 seconds)
+[2025-06-06T14:59:00.875Z] [P2] ⌛ [P2] Still waiting for CAPTCHA to disappear... (12/15 seconds)
+[2025-06-06T14:59:01.043Z] [P5] ⌛ [P5] Still waiting for CAPTCHA to disappear... (1/15 seconds)
+[2025-06-06T14:59:01.109Z] [P4] ⌛ [P4] Still waiting for CAPTCHA to disappear... (11/15 seconds)
+[2025-06-06T14:59:01.109Z] [P3] ⌛ [P3] Still waiting for CAPTCHA to disappear... (2/15 seconds)
+[2025-06-06T14:59:01.881Z] [P2] ⌛ [P2] Still waiting for CAPTCHA to disappear... (13/15 seconds)
+[2025-06-06T14:59:02.048Z] [P5] ⌛ [P5] Still waiting for CAPTCHA to disappear... (2/15 seconds)
+[2025-06-06T14:59:02.114Z] [P4] ⌛ [P4] Still waiting for CAPTCHA to disappear... (12/15 seconds)
+[2025-06-06T14:59:02.115Z] [P3] ⌛ [P3] Still waiting for CAPTCHA to disappear... (3/15 seconds)
+[2025-06-06T14:59:02.887Z] [P2] ⌛ [P2] Still waiting for CAPTCHA to disappear... (14/15 seconds)
+[2025-06-06T14:59:03.053Z] [P5] ⌛ [P5] Still waiting for CAPTCHA to disappear... (3/15 seconds)
+[2025-06-06T14:59:03.124Z] [P4] ⌛ [P4] Still waiting for CAPTCHA to disappear... (13/15 seconds)
+[2025-06-06T14:59:03.124Z] [P3] ⌛ [P3] Still waiting for CAPTCHA to disappear... (4/15 seconds)
+[2025-06-06T14:59:03.891Z] [P2] ⌛ [P2] Still waiting for CAPTCHA to disappear... (15/15 seconds)
+[2025-06-06T14:59:03.892Z] [P2] ❌ [P2] CAPTCHA still present after 15 seconds - solution may be incorrect
+⚠️ [P2] Attempt 1 failed for employer Röver u. Strüber Inh.Thomas Strüber: CAPTCHA solving failed
+🔄 [P2] Retrying employer Röver u. Strüber Inh.Thomas Strüber in 5 seconds...
+[2025-06-06T14:59:04.059Z] [P5] ⌛ [P5] Still waiting for CAPTCHA to disappear... (4/15 seconds)
+[2025-06-06T14:59:04.129Z] [P4] ⌛ [P4] Still waiting for CAPTCHA to disappear... (14/15 seconds)
+[2025-06-06T14:59:04.130Z] [P3] ⌛ [P3] Still waiting for CAPTCHA to disappear... (5/15 seconds)
+[2025-06-06T14:59:05.062Z] [P5] ⌛ [P5] Still waiting for CAPTCHA to disappear... (5/15 seconds)
+[2025-06-06T14:59:05.131Z] [P4] ⌛ [P4] Still waiting for CAPTCHA to disappear... (15/15 seconds)
+[2025-06-06T14:59:05.131Z] [P4] ❌ [P4] CAPTCHA still present after 15 seconds - solution may be incorrect
+⚠️ [P4] Attempt 1 failed for employer Leibniz-Institut für Ostseeforschung Warnemünde (IOW): CAPTCHA solving failed
+🔄 [P4] Retrying employer Leibniz-Institut für Ostseeforschung Warnemünde (IOW) in 5 seconds...
+[2025-06-06T14:59:05.132Z] [P3] ⌛ [P3] Still waiting for CAPTCHA to disappear... (6/15 seconds)
+[2025-06-06T14:59:05.669Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #6)
+[2025-06-06T14:59:05.669Z] [P1] 📊 [P1] Pages since last CAPTCHA: 0
+⚠️ [P1] Attempt 3 failed for employer ZAG Zeitarbeits-Gesellschaft GmbH Hamburg: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P1] Max retries reached for employer ZAG Zeitarbeits-Gesellschaft GmbH Hamburg
+[2025-06-06T14:59:05.670Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T14:59:05.680Z] [P1] 💾 [P1] Results saved for employer: ZAG Zeitarbeits-Gesellschaft GmbH Hamburg
+[2025-06-06T14:59:05.681Z] [P1] 📊 [P1] Processed: 2, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P1] Waiting 3s before next employer...
+[2025-06-06T14:59:06.067Z] [P5] ⌛ [P5] Still waiting for CAPTCHA to disappear... (6/15 seconds)
+[2025-06-06T14:59:06.139Z] [P3] ⌛ [P3] Still waiting for CAPTCHA to disappear... (7/15 seconds)
+[2025-06-06T14:59:07.072Z] [P5] ⌛ [P5] Still waiting for CAPTCHA to disappear... (7/15 seconds)
+[2025-06-06T14:59:07.142Z] [P3] ⌛ [P3] Still waiting for CAPTCHA to disappear... (8/15 seconds)
+[2025-06-06T14:59:08.079Z] [P5] ⌛ [P5] Still waiting for CAPTCHA to disappear... (8/15 seconds)
+[2025-06-06T14:59:08.148Z] [P3] ⌛ [P3] Still waiting for CAPTCHA to disappear... (9/15 seconds)
+[2025-06-06T14:59:08.682Z] [P1] \n🔍 [P1] Processing employer 3/5000: Landesamt für Ländliche Entwicklung, Landwirtschaft und Flurneuordnung
+[2025-06-06T14:59:08.684Z] [P1] 🔗 [P1] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10000-1202732270-S
+[2025-06-06T14:59:09.081Z] [P5] ⌛ [P5] Still waiting for CAPTCHA to disappear... (9/15 seconds)
+[2025-06-06T14:59:09.149Z] [P3] ⌛ [P3] Still waiting for CAPTCHA to disappear... (10/15 seconds)
+[2025-06-06T14:59:09.563Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #7)
+📊 [P1] Pages since last CAPTCHA: 0
+[2025-06-06T14:59:09.564Z] [P1] ⚠️ [P1] Attempt 1 failed for employer Landesamt für Ländliche Entwicklung, Landwirtschaft und Flurneuordnung: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P1] Retrying employer Landesamt für Ländliche Entwicklung, Landwirtschaft und Flurneuordnung in 5 seconds...
+[2025-06-06T14:59:09.564Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T14:59:09.936Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #2)
+📊 [P2] Pages since last CAPTCHA: 0
+[2025-06-06T14:59:09.936Z] [P2] ⚠️ [P2] Attempt 2 failed for employer Röver u. Strüber Inh.Thomas Strüber: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P2] Retrying employer Röver u. Strüber Inh.Thomas Strüber in 5 seconds...
+[2025-06-06T14:59:09.937Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T14:59:10.087Z] [P5] ⌛ [P5] Still waiting for CAPTCHA to disappear... (10/15 seconds)
+[2025-06-06T14:59:10.157Z] [P3] ⌛ [P3] Still waiting for CAPTCHA to disappear... (11/15 seconds)
+[2025-06-06T14:59:11.094Z] [P5] ⌛ [P5] Still waiting for CAPTCHA to disappear... (11/15 seconds)
+[2025-06-06T14:59:11.167Z] [P3] ⌛ [P3] Still waiting for CAPTCHA to disappear... (12/15 seconds)
+[2025-06-06T14:59:11.288Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #2)
+[2025-06-06T14:59:11.289Z] [P4] 📊 [P4] Pages since last CAPTCHA: 0
+⚠️ [P4] Attempt 2 failed for employer Leibniz-Institut für Ostseeforschung Warnemünde (IOW): CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P4] Retrying employer Leibniz-Institut für Ostseeforschung Warnemünde (IOW) in 5 seconds...
+[2025-06-06T14:59:11.290Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T14:59:12.099Z] [P5] ⌛ [P5] Still waiting for CAPTCHA to disappear... (12/15 seconds)
+[2025-06-06T14:59:12.171Z] [P3] ⌛ [P3] Still waiting for CAPTCHA to disappear... (13/15 seconds)
+[2025-06-06T14:59:13.105Z] [P5] ⌛ [P5] Still waiting for CAPTCHA to disappear... (13/15 seconds)
+[2025-06-06T14:59:13.176Z] [P3] ⌛ [P3] Still waiting for CAPTCHA to disappear... (14/15 seconds)
+[2025-06-06T14:59:14.109Z] [P5] ⌛ [P5] Still waiting for CAPTCHA to disappear... (14/15 seconds)
+[2025-06-06T14:59:14.183Z] [P3] ⌛ [P3] Still waiting for CAPTCHA to disappear... (15/15 seconds)
+[2025-06-06T14:59:14.184Z] [P3] ❌ [P3] CAPTCHA still present after 15 seconds - solution may be incorrect
+⚠️ [P3] Attempt 1 failed for employer Vereinigte Kirchenkreise Dortmund: CAPTCHA solving failed
+🔄 [P3] Retrying employer Vereinigte Kirchenkreise Dortmund in 5 seconds...
+[2025-06-06T14:59:15.111Z] [P5] ⌛ [P5] Still waiting for CAPTCHA to disappear... (15/15 seconds)
+❌ [P5] CAPTCHA still present after 15 seconds - solution may be incorrect
+[2025-06-06T14:59:15.111Z] [P5] ⚠️ [P5] Attempt 1 failed for employer AWO Bezirksverband Baden e. V.: CAPTCHA solving failed
+🔄 [P5] Retrying employer AWO Bezirksverband Baden e. V. in 5 seconds...
+[2025-06-06T14:59:15.661Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #8)
+📊 [P1] Pages since last CAPTCHA: 0
+[2025-06-06T14:59:15.661Z] [P1] ⚠️ [P1] Attempt 2 failed for employer Landesamt für Ländliche Entwicklung, Landwirtschaft und Flurneuordnung: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P1] Retrying employer Landesamt für Ländliche Entwicklung, Landwirtschaft und Flurneuordnung in 5 seconds...
+[2025-06-06T14:59:15.661Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T14:59:16.212Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #3)
+📊 [P2] Pages since last CAPTCHA: 0
+[2025-06-06T14:59:16.212Z] [P2] ⚠️ [P2] Attempt 3 failed for employer Röver u. Strüber Inh.Thomas Strüber: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P2] Max retries reached for employer Röver u. Strüber Inh.Thomas Strüber
+[2025-06-06T14:59:16.212Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T14:59:16.286Z] [P2] 💾 [P2] Results saved for employer: Röver u. Strüber Inh.Thomas Strüber
+[2025-06-06T14:59:16.286Z] [P2] 📊 [P2] Processed: 1, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P2] Waiting 3s before next employer...
+[2025-06-06T14:59:17.651Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #3)
+📊 [P4] Pages since last CAPTCHA: 0
+[2025-06-06T14:59:17.652Z] [P4] ⚠️ [P4] Attempt 3 failed for employer Leibniz-Institut für Ostseeforschung Warnemünde (IOW): CAPTCHA frequency error: appeared after only 0 pages
+❌ [P4] Max retries reached for employer Leibniz-Institut für Ostseeforschung Warnemünde (IOW)
+[2025-06-06T14:59:17.652Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T14:59:17.689Z] [P4] 💾 [P4] Results saved for employer: Leibniz-Institut für Ostseeforschung Warnemünde (IOW)
+[2025-06-06T14:59:17.689Z] [P4] 📊 [P4] Processed: 1, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P4] Waiting 3s before next employer...
+[2025-06-06T14:59:19.287Z] [P2] \n🔍 [P2] Processing employer 2/5000: Eileen Korb  Physiotherapie
+[2025-06-06T14:59:19.287Z] [P2] 🔗 [P2] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10000-1202689396-S
+[2025-06-06T14:59:20.231Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #2)
+📊 [P3] Pages since last CAPTCHA: 0
+[2025-06-06T14:59:20.231Z] [P3] ⚠️ [P3] Attempt 2 failed for employer Vereinigte Kirchenkreise Dortmund: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P3] Retrying employer Vereinigte Kirchenkreise Dortmund in 5 seconds...
+[2025-06-06T14:59:20.234Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T14:59:20.314Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #4)
+📊 [P2] Pages since last CAPTCHA: 0
+[2025-06-06T14:59:20.314Z] [P2] ⚠️ [P2] Attempt 1 failed for employer Eileen Korb  Physiotherapie: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P2] Retrying employer Eileen Korb  Physiotherapie in 5 seconds...
+[2025-06-06T14:59:20.314Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T14:59:20.690Z] [P4] \n🔍 [P4] Processing employer 2/5000: FW Elektro Frank Würzebesser
+[2025-06-06T14:59:20.690Z] [P4] 🔗 [P4] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10000-1202617797-S
+[2025-06-06T14:59:21.393Z] [P5] 🧩 [P5] CAPTCHA detected on page 1 (CAPTCHA #2)
+📊 [P5] Pages since last CAPTCHA: 0
+⚠️ [P5] Attempt 2 failed for employer AWO Bezirksverband Baden e. V.: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P5] Retrying employer AWO Bezirksverband Baden e. V. in 5 seconds...
+[2025-06-06T14:59:21.394Z] [P5] ERROR: ❌ [P5] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P5] This indicates a problem - stopping extraction
+[2025-06-06T14:59:21.744Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #9)
+📊 [P1] Pages since last CAPTCHA: 0
+[2025-06-06T14:59:21.745Z] [P1] ⚠️ [P1] Attempt 3 failed for employer Landesamt für Ländliche Entwicklung, Landwirtschaft und Flurneuordnung: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P1] Max retries reached for employer Landesamt für Ländliche Entwicklung, Landwirtschaft und Flurneuordnung
+[2025-06-06T14:59:21.745Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T14:59:21.751Z] [P1] 💾 [P1] Results saved for employer: Landesamt für Ländliche Entwicklung, Landwirtschaft und Flurneuordnung
+[2025-06-06T14:59:21.751Z] [P1] 📊 [P1] Processed: 3, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P1] Waiting 3s before next employer...
+[2025-06-06T14:59:21.787Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #4)
+📊 [P4] Pages since last CAPTCHA: 0
+[2025-06-06T14:59:21.788Z] [P4] ⚠️ [P4] Attempt 1 failed for employer FW Elektro Frank Würzebesser: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P4] Retrying employer FW Elektro Frank Würzebesser in 5 seconds...
+[2025-06-06T14:59:21.788Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T14:59:24.752Z] [P1] \n🔍 [P1] Processing employer 4/5000: AgnesRes. UG (haftungsbeschränkt)
+🔗 [P1] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001484496-S
+[2025-06-06T14:59:25.829Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #10)
+📊 [P1] Pages since last CAPTCHA: 0
+⚠️ [P1] Attempt 1 failed for employer AgnesRes. UG (haftungsbeschränkt): CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P1] Retrying employer AgnesRes. UG (haftungsbeschränkt) in 5 seconds...
+[2025-06-06T14:59:25.830Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T14:59:26.347Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #5)
+📊 [P2] Pages since last CAPTCHA: 0
+[2025-06-06T14:59:26.347Z] [P2] ⚠️ [P2] Attempt 2 failed for employer Eileen Korb  Physiotherapie: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P2] Retrying employer Eileen Korb  Physiotherapie in 5 seconds...
+[2025-06-06T14:59:26.347Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T14:59:26.479Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #3)
+[2025-06-06T14:59:26.479Z] [P3] 📊 [P3] Pages since last CAPTCHA: 0
+⚠️ [P3] Attempt 3 failed for employer Vereinigte Kirchenkreise Dortmund: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P3] Max retries reached for employer Vereinigte Kirchenkreise Dortmund
+[2025-06-06T14:59:26.479Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T14:59:26.543Z] [P3] 💾 [P3] Results saved for employer: Vereinigte Kirchenkreise Dortmund
+[2025-06-06T14:59:26.544Z] [P3] 📊 [P3] Processed: 1, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P3] Waiting 3s before next employer...
+[2025-06-06T14:59:27.762Z] [P5] 🧩 [P5] CAPTCHA detected on page 1 (CAPTCHA #3)
+[2025-06-06T14:59:27.763Z] [P5] 📊 [P5] Pages since last CAPTCHA: 0
+⚠️ [P5] Attempt 3 failed for employer AWO Bezirksverband Baden e. V.: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P5] Max retries reached for employer AWO Bezirksverband Baden e. V.
+[2025-06-06T14:59:27.763Z] [P5] ERROR: ❌ [P5] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P5] This indicates a problem - stopping extraction
+[2025-06-06T14:59:27.784Z] [P5] 💾 [P5] Results saved for employer: AWO Bezirksverband Baden e. V.
+[2025-06-06T14:59:27.784Z] [P5] 📊 [P5] Processed: 1, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P5] Waiting 3s before next employer...
+[2025-06-06T14:59:27.850Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #5)
+[2025-06-06T14:59:27.850Z] [P4] 📊 [P4] Pages since last CAPTCHA: 0
+⚠️ [P4] Attempt 2 failed for employer FW Elektro Frank Würzebesser: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P4] Retrying employer FW Elektro Frank Würzebesser in 5 seconds...
+[2025-06-06T14:59:27.850Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T14:59:29.545Z] [P3] \n🔍 [P3] Processing employer 2/5000: Bimo Eiscafe
+🔗 [P3] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10000-1202657576-S
+[2025-06-06T14:59:30.457Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #4)
+📊 [P3] Pages since last CAPTCHA: 0
+[2025-06-06T14:59:30.457Z] [P3] ⚠️ [P3] Attempt 1 failed for employer Bimo Eiscafe: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P3] Retrying employer Bimo Eiscafe in 5 seconds...
+[2025-06-06T14:59:30.458Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T14:59:30.786Z] [P5] \n🔍 [P5] Processing employer 2/5000: ZeitArbeitsAgentur GmbH
+[2025-06-06T14:59:30.787Z] [P5] 🔗 [P5] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001442609-S
+[2025-06-06T14:59:31.829Z] [P5] 🧩 [P5] CAPTCHA detected on page 1 (CAPTCHA #4)
+[2025-06-06T14:59:31.829Z] [P5] 📊 [P5] Pages since last CAPTCHA: 0
+⚠️ [P5] Attempt 1 failed for employer ZeitArbeitsAgentur GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P5] Retrying employer ZeitArbeitsAgentur GmbH in 5 seconds...
+[2025-06-06T14:59:31.829Z] [P5] ERROR: ❌ [P5] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P5] This indicates a problem - stopping extraction
+[2025-06-06T14:59:31.865Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #11)
+[2025-06-06T14:59:31.865Z] [P1] 📊 [P1] Pages since last CAPTCHA: 0
+⚠️ [P1] Attempt 2 failed for employer AgnesRes. UG (haftungsbeschränkt): CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P1] Retrying employer AgnesRes. UG (haftungsbeschränkt) in 5 seconds...
+[2025-06-06T14:59:31.865Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T14:59:32.441Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #6)
+📊 [P2] Pages since last CAPTCHA: 0
+[2025-06-06T14:59:32.442Z] [P2] ⚠️ [P2] Attempt 3 failed for employer Eileen Korb  Physiotherapie: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P2] Max retries reached for employer Eileen Korb  Physiotherapie
+[2025-06-06T14:59:32.442Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T14:59:32.461Z] [P2] 💾 [P2] Results saved for employer: Eileen Korb  Physiotherapie
+[2025-06-06T14:59:32.461Z] [P2] 📊 [P2] Processed: 2, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P2] Waiting 3s before next employer...
+[2025-06-06T14:59:33.916Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #6)
+📊 [P4] Pages since last CAPTCHA: 0
+⚠️ [P4] Attempt 3 failed for employer FW Elektro Frank Würzebesser: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P4] Max retries reached for employer FW Elektro Frank Würzebesser
+[2025-06-06T14:59:33.917Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T14:59:33.924Z] [P4] 💾 [P4] Results saved for employer: FW Elektro Frank Würzebesser
+[2025-06-06T14:59:33.925Z] [P4] 📊 [P4] Processed: 2, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P4] Waiting 3s before next employer...
+[2025-06-06T14:59:35.461Z] [P2] \n🔍 [P2] Processing employer 3/5000: Kirsten Martens
+🔗 [P2] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10000-1202691484-S
+[2025-06-06T14:59:36.471Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #7)
+📊 [P2] Pages since last CAPTCHA: 0
+[2025-06-06T14:59:36.472Z] [P2] ⚠️ [P2] Attempt 1 failed for employer Kirsten Martens: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P2] Retrying employer Kirsten Martens in 5 seconds...
+[2025-06-06T14:59:36.473Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T14:59:36.551Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #5)
+[2025-06-06T14:59:36.551Z] [P3] 📊 [P3] Pages since last CAPTCHA: 0
+⚠️ [P3] Attempt 2 failed for employer Bimo Eiscafe: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P3] Retrying employer Bimo Eiscafe in 5 seconds...
+[2025-06-06T14:59:36.552Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T14:59:36.926Z] [P4] \n🔍 [P4] Processing employer 3/5000: Stadtwerke Reichenbach/ Vogtland GmbH
+🔗 [P4] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001453614-S
+[2025-06-06T14:59:37.920Z] [P5] 🧩 [P5] CAPTCHA detected on page 1 (CAPTCHA #5)
+📊 [P5] Pages since last CAPTCHA: 0
+⚠️ [P5] Attempt 2 failed for employer ZeitArbeitsAgentur GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P5] Retrying employer ZeitArbeitsAgentur GmbH in 5 seconds...
+[2025-06-06T14:59:37.922Z] [P5] ERROR: ❌ [P5] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P5] This indicates a problem - stopping extraction
+[2025-06-06T14:59:37.937Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #12)
+📊 [P1] Pages since last CAPTCHA: 0
+[2025-06-06T14:59:37.938Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T14:59:37.938Z] [P1] ⚠️ [P1] Attempt 3 failed for employer AgnesRes. UG (haftungsbeschränkt): CAPTCHA frequency error: appeared after only 0 pages
+❌ [P1] Max retries reached for employer AgnesRes. UG (haftungsbeschränkt)
+[2025-06-06T14:59:37.950Z] [P1] 💾 [P1] Results saved for employer: AgnesRes. UG (haftungsbeschränkt)
+[2025-06-06T14:59:37.950Z] [P1] 📊 [P1] Processed: 4, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P1] Waiting 3s before next employer...
+[2025-06-06T14:59:38.022Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #7)
+[2025-06-06T14:59:38.023Z] [P4] 📊 [P4] Pages since last CAPTCHA: 0
+⚠️ [P4] Attempt 1 failed for employer Stadtwerke Reichenbach/ Vogtland GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P4] Retrying employer Stadtwerke Reichenbach/ Vogtland GmbH in 5 seconds...
+[2025-06-06T14:59:38.023Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T14:59:40.952Z] [P1] \n🔍 [P1] Processing employer 5/5000: GRENKE AG
+🔗 [P1] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/17784-43435733-65-S
+[2025-06-06T14:59:42.002Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #13)
+📊 [P1] Pages since last CAPTCHA: 0
+[2025-06-06T14:59:42.002Z] [P1] ⚠️ [P1] Attempt 1 failed for employer GRENKE AG: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P1] Retrying employer GRENKE AG in 5 seconds...
+[2025-06-06T14:59:42.002Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T14:59:42.477Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #8)
+📊 [P2] Pages since last CAPTCHA: 0
+[2025-06-06T14:59:42.478Z] [P2] ⚠️ [P2] Attempt 2 failed for employer Kirsten Martens: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P2] Retrying employer Kirsten Martens in 5 seconds...
+[2025-06-06T14:59:42.478Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T14:59:42.587Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #6)
+[2025-06-06T14:59:42.588Z] [P3] 📊 [P3] Pages since last CAPTCHA: 0
+⚠️ [P3] Attempt 3 failed for employer Bimo Eiscafe: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P3] Max retries reached for employer Bimo Eiscafe
+[2025-06-06T14:59:42.588Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T14:59:42.624Z] [P3] 💾 [P3] Results saved for employer: Bimo Eiscafe
+[2025-06-06T14:59:42.625Z] [P3] 📊 [P3] Processed: 2, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P3] Waiting 3s before next employer...
+[2025-06-06T14:59:43.967Z] [P5] 🧩 [P5] CAPTCHA detected on page 1 (CAPTCHA #6)
+[2025-06-06T14:59:43.969Z] [P5] 📊 [P5] Pages since last CAPTCHA: 0
+⚠️ [P5] Attempt 3 failed for employer ZeitArbeitsAgentur GmbH: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P5] Max retries reached for employer ZeitArbeitsAgentur GmbH
+[2025-06-06T14:59:43.970Z] [P5] ERROR: ❌ [P5] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P5] This indicates a problem - stopping extraction
+[2025-06-06T14:59:43.986Z] [P5] 💾 [P5] Results saved for employer: ZeitArbeitsAgentur GmbH
+[2025-06-06T14:59:43.987Z] [P5] 📊 [P5] Processed: 2, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P5] Waiting 3s before next employer...
+[2025-06-06T14:59:44.086Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #8)
+[2025-06-06T14:59:44.087Z] [P4] 📊 [P4] Pages since last CAPTCHA: 0
+⚠️ [P4] Attempt 2 failed for employer Stadtwerke Reichenbach/ Vogtland GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P4] Retrying employer Stadtwerke Reichenbach/ Vogtland GmbH in 5 seconds...
+[2025-06-06T14:59:44.087Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T14:59:45.631Z] [P3] \n🔍 [P3] Processing employer 3/5000: Gemeinde Herscheid
+🔗 [P3] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10000-1202658382-S
+[2025-06-06T14:59:46.646Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #7)
+📊 [P3] Pages since last CAPTCHA: 0
+[2025-06-06T14:59:46.647Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T14:59:46.647Z] [P3] ⚠️ [P3] Attempt 1 failed for employer Gemeinde Herscheid: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P3] Retrying employer Gemeinde Herscheid in 5 seconds...
+[2025-06-06T14:59:46.989Z] [P5] \n🔍 [P5] Processing employer 3/5000: UGL Gregor Lehnert Verwaltungsges. mbH
+[2025-06-06T14:59:46.990Z] [P5] 🔗 [P5] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/16262-0056420962-S
+[2025-06-06T14:59:48.068Z] [P5] 🧩 [P5] CAPTCHA detected on page 1 (CAPTCHA #7)
+📊 [P5] Pages since last CAPTCHA: 0
+⚠️ [P5] Attempt 1 failed for employer UGL Gregor Lehnert Verwaltungsges. mbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P5] Retrying employer UGL Gregor Lehnert Verwaltungsges. mbH in 5 seconds...
+[2025-06-06T14:59:48.069Z] [P5] ERROR: ❌ [P5] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P5] This indicates a problem - stopping extraction
+[2025-06-06T14:59:48.076Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #14)
+[2025-06-06T14:59:48.076Z] [P1] 📊 [P1] Pages since last CAPTCHA: 0
+⚠️ [P1] Attempt 2 failed for employer GRENKE AG: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P1] Retrying employer GRENKE AG in 5 seconds...
+[2025-06-06T14:59:48.076Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T14:59:48.438Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #9)
+📊 [P2] Pages since last CAPTCHA: 0
+[2025-06-06T14:59:48.438Z] [P2] ⚠️ [P2] Attempt 3 failed for employer Kirsten Martens: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P2] Max retries reached for employer Kirsten Martens
+[2025-06-06T14:59:48.439Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T14:59:48.453Z] [P2] 💾 [P2] Results saved for employer: Kirsten Martens
+[2025-06-06T14:59:48.454Z] [P2] 📊 [P2] Processed: 3, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P2] Waiting 3s before next employer...
+[2025-06-06T14:59:50.164Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #9)
+[2025-06-06T14:59:50.164Z] [P4] 📊 [P4] Pages since last CAPTCHA: 0
+⚠️ [P4] Attempt 3 failed for employer Stadtwerke Reichenbach/ Vogtland GmbH: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P4] Max retries reached for employer Stadtwerke Reichenbach/ Vogtland GmbH
+[2025-06-06T14:59:50.164Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T14:59:50.174Z] [P4] 💾 [P4] Results saved for employer: Stadtwerke Reichenbach/ Vogtland GmbH
+[2025-06-06T14:59:50.175Z] [P4] 📊 [P4] Processed: 3, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P4] Waiting 3s before next employer...
+[2025-06-06T14:59:51.456Z] [P2] \n🔍 [P2] Processing employer 4/5000: Stiftung Berufliche Bildung
+[2025-06-06T14:59:51.457Z] [P2] 🔗 [P2] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001475325-S
+[2025-06-06T14:59:52.478Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #10)
+📊 [P2] Pages since last CAPTCHA: 0
+[2025-06-06T14:59:52.478Z] [P2] ⚠️ [P2] Attempt 1 failed for employer Stiftung Berufliche Bildung: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P2] Retrying employer Stiftung Berufliche Bildung in 5 seconds...
+[2025-06-06T14:59:52.478Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T14:59:52.678Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #8)
+📊 [P3] Pages since last CAPTCHA: 0
+[2025-06-06T14:59:52.678Z] [P3] ⚠️ [P3] Attempt 2 failed for employer Gemeinde Herscheid: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P3] Retrying employer Gemeinde Herscheid in 5 seconds...
+[2025-06-06T14:59:52.678Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T14:59:53.178Z] [P4] \n🔍 [P4] Processing employer 4/5000: Johannesbad Holding SE & Co.KG
+[2025-06-06T14:59:53.180Z] [P4] 🔗 [P4] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001453681-S
+[2025-06-06T14:59:54.136Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #15)
+📊 [P1] Pages since last CAPTCHA: 0
+[2025-06-06T14:59:54.137Z] [P1] ⚠️ [P1] Attempt 3 failed for employer GRENKE AG: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P1] Max retries reached for employer GRENKE AG
+[2025-06-06T14:59:54.138Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T14:59:54.139Z] [P5] 🧩 [P5] CAPTCHA detected on page 1 (CAPTCHA #8)
+📊 [P5] Pages since last CAPTCHA: 0
+⚠️ [P5] Attempt 2 failed for employer UGL Gregor Lehnert Verwaltungsges. mbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P5] Retrying employer UGL Gregor Lehnert Verwaltungsges. mbH in 5 seconds...
+[2025-06-06T14:59:54.139Z] [P5] ERROR: ❌ [P5] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P5] This indicates a problem - stopping extraction
+[2025-06-06T14:59:54.156Z] [P1] 💾 [P1] Results saved for employer: GRENKE AG
+[2025-06-06T14:59:54.156Z] [P1] 📊 [P1] Processed: 5, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P1] Waiting 3s before next employer...
+[2025-06-06T14:59:54.236Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #10)
+[2025-06-06T14:59:54.237Z] [P4] 📊 [P4] Pages since last CAPTCHA: 0
+⚠️ [P4] Attempt 1 failed for employer Johannesbad Holding SE & Co.KG: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P4] Retrying employer Johannesbad Holding SE & Co.KG in 5 seconds...
+[2025-06-06T14:59:54.237Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T14:59:54.956Z] 📊 Monitor: 5/5 processes still running
+[2025-06-06T14:59:54.957Z] 📈 Progress Summary:
+[2025-06-06T14:59:54.957Z]    Process 1: 5/5000 processed, 0 successful, 0 emails, 0 websites, 4995 remaining (running)
+[2025-06-06T14:59:54.958Z]    Process 2: 3/5000 processed, 0 successful, 0 emails, 0 websites, 4997 remaining (running)
+[2025-06-06T14:59:54.958Z]    Process 3: 2/5000 processed, 0 successful, 0 emails, 0 websites, 4998 remaining (running)
+[2025-06-06T14:59:54.958Z]    Process 4: 3/5000 processed, 0 successful, 0 emails, 0 websites, 4997 remaining (running)
+[2025-06-06T14:59:54.958Z]    Process 5: 2/5000 processed, 0 successful, 0 emails, 0 websites, 4998 remaining (running)
+[2025-06-06T14:59:54.958Z] 📊 TOTAL: 15/25000 processed, 0 successful, 0 emails, 0 websites
+[2025-06-06T14:59:54.958Z] 📊 Success Rate: 0.0%, Email Discovery Rate: NaN%
+[2025-06-06T14:59:57.158Z] [P1] \n🔍 [P1] Processing employer 6/5000: Mutter-Vater-Kind-Klinik GmbH & Co KG
+[2025-06-06T14:59:57.159Z] [P1] 🔗 [P1] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10000-1202732423-S
+[2025-06-06T14:59:58.251Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #16)
+📊 [P1] Pages since last CAPTCHA: 0
+⚠️ [P1] Attempt 1 failed for employer Mutter-Vater-Kind-Klinik GmbH & Co KG: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P1] Retrying employer Mutter-Vater-Kind-Klinik GmbH & Co KG in 5 seconds...
+[2025-06-06T14:59:58.253Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T14:59:58.543Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #11)
+📊 [P2] Pages since last CAPTCHA: 0
+[2025-06-06T14:59:58.544Z] [P2] ⚠️ [P2] Attempt 2 failed for employer Stiftung Berufliche Bildung: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P2] Retrying employer Stiftung Berufliche Bildung in 5 seconds...
+[2025-06-06T14:59:58.544Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T14:59:58.705Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #9)
+📊 [P3] Pages since last CAPTCHA: 0
+[2025-06-06T14:59:58.706Z] [P3] ⚠️ [P3] Attempt 3 failed for employer Gemeinde Herscheid: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P3] Max retries reached for employer Gemeinde Herscheid
+[2025-06-06T14:59:58.707Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T14:59:58.757Z] [P3] 💾 [P3] Results saved for employer: Gemeinde Herscheid
+[2025-06-06T14:59:58.758Z] [P3] 📊 [P3] Processed: 3, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P3] Waiting 3s before next employer...
+[2025-06-06T15:00:00.174Z] [P5] 🧩 [P5] CAPTCHA detected on page 1 (CAPTCHA #9)
+[2025-06-06T15:00:00.175Z] [P5] 📊 [P5] Pages since last CAPTCHA: 0
+⚠️ [P5] Attempt 3 failed for employer UGL Gregor Lehnert Verwaltungsges. mbH: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P5] Max retries reached for employer UGL Gregor Lehnert Verwaltungsges. mbH
+[2025-06-06T15:00:00.175Z] [P5] ERROR: ❌ [P5] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P5] This indicates a problem - stopping extraction
+[2025-06-06T15:00:00.183Z] [P5] 💾 [P5] Results saved for employer: UGL Gregor Lehnert Verwaltungsges. mbH
+[2025-06-06T15:00:00.183Z] [P5] 📊 [P5] Processed: 3, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P5] Waiting 3s before next employer...
+[2025-06-06T15:00:00.319Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #11)
+[2025-06-06T15:00:00.320Z] [P4] 📊 [P4] Pages since last CAPTCHA: 0
+⚠️ [P4] Attempt 2 failed for employer Johannesbad Holding SE & Co.KG: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P4] Retrying employer Johannesbad Holding SE & Co.KG in 5 seconds...
+[2025-06-06T15:00:00.320Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T15:00:01.759Z] [P3] \n🔍 [P3] Processing employer 4/5000: Saman Roshanai
+[2025-06-06T15:00:01.759Z] [P3] 🔗 [P3] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10000-1202664085-S
+[2025-06-06T15:00:02.971Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #10)
+📊 [P3] Pages since last CAPTCHA: 0
+⚠️ [P3] Attempt 1 failed for employer Saman Roshanai: CAPTCHA frequency error: appeared after only 0 pages
+[2025-06-06T15:00:02.972Z] [P3] 🔄 [P3] Retrying employer Saman Roshanai in 5 seconds...
+[2025-06-06T15:00:02.972Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T15:00:03.184Z] [P5] \n🔍 [P5] Processing employer 4/5000: SIMunich GmbH
+[2025-06-06T15:00:03.184Z] [P5] 🔗 [P5] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/16045-k56465.3250-S
+[2025-06-06T15:00:04.291Z] [P5] 🧩 [P5] CAPTCHA detected on page 1 (CAPTCHA #10)
+📊 [P5] Pages since last CAPTCHA: 0
+⚠️ [P5] Attempt 1 failed for employer SIMunich GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P5] Retrying employer SIMunich GmbH in 5 seconds...
+[2025-06-06T15:00:04.295Z] [P5] ERROR: ❌ [P5] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P5] This indicates a problem - stopping extraction
+[2025-06-06T15:00:04.317Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #17)
+[2025-06-06T15:00:04.317Z] [P1] 📊 [P1] Pages since last CAPTCHA: 0
+⚠️ [P1] Attempt 2 failed for employer Mutter-Vater-Kind-Klinik GmbH & Co KG: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P1] Retrying employer Mutter-Vater-Kind-Klinik GmbH & Co KG in 5 seconds...
+[2025-06-06T15:00:04.318Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T15:00:04.725Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #12)
+📊 [P2] Pages since last CAPTCHA: 0
+[2025-06-06T15:00:04.725Z] [P2] ⚠️ [P2] Attempt 3 failed for employer Stiftung Berufliche Bildung: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P2] Max retries reached for employer Stiftung Berufliche Bildung
+[2025-06-06T15:00:04.725Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T15:00:04.732Z] [P2] 💾 [P2] Results saved for employer: Stiftung Berufliche Bildung
+[2025-06-06T15:00:04.732Z] [P2] 📊 [P2] Processed: 4, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P2] Waiting 3s before next employer...
+[2025-06-06T15:00:06.391Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #12)
+📊 [P4] Pages since last CAPTCHA: 0
+[2025-06-06T15:00:06.392Z] [P4] ⚠️ [P4] Attempt 3 failed for employer Johannesbad Holding SE & Co.KG: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P4] Max retries reached for employer Johannesbad Holding SE & Co.KG
+[2025-06-06T15:00:06.392Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T15:00:06.403Z] [P4] 💾 [P4] Results saved for employer: Johannesbad Holding SE & Co.KG
+[2025-06-06T15:00:06.403Z] [P4] 📊 [P4] Processed: 4, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P4] Waiting 3s before next employer...
+[2025-06-06T15:00:07.734Z] [P2] \n🔍 [P2] Processing employer 5/5000: Bergische Universität Wuppertal
+[2025-06-06T15:00:07.735Z] [P2] 🔗 [P2] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001473462-S
+[2025-06-06T15:00:08.631Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #13)
+📊 [P2] Pages since last CAPTCHA: 0
+⚠️ [P2] Attempt 1 failed for employer Bergische Universität Wuppertal: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P2] Retrying employer Bergische Universität Wuppertal in 5 seconds...
+[2025-06-06T15:00:08.632Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T15:00:09.000Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #11)
+📊 [P3] Pages since last CAPTCHA: 0
+[2025-06-06T15:00:09.001Z] [P3] ⚠️ [P3] Attempt 2 failed for employer Saman Roshanai: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P3] Retrying employer Saman Roshanai in 5 seconds...
+[2025-06-06T15:00:09.001Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T15:00:09.407Z] [P4] \n🔍 [P4] Processing employer 5/5000: Christian Büch Elektroinstallation
+[2025-06-06T15:00:09.407Z] [P4] 🔗 [P4] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001455811-S
+[2025-06-06T15:00:10.366Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #18)
+[2025-06-06T15:00:10.367Z] [P1] 📊 [P1] Pages since last CAPTCHA: 0
+⚠️ [P1] Attempt 3 failed for employer Mutter-Vater-Kind-Klinik GmbH & Co KG: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P1] Max retries reached for employer Mutter-Vater-Kind-Klinik GmbH & Co KG
+[2025-06-06T15:00:10.367Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T15:00:10.385Z] [P5] 🧩 [P5] CAPTCHA detected on page 1 (CAPTCHA #11)
+[2025-06-06T15:00:10.386Z] [P5] 📊 [P5] Pages since last CAPTCHA: 0
+⚠️ [P5] Attempt 2 failed for employer SIMunich GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P5] Retrying employer SIMunich GmbH in 5 seconds...
+[2025-06-06T15:00:10.386Z] [P5] ERROR: ❌ [P5] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P5] This indicates a problem - stopping extraction
+[2025-06-06T15:00:10.388Z] [P1] 💾 [P1] Results saved for employer: Mutter-Vater-Kind-Klinik GmbH & Co KG
+[2025-06-06T15:00:10.388Z] [P1] 📊 [P1] Processed: 6, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P1] Waiting 3s before next employer...
+[2025-06-06T15:00:10.396Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #13)
+[2025-06-06T15:00:10.397Z] [P4] 📊 [P4] Pages since last CAPTCHA: 0
+⚠️ [P4] Attempt 1 failed for employer Christian Büch Elektroinstallation: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P4] Retrying employer Christian Büch Elektroinstallation in 5 seconds...
+[2025-06-06T15:00:10.397Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T15:00:13.392Z] [P1] \n🔍 [P1] Processing employer 7/5000: Die Senatorin für Arbeit, Soziales, Jugend und Integration
+[2025-06-06T15:00:13.393Z] [P1] 🔗 [P1] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10000-1202698540-S
+[2025-06-06T15:00:14.279Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #19)
+📊 [P1] Pages since last CAPTCHA: 0
+[2025-06-06T15:00:14.279Z] [P1] ⚠️ [P1] Attempt 1 failed for employer Die Senatorin für Arbeit, Soziales, Jugend und Integration: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P1] Retrying employer Die Senatorin für Arbeit, Soziales, Jugend und Integration in 5 seconds...
+[2025-06-06T15:00:14.279Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T15:00:14.629Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #14)
+📊 [P2] Pages since last CAPTCHA: 0
+[2025-06-06T15:00:14.629Z] [P2] ⚠️ [P2] Attempt 2 failed for employer Bergische Universität Wuppertal: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P2] Retrying employer Bergische Universität Wuppertal in 5 seconds...
+[2025-06-06T15:00:14.629Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T15:00:14.996Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #12)
+[2025-06-06T15:00:14.996Z] [P3] 📊 [P3] Pages since last CAPTCHA: 0
+⚠️ [P3] Attempt 3 failed for employer Saman Roshanai: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P3] Max retries reached for employer Saman Roshanai
+[2025-06-06T15:00:14.996Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T15:00:15.027Z] [P3] 💾 [P3] Results saved for employer: Saman Roshanai
+[2025-06-06T15:00:15.027Z] [P3] 📊 [P3] Processed: 4, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P3] Waiting 3s before next employer...
+[2025-06-06T15:00:16.463Z] [P5] 🧩 [P5] CAPTCHA detected on page 1 (CAPTCHA #12)
+📊 [P5] Pages since last CAPTCHA: 0
+⚠️ [P5] Attempt 3 failed for employer SIMunich GmbH: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P5] Max retries reached for employer SIMunich GmbH
+[2025-06-06T15:00:16.464Z] [P5] ERROR: ❌ [P5] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P5] This indicates a problem - stopping extraction
+[2025-06-06T15:00:16.471Z] [P5] 💾 [P5] Results saved for employer: SIMunich GmbH
+[2025-06-06T15:00:16.471Z] [P5] 📊 [P5] Processed: 4, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P5] Waiting 3s before next employer...
+[2025-06-06T15:00:16.503Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #14)
+[2025-06-06T15:00:16.504Z] [P4] 📊 [P4] Pages since last CAPTCHA: 0
+⚠️ [P4] Attempt 2 failed for employer Christian Büch Elektroinstallation: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P4] Retrying employer Christian Büch Elektroinstallation in 5 seconds...
+[2025-06-06T15:00:16.504Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T15:00:18.029Z] [P3] \n🔍 [P3] Processing employer 5/5000: Wackler Personalservice GmbH
+[2025-06-06T15:00:18.030Z] [P3] 🔗 [P3] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/13191-5MZCZMGQ1P96J10E-S
+[2025-06-06T15:00:19.162Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #13)
+📊 [P3] Pages since last CAPTCHA: 0
+⚠️ [P3] Attempt 1 failed for employer Wackler Personalservice GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P3] Retrying employer Wackler Personalservice GmbH in 5 seconds...
+[2025-06-06T15:00:19.163Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T15:00:19.474Z] [P5] \n🔍 [P5] Processing employer 5/5000: Georg Lorenzen Fuhrunternehmen GmbH & Co. KG
+[2025-06-06T15:00:19.474Z] [P5] 🔗 [P5] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001442344-S
+[2025-06-06T15:00:20.434Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #20)
+📊 [P1] Pages since last CAPTCHA: 0
+⚠️ [P1] Attempt 2 failed for employer Die Senatorin für Arbeit, Soziales, Jugend und Integration: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P1] Retrying employer Die Senatorin für Arbeit, Soziales, Jugend und Integration in 5 seconds...
+[2025-06-06T15:00:20.438Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T15:00:20.442Z] [P5] 🧩 [P5] CAPTCHA detected on page 1 (CAPTCHA #13)
+📊 [P5] Pages since last CAPTCHA: 0
+[2025-06-06T15:00:20.442Z] [P5] ⚠️ [P5] Attempt 1 failed for employer Georg Lorenzen Fuhrunternehmen GmbH & Co. KG: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P5] Retrying employer Georg Lorenzen Fuhrunternehmen GmbH & Co. KG in 5 seconds...
+[2025-06-06T15:00:20.443Z] [P5] ERROR: ❌ [P5] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P5] This indicates a problem - stopping extraction
+[2025-06-06T15:00:20.806Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #15)
+📊 [P2] Pages since last CAPTCHA: 0
+⚠️ [P2] Attempt 3 failed for employer Bergische Universität Wuppertal: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P2] Max retries reached for employer Bergische Universität Wuppertal
+[2025-06-06T15:00:20.807Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T15:00:20.827Z] [P2] 💾 [P2] Results saved for employer: Bergische Universität Wuppertal
+[2025-06-06T15:00:20.827Z] [P2] 📊 [P2] Processed: 5, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P2] Waiting 3s before next employer...
+[2025-06-06T15:00:22.623Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #15)
+[2025-06-06T15:00:22.623Z] [P4] 📊 [P4] Pages since last CAPTCHA: 0
+⚠️ [P4] Attempt 3 failed for employer Christian Büch Elektroinstallation: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P4] Max retries reached for employer Christian Büch Elektroinstallation
+[2025-06-06T15:00:22.624Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T15:00:22.646Z] [P4] 💾 [P4] Results saved for employer: Christian Büch Elektroinstallation
+[2025-06-06T15:00:22.646Z] [P4] 📊 [P4] Processed: 5, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P4] Waiting 3s before next employer...
+[2025-06-06T15:00:23.830Z] [P2] \n🔍 [P2] Processing employer 6/5000: TAS & AutoSPA Dienstleistungen GmbH
+🔗 [P2] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001472672-S
+[2025-06-06T15:00:24.849Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #16)
+📊 [P2] Pages since last CAPTCHA: 0
+⚠️ [P2] Attempt 1 failed for employer TAS & AutoSPA Dienstleistungen GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P2] Retrying employer TAS & AutoSPA Dienstleistungen GmbH in 5 seconds...
+[2025-06-06T15:00:24.849Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T15:00:25.186Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #14)
+📊 [P3] Pages since last CAPTCHA: 0
+[2025-06-06T15:00:25.187Z] [P3] ⚠️ [P3] Attempt 2 failed for employer Wackler Personalservice GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P3] Retrying employer Wackler Personalservice GmbH in 5 seconds...
+[2025-06-06T15:00:25.187Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T15:00:25.648Z] [P4] \n🔍 [P4] Processing employer 6/5000: Kinder- und Altenheimstiftung
+🔗 [P4] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001454663-S
+[2025-06-06T15:00:26.452Z] [P5] 🧩 [P5] CAPTCHA detected on page 1 (CAPTCHA #14)
+📊 [P5] Pages since last CAPTCHA: 0
+[2025-06-06T15:00:26.452Z] [P5] ⚠️ [P5] Attempt 2 failed for employer Georg Lorenzen Fuhrunternehmen GmbH & Co. KG: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P5] Retrying employer Georg Lorenzen Fuhrunternehmen GmbH & Co. KG in 5 seconds...
+[2025-06-06T15:00:26.453Z] [P5] ERROR: ❌ [P5] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P5] This indicates a problem - stopping extraction
+[2025-06-06T15:00:26.453Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #21)
+📊 [P1] Pages since last CAPTCHA: 0
+⚠️ [P1] Attempt 3 failed for employer Die Senatorin für Arbeit, Soziales, Jugend und Integration: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P1] Max retries reached for employer Die Senatorin für Arbeit, Soziales, Jugend und Integration
+[2025-06-06T15:00:26.453Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T15:00:26.479Z] [P1] 💾 [P1] Results saved for employer: Die Senatorin für Arbeit, Soziales, Jugend und Integration
+[2025-06-06T15:00:26.479Z] [P1] 📊 [P1] Processed: 7, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P1] Waiting 3s before next employer...
+[2025-06-06T15:00:26.669Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #16)
+📊 [P4] Pages since last CAPTCHA: 0
+[2025-06-06T15:00:26.670Z] [P4] ⚠️ [P4] Attempt 1 failed for employer Kinder- und Altenheimstiftung: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P4] Retrying employer Kinder- und Altenheimstiftung in 5 seconds...
+[2025-06-06T15:00:26.670Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T15:00:29.480Z] [P1] \n🔍 [P1] Processing employer 8/5000: ARWA Personaldienstleistungen GmbH NL Berlin-Rudow
+🔗 [P1] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/14385-424-473P-25-S
+[2025-06-06T15:00:30.516Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #22)
+📊 [P1] Pages since last CAPTCHA: 0
+⚠️ [P1] Attempt 1 failed for employer ARWA Personaldienstleistungen GmbH NL Berlin-Rudow: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P1] Retrying employer ARWA Personaldienstleistungen GmbH NL Berlin-Rudow in 5 seconds...
+[2025-06-06T15:00:30.516Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T15:00:30.861Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #17)
+📊 [P2] Pages since last CAPTCHA: 0
+[2025-06-06T15:00:30.861Z] [P2] ⚠️ [P2] Attempt 2 failed for employer TAS & AutoSPA Dienstleistungen GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P2] Retrying employer TAS & AutoSPA Dienstleistungen GmbH in 5 seconds...
+[2025-06-06T15:00:30.862Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T15:00:31.226Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #15)
+[2025-06-06T15:00:31.232Z] [P3] 📊 [P3] Pages since last CAPTCHA: 0
+⚠️ [P3] Attempt 3 failed for employer Wackler Personalservice GmbH: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P3] Max retries reached for employer Wackler Personalservice GmbH
+[2025-06-06T15:00:31.233Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T15:00:31.289Z] [P3] 💾 [P3] Results saved for employer: Wackler Personalservice GmbH
+[2025-06-06T15:00:31.290Z] [P3] 📊 [P3] Processed: 5, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P3] Waiting 3s before next employer...
+[2025-06-06T15:00:32.552Z] [P5] 🧩 [P5] CAPTCHA detected on page 1 (CAPTCHA #15)
+[2025-06-06T15:00:32.553Z] [P5] 📊 [P5] Pages since last CAPTCHA: 0
+⚠️ [P5] Attempt 3 failed for employer Georg Lorenzen Fuhrunternehmen GmbH & Co. KG: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P5] Max retries reached for employer Georg Lorenzen Fuhrunternehmen GmbH & Co. KG
+[2025-06-06T15:00:32.553Z] [P5] ERROR: ❌ [P5] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P5] This indicates a problem - stopping extraction
+[2025-06-06T15:00:32.565Z] [P5] 💾 [P5] Results saved for employer: Georg Lorenzen Fuhrunternehmen GmbH & Co. KG
+[2025-06-06T15:00:32.566Z] [P5] 📊 [P5] Processed: 5, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P5] Waiting 3s before next employer...
+[2025-06-06T15:00:32.755Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #17)
+[2025-06-06T15:00:32.756Z] [P4] 📊 [P4] Pages since last CAPTCHA: 0
+⚠️ [P4] Attempt 2 failed for employer Kinder- und Altenheimstiftung: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P4] Retrying employer Kinder- und Altenheimstiftung in 5 seconds...
+[2025-06-06T15:00:32.757Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T15:00:34.290Z] [P3] \n🔍 [P3] Processing employer 6/5000: Technische Orthopädie Lübeck Jens Becker GmbH
+🔗 [P3] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001466062-S
+[2025-06-06T15:00:35.286Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #16)
+[2025-06-06T15:00:35.286Z] [P3] 📊 [P3] Pages since last CAPTCHA: 0
+⚠️ [P3] Attempt 1 failed for employer Technische Orthopädie Lübeck Jens Becker GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P3] Retrying employer Technische Orthopädie Lübeck Jens Becker GmbH in 5 seconds...
+[2025-06-06T15:00:35.287Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T15:00:35.567Z] [P5] \n🔍 [P5] Processing employer 6/5000: Kurz HolzBau GmbH
+[2025-06-06T15:00:35.567Z] [P5] 🔗 [P5] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001444427-S
+[2025-06-06T15:00:36.545Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #23)
+📊 [P1] Pages since last CAPTCHA: 0
+[2025-06-06T15:00:36.545Z] [P1] ⚠️ [P1] Attempt 2 failed for employer ARWA Personaldienstleistungen GmbH NL Berlin-Rudow: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P1] Retrying employer ARWA Personaldienstleistungen GmbH NL Berlin-Rudow in 5 seconds...
+[2025-06-06T15:00:36.546Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T15:00:36.564Z] [P5] 🧩 [P5] CAPTCHA detected on page 1 (CAPTCHA #16)
+[2025-06-06T15:00:36.564Z] [P5] 📊 [P5] Pages since last CAPTCHA: 0
+⚠️ [P5] Attempt 1 failed for employer Kurz HolzBau GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P5] Retrying employer Kurz HolzBau GmbH in 5 seconds...
+[2025-06-06T15:00:36.565Z] [P5] ERROR: ❌ [P5] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P5] This indicates a problem - stopping extraction
+[2025-06-06T15:00:36.912Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #18)
+📊 [P2] Pages since last CAPTCHA: 0
+[2025-06-06T15:00:36.912Z] [P2] ⚠️ [P2] Attempt 3 failed for employer TAS & AutoSPA Dienstleistungen GmbH: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P2] Max retries reached for employer TAS & AutoSPA Dienstleistungen GmbH
+[2025-06-06T15:00:36.912Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T15:00:36.926Z] [P2] 💾 [P2] Results saved for employer: TAS & AutoSPA Dienstleistungen GmbH
+[2025-06-06T15:00:36.926Z] [P2] 📊 [P2] Processed: 6, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P2] Waiting 3s before next employer...
+[2025-06-06T15:00:39.008Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #18)
+📊 [P4] Pages since last CAPTCHA: 0
+⚠️ [P4] Attempt 3 failed for employer Kinder- und Altenheimstiftung: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P4] Max retries reached for employer Kinder- und Altenheimstiftung
+[2025-06-06T15:00:39.009Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T15:00:39.022Z] [P4] 💾 [P4] Results saved for employer: Kinder- und Altenheimstiftung
+[2025-06-06T15:00:39.022Z] [P4] 📊 [P4] Processed: 6, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P4] Waiting 3s before next employer...
+[2025-06-06T15:00:39.927Z] [P2] \n🔍 [P2] Processing employer 7/5000: Waetrans Entsorgung und Verwaltung GmbH
+[2025-06-06T15:00:39.927Z] [P2] 🔗 [P2] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10000-1202698069-S
+[2025-06-06T15:00:41.030Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #19)
+[2025-06-06T15:00:41.030Z] [P2] 📊 [P2] Pages since last CAPTCHA: 0
+⚠️ [P2] Attempt 1 failed for employer Waetrans Entsorgung und Verwaltung GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P2] Retrying employer Waetrans Entsorgung und Verwaltung GmbH in 5 seconds...
+[2025-06-06T15:00:41.031Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T15:00:41.317Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #17)
+[2025-06-06T15:00:41.318Z] [P3] 📊 [P3] Pages since last CAPTCHA: 0
+⚠️ [P3] Attempt 2 failed for employer Technische Orthopädie Lübeck Jens Becker GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P3] Retrying employer Technische Orthopädie Lübeck Jens Becker GmbH in 5 seconds...
+[2025-06-06T15:00:41.318Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T15:00:42.026Z] [P4] \n🔍 [P4] Processing employer 7/5000: Actief Personalmangment GmbH Heilbronn
+🔗 [P4] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/12384-13252004-S
+[2025-06-06T15:00:42.813Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #24)
+📊 [P1] Pages since last CAPTCHA: 0
+[2025-06-06T15:00:42.814Z] [P1] ⚠️ [P1] Attempt 3 failed for employer ARWA Personaldienstleistungen GmbH NL Berlin-Rudow: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P1] Max retries reached for employer ARWA Personaldienstleistungen GmbH NL Berlin-Rudow
+[2025-06-06T15:00:42.814Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T15:00:42.832Z] [P1] 💾 [P1] Results saved for employer: ARWA Personaldienstleistungen GmbH NL Berlin-Rudow
+📊 [P1] Processed: 8, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P1] Waiting 3s before next employer...
+[2025-06-06T15:00:42.832Z] [P5] 🧩 [P5] CAPTCHA detected on page 1 (CAPTCHA #17)
+[2025-06-06T15:00:42.832Z] [P5] 📊 [P5] Pages since last CAPTCHA: 0
+[2025-06-06T15:00:42.832Z] [P5] ERROR: ❌ [P5] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P5] This indicates a problem - stopping extraction
+[2025-06-06T15:00:42.832Z] [P5] ⚠️ [P5] Attempt 2 failed for employer Kurz HolzBau GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P5] Retrying employer Kurz HolzBau GmbH in 5 seconds...
+[2025-06-06T15:00:43.419Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #19)
+[2025-06-06T15:00:43.419Z] [P4] 📊 [P4] Pages since last CAPTCHA: 0
+⚠️ [P4] Attempt 1 failed for employer Actief Personalmangment GmbH Heilbronn: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P4] Retrying employer Actief Personalmangment GmbH Heilbronn in 5 seconds...
+[2025-06-06T15:00:43.419Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T15:00:45.834Z] [P1] \n🔍 [P1] Processing employer 9/5000: Mike Stöter Praxis für Ergotherapie
+[2025-06-06T15:00:45.835Z] [P1] 🔗 [P1] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10000-1202719721-S
+[2025-06-06T15:00:47.032Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #25)
+📊 [P1] Pages since last CAPTCHA: 0
+[2025-06-06T15:00:47.032Z] [P1] ⚠️ [P1] Attempt 1 failed for employer Mike Stöter Praxis für Ergotherapie: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P1] Retrying employer Mike Stöter Praxis für Ergotherapie in 5 seconds...
+[2025-06-06T15:00:47.032Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T15:00:47.287Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #20)
+[2025-06-06T15:00:47.288Z] [P2] 📊 [P2] Pages since last CAPTCHA: 0
+⚠️ [P2] Attempt 2 failed for employer Waetrans Entsorgung und Verwaltung GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P2] Retrying employer Waetrans Entsorgung und Verwaltung GmbH in 5 seconds...
+[2025-06-06T15:00:47.288Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T15:00:47.508Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #18)
+[2025-06-06T15:00:47.508Z] [P3] 📊 [P3] Pages since last CAPTCHA: 0
+⚠️ [P3] Attempt 3 failed for employer Technische Orthopädie Lübeck Jens Becker GmbH: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P3] Max retries reached for employer Technische Orthopädie Lübeck Jens Becker GmbH
+[2025-06-06T15:00:47.509Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T15:00:47.540Z] [P3] 💾 [P3] Results saved for employer: Technische Orthopädie Lübeck Jens Becker GmbH
+[2025-06-06T15:00:47.541Z] [P3] 📊 [P3] Processed: 6, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P3] Waiting 3s before next employer...
+[2025-06-06T15:00:49.265Z] [P5] 🧩 [P5] CAPTCHA detected on page 1 (CAPTCHA #18)
+📊 [P5] Pages since last CAPTCHA: 0
+⚠️ [P5] Attempt 3 failed for employer Kurz HolzBau GmbH: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P5] Max retries reached for employer Kurz HolzBau GmbH
+[2025-06-06T15:00:49.269Z] [P5] ERROR: ❌ [P5] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P5] This indicates a problem - stopping extraction
+[2025-06-06T15:00:49.289Z] [P5] 💾 [P5] Results saved for employer: Kurz HolzBau GmbH
+[2025-06-06T15:00:49.290Z] [P5] 📊 [P5] Processed: 6, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P5] Waiting 3s before next employer...
+[2025-06-06T15:00:49.642Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #20)
+📊 [P4] Pages since last CAPTCHA: 0
+[2025-06-06T15:00:49.643Z] [P4] ⚠️ [P4] Attempt 2 failed for employer Actief Personalmangment GmbH Heilbronn: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P4] Retrying employer Actief Personalmangment GmbH Heilbronn in 5 seconds...
+[2025-06-06T15:00:49.643Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T15:00:50.542Z] [P3] \n🔍 [P3] Processing employer 7/5000: Hofele Blechbearbeitung GmbH
+[2025-06-06T15:00:50.543Z] [P3] 🔗 [P3] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10000-1202662165-S
+[2025-06-06T15:00:51.563Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #19)
+[2025-06-06T15:00:51.563Z] [P3] 📊 [P3] Pages since last CAPTCHA: 0
+⚠️ [P3] Attempt 1 failed for employer Hofele Blechbearbeitung GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P3] Retrying employer Hofele Blechbearbeitung GmbH in 5 seconds...
+[2025-06-06T15:00:51.564Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T15:00:52.294Z] [P5] \n🔍 [P5] Processing employer 7/5000: VOLKSWAGEN GROUP Original Teile Logistik, Vertrieb & Services GmbH
+🔗 [P5] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/16818-100706142-S
+[2025-06-06T15:00:53.531Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #26)
+📊 [P1] Pages since last CAPTCHA: 0
+⚠️ [P1] Attempt 2 failed for employer Mike Stöter Praxis für Ergotherapie: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P1] Retrying employer Mike Stöter Praxis für Ergotherapie in 5 seconds...
+[2025-06-06T15:00:53.532Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T15:00:53.650Z] [P5] ⚠️ [P5] Attempt 1 failed for employer VOLKSWAGEN GROUP Original Teile Logistik, Vertrieb & Services GmbH: this.emailExtractor.extractEmailsFromContent is not a function
+[2025-06-06T15:00:53.651Z] [P5] 🔄 [P5] Retrying employer VOLKSWAGEN GROUP Original Teile Logistik, Vertrieb & Services GmbH in 5 seconds...
+[2025-06-06T15:00:53.824Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #21)
+📊 [P2] Pages since last CAPTCHA: 0
+[2025-06-06T15:00:53.824Z] [P2] ⚠️ [P2] Attempt 3 failed for employer Waetrans Entsorgung und Verwaltung GmbH: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P2] Max retries reached for employer Waetrans Entsorgung und Verwaltung GmbH
+[2025-06-06T15:00:53.825Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T15:00:53.837Z] [P2] 💾 [P2] Results saved for employer: Waetrans Entsorgung und Verwaltung GmbH
+[2025-06-06T15:00:53.839Z] [P2] 📊 [P2] Processed: 7, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P2] Waiting 3s before next employer...
+[2025-06-06T15:00:54.956Z] 📊 Monitor: 5/5 processes still running
+[2025-06-06T15:00:54.957Z] 📈 Progress Summary:
+[2025-06-06T15:00:54.957Z]    Process 1: 8/5000 processed, 0 successful, 0 emails, 0 websites, 4992 remaining (running)
+[2025-06-06T15:00:54.957Z]    Process 2: 7/5000 processed, 0 successful, 0 emails, 0 websites, 4993 remaining (running)
+[2025-06-06T15:00:54.957Z]    Process 3: 6/5000 processed, 0 successful, 0 emails, 0 websites, 4994 remaining (running)
+[2025-06-06T15:00:54.957Z]    Process 4: 6/5000 processed, 0 successful, 0 emails, 0 websites, 4994 remaining (running)
+[2025-06-06T15:00:54.957Z]    Process 5: 6/5000 processed, 0 successful, 0 emails, 0 websites, 4994 remaining (running)
+[2025-06-06T15:00:54.957Z] 📊 TOTAL: 33/25000 processed, 0 successful, 0 emails, 0 websites
+[2025-06-06T15:00:54.957Z] 📊 Success Rate: 0.0%, Email Discovery Rate: NaN%
+[2025-06-06T15:00:55.668Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #21)
+[2025-06-06T15:00:55.668Z] [P4] 📊 [P4] Pages since last CAPTCHA: 0
+⚠️ [P4] Attempt 3 failed for employer Actief Personalmangment GmbH Heilbronn: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P4] Max retries reached for employer Actief Personalmangment GmbH Heilbronn
+[2025-06-06T15:00:55.669Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T15:00:55.673Z] [P4] 💾 [P4] Results saved for employer: Actief Personalmangment GmbH Heilbronn
+[2025-06-06T15:00:55.674Z] [P4] 📊 [P4] Processed: 7, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P4] Waiting 3s before next employer...
+[2025-06-06T15:00:56.840Z] [P2] \n🔍 [P2] Processing employer 8/5000: Muth & Faust Rechtsanwälte in Partnerschaft
+[2025-06-06T15:00:56.840Z] [P2] 🔗 [P2] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001472352-S
+[2025-06-06T15:00:57.568Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #20)
+📊 [P3] Pages since last CAPTCHA: 0
+⚠️ [P3] Attempt 2 failed for employer Hofele Blechbearbeitung GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P3] Retrying employer Hofele Blechbearbeitung GmbH in 5 seconds...
+[2025-06-06T15:00:57.569Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T15:00:57.857Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #22)
+📊 [P2] Pages since last CAPTCHA: 0
+[2025-06-06T15:00:57.857Z] [P2] ⚠️ [P2] Attempt 1 failed for employer Muth & Faust Rechtsanwälte in Partnerschaft: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P2] Retrying employer Muth & Faust Rechtsanwälte in Partnerschaft in 5 seconds...
+[2025-06-06T15:00:57.858Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T15:00:58.675Z] [P4] \n🔍 [P4] Processing employer 8/5000: STRATX Sicherheit & Service Einzelnunternehmen
+🔗 [P4] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001453777-S
+[2025-06-06T15:00:59.581Z] [P5] ⚠️ [P5] Attempt 2 failed for employer VOLKSWAGEN GROUP Original Teile Logistik, Vertrieb & Services GmbH: this.emailExtractor.extractEmailsFromContent is not a function
+🔄 [P5] Retrying employer VOLKSWAGEN GROUP Original Teile Logistik, Vertrieb & Services GmbH in 5 seconds...
+[2025-06-06T15:00:59.581Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #27)
+📊 [P1] Pages since last CAPTCHA: 0
+⚠️ [P1] Attempt 3 failed for employer Mike Stöter Praxis für Ergotherapie: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P1] Max retries reached for employer Mike Stöter Praxis für Ergotherapie
+[2025-06-06T15:00:59.581Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T15:00:59.598Z] [P1] 💾 [P1] Results saved for employer: Mike Stöter Praxis für Ergotherapie
+[2025-06-06T15:00:59.598Z] [P1] 📊 [P1] Processed: 9, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P1] Waiting 3s before next employer...
+[2025-06-06T15:00:59.710Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #22)
+[2025-06-06T15:00:59.710Z] [P4] 📊 [P4] Pages since last CAPTCHA: 0
+⚠️ [P4] Attempt 1 failed for employer STRATX Sicherheit & Service Einzelnunternehmen: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P4] Retrying employer STRATX Sicherheit & Service Einzelnunternehmen in 5 seconds...
+[2025-06-06T15:00:59.711Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T15:01:02.654Z] [P1] \n🔍 [P1] Processing employer 10/5000: Telefónica Germany GmbH & Co. OHG
+🔗 [P1] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/16470-43436537-65-S
+[2025-06-06T15:01:03.709Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #21)
+📊 [P3] Pages since last CAPTCHA: 0
+⚠️ [P3] Attempt 3 failed for employer Hofele Blechbearbeitung GmbH: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P3] Max retries reached for employer Hofele Blechbearbeitung GmbH
+[2025-06-06T15:01:03.710Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T15:01:03.718Z] [P3] 💾 [P3] Results saved for employer: Hofele Blechbearbeitung GmbH
+[2025-06-06T15:01:03.718Z] [P3] 📊 [P3] Processed: 7, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P3] Waiting 3s before next employer...
+[2025-06-06T15:01:03.755Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #28)
+[2025-06-06T15:01:03.755Z] [P1] 📊 [P1] Pages since last CAPTCHA: 0
+⚠️ [P1] Attempt 1 failed for employer Telefónica Germany GmbH & Co. OHG: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P1] Retrying employer Telefónica Germany GmbH & Co. OHG in 5 seconds...
+[2025-06-06T15:01:03.755Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T15:01:04.021Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #23)
+📊 [P2] Pages since last CAPTCHA: 0
+[2025-06-06T15:01:04.021Z] [P2] ⚠️ [P2] Attempt 2 failed for employer Muth & Faust Rechtsanwälte in Partnerschaft: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P2] Retrying employer Muth & Faust Rechtsanwälte in Partnerschaft in 5 seconds...
+[2025-06-06T15:01:04.021Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T15:01:05.637Z] [P5] ⚠️ [P5] Attempt 3 failed for employer VOLKSWAGEN GROUP Original Teile Logistik, Vertrieb & Services GmbH: this.emailExtractor.extractEmailsFromContent is not a function
+[2025-06-06T15:01:05.637Z] [P5] ❌ [P5] Max retries reached for employer VOLKSWAGEN GROUP Original Teile Logistik, Vertrieb & Services GmbH
+[2025-06-06T15:01:05.643Z] [P5] 💾 [P5] Results saved for employer: VOLKSWAGEN GROUP Original Teile Logistik, Vertrieb & Services GmbH
+[2025-06-06T15:01:05.643Z] [P5] 📊 [P5] Processed: 7, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P5] Waiting 3s before next employer...
+[2025-06-06T15:01:05.827Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #23)
+📊 [P4] Pages since last CAPTCHA: 0
+[2025-06-06T15:01:05.828Z] [P4] ⚠️ [P4] Attempt 2 failed for employer STRATX Sicherheit & Service Einzelnunternehmen: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P4] Retrying employer STRATX Sicherheit & Service Einzelnunternehmen in 5 seconds...
+[2025-06-06T15:01:05.828Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T15:01:06.720Z] [P3] \n🔍 [P3] Processing employer 8/5000: ÜBAG Dr. Brix und Dr. Schmid
+[2025-06-06T15:01:06.720Z] [P3] 🔗 [P3] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10000-1202663956-S
+[2025-06-06T15:01:07.756Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #22)
+📊 [P3] Pages since last CAPTCHA: 0
+[2025-06-06T15:01:07.757Z] [P3] ⚠️ [P3] Attempt 1 failed for employer ÜBAG Dr. Brix und Dr. Schmid: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P3] Retrying employer ÜBAG Dr. Brix und Dr. Schmid in 5 seconds...
+[2025-06-06T15:01:07.757Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T15:01:08.645Z] [P5] \n🔍 [P5] Processing employer 8/5000: REWE digital GmbH
+🔗 [P5] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/12608-970618-4078-2-S
+[2025-06-06T15:01:09.645Z] [P5] 🧩 [P5] CAPTCHA detected on page 1 (CAPTCHA #19)
+[2025-06-06T15:01:09.646Z] [P5] 📊 [P5] Pages since last CAPTCHA: 0
+⚠️ [P5] Attempt 1 failed for employer REWE digital GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P5] Retrying employer REWE digital GmbH in 5 seconds...
+[2025-06-06T15:01:09.647Z] [P5] ERROR: ❌ [P5] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P5] This indicates a problem - stopping extraction
+[2025-06-06T15:01:09.783Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #29)
+📊 [P1] Pages since last CAPTCHA: 0
+[2025-06-06T15:01:09.784Z] [P1] ⚠️ [P1] Attempt 2 failed for employer Telefónica Germany GmbH & Co. OHG: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P1] Retrying employer Telefónica Germany GmbH & Co. OHG in 5 seconds...
+[2025-06-06T15:01:09.784Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T15:01:10.057Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #24)
+[2025-06-06T15:01:10.059Z] [P2] 📊 [P2] Pages since last CAPTCHA: 0
+[2025-06-06T15:01:10.060Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T15:01:10.061Z] [P2] ⚠️ [P2] Attempt 3 failed for employer Muth & Faust Rechtsanwälte in Partnerschaft: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P2] Max retries reached for employer Muth & Faust Rechtsanwälte in Partnerschaft
+[2025-06-06T15:01:10.104Z] [P2] 💾 [P2] Results saved for employer: Muth & Faust Rechtsanwälte in Partnerschaft
+[2025-06-06T15:01:10.104Z] [P2] 📊 [P2] Processed: 8, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P2] Waiting 3s before next employer...
+[2025-06-06T15:01:11.921Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #24)
+📊 [P4] Pages since last CAPTCHA: 0
+[2025-06-06T15:01:11.922Z] [P4] ⚠️ [P4] Attempt 3 failed for employer STRATX Sicherheit & Service Einzelnunternehmen: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P4] Max retries reached for employer STRATX Sicherheit & Service Einzelnunternehmen
+[2025-06-06T15:01:11.922Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T15:01:11.926Z] [P4] 💾 [P4] Results saved for employer: STRATX Sicherheit & Service Einzelnunternehmen
+[2025-06-06T15:01:11.926Z] [P4] 📊 [P4] Processed: 8, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P4] Waiting 3s before next employer...
+[2025-06-06T15:01:13.105Z] [P2] \n🔍 [P2] Processing employer 9/5000: Detlef Müller Praxis für Physiotherapie
+[2025-06-06T15:01:13.106Z] [P2] 🔗 [P2] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10000-1202697844-S
+[2025-06-06T15:01:13.817Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #23)
+📊 [P3] Pages since last CAPTCHA: 0
+[2025-06-06T15:01:13.818Z] [P3] ⚠️ [P3] Attempt 2 failed for employer ÜBAG Dr. Brix und Dr. Schmid: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P3] Retrying employer ÜBAG Dr. Brix und Dr. Schmid in 5 seconds...
+[2025-06-06T15:01:13.818Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T15:01:13.988Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #25)
+📊 [P2] Pages since last CAPTCHA: 0
+[2025-06-06T15:01:13.989Z] [P2] ⚠️ [P2] Attempt 1 failed for employer Detlef Müller Praxis für Physiotherapie: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P2] Retrying employer Detlef Müller Praxis für Physiotherapie in 5 seconds...
+[2025-06-06T15:01:13.989Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T15:01:14.934Z] [P4] \n🔍 [P4] Processing employer 9/5000: Schloss- und Gartenverwaltung Bamberg Burg Lauenstein
+[2025-06-06T15:01:14.934Z] [P4] 🔗 [P4] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001431734-S
+[2025-06-06T15:01:15.856Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #30)
+📊 [P1] Pages since last CAPTCHA: 0
+[2025-06-06T15:01:15.857Z] [P1] ⚠️ [P1] Attempt 3 failed for employer Telefónica Germany GmbH & Co. OHG: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P1] Max retries reached for employer Telefónica Germany GmbH & Co. OHG
+[2025-06-06T15:01:15.858Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T15:01:15.862Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #25)
+📊 [P4] Pages since last CAPTCHA: 0
+[2025-06-06T15:01:15.862Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T15:01:15.862Z] [P4] ⚠️ [P4] Attempt 1 failed for employer Schloss- und Gartenverwaltung Bamberg Burg Lauenstein: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P4] Retrying employer Schloss- und Gartenverwaltung Bamberg Burg Lauenstein in 5 seconds...
+[2025-06-06T15:01:15.882Z] [P5] 🧩 [P5] CAPTCHA detected on page 1 (CAPTCHA #20)
+📊 [P5] Pages since last CAPTCHA: 0
+⚠️ [P5] Attempt 2 failed for employer REWE digital GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P5] Retrying employer REWE digital GmbH in 5 seconds...
+[2025-06-06T15:01:15.882Z] [P5] ERROR: ❌ [P5] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P5] This indicates a problem - stopping extraction
+[2025-06-06T15:01:15.883Z] [P1] 💾 [P1] Results saved for employer: Telefónica Germany GmbH & Co. OHG
+[2025-06-06T15:01:15.883Z] [P1] 📊 [P1] Processed: 10, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P1] Waiting 3s before next employer...
+[2025-06-06T15:01:18.884Z] [P1] \n🔍 [P1] Processing employer 11/5000: KPMG AG Wirtschaftsprüfungs gesellschaft
+🔗 [P1] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/17890-43435242-65-S
+[2025-06-06T15:01:19.810Z] [P1] ⚠️ [P1] Attempt 1 failed for employer KPMG AG Wirtschaftsprüfungs gesellschaft: this.emailExtractor.extractEmailsFromContent is not a function
+🔄 [P1] Retrying employer KPMG AG Wirtschaftsprüfungs gesellschaft in 5 seconds...
+[2025-06-06T15:01:19.927Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #24)
+[2025-06-06T15:01:19.927Z] [P3] 📊 [P3] Pages since last CAPTCHA: 0
+⚠️ [P3] Attempt 3 failed for employer ÜBAG Dr. Brix und Dr. Schmid: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P3] Max retries reached for employer ÜBAG Dr. Brix und Dr. Schmid
+[2025-06-06T15:01:19.927Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T15:01:19.942Z] [P3] 💾 [P3] Results saved for employer: ÜBAG Dr. Brix und Dr. Schmid
+[2025-06-06T15:01:19.942Z] [P3] 📊 [P3] Processed: 8, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P3] Waiting 3s before next employer...
+[2025-06-06T15:01:20.004Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #26)
+[2025-06-06T15:01:20.005Z] [P2] 📊 [P2] Pages since last CAPTCHA: 0
+⚠️ [P2] Attempt 2 failed for employer Detlef Müller Praxis für Physiotherapie: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P2] Retrying employer Detlef Müller Praxis für Physiotherapie in 5 seconds...
+[2025-06-06T15:01:20.005Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T15:01:22.853Z] [P5] 🧩 [P5] CAPTCHA detected on page 1 (CAPTCHA #21)
+📊 [P5] Pages since last CAPTCHA: 0
+[2025-06-06T15:01:22.854Z] [P5] ⚠️ [P5] Attempt 3 failed for employer REWE digital GmbH: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P5] Max retries reached for employer REWE digital GmbH
+[2025-06-06T15:01:22.854Z] [P5] ERROR: ❌ [P5] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P5] This indicates a problem - stopping extraction
+[2025-06-06T15:01:22.862Z] [P5] 💾 [P5] Results saved for employer: REWE digital GmbH
+[2025-06-06T15:01:22.862Z] [P5] 📊 [P5] Processed: 8, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P5] Waiting 3s before next employer...
+[2025-06-06T15:01:22.897Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #26)
+[2025-06-06T15:01:22.898Z] [P4] 📊 [P4] Pages since last CAPTCHA: 0
+⚠️ [P4] Attempt 2 failed for employer Schloss- und Gartenverwaltung Bamberg Burg Lauenstein: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P4] Retrying employer Schloss- und Gartenverwaltung Bamberg Burg Lauenstein in 5 seconds...
+[2025-06-06T15:01:22.898Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T15:01:22.945Z] [P3] \n🔍 [P3] Processing employer 9/5000: ModuleWorks GmbH Softwareentwicklung
+[2025-06-06T15:01:22.946Z] [P3] 🔗 [P3] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10000-1202662954-S
+[2025-06-06T15:01:24.109Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #25)
+📊 [P3] Pages since last CAPTCHA: 0
+⚠️ [P3] Attempt 1 failed for employer ModuleWorks GmbH Softwareentwicklung: CAPTCHA frequency error: appeared after only 0 pages
+[2025-06-06T15:01:24.109Z] [P3] 🔄 [P3] Retrying employer ModuleWorks GmbH Softwareentwicklung in 5 seconds...
+[2025-06-06T15:01:24.109Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T15:01:25.750Z] [P1] ⚠️ [P1] Attempt 2 failed for employer KPMG AG Wirtschaftsprüfungs gesellschaft: this.emailExtractor.extractEmailsFromContent is not a function
+🔄 [P1] Retrying employer KPMG AG Wirtschaftsprüfungs gesellschaft in 5 seconds...
+[2025-06-06T15:01:25.864Z] [P5] \n🔍 [P5] Processing employer 9/5000: Bilfinger arnholdt GmbH
+[2025-06-06T15:01:25.865Z] [P5] 🔗 [P5] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/12510-8192-S
+[2025-06-06T15:01:25.964Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #27)
+📊 [P2] Pages since last CAPTCHA: 0
+[2025-06-06T15:01:25.964Z] [P2] ⚠️ [P2] Attempt 3 failed for employer Detlef Müller Praxis für Physiotherapie: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P2] Max retries reached for employer Detlef Müller Praxis für Physiotherapie
+[2025-06-06T15:01:25.964Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T15:01:25.971Z] [P2] 💾 [P2] Results saved for employer: Detlef Müller Praxis für Physiotherapie
+[2025-06-06T15:01:25.971Z] [P2] 📊 [P2] Processed: 9, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P2] Waiting 3s before next employer...
+[2025-06-06T15:01:26.791Z] [P5] ⚠️ [P5] Attempt 1 failed for employer Bilfinger arnholdt GmbH: this.emailExtractor.extractEmailsFromContent is not a function
+🔄 [P5] Retrying employer Bilfinger arnholdt GmbH in 5 seconds...
+[2025-06-06T15:01:28.945Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #27)
+[2025-06-06T15:01:28.946Z] [P4] 📊 [P4] Pages since last CAPTCHA: 0
+⚠️ [P4] Attempt 3 failed for employer Schloss- und Gartenverwaltung Bamberg Burg Lauenstein: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P4] Max retries reached for employer Schloss- und Gartenverwaltung Bamberg Burg Lauenstein
+[2025-06-06T15:01:28.946Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T15:01:28.967Z] [P4] 💾 [P4] Results saved for employer: Schloss- und Gartenverwaltung Bamberg Burg Lauenstein
+[2025-06-06T15:01:28.968Z] [P4] 📊 [P4] Processed: 9, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P4] Waiting 3s before next employer...
+[2025-06-06T15:01:28.973Z] [P2] \n🔍 [P2] Processing employer 10/5000: Getränkeland Heidebrecht GmbH & Co. KG
+[2025-06-06T15:01:28.974Z] [P2] 🔗 [P2] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001475432-S
+[2025-06-06T15:01:30.023Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #28)
+📊 [P2] Pages since last CAPTCHA: 0
+⚠️ [P2] Attempt 1 failed for employer Getränkeland Heidebrecht GmbH & Co. KG: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P2] Retrying employer Getränkeland Heidebrecht GmbH & Co. KG in 5 seconds...
+[2025-06-06T15:01:30.024Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T15:01:30.205Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #26)
+[2025-06-06T15:01:30.205Z] [P3] 📊 [P3] Pages since last CAPTCHA: 0
+⚠️ [P3] Attempt 2 failed for employer ModuleWorks GmbH Softwareentwicklung: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P3] Retrying employer ModuleWorks GmbH Softwareentwicklung in 5 seconds...
+[2025-06-06T15:01:30.205Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T15:01:31.704Z] [P1] ⚠️ [P1] Attempt 3 failed for employer KPMG AG Wirtschaftsprüfungs gesellschaft: this.emailExtractor.extractEmailsFromContent is not a function
+[2025-06-06T15:01:31.705Z] [P1] ❌ [P1] Max retries reached for employer KPMG AG Wirtschaftsprüfungs gesellschaft
+[2025-06-06T15:01:31.717Z] [P1] 💾 [P1] Results saved for employer: KPMG AG Wirtschaftsprüfungs gesellschaft
+[2025-06-06T15:01:31.718Z] [P1] 📊 [P1] Processed: 11, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P1] Waiting 3s before next employer...
+[2025-06-06T15:01:31.969Z] [P4] \n🔍 [P4] Processing employer 10/5000: Holzbau Franke GmbH
+🔗 [P4] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001454768-S
+[2025-06-06T15:01:32.771Z] [P5] ⚠️ [P5] Attempt 2 failed for employer Bilfinger arnholdt GmbH: this.emailExtractor.extractEmailsFromContent is not a function
+🔄 [P5] Retrying employer Bilfinger arnholdt GmbH in 5 seconds...
+[2025-06-06T15:01:33.019Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #28)
+📊 [P4] Pages since last CAPTCHA: 0
+[2025-06-06T15:01:33.020Z] [P4] ⚠️ [P4] Attempt 1 failed for employer Holzbau Franke GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P4] Retrying employer Holzbau Franke GmbH in 5 seconds...
+[2025-06-06T15:01:33.020Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T15:01:34.719Z] [P1] \n🔍 [P1] Processing employer 12/5000: Deco Window Polska Sp. z.o.o.
+[2025-06-06T15:01:34.720Z] [P1] 🔗 [P1] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10000-1202699929-S
+[2025-06-06T15:01:35.717Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #31)
+📊 [P1] Pages since last CAPTCHA: 0
+⚠️ [P1] Attempt 1 failed for employer Deco Window Polska Sp. z.o.o.: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P1] Retrying employer Deco Window Polska Sp. z.o.o. in 5 seconds...
+[2025-06-06T15:01:35.718Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T15:01:36.057Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #29)
+📊 [P2] Pages since last CAPTCHA: 0
+⚠️ [P2] Attempt 2 failed for employer Getränkeland Heidebrecht GmbH & Co. KG: CAPTCHA frequency error: appeared after only 0 pages
+[2025-06-06T15:01:36.057Z] [P2] 🔄 [P2] Retrying employer Getränkeland Heidebrecht GmbH & Co. KG in 5 seconds...
+[2025-06-06T15:01:36.057Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T15:01:36.243Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #27)
+[2025-06-06T15:01:36.243Z] [P3] 📊 [P3] Pages since last CAPTCHA: 0
+⚠️ [P3] Attempt 3 failed for employer ModuleWorks GmbH Softwareentwicklung: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P3] Max retries reached for employer ModuleWorks GmbH Softwareentwicklung
+[2025-06-06T15:01:36.243Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T15:01:36.253Z] [P3] 💾 [P3] Results saved for employer: ModuleWorks GmbH Softwareentwicklung
+[2025-06-06T15:01:36.254Z] [P3] 📊 [P3] Processed: 9, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P3] Waiting 3s before next employer...
+[2025-06-06T15:01:38.724Z] [P5] ⚠️ [P5] Attempt 3 failed for employer Bilfinger arnholdt GmbH: this.emailExtractor.extractEmailsFromContent is not a function
+❌ [P5] Max retries reached for employer Bilfinger arnholdt GmbH
+[2025-06-06T15:01:38.738Z] [P5] 💾 [P5] Results saved for employer: Bilfinger arnholdt GmbH
+[2025-06-06T15:01:38.738Z] [P5] 📊 [P5] Processed: 9, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P5] Waiting 3s before next employer...
+[2025-06-06T15:01:39.060Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #29)
+📊 [P4] Pages since last CAPTCHA: 0
+[2025-06-06T15:01:39.061Z] [P4] ⚠️ [P4] Attempt 2 failed for employer Holzbau Franke GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P4] Retrying employer Holzbau Franke GmbH in 5 seconds...
+[2025-06-06T15:01:39.061Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T15:01:39.257Z] [P3] \n🔍 [P3] Processing employer 10/5000: Vermessungsbüro Hesse
+[2025-06-06T15:01:39.257Z] [P3] 🔗 [P3] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10000-1202663967-S
+[2025-06-06T15:01:40.302Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #28)
+📊 [P3] Pages since last CAPTCHA: 0
+[2025-06-06T15:01:40.302Z] [P3] ⚠️ [P3] Attempt 1 failed for employer Vermessungsbüro Hesse: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P3] Retrying employer Vermessungsbüro Hesse in 5 seconds...
+[2025-06-06T15:01:40.302Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T15:01:41.718Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #32)
+📊 [P1] Pages since last CAPTCHA: 0
+⚠️ [P1] Attempt 2 failed for employer Deco Window Polska Sp. z.o.o.: CAPTCHA frequency error: appeared after only 0 pages
+[2025-06-06T15:01:41.719Z] [P1] 🔄 [P1] Retrying employer Deco Window Polska Sp. z.o.o. in 5 seconds...
+[2025-06-06T15:01:41.719Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T15:01:41.739Z] [P5] \n🔍 [P5] Processing employer 10/5000: Finitex GmbH & Co. KG
+[2025-06-06T15:01:41.740Z] [P5] 🔗 [P5] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10000-1202562410-S
+[2025-06-06T15:01:42.074Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #30)
+📊 [P2] Pages since last CAPTCHA: 0
+⚠️ [P2] Attempt 3 failed for employer Getränkeland Heidebrecht GmbH & Co. KG: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P2] Max retries reached for employer Getränkeland Heidebrecht GmbH & Co. KG
+[2025-06-06T15:01:42.074Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T15:01:42.084Z] [P2] 💾 [P2] Results saved for employer: Getränkeland Heidebrecht GmbH & Co. KG
+[2025-06-06T15:01:42.084Z] [P2] 📊 [P2] Processed: 10, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P2] Waiting 3s before next employer...
+[2025-06-06T15:01:42.801Z] [P5] 🧩 [P5] CAPTCHA detected on page 1 (CAPTCHA #22)
+📊 [P5] Pages since last CAPTCHA: 0
+[2025-06-06T15:01:42.801Z] [P5] ⚠️ [P5] Attempt 1 failed for employer Finitex GmbH & Co. KG: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P5] Retrying employer Finitex GmbH & Co. KG in 5 seconds...
+[2025-06-06T15:01:42.801Z] [P5] ERROR: ❌ [P5] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P5] This indicates a problem - stopping extraction
+[2025-06-06T15:01:45.053Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #30)
+📊 [P4] Pages since last CAPTCHA: 0
+[2025-06-06T15:01:45.054Z] [P4] ⚠️ [P4] Attempt 3 failed for employer Holzbau Franke GmbH: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P4] Max retries reached for employer Holzbau Franke GmbH
+[2025-06-06T15:01:45.054Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T15:01:45.066Z] [P4] 💾 [P4] Results saved for employer: Holzbau Franke GmbH
+[2025-06-06T15:01:45.067Z] [P4] 📊 [P4] Processed: 10, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P4] Waiting 3s before next employer...
+[2025-06-06T15:01:45.085Z] [P2] \n🔍 [P2] Processing employer 11/5000: TÜV Rheinland Plus GmbH
+[2025-06-06T15:01:45.086Z] [P2] 🔗 [P2] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001475435-S
+[2025-06-06T15:01:46.123Z] [P2] ⚠️ [P2] Attempt 1 failed for employer TÜV Rheinland Plus GmbH: this.emailExtractor.extractEmailsFromContent is not a function
+🔄 [P2] Retrying employer TÜV Rheinland Plus GmbH in 5 seconds...
+[2025-06-06T15:01:46.385Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #29)
+📊 [P3] Pages since last CAPTCHA: 0
+[2025-06-06T15:01:46.385Z] [P3] ⚠️ [P3] Attempt 2 failed for employer Vermessungsbüro Hesse: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P3] Retrying employer Vermessungsbüro Hesse in 5 seconds...
+[2025-06-06T15:01:46.386Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T15:01:47.757Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #33)
+📊 [P1] Pages since last CAPTCHA: 0
+[2025-06-06T15:01:47.758Z] [P1] ⚠️ [P1] Attempt 3 failed for employer Deco Window Polska Sp. z.o.o.: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P1] Max retries reached for employer Deco Window Polska Sp. z.o.o.
+[2025-06-06T15:01:47.758Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T15:01:47.781Z] [P1] 💾 [P1] Results saved for employer: Deco Window Polska Sp. z.o.o.
+[2025-06-06T15:01:47.781Z] [P1] 📊 [P1] Processed: 12, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P1] Waiting 3s before next employer...
+[2025-06-06T15:01:48.069Z] [P4] \n🔍 [P4] Processing employer 11/5000: Gilbert & Schmalriede Technology GmbH
+[2025-06-06T15:01:48.069Z] [P4] 🔗 [P4] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/18199-0056491014-S
+[2025-06-06T15:01:48.833Z] [P5] 🧩 [P5] CAPTCHA detected on page 1 (CAPTCHA #23)
+📊 [P5] Pages since last CAPTCHA: 0
+⚠️ [P5] Attempt 2 failed for employer Finitex GmbH & Co. KG: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P5] Retrying employer Finitex GmbH & Co. KG in 5 seconds...
+[2025-06-06T15:01:48.834Z] [P5] ERROR: ❌ [P5] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P5] This indicates a problem - stopping extraction
+[2025-06-06T15:01:49.121Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #31)
+📊 [P4] Pages since last CAPTCHA: 0
+[2025-06-06T15:01:49.122Z] [P4] ⚠️ [P4] Attempt 1 failed for employer Gilbert & Schmalriede Technology GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P4] Retrying employer Gilbert & Schmalriede Technology GmbH in 5 seconds...
+[2025-06-06T15:01:49.122Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T15:01:50.783Z] [P1] \n🔍 [P1] Processing employer 13/5000: Aramark Holding Deutschland GmbH
+[2025-06-06T15:01:50.784Z] [P1] 🔗 [P1] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/15874-43435562-65-S
+[2025-06-06T15:01:51.850Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #34)
+📊 [P1] Pages since last CAPTCHA: 0
+⚠️ [P1] Attempt 1 failed for employer Aramark Holding Deutschland GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P1] Retrying employer Aramark Holding Deutschland GmbH in 5 seconds...
+[2025-06-06T15:01:51.852Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T15:01:52.038Z] [P2] ⚠️ [P2] Attempt 2 failed for employer TÜV Rheinland Plus GmbH: this.emailExtractor.extractEmailsFromContent is not a function
+🔄 [P2] Retrying employer TÜV Rheinland Plus GmbH in 5 seconds...
+[2025-06-06T15:01:52.403Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #30)
+📊 [P3] Pages since last CAPTCHA: 0
+[2025-06-06T15:01:52.403Z] [P3] ⚠️ [P3] Attempt 3 failed for employer Vermessungsbüro Hesse: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P3] Max retries reached for employer Vermessungsbüro Hesse
+[2025-06-06T15:01:52.403Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T15:01:52.422Z] [P3] 💾 [P3] Results saved for employer: Vermessungsbüro Hesse
+[2025-06-06T15:01:52.422Z] [P3] 📊 [P3] Processed: 10, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P3] Waiting 3s before next employer...
+[2025-06-06T15:01:54.973Z] [P5] 🧩 [P5] CAPTCHA detected on page 1 (CAPTCHA #24)
+📊 [P5] Pages since last CAPTCHA: 0
+⚠️ [P5] Attempt 3 failed for employer Finitex GmbH & Co. KG: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P5] Max retries reached for employer Finitex GmbH & Co. KG
+[2025-06-06T15:01:54.974Z] [P5] ERROR: ❌ [P5] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P5] This indicates a problem - stopping extraction
+[2025-06-06T15:01:54.982Z] [P5] 💾 [P5] Results saved for employer: Finitex GmbH & Co. KG
+[2025-06-06T15:01:54.982Z] [P5] 📊 [P5] Processed: 10, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P5] Waiting 3s before next employer...
+[2025-06-06T15:01:55.011Z] 📊 Monitor: 5/5 processes still running
+[2025-06-06T15:01:55.012Z] 📈 Progress Summary:
+[2025-06-06T15:01:55.012Z]    Process 1: 12/5000 processed, 0 successful, 0 emails, 0 websites, 4988 remaining (running)
+[2025-06-06T15:01:55.012Z]    Process 2: 10/5000 processed, 0 successful, 0 emails, 0 websites, 4990 remaining (running)
+[2025-06-06T15:01:55.012Z]    Process 3: 10/5000 processed, 0 successful, 0 emails, 0 websites, 4990 remaining (running)
+[2025-06-06T15:01:55.012Z]    Process 4: 10/5000 processed, 0 successful, 0 emails, 0 websites, 4990 remaining (running)
+[2025-06-06T15:01:55.012Z]    Process 5: 10/5000 processed, 0 successful, 0 emails, 0 websites, 4990 remaining (running)
+[2025-06-06T15:01:55.012Z] 📊 TOTAL: 52/25000 processed, 0 successful, 0 emails, 0 websites
+[2025-06-06T15:01:55.012Z] 📊 Success Rate: 0.0%, Email Discovery Rate: NaN%
+[2025-06-06T15:01:55.202Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #32)
+[2025-06-06T15:01:55.202Z] [P4] 📊 [P4] Pages since last CAPTCHA: 0
+⚠️ [P4] Attempt 2 failed for employer Gilbert & Schmalriede Technology GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P4] Retrying employer Gilbert & Schmalriede Technology GmbH in 5 seconds...
+[2025-06-06T15:01:55.202Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T15:01:55.425Z] [P3] \n🔍 [P3] Processing employer 11/5000: mitcaps GmbH
+[2025-06-06T15:01:55.425Z] [P3] 🔗 [P3] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001466836-S
+[2025-06-06T15:01:56.326Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #31)
+📊 [P3] Pages since last CAPTCHA: 0
+[2025-06-06T15:01:56.326Z] [P3] ⚠️ [P3] Attempt 1 failed for employer mitcaps GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P3] Retrying employer mitcaps GmbH in 5 seconds...
+[2025-06-06T15:01:56.327Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T15:01:57.964Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #35)
+📊 [P1] Pages since last CAPTCHA: 0
+⚠️ [P1] Attempt 2 failed for employer Aramark Holding Deutschland GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P1] Retrying employer Aramark Holding Deutschland GmbH in 5 seconds...
+[2025-06-06T15:01:57.969Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T15:01:57.983Z] [P5] \n🔍 [P5] Processing employer 11/5000: DPL Deutsche Personalleasing GmbH
+[2025-06-06T15:01:57.984Z] [P5] 🔗 [P5] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001441496-S
+[2025-06-06T15:01:58.003Z] [P2] ⚠️ [P2] Attempt 3 failed for employer TÜV Rheinland Plus GmbH: this.emailExtractor.extractEmailsFromContent is not a function
+❌ [P2] Max retries reached for employer TÜV Rheinland Plus GmbH
+[2025-06-06T15:01:58.025Z] [P2] 💾 [P2] Results saved for employer: TÜV Rheinland Plus GmbH
+[2025-06-06T15:01:58.025Z] [P2] 📊 [P2] Processed: 11, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P2] Waiting 3s before next employer...
+[2025-06-06T15:01:58.998Z] [P5] 🧩 [P5] CAPTCHA detected on page 1 (CAPTCHA #25)
+📊 [P5] Pages since last CAPTCHA: 0
+[2025-06-06T15:01:58.999Z] [P5] ⚠️ [P5] Attempt 1 failed for employer DPL Deutsche Personalleasing GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P5] Retrying employer DPL Deutsche Personalleasing GmbH in 5 seconds...
+[2025-06-06T15:01:58.999Z] [P5] ERROR: ❌ [P5] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P5] This indicates a problem - stopping extraction
+[2025-06-06T15:02:01.027Z] [P2] \n🔍 [P2] Processing employer 12/5000: Forschungsgesellschaft für Arbeitsphysiologie u. Arbeitss chutz e. V.
+🔗 [P2] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001475078-S
+[2025-06-06T15:02:01.270Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #33)
+📊 [P4] Pages since last CAPTCHA: 0
+[2025-06-06T15:02:01.270Z] [P4] ⚠️ [P4] Attempt 3 failed for employer Gilbert & Schmalriede Technology GmbH: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P4] Max retries reached for employer Gilbert & Schmalriede Technology GmbH
+[2025-06-06T15:02:01.270Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T15:02:01.281Z] [P4] 💾 [P4] Results saved for employer: Gilbert & Schmalriede Technology GmbH
+[2025-06-06T15:02:01.281Z] [P4] 📊 [P4] Processed: 11, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P4] Waiting 3s before next employer...
+[2025-06-06T15:02:02.091Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #31)
+📊 [P2] Pages since last CAPTCHA: 0
+[2025-06-06T15:02:02.091Z] [P2] ⚠️ [P2] Attempt 1 failed for employer Forschungsgesellschaft für Arbeitsphysiologie u. Arbeitss chutz e. V.: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P2] Retrying employer Forschungsgesellschaft für Arbeitsphysiologie u. Arbeitss chutz e. V. in 5 seconds...
+[2025-06-06T15:02:02.092Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T15:02:02.393Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #32)
+[2025-06-06T15:02:02.393Z] [P3] 📊 [P3] Pages since last CAPTCHA: 0
+⚠️ [P3] Attempt 2 failed for employer mitcaps GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P3] Retrying employer mitcaps GmbH in 5 seconds...
+[2025-06-06T15:02:02.394Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T15:02:04.019Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #36)
+📊 [P1] Pages since last CAPTCHA: 0
+⚠️ [P1] Attempt 3 failed for employer Aramark Holding Deutschland GmbH: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P1] Max retries reached for employer Aramark Holding Deutschland GmbH
+[2025-06-06T15:02:04.019Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T15:02:04.027Z] [P1] 💾 [P1] Results saved for employer: Aramark Holding Deutschland GmbH
+[2025-06-06T15:02:04.028Z] [P1] 📊 [P1] Processed: 13, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P1] Waiting 3s before next employer...
+[2025-06-06T15:02:04.286Z] [P4] \n🔍 [P4] Processing employer 12/5000: MVZ Erfde gGmbH
+[2025-06-06T15:02:04.287Z] [P4] 🔗 [P4] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10000-1202622701-S
+[2025-06-06T15:02:05.171Z] [P5] 🧩 [P5] CAPTCHA detected on page 1 (CAPTCHA #26)
+📊 [P5] Pages since last CAPTCHA: 0
+⚠️ [P5] Attempt 2 failed for employer DPL Deutsche Personalleasing GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P5] Retrying employer DPL Deutsche Personalleasing GmbH in 5 seconds...
+[2025-06-06T15:02:05.172Z] [P5] ERROR: ❌ [P5] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P5] This indicates a problem - stopping extraction
+[2025-06-06T15:02:05.322Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #34)
+[2025-06-06T15:02:05.322Z] [P4] 📊 [P4] Pages since last CAPTCHA: 0
+⚠️ [P4] Attempt 1 failed for employer MVZ Erfde gGmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P4] Retrying employer MVZ Erfde gGmbH in 5 seconds...
+[2025-06-06T15:02:05.323Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T15:02:07.030Z] [P1] \n🔍 [P1] Processing employer 14/5000: ARWA Personaldienstleistungen GmbH
+🔗 [P1] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/14385-415-468P-25-S
+[2025-06-06T15:02:08.136Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #37)
+📊 [P1] Pages since last CAPTCHA: 0
+⚠️ [P1] Attempt 1 failed for employer ARWA Personaldienstleistungen GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P1] Retrying employer ARWA Personaldienstleistungen GmbH in 5 seconds...
+[2025-06-06T15:02:08.136Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T15:02:08.244Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #32)
+📊 [P2] Pages since last CAPTCHA: 0
+[2025-06-06T15:02:08.244Z] [P2] ⚠️ [P2] Attempt 2 failed for employer Forschungsgesellschaft für Arbeitsphysiologie u. Arbeitss chutz e. V.: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P2] Retrying employer Forschungsgesellschaft für Arbeitsphysiologie u. Arbeitss chutz e. V. in 5 seconds...
+[2025-06-06T15:02:08.244Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T15:02:08.524Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #33)
+[2025-06-06T15:02:08.524Z] [P3] 📊 [P3] Pages since last CAPTCHA: 0
+⚠️ [P3] Attempt 3 failed for employer mitcaps GmbH: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P3] Max retries reached for employer mitcaps GmbH
+[2025-06-06T15:02:08.524Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T15:02:08.560Z] [P3] 💾 [P3] Results saved for employer: mitcaps GmbH
+[2025-06-06T15:02:08.561Z] [P3] 📊 [P3] Processed: 11, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P3] Waiting 3s before next employer...
+[2025-06-06T15:02:11.246Z] [P5] 🧩 [P5] CAPTCHA detected on page 1 (CAPTCHA #27)
+[2025-06-06T15:02:11.246Z] [P5] 📊 [P5] Pages since last CAPTCHA: 0
+⚠️ [P5] Attempt 3 failed for employer DPL Deutsche Personalleasing GmbH: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P5] Max retries reached for employer DPL Deutsche Personalleasing GmbH
+[2025-06-06T15:02:11.246Z] [P5] ERROR: ❌ [P5] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P5] This indicates a problem - stopping extraction
+[2025-06-06T15:02:11.256Z] [P5] 💾 [P5] Results saved for employer: DPL Deutsche Personalleasing GmbH
+[2025-06-06T15:02:11.257Z] [P5] 📊 [P5] Processed: 11, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P5] Waiting 3s before next employer...
+[2025-06-06T15:02:11.361Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #35)
+[2025-06-06T15:02:11.362Z] [P4] 📊 [P4] Pages since last CAPTCHA: 0
+⚠️ [P4] Attempt 2 failed for employer MVZ Erfde gGmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P4] Retrying employer MVZ Erfde gGmbH in 5 seconds...
+[2025-06-06T15:02:11.362Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T15:02:11.562Z] [P3] \n🔍 [P3] Processing employer 12/5000: Grünwerk GmbH
+[2025-06-06T15:02:11.562Z] [P3] 🔗 [P3] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001466166-S
+[2025-06-06T15:02:12.622Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #34)
+[2025-06-06T15:02:12.623Z] [P3] 📊 [P3] Pages since last CAPTCHA: 0
+⚠️ [P3] Attempt 1 failed for employer Grünwerk GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P3] Retrying employer Grünwerk GmbH in 5 seconds...
+[2025-06-06T15:02:12.623Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction
+[2025-06-06T15:02:14.237Z] [P1] 🧩 [P1] CAPTCHA detected on page 1 (CAPTCHA #38)
+📊 [P1] Pages since last CAPTCHA: 0
+⚠️ [P1] Attempt 2 failed for employer ARWA Personaldienstleistungen GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P1] Retrying employer ARWA Personaldienstleistungen GmbH in 5 seconds...
+[2025-06-06T15:02:14.238Z] [P1] ERROR: ❌ [P1] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P1] This indicates a problem - stopping extraction
+[2025-06-06T15:02:14.258Z] [P5] \n🔍 [P5] Processing employer 12/5000: K 3 - Gastronomie GmbH Kaffeehaus am Markt
+[2025-06-06T15:02:14.259Z] [P5] 🔗 [P5] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001442995-S
+[2025-06-06T15:02:14.282Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #33)
+[2025-06-06T15:02:14.282Z] [P2] 📊 [P2] Pages since last CAPTCHA: 0
+⚠️ [P2] Attempt 3 failed for employer Forschungsgesellschaft für Arbeitsphysiologie u. Arbeitss chutz e. V.: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P2] Max retries reached for employer Forschungsgesellschaft für Arbeitsphysiologie u. Arbeitss chutz e. V.
+[2025-06-06T15:02:14.282Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T15:02:14.293Z] [P2] 💾 [P2] Results saved for employer: Forschungsgesellschaft für Arbeitsphysiologie u. Arbeitss chutz e. V.
+[2025-06-06T15:02:14.293Z] [P2] 📊 [P2] Processed: 12, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P2] Waiting 3s before next employer...
+[2025-06-06T15:02:15.290Z] [P5] 🧩 [P5] CAPTCHA detected on page 1 (CAPTCHA #28)
+📊 [P5] Pages since last CAPTCHA: 0
+[2025-06-06T15:02:15.291Z] [P5] ⚠️ [P5] Attempt 1 failed for employer K 3 - Gastronomie GmbH Kaffeehaus am Markt: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P5] Retrying employer K 3 - Gastronomie GmbH Kaffeehaus am Markt in 5 seconds...
+[2025-06-06T15:02:15.291Z] [P5] ERROR: ❌ [P5] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P5] This indicates a problem - stopping extraction
+[2025-06-06T15:02:17.295Z] [P2] \n🔍 [P2] Processing employer 13/5000: Lenkzeit Kraftfahrer & Logistik Personalleas. GmbH
+[2025-06-06T15:02:17.296Z] [P2] 🔗 [P2] URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001474553-S
+[2025-06-06T15:02:17.452Z] [P4] 🧩 [P4] CAPTCHA detected on page 1 (CAPTCHA #36)
+📊 [P4] Pages since last CAPTCHA: 0
+[2025-06-06T15:02:17.452Z] [P4] ⚠️ [P4] Attempt 3 failed for employer MVZ Erfde gGmbH: CAPTCHA frequency error: appeared after only 0 pages
+❌ [P4] Max retries reached for employer MVZ Erfde gGmbH
+[2025-06-06T15:02:17.452Z] [P4] ERROR: ❌ [P4] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P4] This indicates a problem - stopping extraction
+[2025-06-06T15:02:17.462Z] [P4] 💾 [P4] Results saved for employer: MVZ Erfde gGmbH
+[2025-06-06T15:02:17.462Z] [P4] 📊 [P4] Processed: 12, Successful: 0, Emails found: 0, Websites found: 0
+⏳ [P4] Waiting 3s before next employer...
+[2025-06-06T15:02:18.329Z] [P2] 🧩 [P2] CAPTCHA detected on page 1 (CAPTCHA #34)
+📊 [P2] Pages since last CAPTCHA: 0
+⚠️ [P2] Attempt 1 failed for employer Lenkzeit Kraftfahrer & Logistik Personalleas. GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P2] Retrying employer Lenkzeit Kraftfahrer & Logistik Personalleas. GmbH in 5 seconds...
+[2025-06-06T15:02:18.333Z] [P2] ERROR: ❌ [P2] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P2] This indicates a problem - stopping extraction
+[2025-06-06T15:02:18.673Z] [P3] 🧩 [P3] CAPTCHA detected on page 1 (CAPTCHA #35)
+📊 [P3] Pages since last CAPTCHA: 0
+[2025-06-06T15:02:18.674Z] [P3] ⚠️ [P3] Attempt 2 failed for employer Grünwerk GmbH: CAPTCHA frequency error: appeared after only 0 pages
+🔄 [P3] Retrying employer Grünwerk GmbH in 5 seconds...
+[2025-06-06T15:02:18.674Z] [P3] ERROR: ❌ [P3] CAPTCHA ERROR: Appeared after only 0 pages (minimum: 15)
+🚨 [P3] This indicates a problem - stopping extraction

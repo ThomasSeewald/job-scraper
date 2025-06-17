@@ -1,0 +1,167 @@
+<%- include('layout', { 
+    title: 'Jobs Übersicht - Job Scraper Dashboard', 
+    currentPage: '/jobs',
+    body: `
+<!-- Header -->
+<div class="row mb-4">
+    <div class="col-12">
+        <h1 class="display-5"><i class="fas fa-briefcase"></i> Jobs Übersicht</h1>
+        <p class="lead">${totalJobs.toLocaleString('de-DE')} Jobs gefunden</p>
+    </div>
+</div>
+
+<!-- Search and Filter -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <form method="GET" action="/jobs" class="row g-3">
+                    <div class="col-md-4">
+                        <label for="search" class="form-label">Suche</label>
+                        <input type="text" class="form-control" id="search" name="search" 
+                               value="${search}" placeholder="Titel, Arbeitgeber oder Beruf...">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="plz" class="form-label">PLZ</label>
+                        <input type="text" class="form-control" id="plz" name="plz" 
+                               value="${plz}" placeholder="z.B. 80331">
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Filter</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="details" name="details" value="true" 
+                                   ${hasDetails ? 'checked' : ''}>
+                            <label class="form-check-label" for="details">
+                                Nur Jobs mit Detail-Daten
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">&nbsp;</label>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-search"></i> Suchen
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Jobs Table -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"><i class="fas fa-list"></i> Jobs</h5>
+                <small class="text-muted">Seite ${currentPage} von ${totalPages}</small>
+            </div>
+            <div class="card-body p-0">
+                ${jobs.length > 0 ? `
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Titel</th>
+                                <th>Arbeitgeber</th>
+                                <th>Ort</th>
+                                <th>Beruf</th>
+                                <th>Veröffentlicht</th>
+                                <th>Details</th>
+                                <th>Kontakt</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${jobs.map(job => `
+                            <tr class="job-row" onclick="showJobDetail('${job.refnr}')" style="cursor: pointer;">
+                                <td>
+                                    <strong>${job.titel || 'N/A'}</strong>
+                                    <br><small class="text-muted">${job.refnr}</small>
+                                </td>
+                                <td>${job.arbeitgeber || 'N/A'}</td>
+                                <td>
+                                    ${job.arbeitsort_plz ? `
+                                        <a href="/plz/${job.arbeitsort_plz}" class="text-decoration-none" onclick="event.stopPropagation();">
+                                            ${job.arbeitsort_plz}
+                                        </a>
+                                    ` : 'N/A'}
+                                    ${job.arbeitsort_ort ? `<br><small class="text-muted">${job.arbeitsort_ort}</small>` : ''}
+                                </td>
+                                <td><small>${job.beruf || 'N/A'}</small></td>
+                                <td><small>${job.aktuelleVeroeffentlichungsdatum ? new Date(job.aktuelleVeroeffentlichungsdatum).toLocaleDateString('de-DE') : 'N/A'}</small></td>
+                                <td>
+                                    ${job.data_completeness_score ? `
+                                        <div class="progress progress-small">
+                                            <div class="progress-bar" style="width: ${job.data_completeness_score}%">
+                                                ${job.data_completeness_score}%
+                                            </div>
+                                        </div>
+                                    ` : '<span class="badge bg-secondary">Nein</span>'}
+                                </td>
+                                <td>
+                                    ${job.has_contact_info ? `
+                                        <span class="badge bg-success">
+                                            <i class="fas fa-check"></i> Ja
+                                        </span>
+                                        ${job.contact_email ? '<br><i class="fas fa-envelope text-primary"></i>' : ''}
+                                    ` : '<span class="badge bg-secondary">Nein</span>'}
+                                </td>
+                            </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+                ` : `
+                <div class="text-center py-5">
+                    <i class="fas fa-search fa-3x text-muted mb-3"></i>
+                    <h5 class="text-muted">Keine Jobs gefunden</h5>
+                    <p class="text-muted">Versuchen Sie andere Suchkriterien</p>
+                </div>
+                `}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Pagination -->
+${totalPages > 1 ? `
+<div class="row">
+    <div class="col-12">
+        <nav aria-label="Job pagination">
+            <ul class="pagination justify-content-center">
+                ${currentPage > 1 ? `
+                <li class="page-item">
+                    <a class="page-link" href="?page=${currentPage - 1}&search=${search}&plz=${plz}&details=${hasDetails}">
+                        <i class="fas fa-chevron-left"></i> Zurück
+                    </a>
+                </li>
+                ` : ''}
+                
+                ${Array.from({length: Math.min(5, totalPages)}, (_, i) => {
+                    let pageNum = Math.max(1, Math.min(totalPages - 4, Math.max(1, currentPage - 2))) + i;
+                    return `
+                    <li class="page-item ${pageNum === currentPage ? 'active' : ''}">
+                        <a class="page-link" href="?page=${pageNum}&search=${search}&plz=${plz}&details=${hasDetails}">
+                            ${pageNum}
+                        </a>
+                    </li>
+                    `;
+                }).join('')}
+                
+                ${currentPage < totalPages ? `
+                <li class="page-item">
+                    <a class="page-link" href="?page=${currentPage + 1}&search=${search}&plz=${plz}&details=${hasDetails}">
+                        Weiter <i class="fas fa-chevron-right"></i>
+                    </a>
+                </li>
+                ` : ''}
+            </ul>
+        </nav>
+    </div>
+</div>
+` : ''}
+`,
+script: ''
+}) %>

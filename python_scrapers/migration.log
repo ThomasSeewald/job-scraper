@@ -1,0 +1,15 @@
+==========================================
+Google Domains Data Migration
+==========================================
+
+This will migrate data from:
+  - our_google_domains (Google search results)
+  - our_domains (Domain email data)
+
+To the new unified table:
+  - google_domains_service
+
+Database: jetzt on localhost:5473
+
+
+Migration cancelled.

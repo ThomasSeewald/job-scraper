@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email-Adressen Suche - Job Scraper</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .search-container {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+        }
+        .stats-card {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .stats-card:hover {
+            transform: translateY(-2px);
+        }
+        .results-table {
+            font-size: 0.9rem;
+        }
+        .email-link {
+            color: #0d6efd;
+            text-decoration: none;
+        }
+        .email-link:hover {
+            text-decoration: underline;
+        }
+        .distance-badge {
+            background-color: #198754;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.375rem;
+            font-size: 0.75rem;
+        }
+        .loading-spinner {
+            display: none;
+        }
+        .export-section {
+            background-color: #f8f9fa;
+            border-radius: 0.375rem;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <span class="navbar-brand mb-0 h1">
+                <i class="bi bi-envelope-at"></i> Email-Adressen Suche
+            </span>
+        </div>
+    </nav>
+
+    <!-- Statistics Section -->
+    <div class="search-container">
+        <div class="container">
+            <h1 class="text-center mb-4">
+                <i class="bi bi-search"></i> Email-Adressen aus Stellenanzeigen
+            </h1>
+            <div class="row g-4 mb-4">
+                <div class="col-md-3">
+                    <div class="card stats-card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary"><%= Number(stats.total_jobs).toLocaleString() %></h5>
+                            <p class="card-text">Stellenanzeigen gesamt</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card stats-card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title text-success"><%= Number(stats.jobs_with_emails).toLocaleString() %></h5>
+                            <p class="card-text">Mit Email-Adressen</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card stats-card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title text-info"><%= Number(stats.unique_domains).toLocaleString() %></h5>
+                            <p class="card-text">Unique Domains</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card stats-card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning"><%= Number(stats.unique_job_types).toLocaleString() %></h5>
+                            <p class="card-text">Berufsarten</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <!-- Search Form -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="bi bi-funnel"></i> Suchfilter</h5>
+            </div>
+            <div class="card-body">
+                <form id="searchForm">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="jobType" class="form-label">Berufsart / Stellentitel</label>
+                            <input type="text" class="form-control" id="jobType" name="jobType" 
+                                   placeholder="z.B. Informatiker, Verkäufer, Krankenpfleger" list="jobTypesList">
+                            <datalist id="jobTypesList"></datalist>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="company" class="form-label">Unternehmen</label>
+                            <input type="text" class="form-control" id="company" name="company" 
+                                   placeholder="Firmenname" list="companiesList">
+                            <datalist id="companiesList"></datalist>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="location" class="form-label">Ort / PLZ</label>
+                            <input type="text" class="form-control" id="location" name="location" 
+                                   placeholder="z.B. Berlin oder 10115">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="distance" class="form-label">Entfernung (km)</label>
+                            <select class="form-select" id="distance" name="distance">
+                                <option value="">Alle Entfernungen</option>
+                                <option value="5">5 km</option>
+                                <option value="10">10 km</option>
+                                <option value="25">25 km</option>
+                                <option value="50">50 km</option>
+                                <option value="100">100 km</option>
+                                <option value="200">200 km</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="emailDomain" class="form-label">Email-Domain</label>
+                            <input type="text" class="form-control" id="emailDomain" name="emailDomain" 
+                                   placeholder="z.B. company.de">
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary me-2">
+                                <i class="bi bi-search"></i> Suchen
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary" onclick="clearForm()">
+                                <i class="bi bi-arrow-clockwise"></i> Zurücksetzen
+                            </button>
+                            <div class="loading-spinner spinner-border spinner-border-sm ms-2" role="status">
+                                <span class="visually-hidden">Laden...</span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Popular Job Types -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h6 class="mb-0"><i class="bi bi-star"></i> Beliebte Berufsarten (mit Email-Adressen)</h6>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <% popularJobTypes.slice(0, 8).forEach(jobType => { %>
+                    <div class="col-md-3 mb-2">
+                        <button class="btn btn-outline-primary btn-sm w-100" onclick="searchJobType('<%= jobType.beruf %>')">
+                            <%= jobType.beruf %> (<%= jobType.count %>)
+                        </button>
+                    </div>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div id="resultsSection" style="display: none;">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">
+                        <i class="bi bi-list-ul"></i> Suchergebnisse 
+                        <span id="resultCount" class="badge bg-primary"></span>
+                    </h5>
+                    <div class="export-section">
+                        <button class="btn btn-success btn-sm me-2" onclick="exportResults('csv')">
+                            <i class="bi bi-file-earmark-spreadsheet"></i> CSV Export
+                        </button>
+                        <button class="btn btn-info btn-sm" onclick="exportResults('json')">
+                            <i class="bi bi-file-earmark-code"></i> JSON Export
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover results-table">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Stellentitel</th>
+                                    <th>Beruf</th>
+                                    <th>Unternehmen</th>
+                                    <th>Ort</th>
+                                    <th>Email-Adresse</th>
+                                    <th>Domain</th>
+                                    <th>Entfernung</th>
+                                    <th>Veröffentlicht</th>
+                                </tr>
+                            </thead>
+                            <tbody id="resultsTableBody">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="loadMoreSection" class="text-center mt-3" style="display: none;">
+                        <button class="btn btn-outline-primary" onclick="loadMoreResults()">
+                            <i class="bi bi-arrow-down-circle"></i> Weitere Ergebnisse laden
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- No Results Message -->
+        <div id="noResultsMessage" class="alert alert-info" style="display: none;">
+            <i class="bi bi-info-circle"></i> Keine Ergebnisse gefunden. Versuchen Sie andere Suchkriterien.
+        </div>
+    </div>
+
+    <footer class="bg-dark text-light text-center py-3 mt-5">
+        <div class="container">
+            <p class="mb-0">Job Scraper Email Search Interface | Entwickelt für effiziente Email-Recherche</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let currentResults = [];
+        let currentSearchParams = {};
+        let currentOffset = 0;
+        let hasMoreResults = false;
+
+        // Load autocomplete data
+        async function loadAutocompleteData() {
+            try {
+                const [jobTypesResponse, companiesResponse] = await Promise.all([
+                    fetch('/api/job-types'),
+                    fetch('/api/companies')
+                ]);
+                
+                const jobTypes = await jobTypesResponse.json();
+                const companies = await companiesResponse.json();
+                
+                const jobTypesList = document.getElementById('jobTypesList');
+                const companiesList = document.getElementById('companiesList');
+                
+                jobTypes.forEach(jobType => {
+                    const option = document.createElement('option');
+                    option.value = jobType;
+                    jobTypesList.appendChild(option);
+                });
+                
+                companies.forEach(company => {
+                    const option = document.createElement('option');
+                    option.value = company;
+                    companiesList.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error loading autocomplete data:', error);
+            }
+        }
+
+        // Search form handler
+        document.getElementById('searchForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            await performSearch();
+        });
+
+        async function performSearch(offset = 0) {
+            const formData = new FormData(document.getElementById('searchForm'));
+            const searchParams = Object.fromEntries(formData.entries());
+            
+            currentSearchParams = searchParams;
+            currentOffset = offset;
+            
+            const spinner = document.querySelector('.loading-spinner');
+            spinner.style.display = 'inline-block';
+            
+            try {
+                const response = await fetch('/api/search', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ ...searchParams, offset })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    if (offset === 0) {
+                        currentResults = data.results;
+                        displayResults(data.results);
+                    } else {
+                        currentResults = [...currentResults, ...data.results];
+                        appendResults(data.results);
+                    }
+                    
+                    hasMoreResults = data.hasMore;
+                    updateResultCount(data.totalCount);
+                    updateLoadMoreButton();
+                } else {
+                    showError(data.error);
+                }
+            } catch (error) {
+                showError('Fehler bei der Suche: ' + error.message);
+            } finally {
+                spinner.style.display = 'none';
+            }
+        }
+
+        function displayResults(results) {
+            const resultsSection = document.getElementById('resultsSection');
+            const noResultsMessage = document.getElementById('noResultsMessage');
+            const tableBody = document.getElementById('resultsTableBody');
+            
+            if (results.length === 0) {
+                resultsSection.style.display = 'none';
+                noResultsMessage.style.display = 'block';
+                return;
+            }
+            
+            noResultsMessage.style.display = 'none';
+            resultsSection.style.display = 'block';
+            
+            tableBody.innerHTML = '';
+            appendResults(results);
+        }
+
+        function appendResults(results) {
+            const tableBody = document.getElementById('resultsTableBody');
+            
+            results.forEach(result => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><strong>${escapeHtml(result.titel)}</strong></td>
+                    <td><span class="badge bg-secondary">${escapeHtml(result.beruf || '')}</span></td>
+                    <td>${escapeHtml(result.arbeitgeber)}</td>
+                    <td>${escapeHtml(result.arbeitsort_ort)} (${result.arbeitsort_plz})</td>
+                    <td>
+                        <a href="mailto:${result.best_email}" class="email-link">
+                            <i class="bi bi-envelope"></i> ${result.best_email}
+                        </a>
+                        ${result.email_count > 1 ? `<small class="text-muted">(+${result.email_count - 1} weitere)</small>` : ''}
+                    </td>
+                    <td><code>${result.company_domain || ''}</code></td>
+                    <td>${result.distance ? `<span class="distance-badge">${result.distance} km</span>` : ''}</td>
+                    <td><small>${formatDate(result.aktuelleveroeffentlichungsdatum)}</small></td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        function updateResultCount(count) {
+            document.getElementById('resultCount').textContent = `${count.toLocaleString()} gefunden`;
+        }
+
+        function updateLoadMoreButton() {
+            const loadMoreSection = document.getElementById('loadMoreSection');
+            loadMoreSection.style.display = hasMoreResults ? 'block' : 'none';
+        }
+
+        async function loadMoreResults() {
+            await performSearch(currentOffset + 100);
+        }
+
+        async function exportResults(format) {
+            try {
+                const response = await fetch('/api/export', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        format: format,
+                        searchParams: currentSearchParams
+                    })
+                });
+                
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = response.headers.get('content-disposition')?.split('filename=')[1]?.replace(/"/g, '') || `export.${format}`;
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                    document.body.removeChild(a);
+                } else {
+                    const error = await response.json();
+                    showError(error.error || 'Export fehlgeschlagen');
+                }
+            } catch (error) {
+                showError('Export-Fehler: ' + error.message);
+            }
+        }
+
+        function searchJobType(jobType) {
+            document.getElementById('jobType').value = jobType;
+            document.getElementById('searchForm').dispatchEvent(new Event('submit'));
+        }
+
+        function clearForm() {
+            document.getElementById('searchForm').reset();
+            document.getElementById('resultsSection').style.display = 'none';
+            document.getElementById('noResultsMessage').style.display = 'none';
+            currentResults = [];
+            currentSearchParams = {};
+        }
+
+        function showError(message) {
+            alert('Fehler: ' + message);
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function formatDate(dateString) {
+            if (!dateString) return '';
+            const date = new Date(dateString);
+            return date.toLocaleDateString('de-DE');
+        }
+
+        // Load autocomplete data on page load
+        loadAutocompleteData();
+    </script>
+</body>
+</html>

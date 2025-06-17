@@ -1,0 +1,313 @@
+<%- include('layout', { 
+    title: `Dashboard - ${today}`, 
+    currentPage: '/',
+    body: `
+        <!-- Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <h1 class="display-4"><i class="fas fa-chart-line"></i> Job Scraper Dashboard</h1>
+                <p class="lead">Monitoring für ${today}</p>
+            </div>
+        </div>
+
+        <!-- Status Row -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-heartbeat"></i> System Status</h5>
+                        <p class="card-text">
+                            <span class="status-indicator status-${scanStatus.status}"></span>
+                            Status: <strong>${scanStatus.status}</strong>
+                        </p>
+                        ${scanStatus.lastUpdate ? `<small class="text-muted">Last Update: ${new Date(scanStatus.lastUpdate).toLocaleString('de-DE')}</small>` : ''}
+                        ${scanStatus.nextScan ? `<br><small class="text-muted">Next Scan: ${new Date(scanStatus.nextScan).toLocaleString('de-DE')}</small>` : ''}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-clock"></i> Heute's Aktivität</h5>
+                        ${todayStats.first_scan ? `
+                        <p class="card-text">
+                            Erster Scan: <strong>${new Date(todayStats.first_scan).toLocaleTimeString('de-DE')}</strong><br>
+                            Letzter Scan: <strong>${new Date(todayStats.last_scan).toLocaleTimeString('de-DE')}</strong>
+                        </p>
+                        ` : `
+                        <p class="card-text text-muted">Noch keine Scans heute</p>
+                        `}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Metrics Row -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card metric-card">
+                    <div class="card-body text-center">
+                        <h2 class="text-primary">${todayStats.total_today}</h2>
+                        <p class="mb-0">Gesamt Jobs heute</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card metric-card" style="border-left-color: #28a745;">
+                    <div class="card-body text-center">
+                        <h2 class="text-success">${todayStats.api_today}</h2>
+                        <p class="mb-0">Neue API Jobs</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card metric-card" style="border-left-color: #ffc107;">
+                    <div class="card-body text-center">
+                        <h2 class="text-warning">${plzToday.length}</h2>
+                        <p class="mb-0">PLZ gescannt</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card metric-card" style="border-left-color: #17a2b8;">
+                    <div class="card-body text-center">
+                        <h2 class="text-info">${newEmployersToday.length}</h2>
+                        <p class="mb-0">Neue Arbeitgeber</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detail Scraping Stats Row -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-search-plus"></i> Detail Scraping Statistiken</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="text-center">
+                                    <h3 class="text-primary">${detailStats.total_details || 0}</h3>
+                                    <small class="text-muted">Gesamt Details</small>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="text-center">
+                                    <h3 class="text-success">${detailStats.details_today || 0}</h3>
+                                    <small class="text-muted">Details heute</small>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="text-center">
+                                    <h3 class="text-info">${detailStats.with_contact || 0}</h3>
+                                    <small class="text-muted">Mit Kontakt</small>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="text-center">
+                                    <h3 class="text-warning">${detailStats.successful || 0}</h3>
+                                    <small class="text-muted">Erfolgreich</small>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="text-center">
+                                    <h3 class="text-secondary">${detailStats.avg_completeness || 0}%</h3>
+                                    <small class="text-muted">Ø Vollständigkeit</small>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="text-center">
+                                    <h3 class="text-dark">${Math.round((detailStats.avg_duration_ms || 0) / 1000)}s</h3>
+                                    <small class="text-muted">Ø Dauer</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Recent Detail Scraping Activity -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0"><i class="fas fa-list"></i> Aktuelle Detail-Scraping Aktivität</h5>
+                        <a href="/jobs?details=true" class="btn btn-sm btn-outline-primary">
+                            <i class="fas fa-search-plus"></i> Alle Details
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        ${recentDetails.length > 0 ? `
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Referenz</th>
+                                        <th>Titel</th>
+                                        <th>Arbeitgeber</th>
+                                        <th>Ort</th>
+                                        <th>Kontakt</th>
+                                        <th>Vollständigkeit</th>
+                                        <th>Gescrapt</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${recentDetails.map(detail => `
+                                    <tr onclick="showJobDetail('${detail.reference_number}')" style="cursor: pointer;">
+                                        <td>
+                                            <a href="/job/${detail.reference_number}" class="text-decoration-none" onclick="event.stopPropagation();">
+                                                ${detail.reference_number}
+                                                <i class="fas fa-external-link-alt ms-1" style="font-size: 0.8em;"></i>
+                                            </a>
+                                        </td>
+                                        <td>${detail.titel || 'N/A'}</td>
+                                        <td>${detail.arbeitgeber || 'N/A'}</td>
+                                        <td>${detail.arbeitsort_ort || 'N/A'}</td>
+                                        <td>
+                                            ${detail.has_contact_info ? `
+                                                <span class="badge bg-success">Ja</span>
+                                                ${detail.contact_email ? '<br><i class="fas fa-envelope text-primary"></i>' : ''}
+                                            ` : '<span class="badge bg-secondary">Nein</span>'}
+                                        </td>
+                                        <td>
+                                            <div class="progress" style="height: 20px;">
+                                                <div class="progress-bar" role="progressbar" 
+                                                     style="width: ${detail.data_completeness_score || 0}%">
+                                                    ${detail.data_completeness_score || 0}%
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><small>${new Date(detail.scraped_at_berlin).toLocaleString('de-DE')}</small></td>
+                                    </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                        ` : `
+                        <p class="text-muted text-center">Noch keine Detail-Scraping Aktivität in den letzten 24 Stunden</p>
+                        `}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-chart-bar"></i> Stündliche Aktivität</h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="hourlyChart" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-chart-line"></i> 7-Tage Trend</h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="weeklyChart" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- New Employers -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0"><i class="fas fa-building"></i> Neue Arbeitgeber heute</h5>
+                        <a href="/jobs" class="btn btn-sm btn-outline-primary">
+                            <i class="fas fa-briefcase"></i> Alle Jobs
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        ${newEmployersToday.length > 0 ? `
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Arbeitgeber</th>
+                                        <th>Anzahl Stellen</th>
+                                        <th>PLZ Bereiche</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${newEmployersToday.map(employer => `
+                                    <tr>
+                                        <td>${employer.arbeitgeber}</td>
+                                        <td><span class="badge bg-primary">${employer.position_count}</span></td>
+                                        <td><small class="text-muted">${employer.plz_list}</small></td>
+                                    </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                        ` : `
+                        <p class="text-muted text-center">Keine neuen Arbeitgeber heute gefunden</p>
+                        `}
+                    </div>
+                </div>
+            </div>
+        </div>
+`,
+script: `
+<script>
+    // Charts
+    const hourlyData = ${JSON.stringify(hourlyActivity)};
+    const weeklyData = ${JSON.stringify(weeklyTrends)};
+
+    // Hourly Chart
+    new Chart(document.getElementById('hourlyChart'), {
+        type: 'bar',
+        data: {
+            labels: hourlyData.map(h => h.hour + ':00'),
+            datasets: [{
+                label: 'Scans pro Stunde',
+                data: hourlyData.map(h => h.scan_count),
+                backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: { y: { beginAtZero: true } }
+        }
+    });
+
+    // Weekly Chart
+    new Chart(document.getElementById('weeklyChart'), {
+        type: 'line',
+        data: {
+            labels: weeklyData.map(w => new Date(w.scan_date).toLocaleDateString('de-DE')),
+            datasets: [{
+                label: 'Neue Jobs',
+                data: weeklyData.map(w => w.new_jobs),
+                borderColor: 'rgba(75, 192, 192, 1)',
+                tension: 0.1
+            }, {
+                label: 'Unique PLZ',
+                data: weeklyData.map(w => w.unique_plz),
+                borderColor: 'rgba(255, 99, 132, 1)',
+                tension: 0.1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: { y: { beginAtZero: true } }
+        }
+    });
+</script>
+`
+}) %>

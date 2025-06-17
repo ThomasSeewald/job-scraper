@@ -1,0 +1,420 @@
+const express = require('express');
+const { Pool } = require('pg');
+const fs = require('fs');
+const path = require('path');
+const csv = require('csv-stringify');
+
+// Load configuration
+const config = JSON.parse(fs.readFileSync(path.join(__dirname, '../config/database.json'), 'utf8'));
+const dbConfig = config.production;
+
+const app = express();
+const pool = new Pool(dbConfig);
+const PORT = process.env.PORT || 3001;
+
+// Middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, '../public')));
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '../views'));
+
+// Helper function to calculate distance between two coordinates
+function calculateDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371; // Radius of Earth in kilometers
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+              Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+              Math.sin(dLon/2) * Math.sin(dLon/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    return R * c; // Distance in kilometers
+}
+
+// Helper function to get coordinates for PLZ or city
+async function getCoordinatesForLocation(location) {
+    const client = await pool.connect();
+    try {
+        // First try as PLZ
+        let query = `
+            SELECT DISTINCT arbeitsort_koordinaten_lat as lat, arbeitsort_koordinaten_lon as lon
+            FROM job_scrp_arbeitsagentur_jobs_v2 
+            WHERE arbeitsort_plz = $1 
+            AND arbeitsort_koordinaten_lat IS NOT NULL 
+            AND arbeitsort_koordinaten_lon IS NOT NULL
+            LIMIT 1
+        `;
+        let result = await client.query(query, [location]);
+        
+        if (result.rows.length > 0) {
+            return result.rows[0];
+        }
+        
+        // If not found, try as city name
+        query = `
+            SELECT DISTINCT arbeitsort_koordinaten_lat as lat, arbeitsort_koordinaten_lon as lon
+            FROM job_scrp_arbeitsagentur_jobs_v2 
+            WHERE LOWER(arbeitsort_ort) LIKE LOWER($1)
+            AND arbeitsort_koordinaten_lat IS NOT NULL 
+            AND arbeitsort_koordinaten_lon IS NOT NULL
+            LIMIT 1
+        `;
+        result = await client.query(query, [`%${location}%`]);
+        
+        return result.rows.length > 0 ? result.rows[0] : null;
+    } finally {
+        client.release();
+    }
+}
+
+// Main search route
+app.get('/', async (req, res) => {
+    try {
+        // Get statistics for the dashboard
+        const client = await pool.connect();
+        try {
+            const statsQuery = `
+                SELECT 
+                    COUNT(*) as total_jobs,
+                    COUNT(CASE WHEN jd.best_email IS NOT NULL THEN 1 END) as jobs_with_emails,
+                    COUNT(DISTINCT jd.company_domain) as unique_domains,
+                    COUNT(DISTINCT j.beruf) as unique_job_types,
+                    COUNT(DISTINCT j.arbeitsort_plz) as unique_locations
+                FROM job_scrp_arbeitsagentur_jobs_v2 j
+                LEFT JOIN job_scrp_job_details jd ON j.refnr = jd.reference_number
+                WHERE j.is_active = true
+            `;
+            const stats = await client.query(statsQuery);
+            
+            // Get most common job types
+            const jobTypesQuery = `
+                SELECT beruf, COUNT(*) as count
+                FROM job_scrp_arbeitsagentur_jobs_v2 j
+                INNER JOIN job_scrp_job_details jd ON j.refnr = jd.reference_number
+                WHERE j.is_active = true 
+                AND jd.best_email IS NOT NULL 
+                AND jd.scraping_success = true
+                AND j.beruf IS NOT NULL
+                GROUP BY beruf
+                ORDER BY count DESC
+                LIMIT 10
+            `;
+            const jobTypes = await client.query(jobTypesQuery);
+            
+            res.render('email-search', {
+                stats: stats.rows[0],
+                popularJobTypes: jobTypes.rows
+            });
+        } finally {
+            client.release();
+        }
+    } catch (error) {
+        console.error('Error loading dashboard:', error);
+        res.status(500).render('error', { error: 'Fehler beim Laden der Seite' });
+    }
+});
+
+// Search API endpoint
+app.post('/api/search', async (req, res) => {
+    try {
+        const { jobType, location, distance, company, emailDomain } = req.body;
+        const limit = parseInt(req.body.limit) || 100;
+        const offset = parseInt(req.body.offset) || 0;
+        
+        let baseQuery = `
+            SELECT DISTINCT
+                j.refnr,
+                j.titel,
+                j.beruf,
+                j.arbeitgeber,
+                j.arbeitsort_ort,
+                j.arbeitsort_plz,
+                j.arbeitsort_koordinaten_lat,
+                j.arbeitsort_koordinaten_lon,
+                jd.contact_emails,
+                jd.best_email,
+                jd.company_domain,
+                jd.email_count,
+                jd.scraped_at,
+                j.aktuelleveroeffentlichungsdatum
+            FROM job_scrp_arbeitsagentur_jobs_v2 j
+            INNER JOIN job_scrp_job_details jd ON j.refnr = jd.reference_number
+            WHERE j.is_active = true 
+            AND jd.best_email IS NOT NULL
+            AND jd.scraping_success = true
+        `;
+        
+        const queryParams = [];
+        let paramIndex = 1;
+        
+        // Add job type filter
+        if (jobType && jobType.trim()) {
+            baseQuery += ` AND (LOWER(j.beruf) LIKE LOWER($${paramIndex}) OR LOWER(j.titel) LIKE LOWER($${paramIndex}))`;
+            queryParams.push(`%${jobType.trim()}%`);
+            paramIndex++;
+        }
+        
+        // Add company filter
+        if (company && company.trim()) {
+            baseQuery += ` AND LOWER(j.arbeitgeber) LIKE LOWER($${paramIndex})`;
+            queryParams.push(`%${company.trim()}%`);
+            paramIndex++;
+        }
+        
+        // Add email domain filter
+        if (emailDomain && emailDomain.trim()) {
+            baseQuery += ` AND jd.company_domain LIKE $${paramIndex}`;
+            queryParams.push(`%${emailDomain.trim()}%`);
+            paramIndex++;
+        }
+        
+        let results = [];
+        
+        // Handle location and distance filtering
+        if (location && location.trim() && distance) {
+            const coordinates = await getCoordinatesForLocation(location.trim());
+            
+            if (coordinates) {
+                // Get all results first, then filter by distance
+                const allResults = await pool.query(baseQuery, queryParams);
+                
+                results = allResults.rows.filter(row => {
+                    if (!row.arbeitsort_koordinaten_lat || !row.arbeitsort_koordinaten_lon) {
+                        return false;
+                    }
+                    
+                    const dist = calculateDistance(
+                        coordinates.lat,
+                        coordinates.lon,
+                        row.arbeitsort_koordinaten_lat,
+                        row.arbeitsort_koordinaten_lon
+                    );
+                    
+                    row.distance = Math.round(dist * 10) / 10; // Round to 1 decimal
+                    return dist <= parseFloat(distance);
+                });
+                
+                // Sort by distance
+                results.sort((a, b) => a.distance - b.distance);
+            } else {
+                // If coordinates not found, search by location name
+                baseQuery += ` AND (j.arbeitsort_plz = $${paramIndex} OR LOWER(j.arbeitsort_ort) LIKE LOWER($${paramIndex + 1}))`;
+                queryParams.push(location.trim(), `%${location.trim()}%`);
+                paramIndex += 2;
+                
+                const dbResults = await pool.query(baseQuery + ` ORDER BY j.aktuelleveroeffentlichungsdatum DESC LIMIT $${paramIndex} OFFSET $${paramIndex + 1}`, 
+                    [...queryParams, limit, offset]);
+                results = dbResults.rows;
+            }
+        } else {
+            // No location filter, just run the query
+            const dbResults = await pool.query(baseQuery + ` ORDER BY j.aktuelleveroeffentlichungsdatum DESC LIMIT $${paramIndex} OFFSET $${paramIndex + 1}`, 
+                [...queryParams, limit, offset]);
+            results = dbResults.rows;
+        }
+        
+        // Apply limit and offset for distance-filtered results
+        if (location && distance && results.length > 0) {
+            const totalResults = results.length;
+            results = results.slice(offset, offset + limit);
+            
+            res.json({
+                success: true,
+                results: results,
+                totalCount: totalResults,
+                hasMore: offset + limit < totalResults
+            });
+        } else {
+            // Get total count for pagination
+            let countQuery = baseQuery.replace(/SELECT DISTINCT.*FROM/, 'SELECT COUNT(DISTINCT j.refnr) as total FROM');
+            const countResult = await pool.query(countQuery, queryParams);
+            
+            res.json({
+                success: true,
+                results: results,
+                totalCount: parseInt(countResult.rows[0].total),
+                hasMore: offset + limit < parseInt(countResult.rows[0].total)
+            });
+        }
+        
+    } catch (error) {
+        console.error('Search error:', error);
+        res.status(500).json({
+            success: false,
+            error: 'Suchfehler: ' + error.message
+        });
+    }
+});
+
+// Export endpoint
+app.post('/api/export', async (req, res) => {
+    try {
+        const { format, searchParams } = req.body;
+        
+        // Re-run the search to get all results (without limit)
+        const searchBody = { ...searchParams, limit: 10000, offset: 0 };
+        
+        // Use the same search logic but get all results
+        const { jobType, location, distance, company, emailDomain } = searchBody;
+        
+        let baseQuery = `
+            SELECT DISTINCT
+                j.refnr,
+                j.titel,
+                j.beruf,
+                j.arbeitgeber,
+                j.arbeitsort_ort,
+                j.arbeitsort_plz,
+                jd.contact_emails,
+                jd.best_email,
+                jd.company_domain,
+                jd.email_count,
+                jd.scraped_at,
+                j.aktuelleveroeffentlichungsdatum
+            FROM job_scrp_arbeitsagentur_jobs_v2 j
+            INNER JOIN job_scrp_job_details jd ON j.refnr = jd.reference_number
+            WHERE j.is_active = true 
+            AND jd.best_email IS NOT NULL
+            AND jd.scraping_success = true
+        `;
+        
+        const queryParams = [];
+        let paramIndex = 1;
+        
+        // Apply same filters as search
+        if (jobType && jobType.trim()) {
+            baseQuery += ` AND (LOWER(j.beruf) LIKE LOWER($${paramIndex}) OR LOWER(j.titel) LIKE LOWER($${paramIndex}))`;
+            queryParams.push(`%${jobType.trim()}%`);
+            paramIndex++;
+        }
+        
+        if (company && company.trim()) {
+            baseQuery += ` AND LOWER(j.arbeitgeber) LIKE LOWER($${paramIndex})`;
+            queryParams.push(`%${company.trim()}%`);
+            paramIndex++;
+        }
+        
+        if (emailDomain && emailDomain.trim()) {
+            baseQuery += ` AND jd.company_domain LIKE $${paramIndex}`;
+            queryParams.push(`%${emailDomain.trim()}%`);
+            paramIndex++;
+        }
+        
+        if (location && location.trim()) {
+            baseQuery += ` AND (j.arbeitsort_plz = $${paramIndex} OR LOWER(j.arbeitsort_ort) LIKE LOWER($${paramIndex + 1}))`;
+            queryParams.push(location.trim(), `%${location.trim()}%`);
+        }
+        
+        const results = await pool.query(baseQuery + ' ORDER BY j.aktuelleveroeffentlichungsdatum DESC', queryParams);
+        
+        if (format === 'csv') {
+            // Generate CSV
+            const csvData = await new Promise((resolve, reject) => {
+                csv(results.rows, {
+                    header: true,
+                    columns: {
+                        refnr: 'Referenz-Nr',
+                        titel: 'Stellentitel',
+                        beruf: 'Beruf',
+                        arbeitgeber: 'Arbeitgeber',
+                        arbeitsort_ort: 'Ort',
+                        arbeitsort_plz: 'PLZ',
+                        best_email: 'Beste Email',
+                        contact_emails: 'Alle Emails',
+                        company_domain: 'Domain',
+                        email_count: 'Anzahl Emails',
+                        aktuelleveroeffentlichungsdatum: 'Veröffentlicht'
+                    }
+                }, (err, data) => {
+                    if (err) reject(err);
+                    else resolve(data);
+                });
+            });
+            
+            const filename = `email-export-${new Date().toISOString().split('T')[0]}.csv`;
+            res.setHeader('Content-Type', 'text/csv; charset=utf-8');
+            res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
+            res.send('\ufeff' + csvData); // Add BOM for Excel compatibility
+            
+        } else if (format === 'json') {
+            const filename = `email-export-${new Date().toISOString().split('T')[0]}.json`;
+            res.setHeader('Content-Type', 'application/json');
+            res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
+            res.json({
+                exportDate: new Date().toISOString(),
+                totalResults: results.rows.length,
+                searchParams: searchParams,
+                results: results.rows
+            });
+            
+        } else {
+            res.status(400).json({ success: false, error: 'Unbekanntes Export-Format' });
+        }
+        
+    } catch (error) {
+        console.error('Export error:', error);
+        res.status(500).json({
+            success: false,
+            error: 'Export-Fehler: ' + error.message
+        });
+    }
+});
+
+// Get unique job types for autocomplete
+app.get('/api/job-types', async (req, res) => {
+    try {
+        const query = `
+            SELECT DISTINCT beruf
+            FROM job_scrp_arbeitsagentur_jobs_v2 j
+            INNER JOIN job_scrp_job_details jd ON j.refnr = jd.reference_number
+            WHERE j.is_active = true 
+            AND jd.best_email IS NOT NULL
+            AND beruf IS NOT NULL
+            ORDER BY beruf
+            LIMIT 100
+        `;
+        const result = await pool.query(query);
+        res.json(result.rows.map(row => row.beruf));
+    } catch (error) {
+        console.error('Error fetching job types:', error);
+        res.status(500).json({ error: 'Fehler beim Laden der Berufsarten' });
+    }
+});
+
+// Get unique companies for autocomplete
+app.get('/api/companies', async (req, res) => {
+    try {
+        const query = `
+            SELECT DISTINCT arbeitgeber
+            FROM job_scrp_arbeitsagentur_jobs_v2 j
+            INNER JOIN job_scrp_job_details jd ON j.refnr = jd.reference_number
+            WHERE j.is_active = true 
+            AND jd.best_email IS NOT NULL
+            AND arbeitgeber IS NOT NULL
+            ORDER BY arbeitgeber
+            LIMIT 100
+        `;
+        const result = await pool.query(query);
+        res.json(result.rows.map(row => row.arbeitgeber));
+    } catch (error) {
+        console.error('Error fetching companies:', error);
+        res.status(500).json({ error: 'Fehler beim Laden der Unternehmen' });
+    }
+});
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+    console.error('Unhandled error:', err);
+    res.status(500).render('error', { 
+        error: 'Ein unerwarteter Fehler ist aufgetreten' 
+    });
+});
+
+// Start server
+app.listen(PORT, () => {
+    console.log(`🌐 Email Search Interface gestartet auf Port ${PORT}`);
+    console.log(`📧 Zugriff über: http://localhost:${PORT}`);
+    console.log(`🔍 Features: Beruf-Suche, Entfernungs-Filter, CSV/JSON Export`);
+});
+
+module.exports = app;

@@ -1,0 +1,90 @@
+2025-06-16 15:52:56,215 - __main__ - 🚀 Worker 1 browser initialized in blue window
+2025-06-16 15:52:56,215 - unified_scraper - 🚀 Worker 1 starting in continuous mode
+2025-06-16 15:52:58,263 - unified_scraper - 
+============================================================
+2025-06-16 15:52:58,263 - unified_scraper - [1] Processing: Autohaus Bentrop GmbH...
+2025-06-16 15:52:58,263 - unified_scraper - 📋 Job: Ausbildung 2025 : Kfz-Mechatroniker/in - PKW-Techn...
+2025-06-16 15:52:58,265 - __main__ - 🚀 Worker 3 browser initialized in orange window
+2025-06-16 15:52:58,266 - unified_scraper - 🚀 Worker 3 starting in continuous mode
+2025-06-16 15:52:59,152 - unified_scraper - 
+============================================================
+2025-06-16 15:52:59,152 - unified_scraper - [1] Processing: Malermeisterbetrieb Christian Passoth...
+2025-06-16 15:52:59,152 - unified_scraper - 📋 Job: Ausbildung Maler und Lackierer (m/w/d) - Praktikum...
+2025-06-16 15:52:59,301 - __main__ - 🚀 Worker 0 browser initialized in red window
+2025-06-16 15:52:59,301 - unified_scraper - 🚀 Worker 0 starting in continuous mode
+2025-06-16 15:53:00,638 - unified_scraper - 
+============================================================
+2025-06-16 15:53:00,638 - unified_scraper - [1] Processing: Niehoff-Prochota energie bad heizung GmbH...
+2025-06-16 15:53:00,639 - unified_scraper - 📋 Job: **Ausbildung 2025 - jetzt bewerben!**...
+2025-06-16 15:53:00,640 - __main__ - 🚀 Worker 2 browser initialized in green window
+2025-06-16 15:53:00,640 - unified_scraper - 🚀 Worker 2 starting in continuous mode
+2025-06-16 15:53:01,585 - unified_scraper - 
+============================================================
+2025-06-16 15:53:01,585 - unified_scraper - [1] Processing: Jens Tinnemeyer Mast KG...
+2025-06-16 15:53:01,585 - unified_scraper - 📋 Job: Mitarbeiter für unseren landwirtschaftlichen Betri...
+2025-06-16 15:53:01,594 - unified_scraper - 📜 Scrolling to contact section...
+2025-06-16 15:53:01,600 - unified_scraper - 📜 Scrolling to contact section...
+2025-06-16 15:53:01,622 - unified_scraper - 📭 No emails found
+2025-06-16 15:53:03,664 - unified_scraper - 
+============================================================
+2025-06-16 15:53:03,664 - unified_scraper - [2] Processing: Farben und Bodenbeläge Schwab GmbH & Co. KG...
+2025-06-16 15:53:03,664 - unified_scraper - 📋 Job: Wir bilden aus!...
+2025-06-16 15:53:03,683 - unified_scraper - 📧 Found emails: ['mail@cp-malermeister.de']
+2025-06-16 15:53:04,770 - unified_scraper - 
+============================================================
+2025-06-16 15:53:04,770 - unified_scraper - [2] Processing: Michael Prömpler Cutler-Haircuts...
+
+============================================================
+🚀 Starting 4-Window Unified Scraper
+🔒 Using atomic employer claiming - no duplicates!
+📊 Each worker processes different employers
+🆕 Newest jobs first, skipping external URLs
+🔄 Continuous operation - press Ctrl+C to stop
+============================================================
+
+⏳ Launching 4 workers...
+
+Traceback (most recent call last):
+  File "/Users/thomassee/Docker/containers/job-scraper/python_scrapers/four_window_unified.py", line 197, in <module>
+    asyncio.run(run_four_workers())
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+    return future.result()
+  File "/Users/thomassee/Docker/containers/job-scraper/python_scrapers/four_window_unified.py", line 183, in run_four_workers
+    await asyncio.gather(*workers)
+  File "/Users/thomassee/Docker/containers/job-scraper/python_scrapers/unified_scraper.py", line 436, in run
+    logger.info(f"📋 Job: {job_title[:50]}...")
+TypeError: 'NoneType' object is not subscriptable
+node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: write EPIPE
+    at WriteWrap.onWriteComplete [as oncomplete] (node:internal/stream_base_commons:87:19)
+Emitted 'error' event on Socket instance at:
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  errno: -32,
+  code: 'EPIPE',
+  syscall: 'write'
+}
+
+Node.js v22.14.0
+node:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: write EPIPE
+    at WriteWrap.onWriteComplete [as oncomplete] (node:internal/stream_base_commons:87:19)
+Emitted 'error' event on Socket instance at:
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  errno: -32,
+  code: 'EPIPE',
+  syscall: 'write'
+}
+
+Node.js v22.14.0

@@ -1,0 +1,60 @@
+==========================================
+Google Domains Data Migration (Automated)
+==========================================
+Starting at: Mo 16 Jun 2025 17:00:08 CEST
+
+1. Creating new table structure...
+psql:create-google-domains-service.sql:5: NOTICE:  extension "pg_trgm" already exists, skipping
+CREATE EXTENSION
+psql:create-google-domains-service.sql:6: NOTICE:  extension "unaccent" already exists, skipping
+CREATE EXTENSION
+psql:create-google-domains-service.sql:64: NOTICE:  relation "google_domains_service" already exists, skipping
+CREATE TABLE
+psql:create-google-domains-service.sql:68: ERROR:  relation "idx_gds_company_trgm" already exists
+psql:create-google-domains-service.sql:70: ERROR:  relation "idx_gds_normalized_trgm" already exists
+psql:create-google-domains-service.sql:71: ERROR:  relation "idx_gds_postal_code" already exists
+psql:create-google-domains-service.sql:72: ERROR:  relation "idx_gds_domain" already exists
+psql:create-google-domains-service.sql:73: ERROR:  relation "idx_gds_verified" already exists
+psql:create-google-domains-service.sql:74: ERROR:  relation "idx_gds_source" already exists
+CREATE FUNCTION
+CREATE FUNCTION
+psql:create-google-domains-service.sql:122: ERROR:  trigger "trigger_update_normalized_name" for relation "google_domains_service" already exists
+CREATE VIEW
+CREATE FUNCTION
+psql:create-google-domains-service.sql:183: NOTICE:  relation "google_domains_usage" already exists, skipping
+CREATE TABLE
+psql:create-google-domains-service.sql:185: ERROR:  relation "idx_usage_source" already exists
+psql:create-google-domains-service.sql:193: NOTICE:  relation "google_domains_config" already exists, skipping
+CREATE TABLE
+INSERT 0 0
+
+2. Migrating data from Odoo tables...
+BEGIN
+psql:migrate-odoo-google-domains.sql:62: ERROR:  duplicate key value violates unique constraint "unique_company_domain"
+DETAIL:  Key (query_company_name, result_domain)=(365 Häusliche Kranken- und Fachpflege M.Weiß GmbH, 365grad.net) already exists.
+psql:migrate-odoo-google-domains.sql:71: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+psql:migrate-odoo-google-domains.sql:93: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+psql:migrate-odoo-google-domains.sql:133: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+psql:migrate-odoo-google-domains.sql:142: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+psql:migrate-odoo-google-domains.sql:212: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+psql:migrate-odoo-google-domains.sql:221: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+psql:migrate-odoo-google-domains.sql:231: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+psql:migrate-odoo-google-domains.sql:245: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+psql:migrate-odoo-google-domains.sql:268: ERROR:  current transaction is aborted, commands ignored until end of transaction block
+ROLLBACK
+ query_source | total_records | verified | with_emails 
+--------------+---------------+----------+-------------
+(0 rows)
+
+
+==========================================
+Migration completed at: Mo 16 Jun 2025 17:00:08 CEST
+==========================================
+
+Checking migration results...
+ Migrated from our_google_domains: 0
+
+ Migrated from our_domains: 0
+
+ Total with emails: 0
+

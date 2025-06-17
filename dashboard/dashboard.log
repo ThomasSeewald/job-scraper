@@ -1,0 +1,423 @@
+🌐 Combined Dashboard gestartet auf Port 3001
+📊 Dashboard: http://localhost:3001
+🔧 Health Check: http://localhost:3001/health
+📊 Dashboard ready - Puppeteer will initialize on-demand for admin mode
+Starting targeted extraction for 1545 jobs
+Temp file: /Users/thomassee/Docker/containers/job-scraper/python_scrapers/refs_ba03a114a8260915.txt
+Headless mode: false
+Running command: python3 python_scrapers/targeted_scraper.py --refs-file /Users/thomassee/Docker/containers/job-scraper/python_scrapers/refs_ba03a114a8260915.txt --worker-id 99 --delay 0
+Scraper error: 2025-06-17 11:15:20,858 - __main__ - 📋 Loaded 1545 reference numbers
+
+Scraper error: 2025-06-17 11:15:24,217 - unified_scraper - 🚀 Worker 99 browser initialized
+2025-06-17 11:15:24,217 - __main__ - 🚀 Starting targeted extraction for 1545 jobs
+2025-06-17 11:15:24,217 - __main__ - 🎯 Processing targeted job 1/1545: 13334-00005f566f5001-S
+
+Scraper error: 2025-06-17 11:15:24,398 - __main__ - 📋 Processing: Ausbildung zum Fachverkäufer im Lebensmittelhandwerk (Fleischerei) (m/w/d) 2025 @ Edeka Voßler Friederike Voßler e.Kfr.
+
+Scraper error: 2025-06-17 11:15:25,121 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:25,143 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:15:25,143 - __main__ - 🎯 Processing targeted job 2/1545: 10000-1200256489-S
+
+Scraper error: 2025-06-17 11:15:25,246 - __main__ - 📋 Processing: Ausbildung 2025 @ Bäckerei & Konditorei Bröcker Michael Bröcker
+
+Scraper error: 2025-06-17 11:15:25,519 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:25,705 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:15:25,705 - __main__ - 🎯 Processing targeted job 3/1545: 10000-1195567588-S
+
+Scraper error: 2025-06-17 11:15:25,782 - __main__ - 📋 Processing: Ausbildung 2025 @ REWE Schönwälder OHG
+
+Scraper error: 2025-06-17 11:15:26,666 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:26,845 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:15:26,845 - __main__ - 🎯 Processing targeted job 4/1545: 13334-00005f1ddb5003-S
+
+Scraper error: 2025-06-17 11:15:26,912 - __main__ - 📋 Processing: Ausbildung zum Fachverkäufer im Lebensmittelhandwerk - Schwerpunkt Frische (m/w/d) @ NK Westfilialen GmbH
+
+Scraper error: 2025-06-17 11:15:27,926 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:27,960 - __main__ - ✅ Found 1 emails
+
+Scraper error: 2025-06-17 11:15:27,960 - __main__ - 🎯 Processing targeted job 5/1545: 10000-1200386167-S
+
+Scraper error: 2025-06-17 11:15:28,150 - __main__ - 📋 Processing: Ausbildung 2025 @ Josef Bader Metzgerei
+
+Scraper error: 2025-06-17 11:15:29,007 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:29,030 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:15:29,030 - __main__ - 🎯 Processing targeted job 6/1545: 10000-1200361642-S
+
+Scraper error: 2025-06-17 11:15:29,083 - __main__ - 📋 Processing: Ausbildung zum Verkäufer (m/w/d) @ Das Radhaus Zweirad Vertriebs- und Service GmbH
+
+Scraper error: 2025-06-17 11:15:30,025 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:30,193 - __main__ - ❌ No emails found
+2025-06-17 11:15:30,193 - __main__ - 🎯 Processing targeted job 7/1545: 10000-1202519773-S
+
+Scraper error: 2025-06-17 11:15:30,264 - __main__ - 📋 Processing: Ausbildung zum Verkäufer (w/m/d) 2025 @ GALERIA Karstadt Kaufhof GmbH
+
+Scraper error: 2025-06-17 11:15:31,114 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:31,267 - __main__ - ❌ No emails found
+2025-06-17 11:15:31,267 - __main__ - 🎯 Processing targeted job 8/1545: 10000-1202722721-S
+
+Scraper error: 2025-06-17 11:15:31,402 - __main__ - 📋 Processing: Ausbildung 2026 @ Layer-Grosshandel GmbH & Co. KG
+
+Scraper error: 2025-06-17 11:15:32,187 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:32,366 - __main__ - ✅ Found 2 emails
+
+Scraper error: 2025-06-17 11:15:32,366 - __main__ - 🎯 Processing targeted job 9/1545: 10000-1202715522-S
+
+Scraper error: 2025-06-17 11:15:32,456 - __main__ - 📋 Processing: Ausbildung 2026 - Verkäufer/in - Kaufmann/-frau Einzelhandel @ Schlier GmbH
+
+Scraper error: 2025-06-17 11:15:33,338 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:33,592 - __main__ - ✅ Found 2 emails
+
+Scraper error: 2025-06-17 11:15:33,592 - __main__ - 🎯 Processing targeted job 10/1545: 10000-1201684666-S
+
+Scraper error: 2025-06-17 11:15:33,675 - __main__ - 📋 Processing: Ausbildungsplatz zum/r  Fachverkäufer/In - Lebensmittelhandwerk (Bäckerei)  2025 @ Rudolf Heinrich
+
+Scraper error: 2025-06-17 11:15:34,764 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:35,115 - __main__ - ❌ No emails found
+2025-06-17 11:15:35,115 - __main__ - 🎯 Processing targeted job 11/1545: 14627-0056547234-S
+
+Scraper error: 2025-06-17 11:15:35,159 - __main__ - 📋 Processing: Ausbildung zum Verkäufer (m/w/d) / Kaufmann im Einzelhandel (m/w/d) Ausbildungsjahr 2025 @ Jawoll Vertriebs GmbH
+
+Scraper error: 2025-06-17 11:15:36,198 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:36,229 - __main__ - ❌ No emails found
+2025-06-17 11:15:36,229 - __main__ - 🎯 Processing targeted job 12/1545: 10000-1200587691-S
+
+Scraper error: 2025-06-17 11:15:36,315 - __main__ - 📋 Processing: Ausbildung 2025 - Fachverkäufer/in Lebensmittelhandwerk (Fleischerei) (m/w/d) @ Metzgerei Peter Wagner im Boutiquestil e.K.
+
+Scraper error: 2025-06-17 11:15:37,283 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:37,336 - __main__ - ✅ Found 1 emails
+2025-06-17 11:15:37,336 - __main__ - 🎯 Processing targeted job 13/1545: 12489-42988922-1119-S
+
+Scraper error: 2025-06-17 11:15:37,657 - __main__ - 📋 Processing: Ausbildung zum Verkäufer (m/w/d) @ Fressnapf Holding SE
+
+Scraper error: 2025-06-17 11:15:38,356 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:38,553 - __main__ - ❌ No emails found
+2025-06-17 11:15:38,553 - __main__ - 🎯 Processing targeted job 14/1545: 10001-1000828598-S
+
+Scraper error: 2025-06-17 11:15:38,651 - __main__ - 📋 Processing: Ausbildung zum Parfümeriefachverkäufer (w/m/d) in Solingen, VST 172 @ Parfümerie Douglas GmbH
+
+Scraper error: 2025-06-17 11:15:39,367 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:39,615 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:15:39,616 - __main__ - 🎯 Processing targeted job 15/1545: 10000-1200127766-S
+
+Scraper error: 2025-06-17 11:15:39,757 - __main__ - 📋 Processing: Ausbildung 2024 - Verkäufer (m/w/d) @ TR OST GmbH
+
+Scraper error: 2025-06-17 11:15:40,382 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:40,574 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:15:40,574 - __main__ - 🎯 Processing targeted job 16/1545: 10000-1202729386-S
+
+Scraper error: 2025-06-17 11:15:40,633 - __main__ - 📋 Processing: Ausbildung zum Verkäufer (m/w/d) @ KiK Textilien und Non-Food GmbH
+
+Scraper error: 2025-06-17 11:15:41,437 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:41,635 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:15:41,635 - __main__ - 🎯 Processing targeted job 17/1545: 10000-1200144553-S
+
+Scraper error: 2025-06-17 11:15:41,709 - __main__ - 📋 Processing: AUSBILDUNG 2025 !!! - Praktikum möglich @ Mones Dieter
+
+Scraper error: 2025-06-17 11:15:42,731 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:42,937 - __main__ - ❌ No emails found
+2025-06-17 11:15:42,937 - __main__ - 🎯 Processing targeted job 18/1545: 18551-r7978-S
+
+Scraper error: 2025-06-17 11:15:43,125 - __main__ - 📋 Processing: Ausbildung im Einzelhandel (m/w/d) @ Welters & Görgens
+
+Scraper error: 2025-06-17 11:15:43,842 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:43,882 - __main__ - ❌ No emails found
+2025-06-17 11:15:43,882 - __main__ - 🎯 Processing targeted job 19/1545: 10000-1197417349-S
+
+Scraper error: 2025-06-17 11:15:43,963 - __main__ - 📋 Processing: Ausbildung zum Fachverkäufer - Lebensmittelhandwerk (m/w/d) @ Bäckerei und Konditorei Sprung GmbH & Co. KG
+
+Scraper error: 2025-06-17 11:15:44,861 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:44,888 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:15:44,888 - __main__ - 🎯 Processing targeted job 20/1545: 17717-2c7a1914f890437-S
+
+Scraper error: 2025-06-17 11:15:44,980 - __main__ - 📋 Processing: Ausbildung Verkäufer / Kaufmann im Einzelhandel (m/w/d) @ Modepark Röther GmbH Bobenheim-Roxheim
+
+Scraper error: 2025-06-17 11:15:45,875 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:46,036 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:15:46,036 - __main__ - 🎯 Processing targeted job 21/1545: 17717-d0b2ce921d3d4c6-S
+
+Scraper error: 2025-06-17 11:15:46,088 - __main__ - 📋 Processing: Ausbildung Verkäufer / Kaufmann im Einzelhandel (m/w/d) @ Modepark Röther GmbH
+
+Scraper error: 2025-06-17 11:15:46,904 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:47,085 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:15:47,085 - __main__ - 🎯 Processing targeted job 22/1545: 13334-00005f5749e001-S
+
+Scraper error: 2025-06-17 11:15:47,367 - __main__ - 📋 Processing: Ausbildung zum Fachverkäufer im Lebensmittelhandwerk (Fleischerei) (m/w/d) 2025 @ Edeka Markt Radeberg John Scheller
+
+Scraper error: 2025-06-17 11:15:48,052 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:48,229 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:15:48,229 - __main__ - 🎯 Processing targeted job 23/1545: 10000-1198828157-S
+
+Scraper error: 2025-06-17 11:15:48,300 - __main__ - 📋 Processing: Ausbildung 2025 @ Anton Göbel Bäckerei - Konditorei - Cafe
+
+Scraper error: 2025-06-17 11:15:49,158 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:49,388 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:15:49,388 - __main__ - 🎯 Processing targeted job 24/1545: 10000-1200026887-S
+
+Scraper error: 2025-06-17 11:15:49,467 - __main__ - 📋 Processing: Ausbildung 2025 Verkäufer/in Fleischerei @ Mirko Mauksch Fleischerei
+
+Scraper error: 2025-06-17 11:15:50,250 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:50,433 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:15:50,433 - __main__ - 🎯 Processing targeted job 25/1545: 17717-9ea15a25769b4de-S
+
+Scraper error: 2025-06-17 11:15:50,499 - __main__ - 📋 Processing: Ausbildung Verkäufer / Kaufmann im Einzelhandel (m/w/d) @ Modepark Röther GmbH Mühldorf
+
+Scraper error: 2025-06-17 11:15:51,392 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:51,703 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:15:51,704 - __main__ - 🎯 Processing targeted job 26/1545: 10000-1200846272-S
+
+Scraper error: 2025-06-17 11:15:51,767 - __main__ - 📋 Processing: ***Ausbildung 2025***Praktikum möglich @ Stefan Müller e.K.
+
+Scraper error: 2025-06-17 11:15:52,525 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:52,875 - __main__ - ❌ No emails found
+2025-06-17 11:15:52,875 - __main__ - 🎯 Processing targeted job 27/1545: 10000-1200123700-S
+
+Scraper error: 2025-06-17 11:15:52,938 - __main__ - 📋 Processing: Ausbildung 2025 @ Metzgerei Rehle GmbH
+
+Scraper error: 2025-06-17 11:15:53,626 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:53,801 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:15:53,801 - __main__ - 🎯 Processing targeted job 28/1545: 10000-1200968457-S
+
+Scraper error: 2025-06-17 11:15:53,876 - __main__ - 📋 Processing: Ausbildung 2025 @ "Viereichener" Fleisch GmbH
+
+Scraper error: 2025-06-17 11:15:54,721 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:54,901 - __main__ - ❌ No emails found
+2025-06-17 11:15:54,901 - __main__ - 🎯 Processing targeted job 29/1545: 10000-1200320260-S
+
+Scraper error: 2025-06-17 11:15:54,978 - __main__ - 📋 Processing: Ausbildung 2025 - Praktikum möglich @ Metzgerei Max Hiesinger e.K.
+
+Scraper error: 2025-06-17 11:15:55,810 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:55,976 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:15:55,976 - __main__ - 🎯 Processing targeted job 30/1545: 10000-1200860333-S
+
+Scraper error: 2025-06-17 11:15:56,049 - __main__ - 📋 Processing: Ausbildungsangebot 2025 @ Vetschauer Wurstwaren GmbH
+
+Scraper error: 2025-06-17 11:15:56,908 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:57,079 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:15:57,079 - __main__ - 🎯 Processing targeted job 31/1545: 10000-1200316497-S
+
+Scraper error: 2025-06-17 11:15:57,145 - __main__ - 📋 Processing: Ausbildung 2025 @ Michael Kleiber GmbH Fleisch- und Wurstwaren
+
+Scraper error: 2025-06-17 11:15:58,016 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:58,046 - __main__ - ❌ No emails found
+2025-06-17 11:15:58,046 - __main__ - 🎯 Processing targeted job 32/1545: 13334-00005f56a58001-S
+
+Scraper error: 2025-06-17 11:15:58,116 - __main__ - 📋 Processing: Ausbildung zum Verkäufer (m/w/d) 2025 @ Edeka - Marcel Peukert e.Kfm.
+
+Scraper error: 2025-06-17 11:15:59,081 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:15:59,375 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:15:59,376 - __main__ - 🎯 Processing targeted job 33/1545: 14628-00007b0dd29001-S
+
+Scraper error: 2025-06-17 11:15:59,441 - __main__ - 📋 Processing: Ausbildung zum Verkäufer für 2025 (w/m/d) @ SB-Möbel-Boss Handels GmbH & Co. KG Leipzig
+
+Scraper error: 2025-06-17 11:16:00,182 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:16:00,471 - __main__ - ❌ No emails found
+2025-06-17 11:16:00,471 - __main__ - 🎯 Processing targeted job 34/1545: 13334-00005f557b6001-S
+
+Scraper error: 2025-06-17 11:16:00,521 - __main__ - 📋 Processing: Ausbildung zum Fachverkäufer im Lebensmittelhandwerk (Fleischerei) (m/w/d) 2025 @ Frischemärkte Trabold KG
+
+Scraper error: 2025-06-17 11:16:01,235 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:16:01,572 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:16:01,572 - __main__ - 🎯 Processing targeted job 35/1545: 12489-00008c1eb7d001-S
+
+Scraper error: 2025-06-17 11:16:01,649 - __main__ - 📋 Processing: Ausbildung zum Verkäufer m/w/d @ Sedlmaier Tiernahrung GmbH
+
+Scraper error: 2025-06-17 11:16:02,448 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:16:02,622 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:16:02,622 - __main__ - 🎯 Processing targeted job 36/1545: 10000-1196362277-S
+
+Scraper error: 2025-06-17 11:16:02,679 - __main__ - 📋 Processing: Ausbildung 2024 @ Karl Weber Metzgerei
+
+Scraper error: 2025-06-17 11:16:03,588 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:16:03,745 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:16:03,746 - __main__ - 🎯 Processing targeted job 37/1545: 14628-00007b0de76001-S
+
+Scraper error: 2025-06-17 11:16:03,829 - __main__ - 📋 Processing: Ausbildung zum Verkäufer für 2025 (w/m/d) @ SB Möbel Boss Handels GmbH & Co.KG Alte Messe Leipzig
+
+Scraper error: 2025-06-17 11:16:04,796 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:16:04,975 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:16:04,975 - __main__ - 🎯 Processing targeted job 38/1545: 10001-1000701628-S
+
+Scraper error: 2025-06-17 11:16:05,027 - __main__ - 📋 Processing: Ausbildung Verkäufer (m/w/d) ab August 2025 @ Fahrrad XXL Emporon GmbH & Co. KG
+
+Scraper error: 2025-06-17 11:16:05,914 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:16:06,210 - __main__ - ✅ Found 1 emails
+2025-06-17 11:16:06,210 - __main__ - 🎯 Processing targeted job 39/1545: 10000-1197421397-S
+
+Scraper error: 2025-06-17 11:16:06,292 - __main__ - 📋 Processing: (Inklusions)Ausbildungsplatz: Verkäufer/in (m/w/d) @ CARIDA gGmbH -Carimarkt-
+
+Scraper error: 2025-06-17 11:16:06,985 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:16:07,146 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:16:07,146 - __main__ - 🎯 Processing targeted job 40/1545: 10000-1200191409-S
+
+Scraper error: 2025-06-17 11:16:07,323 - __main__ - 📋 Processing: Ausbildung Fachverkäufer/in - Lebensmittelhandwerk (m/w/d) 2025 @ Hinderofencafe HOC
+
+Scraper error: 2025-06-17 11:16:08,086 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:16:08,255 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:16:08,255 - __main__ - 🎯 Processing targeted job 41/1545: 14628-00007b0db94001-S
+
+Scraper error: 2025-06-17 11:16:08,345 - __main__ - 📋 Processing: Ausbildung zum Verkäufer für 2025 (w/m/d) @ SB-Möbel-Boss Handels GmbH & Co. KG
+
+Scraper error: 2025-06-17 11:16:09,261 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:16:09,276 - unified_scraper - 🧩 CAPTCHA detected, solving...
+
+Scraper error: 2025-06-17 11:16:29,665 - unified_scraper - ✅ CAPTCHA solved: pp4pms
+
+Scraper error: 2025-06-17 11:16:32,908 - unified_scraper - 📜 Scrolling to contact section after CAPTCHA...
+
+Scraper error: 2025-06-17 11:16:34,500 - __main__ - ❌ No emails found
+2025-06-17 11:16:34,500 - __main__ - 🎯 Processing targeted job 42/1545: 13334-00005f53166001-S
+
+Scraper error: 2025-06-17 11:16:34,626 - __main__ - 📋 Processing: Ausbildung Fachverkäufer im Lebensmittelhandwerk Fleischwaren (m/w/d) @ Rheika-Delta Warenhandelsgesellschaft mbH
+
+Scraper error: 2025-06-17 11:16:35,041 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:16:35,275 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:16:35,275 - __main__ - 🎯 Processing targeted job 43/1545: 10000-1200733944-S
+
+Scraper error: 2025-06-17 11:16:35,327 - __main__ - 📋 Processing: Ausbildung 2025 @ Reinsdorfer Fleisch-und Wurstwarenmanufaktur GmbH
+
+Scraper error: 2025-06-17 11:16:36,287 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:16:36,454 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:16:36,454 - __main__ - 🎯 Processing targeted job 44/1545: 10000-1200577896-S
+
+Scraper error: 2025-06-17 11:16:36,531 - __main__ - 📋 Processing: Ausbildung Fachverkäufer Fleischerei (m/w/d) 2025 @ Michael Gut Metzgerei
+
+Scraper error: 2025-06-17 11:16:37,444 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:16:37,701 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:16:37,702 - __main__ - 🎯 Processing targeted job 45/1545: 10000-1200889790-S
+
+Scraper error: 2025-06-17 11:16:37,934 - __main__ - 📋 Processing: Ausbildung 2026 @ Aral Autohof Thomas Neugebauer
+
+Scraper error: 2025-06-17 11:16:38,702 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:16:38,872 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:16:38,872 - __main__ - 🎯 Processing targeted job 46/1545: 10000-1202018655-S
+
+Scraper error: 2025-06-17 11:16:38,936 - __main__ - 📋 Processing: Ausbildung Verkäufer (m/w/d) 2025 @ Lidl Vertriebs-GmbH&Co.KG Hartheim
+
+Scraper error: 2025-06-17 11:16:39,783 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:16:39,937 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:16:39,937 - __main__ - 🎯 Processing targeted job 47/1545: 10000-1201673526-S
+
+Scraper error: 2025-06-17 11:16:40,006 - __main__ - 📋 Processing: Ausbildung 2025 - Verkäufer (m/w/d) @ Media Markt TV-Hifi-Elektro GmbH Bamberg
+
+Scraper error: 2025-06-17 11:16:40,941 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:16:40,980 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:16:40,980 - __main__ - 🎯 Processing targeted job 48/1545: 10000-1199348893-S
+
+Scraper error: 2025-06-17 11:16:41,183 - __main__ - 📋 Processing: Ausbildung 2025 - Fachverkäufer/in - Lebensmittelhandwerk (Fleischerei) (m/w/d) @ Hilmar Eichhorn Metzgerei
+
+Scraper error: 2025-06-17 11:16:42,012 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:16:42,050 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:16:42,050 - __main__ - 🎯 Processing targeted job 49/1545: 17717-6fbe35304b3f481-S
+
+Scraper error: 2025-06-17 11:16:42,173 - __main__ - 📋 Processing: Ausbildung Verkäufer / Kaufmann im Einzelhandel (m/w/d) @ Modepark Röther GmbH Plauen
+
+Scraper error: 2025-06-17 11:16:43,107 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:16:43,282 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:16:43,282 - __main__ - 🎯 Processing targeted job 50/1545: 17717-7821ba87da6749e-S
+
+Scraper error: 2025-06-17 11:16:43,356 - __main__ - 📋 Processing: Ausbildung Verkäufer / Kaufmann im Einzelhandel (m/w/d) @ Modepark Röther GmbH Chemnitz
+
+Scraper error: 2025-06-17 11:16:44,239 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:16:44,272 - __main__ - ❌ No emails found
+2025-06-17 11:16:44,272 - __main__ - 🎯 Processing targeted job 51/1545: 10001-1001387082-S
+
+Scraper error: 2025-06-17 11:16:44,423 - __main__ - 📋 Processing: Ausbildung Fachverkäufer/in (m/w/d) Lebensmittelhandwerk zum 01.08.2025 für Würzburg und Gerbrunn @ Dees Metzgerei Partyservice & Catering GmbH & Co. KG
+
+Scraper error: 2025-06-17 11:16:45,312 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:16:45,343 - __main__ - ✅ Found 1 emails
+
+Scraper error: 2025-06-17 11:16:45,343 - __main__ - 🎯 Processing targeted job 52/1545: 14400-k27905.1493-S
+
+Scraper error: 2025-06-17 11:16:45,428 - __main__ - 📋 Processing: Ausbildung Verkäufer / Verkäuferin (m/w/d) @ Weber Oelsnitz GmbH
+
+Scraper error: 2025-06-17 11:16:46,383 - unified_scraper - 📜 Scrolling to contact section...
+
+Scraper error: 2025-06-17 11:16:46,422 - __main__ - ❌ No emails found
+
+Scraper error: 2025-06-17 11:16:46,422 - __main__ - 🎯 Processing targeted job 53/1545: 10000-1200323272-S
+
+Scraper error: 2025-06-17 11:16:46,493 - __main__ - 📋 Processing: Ausbildung zum Verkäufer (m/w/d) mit Option zum Kaufmann im Einzelhandel (m/w/d) @ expert Mainfranken GmbH
+

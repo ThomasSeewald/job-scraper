@@ -1,0 +1,57 @@
+{
+  "name": "arbeitsagentur-job-scraper",
+  "version": "1.0.0",
+  "description": "Automated job scraping system for Arbeitsagentur API with PostgreSQL integration",
+  "main": "src/scraper.js",
+  "scripts": {
+    "start": "node src/scraper.js",
+    "test": "node test-captcha-solver.js",
+    "schedule": "node src/scheduler.js",
+    "setup-db": "node src/setup-database.js",
+    "export": "node src/export-data.js",
+    "test-captcha": "node test-captcha-solver.js",
+    "test-captcha-balance": "node test-captcha-solver.js --test-balance",
+    "check-balance": "node balance-check.js",
+    "check-balance-only": "node balance-check.js --check-only",
+    "test-email": "node balance-check.js --test-email",
+    "send-test-email": "node balance-check.js --send-test",
+    "balance-status": "node balance-check.js --status",
+    "monitor-balance": "node src/balance-scheduler.js"
+  },
+  "keywords": [
+    "arbeitsagentur",
+    "job-scraping",
+    "postgresql",
+    "api",
+    "automation"
+  ],
+  "author": "Job Scraper System",
+  "license": "MIT",
+  "dependencies": {
+    "2captcha": "^3.0.5-2",
+    "axios": "^1.9.0",
+    "cheerio": "^1.0.0",
+    "csv-parser": "^3.0.0",
+    "csv-stringify": "^6.5.2",
+    "dotenv": "^16.3.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "fast-csv": "^4.3.6",
+    "form-data": "^4.0.2",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^7.0.3",
+    "pg": "^8.11.0",
+    "puppeteer": "^24.10.0",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "local"
+  }
+}

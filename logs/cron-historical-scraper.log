@@ -1,0 +1,471 @@
+Thu Jun  5 18:00:01 CEST 2025: Starting historical employer scraping...
+🔧 Independent CAPTCHA Solver initialized
+📁 CAPTCHA save directory: /tmp/captcha
+Starting historical employer scraper for up to 30 employers...
+🏛️ Starting Historical Employer Scraper
+📧 Focus: Extract emails from historical employers
+🐌 Strategy: Slower, comprehensive approach
+🚀 Initializing browser for historical scraping...
+🖥️ Browser mode: headless (background)
+✅ Browser initialized for historical scraping
+📊 Total historical employers remaining: 155,971
+📋 Found 1 historical employers for extraction (batch starting from ID 1)
+🎯 Processing 1 historical employers (limited from 1)
+\n🔄 Processing historical batch of 1 employers...
+🔍 Historical scraping: Deutsche Bahn AG
+🔗 URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/12456-1186827-2-S
+🔒 CAPTCHA detected, solving... (attempt 1/3)
+🖼️ CAPTCHA image URL: https://rest.arbeitsagentur.de/idaas/id-aas-service/ct/v1/captcha/48699960-FA23-47B6-8504-BBFED03EC3C9?type=image&languageIso639Code=de
+🌐 Downloading CAPTCHA from URL: https://rest.arbeitsagentur.de/idaas/id-aas-service/ct/v1/captcha/48699960-FA23-47B6-8504-BBFED03EC3C9?type=image&languageIso639Code=de
+📥 Downloaded CAPTCHA image (5063 bytes)
+🧩 Starting independent CAPTCHA solving...
+🔄 CAPTCHA solving attempt 1/3...
+📤 CAPTCHA submitted with ID: 79799225342
+✅ CAPTCHA solved successfully in 2337ms: "wwacsz" (ID: 79799225342)
+🔑 CAPTCHA solution: wwacsz
+🔘 Submit button clicked, waiting for CAPTCHA validation...
+✅ CAPTCHA solved successfully on attempt 1!
+🔓 CAPTCHA solved, continuing...
+🎯 Found direct application link via #detail-bewerbung-url
+🌐 No emails found, but found application website: https://jobs.deutschebahngroup.careers/jobsde/ApplicationMethods?jobId=341738&utm_campaign=AlwaysAll&utm_content=&utm_source=Bundesagentur&utm_medium=Flat_Jobad&utm_term=341738
+🏢 Domain: jobs.deutschebahngroup.careers
+🏢 Updated historical employer "Deutsche Bahn AG" with website
+💾 Saved historical results for employer: Deutsche Bahn AG
+\n📊 Historical batch completed: 1/1 successful
+   📧 Emails found: 0
+   🌐 Websites found: 1
+\n🎉 Historical scraping completed!
+📊 Final Stats:
+   Total employers processed: 1
+   Successful scrapes: 1
+   Emails found: 0
+   Websites found: 1
+   Success rate: 100.0%
+   Total progress: 2 employers processed since 2025-06-05T12:57:01.670Z
+   Remaining: ~155,969 employers
+🧹 Browser closed
+🧹 Database connections closed
+Thu Jun  5 18:00:25 CEST 2025: Historical scraping cycle completed
+Fri Jun  6 00:00:00 CEST 2025: Starting historical employer scraping...
+🔧 Independent CAPTCHA Solver initialized
+📁 CAPTCHA save directory: /tmp/captcha
+Starting historical employer scraper for up to 30 employers...
+🏛️ Starting Historical Employer Scraper
+📧 Focus: Extract emails from historical employers
+🐌 Strategy: Slower, comprehensive approach
+🚀 Initializing browser for historical scraping...
+🖥️ Browser mode: headless (background)
+✅ Browser initialized for historical scraping
+📊 Total historical employers remaining: 155,924
+📋 Found 1 historical employers for extraction (batch starting from ID 3)
+🎯 Processing 1 historical employers (limited from 1)
+\n🔄 Processing historical batch of 1 employers...
+🔍 Historical scraping: ALDI Süd
+🔗 URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10000-1202181766-S
+🔒 CAPTCHA detected, solving... (attempt 1/3)
+🖼️ CAPTCHA image URL: https://rest.arbeitsagentur.de/idaas/id-aas-service/ct/v1/captcha/56ADB526-AC4E-456C-9C4A-6EA02EBA187C?type=image&languageIso639Code=de
+🌐 Downloading CAPTCHA from URL: https://rest.arbeitsagentur.de/idaas/id-aas-service/ct/v1/captcha/56ADB526-AC4E-456C-9C4A-6EA02EBA187C?type=image&languageIso639Code=de
+📥 Downloaded CAPTCHA image (5065 bytes)
+🧩 Starting independent CAPTCHA solving...
+🔄 CAPTCHA solving attempt 1/3...
+📤 CAPTCHA submitted with ID: 79801509246
+node:events:485
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: Connection terminated unexpectedly
+    at Connection.<anonymous> (/Users/thomassee/Docker/containers/job-scraper/node_modules/pg/lib/client.js:136:73)
+    at Object.onceWrapper (node:events:621:28)
+    at Connection.emit (node:events:507:28)
+    at Socket.<anonymous> (/Users/thomassee/Docker/containers/job-scraper/node_modules/pg/lib/connection.js:62:12)
+    at Socket.emit (node:events:507:28)
+    at TCP.<anonymous> (node:net:351:12)
+Emitted 'error' event on BoundPool instance at:
+    at Client.idleListener (/Users/thomassee/Docker/containers/job-scraper/node_modules/pg-pool/index.js:62:10)
+    at Client.emit (node:events:507:28)
+    at Client._handleErrorEvent (/Users/thomassee/Docker/containers/job-scraper/node_modules/pg/lib/client.js:350:10)
+    at Connection.<anonymous> (/Users/thomassee/Docker/containers/job-scraper/node_modules/pg/lib/client.js:154:16)
+    at Object.onceWrapper (node:events:621:28)
+    [... lines matching original stack trace ...]
+    at TCP.<anonymous> (node:net:351:12) {
+  client: Client {
+    _events: [Object: null prototype] { error: [Function (anonymous)] },
+    _eventsCount: 1,
+    _maxListeners: undefined,
+    connectionParameters: ConnectionParameters {
+      user: 'odoo',
+      database: 'jetzt',
+      port: 5473,
+      host: 'localhost',
+      binary: false,
+      options: undefined,
+      ssl: false,
+      client_encoding: '',
+      replication: undefined,
+      isDomainSocket: false,
+      application_name: undefined,
+      fallback_application_name: undefined,
+      statement_timeout: false,
+      lock_timeout: false,
+      idle_in_transaction_session_timeout: false,
+      query_timeout: false,
+      connect_timeout: 5
+    },
+    user: 'odoo',
+    database: 'jetzt',
+    port: 5473,
+    host: 'localhost',
+    replication: undefined,
+    _Promise: [Function: Promise],
+    _types: TypeOverrides {
+      _types: {
+        getTypeParser: [Function: getTypeParser],
+        setTypeParser: [Function: setTypeParser],
+        arrayParser: { create: [Function: create] },
+        builtins: {
+          BOOL: 16,
+          BYTEA: 17,
+          CHAR: 18,
+          INT8: 20,
+          INT2: 21,
+          INT4: 23,
+          REGPROC: 24,
+          TEXT: 25,
+          OID: 26,
+          TID: 27,
+          XID: 28,
+          CID: 29,
+          JSON: 114,
+          XML: 142,
+          PG_NODE_TREE: 194,
+          SMGR: 210,
+          PATH: 602,
+          POLYGON: 604,
+          CIDR: 650,
+          FLOAT4: 700,
+          FLOAT8: 701,
+          ABSTIME: 702,
+          RELTIME: 703,
+          TINTERVAL: 704,
+          CIRCLE: 718,
+          MACADDR8: 774,
+          MONEY: 790,
+          MACADDR: 829,
+          INET: 869,
+          ACLITEM: 1033,
+          BPCHAR: 1042,
+          VARCHAR: 1043,
+          DATE: 1082,
+          TIME: 1083,
+          TIMESTAMP: 1114,
+          TIMESTAMPTZ: 1184,
+          INTERVAL: 1186,
+          TIMETZ: 1266,
+          BIT: 1560,
+          VARBIT: 1562,
+          NUMERIC: 1700,
+          REFCURSOR: 1790,
+          REGPROCEDURE: 2202,
+          REGOPER: 2203,
+          REGOPERATOR: 2204,
+          REGCLASS: 2205,
+          REGTYPE: 2206,
+          UUID: 2950,
+          TXID_SNAPSHOT: 2970,
+          PG_LSN: 3220,
+          PG_NDISTINCT: 3361,
+          PG_DEPENDENCIES: 3402,
+          TSVECTOR: 3614,
+          TSQUERY: 3615,
+          GTSVECTOR: 3642,
+          REGCONFIG: 3734,
+          REGDICTIONARY: 3769,
+          JSONB: 3802,
+          REGNAMESPACE: 4089,
+          REGROLE: 4096
+        }
+      },
+      text: {},
+      binary: {}
+    },
+    _ending: true,
+    _ended: true,
+    _connecting: false,
+    _connected: true,
+    _connectionError: false,
+    _queryable: false,
+    enableChannelBinding: false,
+    connection: Connection {
+      _events: [Object: null prototype] {
+        newListener: [Function (anonymous)],
+        connect: [Function (anonymous)],
+        sslconnect: [Function (anonymous)],
+        authenticationCleartextPassword: [Function: bound _handleAuthCleartextPassword],
+        authenticationMD5Password: [Function: bound _handleAuthMD5Password],
+        authenticationSASL: [Function: bound _handleAuthSASL],
+        authenticationSASLContinue: [Function: bound _handleAuthSASLContinue] AsyncFunction,
+        authenticationSASLFinal: [Function: bound _handleAuthSASLFinal],
+        backendKeyData: [Function: bound _handleBackendKeyData],
+        error: [Function: bound _handleErrorEvent],
+        errorMessage: [Function: bound _handleErrorMessage],
+        readyForQuery: [Function: bound _handleReadyForQuery],
+        notice: [Function: bound _handleNotice],
+        rowDescription: [Function: bound _handleRowDescription],
+        dataRow: [Function: bound _handleDataRow],
+        portalSuspended: [Function: bound _handlePortalSuspended],
+        emptyQuery: [Function: bound _handleEmptyQuery],
+        commandComplete: [Function: bound _handleCommandComplete],
+        parseComplete: [Function: bound _handleParseComplete],
+        copyInResponse: [Function: bound _handleCopyInResponse],
+        copyData: [Function: bound _handleCopyData],
+        notification: [Function: bound _handleNotification]
+      },
+      _eventsCount: 22,
+      _maxListeners: undefined,
+      stream: Socket {
+        connecting: false,
+        _hadError: false,
+        _parent: null,
+        _host: 'localhost',
+        _closeAfterHandlingError: false,
+        _events: {
+          close: [Function (anonymous)],
+          error: [Function: reportStreamError],
+          prefinish: undefined,
+          finish: undefined,
+          drain: undefined,
+          data: [Function (anonymous)],
+          end: [ [Function: onReadableStreamEnd], [Function (anonymous)] ],
+          readable: undefined,
+          connect: undefined
+        },
+        _readableState: ReadableState {
+          highWaterMark: 65536,
+          buffer: [],
+          bufferIndex: 0,
+          length: 0,
+          pipes: [],
+          awaitDrainWriters: null,
+          [Symbol(kState)]: 194512756
+        },
+        _writableState: WritableState {
+          highWaterMark: 65536,
+          length: 0,
+          corked: 0,
+          onwrite: [Function: bound onwrite],
+          writelen: 0,
+          bufferedIndex: 0,
+          pendingcb: 0,
+          [Symbol(kState)]: 1091450228,
+          [Symbol(kBufferedValue)]: null,
+          [Symbol(kWriteCbValue)]: null
+        },
+        allowHalfOpen: false,
+        _maxListeners: undefined,
+        _eventsCount: 4,
+        _sockname: null,
+        _pendingData: null,
+        _pendingEncoding: '',
+        server: null,
+        _server: null,
+        autoSelectFamilyAttemptedAddresses: [ '::1:5473' ],
+        write: [Function: writeAfterFIN],
+        [Symbol(async_id_symbol)]: 117,
+        [Symbol(kHandle)]: null,
+        [Symbol(lastWriteQueueSize)]: 0,
+        [Symbol(timeout)]: null,
+        [Symbol(kBuffer)]: null,
+        [Symbol(kBufferCb)]: null,
+        [Symbol(kBufferGen)]: null,
+        [Symbol(shapeMode)]: true,
+        [Symbol(kCapture)]: false,
+        [Symbol(kSetNoDelay)]: true,
+        [Symbol(kSetKeepAlive)]: false,
+        [Symbol(kSetKeepAliveInitialDelay)]: 0,
+        [Symbol(kBytesRead)]: 3816,
+        [Symbol(kBytesWritten)]: 1463
+      },
+      _keepAlive: false,
+      _keepAliveInitialDelayMillis: 0,
+      lastBuffer: false,
+      parsedStatements: {},
+      ssl: false,
+      _ending: true,
+      _emitMessage: false,
+      _connecting: true,
+      [Symbol(shapeMode)]: false,
+      [Symbol(kCapture)]: false
+    },
+    queryQueue: [],
+    binary: false,
+    processID: 42718,
+    secretKey: 2022114265,
+    ssl: false,
+    _connectionTimeoutMillis: 5000,
+    _connectionCallback: null,
+    connectionTimeoutHandle: Timeout {
+      _idleTimeout: -1,
+      _idlePrev: null,
+      _idleNext: null,
+      _idleStart: 4080,
+      _onTimeout: null,
+      _timerArgs: undefined,
+      _repeat: null,
+      _destroyed: true,
+      [Symbol(refed)]: false,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 116,
+      [Symbol(triggerId)]: 0,
+      [Symbol(kAsyncContextFrame)]: undefined
+    },
+    release: [Function (anonymous)],
+    activeQuery: null,
+    readyForQuery: true,
+    hasExecuted: true,
+    _poolUseCount: 2,
+    [Symbol(shapeMode)]: false,
+    [Symbol(kCapture)]: false
+  }
+}
+
+Node.js v23.11.0
+Fri Jun  6 00:00:53 CEST 2025: Historical scraping cycle completed
+Fri Jun  6 06:01:37 CEST 2025: Starting historical employer scraping...
+🔧 Independent CAPTCHA Solver initialized
+📁 CAPTCHA save directory: /tmp/captcha
+Starting historical employer scraper for up to 30 employers...
+🏛️ Starting Historical Employer Scraper
+📧 Focus: Extract emails from historical employers
+🐌 Strategy: Slower, comprehensive approach
+🚀 Initializing browser for historical scraping...
+🖥️ Browser mode: headless (background)
+✅ Browser initialized for historical scraping
+📊 Total historical employers remaining: 155,905
+📋 Found 1 historical employers for extraction (batch starting from ID 3)
+🎯 Processing 1 historical employers (limited from 1)
+\n🔄 Processing historical batch of 1 employers...
+🔍 Historical scraping: ALDI Süd
+🔗 URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10000-1202181766-S
+❌ Error scraping historical employer ALDI Süd: Navigation timeout of 30000 ms exceeded
+🏢 Updated historical employer "ALDI Süd" with attempted
+💾 Saved historical results for employer: ALDI Süd
+\n📊 Historical batch completed: 0/1 successful
+   📧 Emails found: 0
+   🌐 Websites found: 0
+\n🎉 Historical scraping completed!
+📊 Final Stats:
+   Total employers processed: 1
+   Successful scrapes: 0
+   Emails found: 0
+   Websites found: 0
+   Success rate: 0.0%
+   Total progress: 3 employers processed since 2025-06-05T12:57:01.670Z
+   Remaining: ~155,902 employers
+🧹 Browser closed
+🧹 Database connections closed
+Fri Jun  6 06:07:50 CEST 2025: Historical scraping cycle completed
+So 15 Jun 2025 17:43:46 CEST: Starting historical employer scraping...
+🔧 Independent CAPTCHA Solver initialized
+📁 CAPTCHA save directory: /tmp/captcha
+Starting historical employer scraper for up to 30 job_scrp_employers...
+🏛️ Starting Historical Employer Scraper
+📧 Focus: Extract emails from historical job_scrp_employers
+🐌 Strategy: Slower, comprehensive approach
+🚀 Initializing browser for historical scraping...
+🖥️ Browser mode: headless (background)
+✅ Browser initialized for historical scraping
+📊 Total historical job_scrp_employers remaining: 130.502
+📋 Found 20 historical job_scrp_employers for extraction (batch starting from ID 343)
+🎯 Processing 20 historical job_scrp_employers (limited from 20)
+\n🔄 Processing historical batch of 20 job_scrp_employers...
+🔍 Historical scraping: BERA GmbH
+🔗 URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/12490-MNFU2LHK7MMD9WIE-S
+🔒 CAPTCHA detected, solving... (attempt 1/3)
+🖼️ CAPTCHA image URL: https://rest.arbeitsagentur.de/idaas/id-aas-service/ct/v1/captcha/6F052CE2-6825-4A46-A1AC-B8150B4EDEE0?type=image&languageIso639Code=de
+🌐 Downloading CAPTCHA from URL: https://rest.arbeitsagentur.de/idaas/id-aas-service/ct/v1/captcha/6F052CE2-6825-4A46-A1AC-B8150B4EDEE0?type=image&languageIso639Code=de
+📥 Downloaded CAPTCHA image (4809 bytes)
+📤 CAPTCHA submitted with ID: 79879511541
+✅ CAPTCHA solved successfully in 2428ms: "hwphcv" (ID: 79879511541)
+🔑 CAPTCHA solution: hwphcv
+🔘 Submit button clicked, waiting for CAPTCHA validation...
+✅ CAPTCHA solved successfully on attempt 1!
+🔓 CAPTCHA solved, continuing...
+✅ Found 2 emails: karriere@bera.eu, nkarriere@bera.eu
+🎯 Best email: karriere@bera.eu
+🏢 Updated historical employer "BERA GmbH" with emails
+💾 Saved historical results for employer: BERA GmbH
+🔍 Historical scraping: Viguna Personalmanagement GmbH
+🔗 URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/14647-13259159-S
+❌ Error scraping historical employer Viguna Personalmanagement GmbH: Navigation timeout of 30000 ms exceeded
+🏢 Updated historical employer "Viguna Personalmanagement GmbH" with attempted
+💾 Saved historical results for employer: Viguna Personalmanagement GmbH
+🔍 Historical scraping: ADMIRAL ENTERTAINMENT GmbH
+🔗 URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001481213-S
+🎯 Found direct application link via #detail-bewerbung-url
+🌐 No emails found, but found application website: https://www.admiral-games.de/team-admiral-spielhalle/offene-stellen/detail/2944
+🏢 Domain: admiral-games.de
+🏢 Updated historical employer "ADMIRAL ENTERTAINMENT GmbH" with website
+💾 Saved historical results for employer: ADMIRAL ENTERTAINMENT GmbH
+🔍 Historical scraping: Pamec Papp GmbH Leipzig
+🔗 URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/12310-BNU9LK44P40K55ED-S
+❌ Error scraping historical employer Pamec Papp GmbH Leipzig: Navigation timeout of 30000 ms exceeded
+🏢 Updated historical employer "Pamec Papp GmbH Leipzig" with attempted
+💾 Saved historical results for employer: Pamec Papp GmbH Leipzig
+🔍 Historical scraping: Sell GmbH
+🔗 URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001483129-S
+So 15 Jun 2025 17:56:01 CEST: Starting historical employer scraping...
+🔧 Independent CAPTCHA Solver initialized
+📁 CAPTCHA save directory: /tmp/captcha
+Starting historical employer scraper for up to 30 job_scrp_employers...
+🏛️ Starting Historical Employer Scraper
+📧 Focus: Extract emails from historical job_scrp_employers
+🐌 Strategy: Slower, comprehensive approach
+🚀 Initializing browser for historical scraping...
+🖥️ Browser mode: headless (background)
+✅ Browser initialized for historical scraping
+📊 Total historical job_scrp_employers remaining: 130.498
+📋 Found 20 historical job_scrp_employers for extraction (batch starting from ID 998)
+🎯 Processing 20 historical job_scrp_employers (limited from 20)
+\n🔄 Processing historical batch of 20 job_scrp_employers...
+🔍 Historical scraping: Sell GmbH
+🔗 URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001483129-S
+🔒 CAPTCHA detected, solving... (attempt 1/3)
+🖼️ CAPTCHA image URL: https://rest.arbeitsagentur.de/idaas/id-aas-service/ct/v1/captcha/D796242F-FA00-4CFE-811E-0850546E69F1?type=image&languageIso639Code=de
+🌐 Downloading CAPTCHA from URL: https://rest.arbeitsagentur.de/idaas/id-aas-service/ct/v1/captcha/D796242F-FA00-4CFE-811E-0850546E69F1?type=image&languageIso639Code=de
+📥 Downloaded CAPTCHA image (4672 bytes)
+📤 CAPTCHA submitted with ID: 79879568020
+✅ CAPTCHA solved successfully in 2403ms: "cenbzy" (ID: 79879568020)
+🔑 CAPTCHA solution: cenbzy
+🔘 Submit button clicked, waiting for CAPTCHA validation...
+✅ CAPTCHA solved successfully on attempt 1!
+🔓 CAPTCHA solved, continuing...
+🎯 Found direct application link via #detail-bewerbung-url
+🌐 No emails found, but found application website: https://www.sell.gmbh/karriere/stellenmarkt/
+🏢 Domain: sell.gmbh
+🏢 Updated historical employer "Sell GmbH" with website
+💾 Saved historical results for employer: Sell GmbH
+🔍 Historical scraping: serviceline Personal-Management GmbH & Co.KG
+🔗 URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/15924-LKQGRUVLJIONA68H-S
+✅ Found 2 emails: karriere.ber@serviceline-online.de, aa.ber@serviceline-online.de
+🎯 Best email: karriere.ber@serviceline-online.de
+🏢 Updated historical employer "serviceline Personal-Management GmbH & Co.KG" with emails
+💾 Saved historical results for employer: serviceline Personal-Management GmbH & Co.KG
+🔍 Historical scraping: ampuls GmbH & Co. KG
+🔗 URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001480391-S
+✅ Found 1 emails: bewerbung@am-puls.com
+🎯 Best email: bewerbung@am-puls.com
+🏢 Updated historical employer "ampuls GmbH & Co. KG" with emails
+💾 Saved historical results for employer: ampuls GmbH & Co. KG
+🔍 Historical scraping: ESD Empfangs- u. SekretariatsDienstleistungen Verw VERWALTUNG / Absender-Nr. A0042251 GmbH
+🔗 URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/18029-0056767513-S
+❌ Error scraping historical employer ESD Empfangs- u. SekretariatsDienstleistungen Verw VERWALTUNG / Absender-Nr. A0042251 GmbH: Navigation timeout of 30000 ms exceeded
+🏢 Updated historical employer "ESD Empfangs- u. SekretariatsDienstleistungen Verw VERWALTUNG / Absender-Nr. A0042251 GmbH" with attempted
+💾 Saved historical results for employer: ESD Empfangs- u. SekretariatsDienstleistungen Verw VERWALTUNG / Absender-Nr. A0042251 GmbH
+🔍 Historical scraping: Rachensperger R Recruiting & Vermittlung e.U.
+🔗 URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10001-1001480398-S
+✅ Found 1 emails: office@rrecruiting.net
+🎯 Best email: office@rrecruiting.net
+🏢 Updated historical employer "Rachensperger R Recruiting & Vermittlung e.U." with emails
+💾 Saved historical results for employer: Rachensperger R Recruiting & Vermittlung e.U.
+🔍 Historical scraping: Klüh Catering GmbH
+🔗 URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/17710-0056803713-S

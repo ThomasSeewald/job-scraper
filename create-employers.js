@@ -1,0 +1,40 @@
+/**
+ * Script to create job_scrp_employers table from existing job data
+ */
+
+const EmployerOptimizedScraper = require('./src/employer-optimized-scraper');
+
+async function main() {
+    console.log('🚀 Starting employer creation from existing data...');
+    
+    const scraper = new EmployerOptimizedScraper();
+    
+    try {
+        const result = await scraper.createEmployersFromExistingData();
+        
+        console.log('\n' + '='.repeat(60));
+        console.log('✅ EMPLOYER CREATION COMPLETED');
+        console.log('='.repeat(60));
+        console.log(`📊 Employers created: ${result.created}`);
+        console.log(`⏭️ Duplicates skipped: ${result.skipped}`);
+        console.log(`📈 Total unique job_scrp_employers: ${result.created + result.skipped}`);
+        console.log('='.repeat(60));
+        
+        console.log('\n🎯 Next steps:');
+        console.log('1. Run employer-optimized scraping to extract emails');
+        console.log('2. Use: node run-employer-optimization.js');
+        
+    } catch (error) {
+        console.error('❌ Employer creation failed:', error);
+        process.exit(1);
+    } finally {
+        await scraper.cleanup();
+        process.exit(0);
+    }
+}
+
+if (require.main === module) {
+    main();
+}
+
+module.exports = main;

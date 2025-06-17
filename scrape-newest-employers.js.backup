@@ -1,0 +1,259 @@
+/**
+ * Scrape newest jobs grouped by employer (employer optimization)
+ */
+
+const { Client } = require('pg');
+const JobDetailScraper = require('./src/job-detail-scraper');
+
+const client = new Client({
+    host: 'localhost',
+    port: 5473,
+    database: 'jetzt',
+    user: 'odoo',
+    password: 'odoo'
+});
+
+async function scrapeNewestEmployers(maxEmployers = 20) {
+    console.log('🏢 Starting newest employers scraper (with optimization)...');
+    console.log(`🎯 Target: ${maxEmployers} employers from newest jobs`);
+    
+    const scraper = new JobDetailScraper();
+    let scrapedEmployers = 0;
+    let emailsFound = 0;
+    let jobsUpdated = 0;
+    let errors = 0;
+    
+    try {
+        await client.connect();
+        
+        // Get newest employers that need email extraction
+        const query = `
+            SELECT 
+                a.arbeitgeber,
+                COUNT(*) as job_count,
+                MIN(a.refnr) as sample_refnr,
+                MAX(a.id) as max_id,
+                STRING_AGG(DISTINCT a.refnr, ', ' ORDER BY a.refnr) as all_refnrs
+            FROM arbeitsagentur_jobs_v2 a
+            LEFT JOIN job_details jd ON a.refnr = jd.reference_number
+            WHERE (a.externeurl IS NULL OR a.externeurl = '')  -- Only scrapable jobs
+              AND a.arbeitgeber IS NOT NULL
+              AND a.arbeitgeber NOT LIKE '%@arbeitsagentur.de%'  -- Exclude BA emails
+              AND jd.reference_number IS NULL  -- Not yet scraped
+            GROUP BY a.arbeitgeber
+            HAVING COUNT(*) >= 1  -- At least 1 job
+            ORDER BY MAX(a.id) DESC  -- Newest employers first
+            LIMIT $1
+        `;
+        
+        const result = await client.query(query, [maxEmployers]);
+        const employers = result.rows;
+        
+        console.log(`📋 Found ${employers.length} employers with unscraped jobs`);
+        console.log('🚀 Starting employer-optimized scraping...\n');
+        
+        for (let i = 0; i < employers.length; i++) {
+            const employer = employers[i];
+            const progress = `[${i + 1}/${employers.length}]`;
+            
+            console.log(`${progress} Processing employer: ${employer.arbeitgeber}`);
+            console.log(`📊 Jobs from this employer: ${employer.job_count}`);
+            console.log(`🎯 Scraping sample job: ${employer.sample_refnr}`);
+            
+            try {
+                // Scrape ONE representative job from this employer
+                const startTime = Date.now();
+                const details = await scraper.scrapeJobDetails(employer.sample_refnr);
+                const duration = Date.now() - startTime;
+                
+                if (details.error) {
+                    console.log(`❌ Scraping failed: ${details.error}`);
+                    errors++;
+                } else {
+                    // Extract emails
+                    const emails = extractEmails(details);
+                    const hasEmails = emails.length > 0;
+                    
+                    if (hasEmails) {
+                        emailsFound++;
+                        console.log(`✅ EMAILS FOUND: ${emails.join(', ')}`);
+                        
+                        // Apply emails to ALL jobs from this employer
+                        const updatedJobs = await applyEmailsToEmployerJobs(
+                            employer.arbeitgeber, 
+                            emails, 
+                            duration
+                        );
+                        
+                        jobsUpdated += updatedJobs;
+                        console.log(`📧 Applied to ${updatedJobs} jobs from ${employer.arbeitgeber}`);
+                    } else {
+                        console.log(`📭 No emails found for ${employer.arbeitgeber}`);
+                        
+                        // Still store the attempt to avoid re-scraping
+                        await storeNoEmailResult(employer.sample_refnr, duration);
+                    }
+                    
+                    scrapedEmployers++;
+                    console.log(`⏱️  Duration: ${duration}ms | 🏢 Employers: ${scrapedEmployers} | 📧 Found: ${emailsFound}/${scrapedEmployers} (${(emailsFound/scrapedEmployers*100).toFixed(1)}%) | 📋 Jobs updated: ${jobsUpdated}\n`);
+                }
+                
+                // Rate limiting between employers
+                await delay(3000);
+                
+            } catch (error) {
+                console.error(`❌ Error processing ${employer.arbeitgeber}:`, error.message);
+                errors++;
+            }
+        }
+        
+        // Final statistics
+        console.log('=' .repeat(60));
+        console.log('🏁 EMPLOYER-OPTIMIZED SCRAPING COMPLETED');
+        console.log('=' .repeat(60));
+        console.log(`🏢 Employers processed: ${scrapedEmployers}`);
+        console.log(`📧 Employers with emails: ${emailsFound}`);
+        console.log(`📈 Email success rate: ${(emailsFound/scrapedEmployers*100).toFixed(1)}%`);
+        console.log(`📋 Total jobs updated: ${jobsUpdated}`);
+        console.log(`⚡ Efficiency: ${scrapedEmployers > 0 ? (jobsUpdated/scrapedEmployers).toFixed(1) : 0} jobs per employer`);
+        console.log(`❌ Errors: ${errors}`);
+        console.log('=' .repeat(60));
+        
+    } catch (error) {
+        console.error('❌ Scraping failed:', error);
+    } finally {
+        await scraper.cleanup();
+        await client.end();
+    }
+}
+
+function extractEmails(details) {
+    const emails = [];
+    
+    if (details.contact && details.contact.email) {
+        emails.push(details.contact.email);
+    }
+    
+    if (details.application && details.application.email) {
+        emails.push(details.application.email);
+    }
+    
+    // Remove duplicates and invalid emails
+    return [...new Set(emails)].filter(email => 
+        email && 
+        email.includes('@') && 
+        email.includes('.') &&
+        !email.includes('@arbeitsagentur.de')
+    );
+}
+
+async function applyEmailsToEmployerJobs(arbeitgeber, emails, duration) {
+    const contactEmails = emails.join(', ');
+    const bestEmail = emails[0];
+    const domain = bestEmail.split('@')[1];
+    
+    const updateQuery = `
+        INSERT INTO job_details (
+            reference_number, 
+            arbeitsagentur_job_id,
+            contact_emails, 
+            best_email, 
+            company_domain, 
+            has_emails, 
+            email_count, 
+            scraped_at, 
+            scraping_success, 
+            email_source,
+            scraping_duration_ms
+        )
+        SELECT 
+            a.refnr,
+            a.id,
+            $2 as contact_emails,
+            $3 as best_email,
+            $4 as company_domain,
+            true as has_emails,
+            $5 as email_count,
+            CURRENT_TIMESTAMP as scraped_at,
+            true as scraping_success,
+            'employer_optimization_fresh' as email_source,
+            $6 as scraping_duration_ms
+        FROM arbeitsagentur_jobs_v2 a
+        WHERE a.arbeitgeber = $1
+          AND (a.externeurl IS NULL OR a.externeurl = '')
+        ON CONFLICT (reference_number) 
+        DO UPDATE SET
+            contact_emails = EXCLUDED.contact_emails,
+            best_email = EXCLUDED.best_email,
+            company_domain = EXCLUDED.company_domain,
+            has_emails = EXCLUDED.has_emails,
+            email_count = EXCLUDED.email_count,
+            updated_at = CURRENT_TIMESTAMP,
+            email_source = EXCLUDED.email_source,
+            scraping_duration_ms = EXCLUDED.scraping_duration_ms
+    `;
+    
+    const result = await client.query(updateQuery, [
+        arbeitgeber, 
+        contactEmails, 
+        bestEmail, 
+        domain, 
+        emails.length,
+        duration
+    ]);
+    
+    return result.rowCount;
+}
+
+async function storeNoEmailResult(refnr, duration) {
+    // Get arbeitsagentur_job_id
+    const jobQuery = 'SELECT id FROM arbeitsagentur_jobs_v2 WHERE refnr = $1';
+    const jobResult = await client.query(jobQuery, [refnr]);
+    const arbeitsagenturJobId = jobResult.rows.length > 0 ? jobResult.rows[0].id : null;
+    
+    const insertQuery = `
+        INSERT INTO job_details (
+            reference_number, 
+            arbeitsagentur_job_id,
+            contact_emails, 
+            best_email, 
+            company_domain, 
+            has_emails, 
+            email_count, 
+            scraped_at, 
+            scraping_success, 
+            email_source,
+            scraping_duration_ms
+        ) VALUES (
+            $1, $2, NULL, NULL, NULL, false, 0, CURRENT_TIMESTAMP, true, 'employer_optimization_fresh', $3
+        )
+        ON CONFLICT (reference_number) 
+        DO UPDATE SET
+            has_emails = false,
+            updated_at = CURRENT_TIMESTAMP,
+            email_source = EXCLUDED.email_source,
+            scraping_duration_ms = EXCLUDED.scraping_duration_ms
+    `;
+    
+    await client.query(insertQuery, [refnr, arbeitsagenturJobId, duration]);
+}
+
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// Run if called directly
+if (require.main === module) {
+    const maxEmployers = process.argv[2] ? parseInt(process.argv[2]) : 20;
+    scrapeNewestEmployers(maxEmployers)
+        .then(() => {
+            console.log('🎉 Employer-optimized scraping completed!');
+            process.exit(0);
+        })
+        .catch(error => {
+            console.error('💥 Employer-optimized scraping failed:', error);
+            process.exit(1);
+        });
+}
+
+module.exports = scrapeNewestEmployers;

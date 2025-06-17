@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.jobscraper.supervisor</string>
+    
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/homebrew/bin/node</string>
+        <string>/Users/thomassee/Docker/containers/job-scraper/src/scraper-supervisor.js</string>
+    </array>
+    
+    <key>WorkingDirectory</key>
+    <string>/Users/thomassee/Docker/containers/job-scraper</string>
+    
+    <key>StandardOutPath</key>
+    <string>/Users/thomassee/Docker/containers/job-scraper/logs/supervisor.log</string>
+    
+    <key>StandardErrorPath</key>
+    <string>/Users/thomassee/Docker/containers/job-scraper/logs/supervisor-error.log</string>
+    
+    <key>RunAtLoad</key>
+    <true/>
+    
+    <key>KeepAlive</key>
+    <dict>
+        <key>Crashed</key>
+        <true/>
+        <key>SuccessfulExit</key>
+        <false/>
+    </dict>
+    
+    <key>ThrottleInterval</key>
+    <integer>30</integer>
+    
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>NODE_ENV</key>
+        <string>production</string>
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+        <key>HEADLESS_MODE</key>
+        <string>true</string>
+    </dict>
+    
+    <key>SoftResourceLimits</key>
+    <dict>
+        <key>NumberOfFiles</key>
+        <integer>4096</integer>
+    </dict>
+    
+    <key>HardResourceLimits</key>
+    <dict>
+        <key>NumberOfFiles</key>
+        <integer>8192</integer>
+    </dict>
+</dict>
+</plist>

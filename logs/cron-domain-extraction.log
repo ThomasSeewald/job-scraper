@@ -1,0 +1,31 @@
+[2025-06-05 19:52:03] Starting domain-based email extraction cron job
+[2025-06-05 19:52:03] Processing up to 5 employer domains
+Starting Puppeteer-based domain email extraction...
+No unprocessed employer domains found.
+
+Puppeteer domain email extraction completed successfully
+[2025-06-05 19:52:05] Domain email extraction completed successfully
+[2025-06-05 19:52:05] Checking 2captcha balance after domain extraction session
+💰 2Captcha Balance Monitor
+===========================
+
+🔧 Independent CAPTCHA Solver initialized
+📁 CAPTCHA save directory: /tmp/captcha
+📊 Balance Monitor initialized
+💰 Alert threshold: $5
+📧 Alert email: thomas.seewald@gmail.com
+💰 Checking Balance with Alert System
+------------------------------------
+
+💰 Checking 2captcha balance...
+💰 2Captcha account balance: $18.51
+💰 Current balance: $18.51
+✅ Balance is sufficient
+💰 Current balance: $18.51
+✅ Balance is sufficient
+🕐 Check time: 5.6.2025, 19:52:05
+[2025-06-05 19:52:06] Domain-based email extraction cron job completed
+[2025-06-06 00:00:00] Starting domain-based email extraction cron job
+[2025-06-06 00:00:00] Processing up to 5 employer domains
+/Users/thomassee/Docker/containers/job-scraper/cron-domain-email-extraction.sh: line 38: node: command not found
+[2025-06-06 00:00:01] ERROR: Domain email extraction failed with exit code 127

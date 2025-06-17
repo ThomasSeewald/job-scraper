@@ -1,0 +1,29 @@
+Mo  2 Jun 2025 21:08:25 CEST: Starting Job Scraper monitoring services...
+Mo  2 Jun 2025 21:08:25 CEST: Verifying cron jobs...
+Mo  2 Jun 2025 21:08:25 CEST: Cron jobs are configured
+Mo  2 Jun 2025 21:08:25 CEST: Cron service is running
+Mo  2 Jun 2025 21:08:25 CEST: Testing 2Captcha connection...
+Mo  2 Jun 2025 21:08:25 CEST: 2Captcha API connection: OK
+Mo  2 Jun 2025 21:08:25 CEST: Testing email configuration...
+Mo  2 Jun 2025 21:08:25 CEST: Email configuration: OK
+Mo  2 Jun 2025 21:08:25 CEST: Performing initial balance check...
+💰 2Captcha Balance Monitor
+===========================
+
+🔧 Independent CAPTCHA Solver initialized
+📁 CAPTCHA save directory: /tmp/captcha
+📊 Balance Monitor initialized
+💰 Alert threshold: $5
+📧 Alert email: thomas.seewald@gmail.com
+💰 Checking Balance (No Alerts)
+-------------------------------
+
+💰 2Captcha account balance: $18.552
+💰 Current balance: $18.552
+⚠️  Alert threshold: $5
+✅ Status: SUFFICIENT
+   Buffer above threshold: $13.55
+📊 Estimated remaining CAPTCHA solves: ~18.552
+Mo  2 Jun 2025 21:08:26 CEST: Dashboard is running on port 3001
+Mo  2 Jun 2025 21:08:26 CEST: Startup monitor completed
+======================================

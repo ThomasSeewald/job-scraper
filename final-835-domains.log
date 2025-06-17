@@ -1,0 +1,1819 @@
+=== PARALLEL KEYWORD SCRAPING WITH NO DUPLICATION ===
+Configuration: 5 workers, 167 domains each
+
+1️⃣ Allocating domains to workers...
+Allocating 167 domains to each of 5 workers...
+Found 835 domains to allocate
+Worker 1: 167 domains (zahnarztpraxis-omar-shalabi.de to zahnarztpraxis-hassfurt.de)
+Worker 2: 167 domains (zahnarzt-langen.com to naturstein-wiedemann.de)
+Worker 3: 167 domains (lambrecht-zahnarzt.de to avancarte.de)
+Worker 4: 167 domains (zahnmedizin-maerkerhaus.de to praxis-dochow.de)
+Worker 5: 167 domains (galawork.de to glaserei-haltern.de)
+✅ Allocated 5 batches
+
+2️⃣ Starting workers...
+[Worker 1] Initializing with 167 domains...
+[Worker 2] Initializing with 167 domains...
+[Worker 3] Initializing with 167 domains...
+[Worker 4] Initializing with 167 domains...
+[Worker 5] Initializing with 167 domains...
+
+3️⃣ Processing domains in parallel...
+[Worker 3] Ready to process domains
+[Worker 3] Processing 167 domains...
+[Worker 3] Visiting: https://lambrecht-zahnarzt.de
+[Worker 1] Ready to process domains
+[Worker 1] Processing 167 domains...
+[Worker 1] Visiting: https://zahnarztpraxis-omar-shalabi.de
+[Worker 4] Ready to process domains
+[Worker 4] Processing 167 domains...
+[Worker 4] Visiting: https://zahnmedizin-maerkerhaus.de
+[Worker 2] Ready to process domains
+[Worker 2] Processing 167 domains...
+[Worker 2] Visiting: https://zahnarzt-langen.com
+[Worker 5] Ready to process domains
+[Worker 5] Processing 167 domains...
+[Worker 5] Visiting: https://galawork.de
+[Worker 2] Error visiting https://zahnarzt-langen.com: net::ERR_SSL_VERSION_OR_CIPHER_MISMATCH at https://zahnarzt-langen.com
+[Worker 2] ✓ zahnarzt-langen.com: 0 emails
+[Worker 2] Visiting: https://adlaborem.de
+[Worker 1] ✓ zahnarztpraxis-omar-shalabi.de: 2 emails
+[Worker 1] Visiting: https://mohag.de
+[Worker 3] ✓ lambrecht-zahnarzt.de: 1 emails
+[Worker 3] Visiting: https://wv-suederdithmarschen.de
+[Worker 4] ✓ zahnmedizin-maerkerhaus.de: 3 emails
+[Worker 4] Visiting: https://zahnarztwerneuchen.de
+[Worker 2] ✓ adlaborem.de: 3 emails
+[Worker 2] Visiting: https://zahnarzt-alsibai.com
+[Worker 2] ✓ zahnarzt-alsibai.com: 3 emails
+[Worker 2] Visiting: https://klimatech-service.de
+[Worker 5] ✓ galawork.de: 2 emails
+[Worker 5] Visiting: https://zahn-aerzen.de
+[Worker 5] ✓ zahn-aerzen.de: 1 emails
+[Worker 4] ✓ zahnarztwerneuchen.de: 3 emails
+[Worker 5] Visiting: https://mkg-freising.de
+[Worker 4] Visiting: https://alhorn-lakemeier.de
+[Worker 1] ✓ mohag.de: 1 emails
+[Worker 1] Visiting: https://nwaiser.de
+[Worker 2] ✓ klimatech-service.de: 1 emails
+[Worker 2] Visiting: https://zahnarztpraxis-reiss.de
+[Worker 4] ✓ alhorn-lakemeier.de: 0 emails
+[Worker 4] Visiting: https://piano-harke.de
+[Worker 3] ✓ wv-suederdithmarschen.de: 2 emails
+[Worker 3] Visiting: https://dr-tolk.de
+[Worker 2] ✓ zahnarztpraxis-reiss.de: 3 emails
+[Worker 2] Visiting: https://drgruenewald.de
+[Worker 1] ✓ nwaiser.de: 4 emails
+[Worker 1] Visiting: https://zahnheilkunde-muehlesgaessle.de
+[Worker 4] ✓ piano-harke.de: 1 emails
+[Worker 4] Visiting: https://fluegel.cc
+[Worker 5] ✓ mkg-freising.de: 2 emails
+[Worker 5] Visiting: https://aps-germany.uk
+[Worker 3] ✓ dr-tolk.de: 1 emails
+[Worker 3] Visiting: https://otg-oldenburg.de
+[Worker 1] ✓ zahnheilkunde-muehlesgaessle.de: 2 emails
+[Worker 1] Visiting: https://frewer-landtechnik.de
+[Worker 4] ✓ fluegel.cc: 2 emails
+[Worker 4] Visiting: https://dr-rappold.de
+[Worker 2] ✓ drgruenewald.de: 1 emails
+[Worker 2] Visiting: https://vitadent-marburg.de
+[Worker 4] ✓ dr-rappold.de: 1 emails
+[Worker 3] ✓ otg-oldenburg.de: 1 emails
+[Worker 4] Visiting: https://praxis-alimi.de
+[Worker 3] Visiting: https://heukelbach.info
+[Worker 2] ✓ vitadent-marburg.de: 1 emails
+[Worker 2] Visiting: https://zahnarzt-binz-bochum.de
+[Worker 1] ✓ frewer-landtechnik.de: 10 emails
+[Worker 1] Visiting: https://praxisammarkt-giermann.de
+[Worker 5] ✓ aps-germany.uk: 24 emails
+[Worker 5] Visiting: https://zahngesundheit-altenholz.de
+[Worker 4] ✓ praxis-alimi.de: 2 emails
+[Worker 2] ✓ zahnarzt-binz-bochum.de: 5 emails
+[Worker 1] ✓ praxisammarkt-giermann.de: 1 emails
+[Worker 4] Visiting: https://volldent.de
+[Worker 2] Visiting: https://zahnmedizin-eschweiler.de
+[Worker 1] Visiting: https://garten-weisshaar.de
+[Worker 3] ✓ heukelbach.info: 1 emails
+[Worker 3] Visiting: https://twb-boblitz.de
+[Worker 5] ✓ zahngesundheit-altenholz.de: 3 emails
+[Worker 5] Visiting: https://mkg-lavie.de
+[Worker 4] ✓ volldent.de: 6 emails
+[Worker 4] Visiting: https://seenland-dental.de
+[Worker 2] ✓ zahnmedizin-eschweiler.de: 3 emails
+[Worker 2] Visiting: https://uta-heckhoff.de
+[Worker 1] ✓ garten-weisshaar.de: 4 emails
+[Worker 1] Visiting: https://winter-gartengestaltung.com
+[Worker 3] ✓ twb-boblitz.de: 3 emails
+[Worker 3] Visiting: https://garten-bronder.de
+[Worker 5] ✓ mkg-lavie.de: 5 emails
+[Worker 5] Visiting: https://zahnaerzte-binner.de
+[Worker 2] ✓ uta-heckhoff.de: 2 emails
+[Worker 2] Visiting: https://xn--zahnrztin-stefanie-schuffele-8mcs.de
+[Worker 1] ✓ winter-gartengestaltung.com: 2 emails
+[Worker 1] Visiting: https://nautilus-praxen.de
+[Worker 5] ✓ zahnaerzte-binner.de: 1 emails
+[Worker 5] Visiting: https://damrosch.de
+[Worker 5] ✓ damrosch.de: 2 emails
+[Worker 4] ✓ seenland-dental.de: 5 emails
+[Worker 5] Visiting: https://freund-victoria.de
+[Worker 2] ✓ xn--zahnrztin-stefanie-schuffele-8mcs.de: 8 emails
+[Worker 4] Visiting: https://meinlachen.de
+[Worker 2] Visiting: https://schroeder-baumschulen.de
+[Worker 1] ✓ nautilus-praxen.de: 4 emails
+[Worker 1] Visiting: https://praxis-witzany-wandinger.de
+[Worker 5] ✓ freund-victoria.de: 2 emails
+[Worker 5] Visiting: https://zahnarztpraxis-juettner.de
+[Worker 4] ✓ meinlachen.de: 1 emails
+[Worker 4] Visiting: https://zahnarzt-im-bliesgau.de
+[Worker 2] ✓ schroeder-baumschulen.de: 2 emails
+[Worker 2] Visiting: https://zahnaerzte-barendorf.de
+[Worker 3] ✓ garten-bronder.de: 2 emails
+[Worker 3] Visiting: https://altena-dahle.de
+[Worker 5] ✓ zahnarztpraxis-juettner.de: 1 emails
+[Worker 5] Visiting: https://dres-may-holtmann.de
+[Worker 3] ✓ altena-dahle.de: 1 emails
+[Worker 3] Visiting: https://zahnarztpraxis-langer.de
+[Worker 4] ✓ zahnarzt-im-bliesgau.de: 3 emails
+[Worker 4] Visiting: https://dr-rotta.de
+[Worker 2] ✓ zahnaerzte-barendorf.de: 2 emails
+[Worker 2] Visiting: https://kettlerdesign.de
+[Worker 3] ✓ zahnarztpraxis-langer.de: 3 emails
+[Worker 3] Visiting: https://zikun.de
+[Worker 5] ✓ dres-may-holtmann.de: 3 emails
+[Worker 1] ✓ praxis-witzany-wandinger.de: 1 emails
+[Worker 5] Visiting: https://praxis-dr-brockhaus.de
+[Worker 1] Visiting: https://rajo-boote.com
+[Worker 2] ✓ kettlerdesign.de: 1 emails
+[Worker 2] Visiting: https://psnord.de
+[Worker 4] ✓ dr-rotta.de: 3 emails
+[Worker 4] Visiting: https://herolf.de
+[Worker 2] ✓ psnord.de: 0 emails
+[Worker 2] Visiting: https://lustaufschoenezaehne.de
+[Worker 1] ✓ rajo-boote.com: 1 emails
+[Worker 1] Visiting: https://gaertnerei-stollmaier.de
+[Worker 1] Error visiting https://gaertnerei-stollmaier.de: net::ERR_CERT_COMMON_NAME_INVALID at https://gaertnerei-stollmaier.de
+[Worker 1] ✓ gaertnerei-stollmaier.de: 0 emails
+[Worker 1] Visiting: https://geruestbau-strixner.de
+[Worker 1] Error visiting https://geruestbau-strixner.de: net::ERR_SSL_PROTOCOL_ERROR at https://geruestbau-strixner.de
+[Worker 1] ✓ geruestbau-strixner.de: 0 emails
+[Worker 1] Visiting: https://dr-meiss.com
+[Worker 3] ✓ zikun.de: 5 emails
+[Worker 3] Visiting: https://praxis-makki.de
+[Worker 2] ✓ lustaufschoenezaehne.de: 3 emails
+[Worker 2] Visiting: https://z28-gelnhausen.de
+[Worker 4] ✓ herolf.de: 2 emails
+[Worker 4] Visiting: https://noll-landtechnik.de
+[Worker 4] Error visiting https://noll-landtechnik.de: net::ERR_NAME_NOT_RESOLVED at https://noll-landtechnik.de
+[Worker 4] ✓ noll-landtechnik.de: 0 emails
+[Worker 4] Visiting: https://schmidt-queisser.de
+[Worker 5] ✓ praxis-dr-brockhaus.de: 1 emails
+[Worker 5] Visiting: https://zahnarztpraxis-herz.de
+[Worker 5] ✓ zahnarztpraxis-herz.de: 1 emails
+[Worker 5] Visiting: https://dr-ganz.de
+[Worker 3] ✓ praxis-makki.de: 1 emails
+[Worker 3] Visiting: https://zahnarztpraxis-spenst.de
+[Worker 2] ✓ z28-gelnhausen.de: 2 emails
+[Worker 2] Visiting: https://zahnarztpraxis-holinca.de
+[Worker 1] ✓ dr-meiss.com: 2 emails
+[Worker 1] Visiting: https://pp-gartengestaltung.de
+[Worker 5] ✓ dr-ganz.de: 1 emails
+[Worker 5] Visiting: https://azul.de
+[Worker 4] ✓ schmidt-queisser.de: 2 emails
+[Worker 4] Visiting: https://zahnspange-lueneburg.de
+[Worker 3] ✓ zahnarztpraxis-spenst.de: 2 emails
+[Worker 2] ✓ zahnarztpraxis-holinca.de: 14 emails
+[Worker 3] Visiting: https://zahnarztpraxis-zulfiya-weber.de
+[Worker 2] Visiting: https://walker.de
+[Worker 1] ✓ pp-gartengestaltung.de: 2 emails
+[Worker 1] Visiting: https://zahnarzt-wickles.de
+[Worker 3] ✓ zahnarztpraxis-zulfiya-weber.de: 3 emails
+[Worker 3] Visiting: https://kieferorthopaedie-aachen.com
+[Worker 4] ✓ zahnspange-lueneburg.de: 1 emails
+[Worker 4] Visiting: https://mkg-heidelberg.com
+[Worker 3] ✓ kieferorthopaedie-aachen.com: 1 emails
+[Worker 5] ✓ azul.de: 2 emails
+[Worker 3] Visiting: https://hannover-kieferorthopaedie.de
+[Worker 5] Visiting: https://zahnzentrum-lueneburg.de
+[Worker 1] ✓ zahnarzt-wickles.de: 1 emails
+[Worker 1] Visiting: https://adlung-galabau.de
+[Worker 3] ✓ hannover-kieferorthopaedie.de: 1 emails
+[Worker 3] Visiting: https://mkg-am-niederwall.de
+[Worker 1] ✓ adlung-galabau.de: 1 emails
+[Worker 1] Visiting: https://z2zahn.de
+[Worker 5] ✓ zahnzentrum-lueneburg.de: 3 emails
+[Worker 5] Visiting: https://zahnarzt-kaiserslautern.com
+[Worker 3] ✓ mkg-am-niederwall.de: 3 emails
+[Worker 3] Visiting: https://dr-passinger-maintal.de
+[Worker 3] ✓ dr-passinger-maintal.de: 3 emails
+[Worker 3] Visiting: https://zahnaerztin-hesse.de
+[Worker 4] ✓ mkg-heidelberg.com: 3 emails
+[Worker 4] Visiting: https://spezialtiefbau-finsterwalde.eu
+[Worker 1] ✓ z2zahn.de: 2 emails
+[Worker 1] Visiting: https://hessel-lutgen.de
+[Worker 1] Error visiting https://hessel-lutgen.de: net::ERR_SSL_PROTOCOL_ERROR at https://hessel-lutgen.de
+[Worker 1] ✓ hessel-lutgen.de: 0 emails
+[Worker 1] Visiting: https://zahnspange-hb.de
+[Worker 3] ✓ zahnaerztin-hesse.de: 1 emails
+[Worker 3] Visiting: https://dachkauf.de
+[Worker 2] ✓ walker.de: 3 emails
+[Worker 2] Visiting: https://bethanien-hochweitzschen.de
+[Worker 1] ✓ zahnspange-hb.de: 2 emails
+[Worker 1] Visiting: https://junobau.de
+[Worker 4] ✓ spezialtiefbau-finsterwalde.eu: 1 emails
+[Worker 4] Visiting: https://toester-gartenglueck.de
+[Worker 5] ✓ zahnarzt-kaiserslautern.com: 1 emails
+[Worker 5] Visiting: https://acrylglasvertrieb.de
+[Worker 3] ✓ dachkauf.de: 1 emails
+[Worker 3] Visiting: https://zahnarzt-beines.de
+[Worker 5] ✓ acrylglasvertrieb.de: 2 emails
+[Worker 5] Visiting: https://mr-zahnart.de
+[Worker 4] ✓ toester-gartenglueck.de: 1 emails
+[Worker 4] Visiting: https://lhw-stahlbau.de
+[Worker 2] ✓ bethanien-hochweitzschen.de: 2 emails
+[Worker 2] Visiting: https://weller-schrauben.de
+[Worker 4] ✓ lhw-stahlbau.de: 3 emails
+[Worker 1] ✓ junobau.de: 2 emails
+[Worker 4] Visiting: https://crone-gmbh.de
+[Worker 1] Visiting: https://ah-schmalzried.de
+[Worker 5] ✓ mr-zahnart.de: 2 emails
+[Worker 3] ✓ zahnarzt-beines.de: 1 emails
+[Worker 5] Visiting: https://naturbau-selle.de
+[Worker 3] Visiting: https://bergles-et-schauer.de
+[Worker 4] ✓ crone-gmbh.de: 6 emails
+[Worker 4] Visiting: https://caesardent.de
+[Worker 5] ✓ naturbau-selle.de: 2 emails
+[Worker 5] Visiting: https://kieferorthopaedie-hassfurt.de
+[Worker 2] ✓ weller-schrauben.de: 0 emails
+[Worker 2] Visiting: https://jacobsen-tiefbau.de
+[Worker 1] ✓ ah-schmalzried.de: 1 emails
+[Worker 1] Visiting: https://stahlbau-allgaier.de
+[Worker 3] ✓ bergles-et-schauer.de: 2 emails
+[Worker 4] ✓ caesardent.de: 1 emails
+[Worker 3] Visiting: https://dein-dental-mannheim.de
+[Worker 4] Visiting: https://spangenglueck.de
+[Worker 2] ✓ jacobsen-tiefbau.de: 1 emails
+[Worker 5] ✓ kieferorthopaedie-hassfurt.de: 3 emails
+[Worker 2] Visiting: https://weller-galabau.de
+[Worker 5] Visiting: https://zahn-3.de
+[Worker 1] ✓ stahlbau-allgaier.de: 2 emails
+[Worker 1] Visiting: https://zahnwerk-winkelhake.de
+[Worker 4] ✓ spangenglueck.de: 3 emails
+[Worker 4] Visiting: https://zahnarztpraxis-rist.de
+[Worker 5] ✓ zahn-3.de: 6 emails
+[Worker 5] Visiting: https://geboda.de
+[Worker 4] ✓ zahnarztpraxis-rist.de: 1 emails
+[Worker 4] Visiting: https://zahnarztpraxis-geus.de
+[Worker 2] ✓ weller-galabau.de: 3 emails
+[Worker 3] ✓ dein-dental-mannheim.de: 2 emails
+[Worker 2] Visiting: https://zahnarztpraxis-thiele.de
+[Worker 3] Visiting: https://zahnarztpraxis-vath.de
+[Worker 3] ✓ zahnarztpraxis-vath.de: 3 emails
+[Worker 3] Visiting: https://tennisrogg.de
+[Worker 4] ✓ zahnarztpraxis-geus.de: 3 emails
+[Worker 4] Visiting: https://dc-system.de
+[Worker 2] ✓ zahnarztpraxis-thiele.de: 3 emails
+[Worker 2] Visiting: https://zahnarztpraxisdorsten.de
+[Worker 1] ✓ zahnwerk-winkelhake.de: 1 emails
+[Worker 1] Visiting: https://praxis-borchert.de
+[Worker 3] ✓ tennisrogg.de: 0 emails
+[Worker 3] Visiting: https://loyalparking.com
+[Worker 2] ✓ zahnarztpraxisdorsten.de: 2 emails
+[Worker 2] Visiting: https://zahnarzt-praxis-steglitz.com
+[Worker 1] ✓ praxis-borchert.de: 3 emails
+[Worker 1] Visiting: https://bestattungen-schulte-dorsten.de
+[Worker 5] ✓ geboda.de: 2 emails
+[Worker 5] Visiting: https://wedekind-dental.de
+[Worker 4] ✓ dc-system.de: 4 emails
+[Worker 4] Visiting: https://schalsys24.de
+[Worker 3] ✓ loyalparking.com: 2 emails
+[Worker 3] Visiting: https://polaris-altmark.de
+[Worker 5] ✓ wedekind-dental.de: 1 emails
+[Worker 5] Visiting: https://velz.de
+[Worker 1] ✓ bestattungen-schulte-dorsten.de: 1 emails
+[Worker 1] Visiting: https://somacaravaning-warendorf.de
+[Worker 3] ✓ polaris-altmark.de: 1 emails
+[Worker 3] Visiting: https://kleinbedachungen.de
+[Worker 4] ✓ schalsys24.de: 2 emails
+[Worker 4] Visiting: https://blumen-laengle.de
+[Worker 5] ✓ velz.de: 2 emails
+[Worker 5] Visiting: https://zahnarzt-gera.de
+[Worker 2] Error visiting https://zahnarzt-praxis-steglitz.com: Navigation timeout of 30000 ms exceeded
+[Worker 2] ✓ zahnarzt-praxis-steglitz.com: 0 emails
+[Worker 1] ✓ somacaravaning-warendorf.de: 5 emails
+[Worker 3] ✓ kleinbedachungen.de: 2 emails
+[Worker 2] Visiting: https://visbeker-tomate.de
+[Worker 1] Visiting: https://zahnarzt-borisbeaumont.de
+[Worker 3] Visiting: https://zahnarztpraxis-sonnengarten.de
+[Worker 3] Error visiting https://zahnarztpraxis-sonnengarten.de: net::ERR_SSL_PROTOCOL_ERROR at https://zahnarztpraxis-sonnengarten.de
+[Worker 3] ✓ zahnarztpraxis-sonnengarten.de: 0 emails
+[Worker 3] Visiting: https://die-zahn-praxis.de
+[Worker 4] ✓ blumen-laengle.de: 1 emails
+[Worker 5] ✓ zahnarzt-gera.de: 1 emails
+[Worker 4] Visiting: https://zahnarzt-dr-jetzer.de
+[Worker 5] Visiting: https://daldrup.de
+[Worker 2] ✓ visbeker-tomate.de: 4 emails
+[Worker 2] Visiting: https://tercalux.de
+[Worker 3] ✓ die-zahn-praxis.de: 0 emails
+[Worker 3] Visiting: https://cuspidus.de
+[Worker 4] ✓ zahnarzt-dr-jetzer.de: 1 emails
+[Worker 4] Visiting: https://zahnarzt-grossmann.de
+[Worker 1] ✓ zahnarzt-borisbeaumont.de: 2 emails
+[Worker 1] Visiting: https://egv-group.de
+[Worker 5] ✓ daldrup.de: 1 emails
+[Worker 5] Visiting: https://zahnarzt-gundelfingen.com
+[Worker 4] ✓ zahnarzt-grossmann.de: 1 emails
+[Worker 4] Visiting: https://zahnaerzte-engelstrasse.de
+[Worker 3] ✓ cuspidus.de: 1 emails
+[Worker 3] Visiting: https://mvz-hude.de
+[Worker 5] ✓ zahnarzt-gundelfingen.com: 3 emails
+[Worker 5] Visiting: https://immo-herbst.de
+[Worker 2] ✓ tercalux.de: 2 emails
+[Worker 4] ✓ zahnaerzte-engelstrasse.de: 4 emails
+[Worker 2] Visiting: https://huber-aussenanlagen.de
+[Worker 4] Visiting: https://opel-bieling-herten.de
+[Worker 1] ✓ egv-group.de: 3 emails
+[Worker 1] Visiting: https://urbansmile.de
+[Worker 1] ✓ urbansmile.de: 2 emails
+[Worker 1] Visiting: https://ostermeiergmbh.de
+[Worker 4] ✓ opel-bieling-herten.de: 1 emails
+[Worker 4] Visiting: https://zahnarztpraxis-pohlmeyer.de
+[Worker 3] ✓ mvz-hude.de: 3 emails
+[Worker 3] Visiting: https://autoliebenstein.go1a.de
+[Worker 5] ✓ immo-herbst.de: 17 emails
+[Worker 5] Visiting: https://strohm-reichenmiller.de
+[Worker 2] ✓ huber-aussenanlagen.de: 3 emails
+[Worker 2] Visiting: https://stadt-delbrueck.de
+[Worker 4] ✓ zahnarztpraxis-pohlmeyer.de: 3 emails
+[Worker 3] ✓ autoliebenstein.go1a.de: 2 emails
+[Worker 4] Visiting: https://zahnmoers.de
+[Worker 3] Visiting: https://zahnarzt-frueh.de
+[Worker 1] ✓ ostermeiergmbh.de: 2 emails
+[Worker 1] Visiting: https://lm-group.com
+[Worker 5] ✓ strohm-reichenmiller.de: 2 emails
+[Worker 5] Visiting: https://zahnaerztesaarland.de
+[Worker 2] ✓ stadt-delbrueck.de: 5 emails
+[Worker 2] Visiting: https://alle-zaehne.de
+[Worker 4] ✓ zahnmoers.de: 3 emails
+[Worker 4] Visiting: https://zahnmedizin-sendling.de
+[Worker 1] ✓ lm-group.com: 3 emails
+[Worker 1] Visiting: https://stefko-trans.de
+[Worker 3] ✓ zahnarzt-frueh.de: 3 emails
+[Worker 3] Visiting: https://zahnarzt-leverkusen-mueller.de
+[Worker 5] ✓ zahnaerztesaarland.de: 4 emails
+[Worker 5] Visiting: https://planungsschmiede.info
+[Worker 2] ✓ alle-zaehne.de: 1 emails
+[Worker 2] Visiting: https://hakawerk.de
+[Worker 4] ✓ zahnmedizin-sendling.de: 3 emails
+[Worker 4] Visiting: https://zahnarzt-rehberg-fulda.de
+[Worker 3] ✓ zahnarzt-leverkusen-mueller.de: 2 emails
+[Worker 5] ✓ planungsschmiede.info: 2 emails
+[Worker 3] Visiting: https://zahnaerzte-wachenheim.de
+[Worker 5] Visiting: https://elgora.de
+[Worker 1] ✓ stefko-trans.de: 2 emails
+[Worker 1] Visiting: https://dornbacher.com
+[Worker 4] ✓ zahnarzt-rehberg-fulda.de: 1 emails
+[Worker 4] Visiting: https://bergisch-gladbach-zahnarzt.info
+[Worker 2] ✓ hakawerk.de: 0 emails
+[Worker 2] Visiting: https://zahnmedizin-fkb.de
+[Worker 3] ✓ zahnaerzte-wachenheim.de: 2 emails
+[Worker 3] Visiting: https://delta-v.de
+[Worker 5] ✓ elgora.de: 0 emails
+[Worker 5] Visiting: https://zahnarzt-meckelfeld.de
+[Worker 4] ✓ bergisch-gladbach-zahnarzt.info: 3 emails
+[Worker 4] Visiting: https://nozar-diamant.de
+[Worker 4] Error visiting https://nozar-diamant.de: net::ERR_SSL_PROTOCOL_ERROR at https://nozar-diamant.de
+[Worker 4] ✓ nozar-diamant.de: 0 emails
+[Worker 2] ✓ zahnmedizin-fkb.de: 3 emails
+[Worker 4] Visiting: https://dr-caracas.de
+[Worker 2] Visiting: https://zahnarzt-in-troisdorf.de
+[Worker 3] ✓ delta-v.de: 1 emails
+[Worker 3] Visiting: https://zahnpark-ostfildern.de
+[Worker 3] Error visiting https://zahnpark-ostfildern.de: net::ERR_CERT_COMMON_NAME_INVALID at https://zahnpark-ostfildern.de
+[Worker 3] ✓ zahnpark-ostfildern.de: 0 emails
+[Worker 3] Visiting: https://lbg-bautechnik.com
+[Worker 5] ✓ zahnarzt-meckelfeld.de: 4 emails
+[Worker 5] Visiting: https://zahnarzt-dr-rick.de
+[Worker 1] ✓ dornbacher.com: 1 emails
+[Worker 1] Visiting: https://altradbaumann.de
+[Worker 2] ✓ zahnarzt-in-troisdorf.de: 4 emails
+[Worker 2] Visiting: https://zahnarzt-thum.de
+[Worker 3] ✓ lbg-bautechnik.com: 21 emails
+[Worker 3] Visiting: https://kieferorthopaedie-pb.de
+[Worker 4] ✓ dr-caracas.de: 3 emails
+[Worker 4] Visiting: https://weihretter-metallbau.de
+[Worker 2] ✓ zahnarzt-thum.de: 1 emails
+[Worker 2] Visiting: https://zahnaerzte-goebel-neff.de
+[Worker 1] ✓ altradbaumann.de: 0 emails
+[Worker 1] Visiting: https://zahnarzt-dr-odenthal.de
+[Worker 4] ✓ weihretter-metallbau.de: 1 emails
+[Worker 4] Visiting: https://thomaflor.de
+[Worker 5] ✓ zahnarzt-dr-rick.de: 2 emails
+[Worker 5] Visiting: https://hotz-gartengestaltung.de
+[Worker 3] ✓ kieferorthopaedie-pb.de: 4 emails
+[Worker 3] Visiting: https://zahnmedizin-minden.de
+[Worker 5] ✓ hotz-gartengestaltung.de: 1 emails
+[Worker 5] Visiting: https://zahnarzt-tillschneider.de
+[Worker 1] ✓ zahnarzt-dr-odenthal.de: 0 emails
+[Worker 1] Visiting: https://zahnarzt-in-erding.de
+[Worker 1] Error visiting https://zahnarzt-in-erding.de: net::ERR_SSL_PROTOCOL_ERROR at https://zahnarzt-in-erding.de
+[Worker 1] ✓ zahnarzt-in-erding.de: 0 emails
+[Worker 1] Visiting: https://ortho-neo.de
+[Worker 2] ✓ zahnaerzte-goebel-neff.de: 4 emails
+[Worker 2] Visiting: https://zahnarzt-lahde.de
+[Worker 5] ✓ zahnarzt-tillschneider.de: 2 emails
+[Worker 5] Visiting: https://gaertnerei-arnulf-hosch.de
+[Worker 4] ✓ thomaflor.de: 3 emails
+[Worker 3] ✓ zahnmedizin-minden.de: 2 emails
+[Worker 4] Visiting: https://baumschulen-selders.de
+[Worker 3] Visiting: https://zahnarzt-harsum.de
+[Worker 3] ✓ zahnarzt-harsum.de: 1 emails
+[Worker 3] Visiting: https://praxis-team-barrien.de
+[Worker 1] ✓ ortho-neo.de: 7 emails
+[Worker 2] ✓ zahnarzt-lahde.de: 1 emails
+[Worker 1] Visiting: https://zahnarzt-peter-wagner.de
+[Worker 2] Visiting: https://aal-rohrreinigungsservice.de
+[Worker 3] ✓ praxis-team-barrien.de: 4 emails
+[Worker 3] Visiting: https://zahnaerzte-am-domhof.de
+[Worker 5] ✓ gaertnerei-arnulf-hosch.de: 1 emails
+[Worker 5] Visiting: https://zahnarzteis.de
+[Worker 4] ✓ baumschulen-selders.de: 2 emails
+[Worker 4] Visiting: https://schwarzzahn.de
+[Worker 3] ✓ zahnaerzte-am-domhof.de: 3 emails
+[Worker 3] Visiting: https://greenpoint-garten.de
+[Worker 1] ✓ zahnarzt-peter-wagner.de: 2 emails
+[Worker 1] Visiting: https://zahnaerzte-im-belgischen.de
+[Worker 2] ✓ aal-rohrreinigungsservice.de: 19 emails
+[Worker 3] ✓ greenpoint-garten.de: 1 emails
+[Worker 2] Visiting: https://zahnarztpraxis-niederfeilner.de
+[Worker 3] Visiting: https://gb-gmbh.net
+[Worker 5] ✓ zahnarzteis.de: 3 emails
+[Worker 5] Visiting: https://peenestahl.de
+[Worker 1] ✓ zahnaerzte-im-belgischen.de: 2 emails
+[Worker 1] Visiting: https://zahnzentrum-dres-riedel.de
+[Worker 5] ✓ peenestahl.de: 3 emails
+[Worker 2] ✓ zahnarztpraxis-niederfeilner.de: 1 emails
+[Worker 5] Visiting: https://achern.de
+[Worker 2] Visiting: https://praxisbrauer.de
+[Worker 4] ✓ schwarzzahn.de: 1 emails
+[Worker 4] Visiting: https://febolab.de
+[Worker 3] ✓ gb-gmbh.net: 1 emails
+[Worker 3] Visiting: https://kfosolingen.com
+[Worker 2] ✓ praxisbrauer.de: 3 emails
+[Worker 2] Visiting: https://dr-vogt-miermann.de
+[Worker 1] ✓ zahnzentrum-dres-riedel.de: 1 emails
+[Worker 1] Visiting: https://schoettlertaubemaerker.de
+[Worker 5] ✓ achern.de: 0 emails
+[Worker 5] Visiting: https://zahnarzt-kellermeyer.de
+[Worker 3] ✓ kfosolingen.com: 2 emails
+[Worker 3] Visiting: https://ottoreithmaier.de
+[Worker 2] ✓ dr-vogt-miermann.de: 3 emails
+[Worker 2] Visiting: https://feida.de
+[Worker 1] ✓ schoettlertaubemaerker.de: 3 emails
+[Worker 1] Visiting: https://zahnarztpraxis-hurt.de
+[Worker 4] ✓ febolab.de: 1 emails
+[Worker 4] Visiting: https://zahnarztwiesloch.de
+[Worker 1] Error visiting https://zahnarztpraxis-hurt.de: net::ERR_CERT_COMMON_NAME_INVALID at https://zahnarztpraxis-hurt.de
+[Worker 1] ✓ zahnarztpraxis-hurt.de: 0 emails
+[Worker 1] Visiting: https://zahnarzt-suetter-eppstein.de
+[Worker 3] ✓ ottoreithmaier.de: 2 emails
+[Worker 3] Visiting: https://bents.de
+[Worker 5] ✓ zahnarzt-kellermeyer.de: 3 emails
+[Worker 5] Visiting: https://zahnarztpraxis-tas.de
+[Worker 2] ✓ feida.de: 1 emails
+[Worker 2] Visiting: https://schurwaldpraxis.de
+[Worker 4] ✓ zahnarztwiesloch.de: 2 emails
+[Worker 4] Visiting: https://dgpro.de
+[Worker 5] ✓ zahnarztpraxis-tas.de: 3 emails
+[Worker 5] Visiting: https://dr-wietzorke.de
+[Worker 1] ✓ zahnarzt-suetter-eppstein.de: 1 emails
+[Worker 1] Visiting: https://zahnarztbahlmann.de
+[Worker 3] ✓ bents.de: 6 emails
+[Worker 3] Visiting: https://smile-ravensburg.de
+[Worker 2] ✓ schurwaldpraxis.de: 4 emails
+[Worker 2] Visiting: https://kirschen.de
+[Worker 4] ✓ dgpro.de: 2 emails
+[Worker 4] Visiting: https://ivg-daemmstoffe.de
+[Worker 1] ✓ zahnarztbahlmann.de: 6 emails
+[Worker 1] Visiting: https://zahnarzt-medienhafen.de
+[Worker 4] ✓ ivg-daemmstoffe.de: 3 emails
+[Worker 2] ✓ kirschen.de: 2 emails
+[Worker 4] Visiting: https://vakuumservice.de
+[Worker 2] Visiting: https://bibbig.de
+[Worker 5] ✓ dr-wietzorke.de: 2 emails
+[Worker 5] Visiting: https://herm-jacobsen.de
+[Worker 2] ✓ bibbig.de: 4 emails
+[Worker 2] Visiting: https://kaiser-wehrmeister.de
+[Worker 3] ✓ smile-ravensburg.de: 1 emails
+[Worker 3] Visiting: https://seelig-naturgarten.de
+[Worker 3] Error visiting https://seelig-naturgarten.de: net::ERR_SSL_VERSION_OR_CIPHER_MISMATCH at https://seelig-naturgarten.de
+[Worker 3] ✓ seelig-naturgarten.de: 0 emails
+[Worker 3] Restarting browser after 50 domains...
+[Worker 4] ✓ vakuumservice.de: 1 emails
+[Worker 4] Visiting: https://dr-mayer-und-partner.de
+[Worker 3] Initializing with 167 domains...
+[Worker 3] Ready to process domains
+[Worker 3] Visiting: https://reese-24.de
+[Worker 5] ✓ herm-jacobsen.de: 3 emails
+[Worker 5] Visiting: https://heland.de
+[Worker 4] ✓ dr-mayer-und-partner.de: 1 emails
+[Worker 4] Visiting: https://vareler-dental.de
+[Worker 3] ✓ reese-24.de: 6 emails
+[Worker 3] Visiting: https://moenig.com
+[Worker 5] ✓ heland.de: 1 emails
+[Worker 2] ✓ kaiser-wehrmeister.de: 2 emails
+[Worker 5] Visiting: https://schlosserei-heck.de
+[Worker 2] Visiting: https://omexom.de
+[Worker 5] Error visiting https://schlosserei-heck.de: net::ERR_NAME_NOT_RESOLVED at https://schlosserei-heck.de
+[Worker 5] ✓ schlosserei-heck.de: 0 emails
+[Worker 5] Visiting: https://praxis-debuch.de
+[Worker 1] ✓ zahnarzt-medienhafen.de: 3 emails
+[Worker 1] Visiting: https://dr-plaumann.de
+[Worker 5] ✓ praxis-debuch.de: 2 emails
+[Worker 5] Visiting: https://kfo-starnberg.de
+[Worker 1] ✓ dr-plaumann.de: 1 emails
+[Worker 1] Visiting: https://zahnarzt-stahlfast.de
+[Worker 3] ✓ moenig.com: 22 emails
+[Worker 3] Visiting: https://kempowski.net
+[Worker 4] ✓ vareler-dental.de: 4 emails
+[Worker 4] Restarting browser after 50 domains...
+[Worker 4] Initializing with 167 domains...
+[Worker 4] Ready to process domains
+[Worker 4] Visiting: https://properfect.de
+[Worker 3] ✓ kempowski.net: 3 emails
+[Worker 3] Visiting: https://metre.de
+[Worker 5] ✓ kfo-starnberg.de: 2 emails
+[Worker 2] ✓ omexom.de: 7 emails
+[Worker 5] Visiting: https://schwarz.kg
+[Worker 2] Visiting: https://dr-meyer-gutknecht.de
+[Worker 4] ✓ properfect.de: 1 emails
+[Worker 4] Visiting: https://perlmund.de
+[Worker 1] ✓ zahnarzt-stahlfast.de: 3 emails
+[Worker 1] Visiting: https://herzberger-dauernheim.de
+[Worker 3] ✓ metre.de: 3 emails
+[Worker 3] Visiting: https://zahnaerzte-bochum-west.de
+[Worker 1] ✓ herzberger-dauernheim.de: 0 emails
+[Worker 1] Visiting: https://zahnarztpraxis-carlow.de
+[Worker 2] ✓ dr-meyer-gutknecht.de: 1 emails
+[Worker 2] Visiting: https://dr-weissgerber.de
+[Worker 1] ✓ zahnarztpraxis-carlow.de: 7 emails
+[Worker 1] Restarting browser after 50 domains...
+[Worker 1] Initializing with 167 domains...
+[Worker 1] Ready to process domains
+[Worker 1] Visiting: https://schuchardt-hartum.de
+[Worker 4] ✓ perlmund.de: 3 emails
+[Worker 4] Visiting: https://kieferorthopaede-wittmund.de
+[Worker 2] ✓ dr-weissgerber.de: 1 emails
+[Worker 2] Visiting: https://zahnzeit-merklingen.de
+[Worker 2] ✓ zahnzeit-merklingen.de: 1 emails
+[Worker 3] ✓ zahnaerzte-bochum-west.de: 1 emails
+[Worker 2] Restarting browser after 50 domains...
+[Worker 3] Visiting: https://hausmeisterservice-peukert.de
+[Worker 2] Initializing with 167 domains...
+[Worker 2] Ready to process domains
+[Worker 2] Visiting: https://rumpf.net
+[Worker 4] ✓ kieferorthopaede-wittmund.de: 3 emails
+[Worker 4] Visiting: https://uni-wh.de
+[Worker 3] ✓ hausmeisterservice-peukert.de: 1 emails
+[Worker 3] Visiting: https://gartengestaltung-mb.de
+[Worker 2] ✓ rumpf.net: 2 emails
+[Worker 2] Visiting: https://elk-leonberg.de
+[Worker 1] ✓ schuchardt-hartum.de: 2 emails
+[Worker 1] Visiting: https://weber-baumschule.de
+[Worker 5] ✓ schwarz.kg: 3 emails
+[Worker 5] Restarting browser after 50 domains...
+[Worker 5] Initializing with 167 domains...
+[Worker 5] Ready to process domains
+[Worker 5] Visiting: https://autolack-klauss-shop.de
+[Worker 3] ✓ gartengestaltung-mb.de: 2 emails
+[Worker 1] ✓ weber-baumschule.de: 1 emails
+[Worker 3] Visiting: https://schlosserei-knor.de
+[Worker 1] Visiting: https://www.lauckner-pflege.de
+[Worker 5] ✓ autolack-klauss-shop.de: 1 emails
+[Worker 1] Error visiting https://www.lauckner-pflege.de: net::ERR_CERT_AUTHORITY_INVALID at https://www.lauckner-pflege.de
+[Worker 1] ✓ www.lauckner-pflege.de: 0 emails
+[Worker 5] Visiting: https://diedentalburg.de
+[Worker 1] Visiting: https://zahnaerzte-dinh.de
+[Worker 4] ✓ uni-wh.de: 3 emails
+[Worker 4] Visiting: https://psn.de
+[Worker 2] ✓ elk-leonberg.de: 8 emails
+[Worker 2] Visiting: https://zahnarztpraxis-proepper.de
+[Worker 4] ✓ psn.de: 3 emails
+[Worker 4] Visiting: https://zahnarztpraxis-dres-vogel.de
+[Worker 2] ✓ zahnarztpraxis-proepper.de: 1 emails
+[Worker 5] ✓ diedentalburg.de: 4 emails
+[Worker 2] Visiting: https://praxisklinik-ahnefeld.de
+[Worker 5] Visiting: https://green-art-landschaftsbau.de
+[Worker 4] ✓ zahnarztpraxis-dres-vogel.de: 1 emails
+[Worker 4] Visiting: https://boese-zahnaerzte-lunestedt.de
+[Worker 4] Error visiting https://boese-zahnaerzte-lunestedt.de: net::ERR_CERT_AUTHORITY_INVALID at https://boese-zahnaerzte-lunestedt.de
+[Worker 4] ✓ boese-zahnaerzte-lunestedt.de: 0 emails
+[Worker 4] Visiting: https://zahnarztpraxis-homatash.de
+[Worker 5] ✓ green-art-landschaftsbau.de: 3 emails
+[Worker 5] Visiting: https://zahnarztpraxis-dr-meier.de
+[Worker 3] ✓ schlosserei-knor.de: 1 emails
+[Worker 3] Visiting: https://azintec.com
+[Worker 4] ✓ zahnarztpraxis-homatash.de: 2 emails
+[Worker 4] Visiting: https://artmeyer-baumschule.de
+[Worker 1] ✓ zahnaerzte-dinh.de: 1 emails
+[Worker 1] Visiting: https://uk-koeln.de
+[Worker 2] ✓ praxisklinik-ahnefeld.de: 1 emails
+[Worker 2] Visiting: https://dr-thomas-schroeder.de
+[Worker 2] ✓ dr-thomas-schroeder.de: 3 emails
+[Worker 2] Visiting: https://mieth-bedachungen.de
+[Worker 3] ✓ azintec.com: 10 emails
+[Worker 3] Visiting: https://zahnarztpraxis-filderstadt.de
+[Worker 4] ✓ artmeyer-baumschule.de: 7 emails
+[Worker 4] Visiting: https://zahnarztpraxis-amiri.de
+[Worker 5] ✓ zahnarztpraxis-dr-meier.de: 1 emails
+[Worker 5] Visiting: https://ihr-zahnarzt-in-mannheim.de
+[Worker 3] ✓ zahnarztpraxis-filderstadt.de: 5 emails
+[Worker 3] Visiting: https://die-zahnarzt-praxis.com
+[Worker 5] ✓ ihr-zahnarzt-in-mannheim.de: 1 emails
+[Worker 5] Visiting: https://dralbers-coll.com
+[Worker 2] ✓ mieth-bedachungen.de: 2 emails
+[Worker 2] Visiting: https://nc-geruestbau.de
+[Worker 4] ✓ zahnarztpraxis-amiri.de: 3 emails
+[Worker 4] Visiting: https://dr-gorden-poll.de
+[Worker 5] ✓ dralbers-coll.com: 4 emails
+[Worker 3] ✓ die-zahnarzt-praxis.com: 1 emails
+[Worker 5] Visiting: https://gaerten-von-panknin.de
+[Worker 3] Visiting: https://za-bovenden.de
+[Worker 4] ✓ dr-gorden-poll.de: 3 emails
+[Worker 1] ✓ uk-koeln.de: 12 emails
+[Worker 4] Visiting: https://fx-rottmair-zimmerei.de
+[Worker 4] Error visiting https://fx-rottmair-zimmerei.de: net::ERR_CERT_AUTHORITY_INVALID at https://fx-rottmair-zimmerei.de
+[Worker 4] ✓ fx-rottmair-zimmerei.de: 0 emails
+[Worker 1] Visiting: https://zahnarzt-burkau.de
+[Worker 4] Visiting: https://ib-froelich.com
+[Worker 3] ✓ za-bovenden.de: 1 emails
+[Worker 3] Visiting: https://maierverpackungen.de
+[Worker 1] ✓ zahnarzt-burkau.de: 2 emails
+[Worker 1] Visiting: https://kollesser.de
+[Worker 2] ✓ nc-geruestbau.de: 2 emails
+[Worker 2] Visiting: https://kindler-strassenbau.de
+[Worker 2] ✓ kindler-strassenbau.de: 1 emails
+[Worker 3] ✓ maierverpackungen.de: 4 emails
+[Worker 2] Visiting: https://schoene-kfo.de
+[Worker 3] Visiting: https://doering-stahlbau.de
+[Worker 5] ✓ gaerten-von-panknin.de: 0 emails
+[Worker 4] ✓ ib-froelich.com: 1 emails
+[Worker 5] Visiting: https://kirchner-stahlbau.de
+[Worker 4] Visiting: https://zahnarzt-kirchrode.de
+[Worker 4] ✓ zahnarzt-kirchrode.de: 6 emails
+[Worker 1] ✓ kollesser.de: 2 emails
+[Worker 4] Visiting: https://muehlacker.de
+[Worker 1] Visiting: https://agrargenossenschaft-kamsdorf.de
+[Worker 5] ✓ kirchner-stahlbau.de: 3 emails
+[Worker 3] ✓ doering-stahlbau.de: 0 emails
+[Worker 5] Visiting: https://dent-oral.de
+[Worker 3] Visiting: https://wettig-architekten.de
+[Worker 2] ✓ schoene-kfo.de: 1 emails
+[Worker 2] Visiting: https://zamw.de
+[Worker 2] Error visiting https://zamw.de: net::ERR_CERT_COMMON_NAME_INVALID at https://zamw.de
+[Worker 2] ✓ zamw.de: 0 emails
+[Worker 2] Visiting: https://aesthetic-implantate.de
+[Worker 1] ✓ agrargenossenschaft-kamsdorf.de: 1 emails
+[Worker 1] Visiting: https://kfo-mintzlaff.de
+[Worker 2] ✓ aesthetic-implantate.de: 3 emails
+[Worker 1] ✓ kfo-mintzlaff.de: 1 emails
+[Worker 2] Visiting: https://cramer-moebel.de
+[Worker 1] Visiting: https://ford-pfohe-luebeck.de
+[Worker 5] ✓ dent-oral.de: 4 emails
+[Worker 5] Visiting: https://praxis-mitrenca.de
+[Worker 4] ✓ muehlacker.de: 1 emails
+[Worker 4] Visiting: https://as-gruppe.eu
+[Worker 3] ✓ wettig-architekten.de: 3 emails
+[Worker 3] Visiting: https://ws-prietzel.de
+[Worker 5] ✓ praxis-mitrenca.de: 1 emails
+[Worker 5] Visiting: https://zahnarztpraxis-kabakci.de
+[Worker 2] ✓ cramer-moebel.de: 8 emails
+[Worker 2] Visiting: https://dr-med-kropp.de
+[Worker 4] ✓ as-gruppe.eu: 2 emails
+[Worker 5] ✓ zahnarztpraxis-kabakci.de: 0 emails
+[Worker 4] Visiting: https://biermann-lebus.de
+[Worker 5] Visiting: https://carimage.de
+[Worker 2] ✓ dr-med-kropp.de: 1 emails
+[Worker 3] ✓ ws-prietzel.de: 1 emails
+[Worker 1] ✓ ford-pfohe-luebeck.de: 3 emails
+[Worker 2] Visiting: https://zahnarzt-dr-specht.de
+[Worker 3] Visiting: https://abh-nord.de
+[Worker 1] Visiting: https://dr-annette-schmidt.de
+[Worker 4] ✓ biermann-lebus.de: 2 emails
+[Worker 4] Visiting: https://stahlbau-anderer.de
+[Worker 1] ✓ dr-annette-schmidt.de: 2 emails
+[Worker 2] ✓ zahnarzt-dr-specht.de: 1 emails
+[Worker 1] Visiting: https://implantat.cc
+[Worker 2] Visiting: https://kompernass.com
+[Worker 5] ✓ carimage.de: 1 emails
+[Worker 5] Visiting: https://bs-bauelementegmbh.de
+[Worker 1] ✓ implantat.cc: 1 emails
+[Worker 1] Visiting: https://defumus.de
+[Worker 3] ✓ abh-nord.de: 4 emails
+[Worker 3] Visiting: https://praxisdrvoelkel.de
+[Worker 5] ✓ bs-bauelementegmbh.de: 1 emails
+[Worker 5] Visiting: https://zahnarzt-sassenberg.com
+[Worker 2] ✓ kompernass.com: 1 emails
+[Worker 2] Visiting: https://palandt-agrartechnik.de
+[Worker 4] ✓ stahlbau-anderer.de: 10 emails
+[Worker 4] Visiting: https://zahnaerzte-korves.de
+[Worker 2] ✓ palandt-agrartechnik.de: 1 emails
+[Worker 3] ✓ praxisdrvoelkel.de: 2 emails
+[Worker 2] Visiting: https://tributech.de
+[Worker 3] Visiting: https://zahnecke-berlin.de
+[Worker 5] ✓ zahnarzt-sassenberg.com: 2 emails
+[Worker 4] ✓ zahnaerzte-korves.de: 2 emails
+[Worker 5] Visiting: https://www.streit.de
+[Worker 4] Visiting: https://optimale-zaehne.de
+[Worker 1] ✓ defumus.de: 2 emails
+[Worker 1] Visiting: https://tiershop.de
+[Worker 3] ✓ zahnecke-berlin.de: 2 emails
+[Worker 4] ✓ optimale-zaehne.de: 2 emails
+[Worker 3] Visiting: https://kreusser.de
+[Worker 4] Visiting: https://bio-mayer.de
+[Worker 2] ✓ tributech.de: 3 emails
+[Worker 2] Visiting: https://zahnrhein55.de
+[Worker 1] ✓ tiershop.de: 3 emails
+[Worker 1] Visiting: https://lab.asphalta.eu
+[Worker 5] ✓ www.streit.de: 17 emails
+[Worker 5] Visiting: https://reinhold.dental
+[Worker 4] ✓ bio-mayer.de: 1 emails
+[Worker 4] Visiting: https://hoppe.dental
+[Worker 2] ✓ zahnrhein55.de: 1 emails
+[Worker 2] Visiting: https://xn--kieferorthopaedie-neusss-ccc.de
+[Worker 1] ✓ lab.asphalta.eu: 3 emails
+[Worker 1] Visiting: https://zahnarzt-bensheim-lautertal.de
+[Worker 5] ✓ reinhold.dental: 3 emails
+[Worker 5] Visiting: https://dresliebers.de
+[Worker 2] ✓ xn--kieferorthopaedie-neusss-ccc.de: 2 emails
+[Worker 2] Visiting: https://haus-der-zahnheilkunde.de
+[Worker 1] ✓ zahnarzt-bensheim-lautertal.de: 0 emails
+[Worker 1] Visiting: https://zahnarzt-dr-molkentin.de
+[Worker 1] ✓ zahnarzt-dr-molkentin.de: 3 emails
+[Worker 4] ✓ hoppe.dental: 6 emails
+[Worker 1] Visiting: https://zahnarztpraxis-heuer.de
+[Worker 4] Visiting: https://zahnaerzte-in-marl.de
+[Worker 2] ✓ haus-der-zahnheilkunde.de: 1 emails
+[Worker 2] Visiting: https://planen-service-nord.de
+[Worker 4] ✓ zahnaerzte-in-marl.de: 1 emails
+[Worker 4] Visiting: https://zahnarzt-herford.de
+[Worker 3] ✓ kreusser.de: 1 emails
+[Worker 3] Visiting: https://dr-henssler.de
+[Worker 2] ✓ planen-service-nord.de: 2 emails
+[Worker 2] Visiting: https://bartelsgroup.com
+[Worker 5] ✓ dresliebers.de: 2 emails
+[Worker 4] ✓ zahnarzt-herford.de: 2 emails
+[Worker 5] Visiting: https://dr-ralph-deppe.de
+[Worker 4] Visiting: https://cns-gmbh.de
+[Worker 1] ✓ zahnarztpraxis-heuer.de: 2 emails
+[Worker 1] Visiting: https://italobee.de
+[Worker 5] ✓ dr-ralph-deppe.de: 1 emails
+[Worker 5] Visiting: https://kkw-architekten.de
+[Worker 3] ✓ dr-henssler.de: 1 emails
+[Worker 3] Visiting: https://zahnaerztinnen.de
+[Worker 2] ✓ bartelsgroup.com: 1 emails
+[Worker 4] ✓ cns-gmbh.de: 4 emails
+[Worker 2] Visiting: https://zahnarzt-miller-oldenburg.de
+[Worker 4] Visiting: https://dr-ebensberger.de
+[Worker 5] ✓ kkw-architekten.de: 2 emails
+[Worker 5] Visiting: https://nordlohlay.de
+[Worker 3] ✓ zahnaerztinnen.de: 1 emails
+[Worker 3] Visiting: https://goldstadt.dental
+[Worker 5] ✓ nordlohlay.de: 2 emails
+[Worker 5] Visiting: https://woehrl-ziegel.de
+[Worker 1] ✓ italobee.de: 1 emails
+[Worker 1] Visiting: https://zahnarzt-augustin.com
+[Worker 4] ✓ dr-ebensberger.de: 2 emails
+[Worker 5] ✓ woehrl-ziegel.de: 1 emails
+[Worker 4] Visiting: https://dr-duenkler.de
+[Worker 2] ✓ zahnarzt-miller-oldenburg.de: 2 emails
+[Worker 5] Visiting: https://objektbetreuung-huehn.de
+[Worker 2] Visiting: https://traumzaehne.net
+[Worker 3] ✓ goldstadt.dental: 1 emails
+[Worker 3] Visiting: https://plus6.de
+[Worker 1] ✓ zahnarzt-augustin.com: 3 emails
+[Worker 1] Visiting: https://wille-shop.de
+[Worker 2] ✓ traumzaehne.net: 1 emails
+[Worker 2] Visiting: https://zahnarztpraxis-ungerer.de
+[Worker 5] ✓ objektbetreuung-huehn.de: 4 emails
+[Worker 5] Visiting: https://happydent.de
+[Worker 4] ✓ dr-duenkler.de: 3 emails
+[Worker 4] Visiting: https://rey-betonwerk.de
+[Worker 1] ✓ wille-shop.de: 1 emails
+[Worker 1] Visiting: https://metallbau-hausburg.de
+[Worker 5] ✓ happydent.de: 2 emails
+[Worker 5] Visiting: https://phw-bau.de
+[Worker 3] ✓ plus6.de: 19 emails
+[Worker 3] Visiting: https://zahnarztpraxis-otterstadt.de
+[Worker 4] ✓ rey-betonwerk.de: 3 emails
+[Worker 4] Visiting: https://aixdent.de
+[Worker 1] ✓ metallbau-hausburg.de: 1 emails
+[Worker 1] Visiting: https://sachsenland-gmbh.de
+[Worker 4] ✓ aixdent.de: 0 emails
+[Worker 4] Visiting: https://zahnarztpraxis-klee.de
+[Worker 2] ✓ zahnarztpraxis-ungerer.de: 1 emails
+[Worker 2] Visiting: https://zahnarzt-dr-rodenberg.de
+[Worker 3] ✓ zahnarztpraxis-otterstadt.de: 4 emails
+[Worker 4] ✓ zahnarztpraxis-klee.de: 1 emails
+[Worker 3] Visiting: https://schreiber-baumaschinen.de
+[Worker 4] Visiting: https://hochbau-hausbau-ingolstadt-eichstaett.de
+[Worker 2] ✓ zahnarzt-dr-rodenberg.de: 1 emails
+[Worker 2] Visiting: https://zahnarzt-berne.de
+[Worker 2] ✓ zahnarzt-berne.de: 1 emails
+[Worker 2] Visiting: https://kinle-feuerungsbau.de
+[Worker 1] ✓ sachsenland-gmbh.de: 1 emails
+[Worker 1] Visiting: https://dr-inan.de
+[Worker 4] ✓ hochbau-hausbau-ingolstadt-eichstaett.de: 3 emails
+[Worker 4] Visiting: https://zahnarztpraxis-sarikaya.de
+[Worker 3] ✓ schreiber-baumaschinen.de: 29 emails
+[Worker 3] Visiting: https://garten-lindner.de
+[Worker 4] ✓ zahnarztpraxis-sarikaya.de: 2 emails
+[Worker 4] Visiting: https://marxkors.de
+[Worker 3] ✓ garten-lindner.de: 2 emails
+[Worker 3] Visiting: https://mihaylova.de
+[Worker 4] ✓ marxkors.de: 2 emails
+[Worker 4] Visiting: https://zahnarzt-oftersheim.de
+[Worker 4] ✓ zahnarzt-oftersheim.de: 1 emails
+[Worker 4] Visiting: https://sska.helixjobs.com
+[Worker 3] ✓ mihaylova.de: 7 emails
+[Worker 3] Visiting: https://za-dr-gruendel.de
+[Worker 1] ✓ dr-inan.de: 3 emails
+[Worker 1] Visiting: https://myloesch.com
+[Worker 5] ✓ phw-bau.de: 3 emails
+[Worker 5] Visiting: https://pl-fahrzeugbau.de
+[Worker 3] ✓ za-dr-gruendel.de: 1 emails
+[Worker 3] Visiting: https://architekt-franz.de
+[Worker 1] ✓ myloesch.com: 3 emails
+[Worker 1] Visiting: https://metallbau-mjakob.de
+[Worker 4] ✓ sska.helixjobs.com: 0 emails
+[Worker 4] Visiting: https://ingenieurplanung.de
+[Worker 2] ✓ kinle-feuerungsbau.de: 1 emails
+[Worker 2] Visiting: https://roxeler.de
+[Worker 3] ✓ architekt-franz.de: 1 emails
+[Worker 3] Visiting: https://zahnarzt-alidad.de
+[Worker 1] ✓ metallbau-mjakob.de: 3 emails
+[Worker 1] Visiting: https://dr-langowsky.de
+[Worker 5] ✓ pl-fahrzeugbau.de: 3 emails
+[Worker 2] ✓ roxeler.de: 8 emails
+[Worker 5] Visiting: https://blome-gartenbau.de
+[Worker 2] Visiting: https://drschminke.de
+[Worker 3] ✓ zahnarzt-alidad.de: 1 emails
+[Worker 3] Visiting: https://novatex.de
+[Worker 2] ✓ drschminke.de: 1 emails
+[Worker 2] Visiting: https://schmerzarm.de
+[Worker 4] ✓ ingenieurplanung.de: 3 emails
+[Worker 1] ✓ dr-langowsky.de: 2 emails
+[Worker 4] Visiting: https://schlosserei-walter.eu
+[Worker 1] Visiting: https://kieferservice.com
+[Worker 5] ✓ blome-gartenbau.de: 2 emails
+[Worker 5] Visiting: https://metasa.de
+[Worker 1] ✓ kieferservice.com: 1 emails
+[Worker 1] Visiting: https://schlosserei-wirth.de
+[Worker 4] ✓ schlosserei-walter.eu: 5 emails
+[Worker 2] ✓ schmerzarm.de: 2 emails
+[Worker 4] Visiting: https://kfo-kissler.de
+[Worker 3] ✓ novatex.de: 3 emails
+[Worker 4] Error visiting https://kfo-kissler.de: net::ERR_CERT_COMMON_NAME_INVALID at https://kfo-kissler.de
+[Worker 4] ✓ kfo-kissler.de: 0 emails
+[Worker 2] Visiting: https://br-zahnaerzte.de
+[Worker 2] Error visiting https://br-zahnaerzte.de: net::ERR_CONNECTION_RESET at https://br-zahnaerzte.de
+[Worker 2] ✓ br-zahnaerzte.de: 0 emails
+[Worker 3] Visiting: https://familienzahnarzt-reutlingen.de
+[Worker 4] Visiting: https://praxis-gunia-bansen.de
+[Worker 2] Visiting: https://mkgleer.de
+[Worker 5] ✓ metasa.de: 8 emails
+[Worker 5] Visiting: https://karl-gartendesign.de
+[Worker 1] ✓ schlosserei-wirth.de: 1 emails
+[Worker 4] ✓ praxis-gunia-bansen.de: 3 emails
+[Worker 1] Visiting: https://akdesign-hamm.de
+[Worker 4] Visiting: https://solarprotect.de
+[Worker 2] ✓ mkgleer.de: 3 emails
+[Worker 2] Visiting: https://denteum.de
+[Worker 3] ✓ familienzahnarzt-reutlingen.de: 2 emails
+[Worker 3] Visiting: https://kfo-kirsch.de
+[Worker 5] ✓ karl-gartendesign.de: 1 emails
+[Worker 5] Visiting: https://grimmert-trockenbau.de
+[Worker 4] ✓ solarprotect.de: 3 emails
+[Worker 4] Visiting: https://glas-neumann.de
+[Worker 5] ✓ grimmert-trockenbau.de: 0 emails
+[Worker 5] Visiting: https://geruestbau-westermaier.de
+[Worker 1] ✓ akdesign-hamm.de: 1 emails
+[Worker 1] Visiting: https://zahnarzt-redelberger.de
+[Worker 1] ✓ zahnarzt-redelberger.de: 1 emails
+[Worker 1] Visiting: https://thorn-zahnmedizin.de
+[Worker 3] ✓ kfo-kirsch.de: 1 emails
+[Worker 3] Visiting: https://schmunzelzahn.de
+[Worker 5] ✓ geruestbau-westermaier.de: 1 emails
+[Worker 5] Visiting: https://padconcept.com
+[Worker 4] ✓ glas-neumann.de: 1 emails
+[Worker 4] Visiting: https://morelo-reisemobile.de
+[Worker 1] ✓ thorn-zahnmedizin.de: 2 emails
+[Worker 4] Error visiting https://morelo-reisemobile.de: net::ERR_CERT_COMMON_NAME_INVALID at https://morelo-reisemobile.de
+[Worker 4] ✓ morelo-reisemobile.de: 0 emails
+[Worker 1] Visiting: https://zahn-handwerk.de
+[Worker 4] Visiting: https://mkgchirurgie-berlin.de
+[Worker 2] ✓ denteum.de: 2 emails
+[Worker 2] Visiting: https://abufertigungstechnik.de
+[Worker 5] ✓ padconcept.com: 4 emails
+[Worker 5] Visiting: https://gartenlandschaftsbau.com
+[Worker 2] ✓ abufertigungstechnik.de: 2 emails
+[Worker 1] ✓ zahn-handwerk.de: 1 emails
+[Worker 2] Visiting: https://implantat-velbert.de
+[Worker 1] Visiting: https://kohl-heers.de
+[Worker 3] ✓ schmunzelzahn.de: 4 emails
+[Worker 3] Visiting: https://gemeinschaftspraxis-lenoch.de
+[Worker 4] ✓ mkgchirurgie-berlin.de: 3 emails
+[Worker 4] Visiting: https://drburg.de
+[Worker 4] Error visiting https://drburg.de: net::ERR_SSL_PROTOCOL_ERROR at https://drburg.de
+[Worker 4] ✓ drburg.de: 0 emails
+[Worker 4] Visiting: https://stricker-fleiner.de
+[Worker 3] ✓ gemeinschaftspraxis-lenoch.de: 2 emails
+[Worker 5] ✓ gartenlandschaftsbau.com: 2 emails
+[Worker 3] Visiting: https://zahnpraxis-schmitz.de
+[Worker 5] Visiting: https://isma-goltz.de
+[Worker 3] Error visiting https://zahnpraxis-schmitz.de: net::ERR_SSL_VERSION_OR_CIPHER_MISMATCH at https://zahnpraxis-schmitz.de
+[Worker 3] ✓ zahnpraxis-schmitz.de: 0 emails
+[Worker 5] Error visiting https://isma-goltz.de: net::ERR_SSL_VERSION_OR_CIPHER_MISMATCH at https://isma-goltz.de
+[Worker 5] ✓ isma-goltz.de: 0 emails
+[Worker 3] Visiting: https://zahnarztpraxis-meyer-schlosser.de
+[Worker 1] ✓ kohl-heers.de: 3 emails
+[Worker 5] Visiting: https://zahnarztberlin-drkhasin.de
+[Worker 5] Error visiting https://zahnarztberlin-drkhasin.de: net::ERR_CERT_DATE_INVALID at https://zahnarztberlin-drkhasin.de
+[Worker 5] ✓ zahnarztberlin-drkhasin.de: 0 emails
+[Worker 1] Visiting: https://paprcuts.de
+[Worker 5] Visiting: https://abrischami.de
+[Worker 4] ✓ stricker-fleiner.de: 4 emails
+[Worker 2] ✓ implantat-velbert.de: 2 emails
+[Worker 4] Visiting: https://saarlorlux-ortho.de
+[Worker 2] Visiting: https://zahnarztpraxis-in-falkensee.de
+[Worker 3] ✓ zahnarztpraxis-meyer-schlosser.de: 2 emails
+[Worker 2] ✓ zahnarztpraxis-in-falkensee.de: 1 emails
+[Worker 3] Visiting: https://bayernglas.de
+[Worker 1] ✓ paprcuts.de: 1 emails
+[Worker 2] Visiting: https://zahnarztpraxis-do.de
+[Worker 1] Visiting: https://arnold-consult.de
+[Worker 4] ✓ saarlorlux-ortho.de: 1 emails
+[Worker 2] Error visiting https://zahnarztpraxis-do.de: net::ERR_CERT_COMMON_NAME_INVALID at https://zahnarztpraxis-do.de
+[Worker 2] ✓ zahnarztpraxis-do.de: 0 emails
+[Worker 4] Visiting: https://zahnarzt-spandau.com
+[Worker 2] Visiting: https://mohr-smile.de
+[Worker 5] ✓ abrischami.de: 4 emails
+[Worker 5] Visiting: https://kfo-schillerplatz.de
+[Worker 4] ✓ zahnarzt-spandau.com: 3 emails
+[Worker 4] Visiting: https://zahnfritsch.de
+[Worker 1] ✓ arnold-consult.de: 5 emails
+[Worker 1] Visiting: https://zahnaerzte-weilderstadt.de
+[Worker 5] ✓ kfo-schillerplatz.de: 2 emails
+[Worker 5] Visiting: https://rogel-zaunbau.de
+[Worker 4] ✓ zahnfritsch.de: 0 emails
+[Worker 4] Visiting: https://zahnarztpraxis-petersen.de
+[Worker 2] ✓ mohr-smile.de: 2 emails
+[Worker 2] Visiting: https://schleicher-geruestbau.de
+[Worker 3] ✓ bayernglas.de: 4 emails
+[Worker 3] Visiting: https://zahnarzt-axmann.de
+[Worker 4] ✓ zahnarztpraxis-petersen.de: 1 emails
+[Worker 4] Visiting: https://zahnarzt-fuchs-alzenau.de
+[Worker 3] ✓ zahnarzt-axmann.de: 2 emails
+[Worker 3] Visiting: https://dr-burbach.de
+[Worker 5] ✓ rogel-zaunbau.de: 2 emails
+[Worker 1] ✓ zahnaerzte-weilderstadt.de: 1 emails
+[Worker 5] Visiting: https://mst-laucha.de
+[Worker 1] Visiting: https://agl-maschinenbau.de
+[Worker 3] ✓ dr-burbach.de: 1 emails
+[Worker 3] Visiting: https://dr-maryampezeshgi.com
+[Worker 4] ✓ zahnarzt-fuchs-alzenau.de: 2 emails
+[Worker 4] Restarting browser after 100 domains...
+[Worker 4] Initializing with 167 domains...
+[Worker 4] Ready to process domains
+[Worker 4] Visiting: https://s668302445.website-start.de
+[Worker 4] Error visiting https://s668302445.website-start.de: net::ERR_SSL_PROTOCOL_ERROR at https://s668302445.website-start.de
+[Worker 4] ✓ s668302445.website-start.de: 0 emails
+[Worker 4] Visiting: https://dr-birkelbach.de
+[Worker 4] Error visiting https://dr-birkelbach.de: net::ERR_CERT_COMMON_NAME_INVALID at https://dr-birkelbach.de
+[Worker 4] ✓ dr-birkelbach.de: 0 emails
+[Worker 4] Visiting: https://zahnarzt-stein-dressler.de
+[Worker 3] ✓ dr-maryampezeshgi.com: 2 emails
+[Worker 3] Visiting: https://zahnarzt-butzeck.de
+[Worker 3] ✓ zahnarzt-butzeck.de: 0 emails
+[Worker 3] Visiting: https://zahnaerzte-kolb.de
+[Worker 4] ✓ zahnarzt-stein-dressler.de: 1 emails
+[Worker 4] Visiting: https://ramiengala.de
+[Worker 1] ✓ agl-maschinenbau.de: 1 emails
+[Worker 1] Visiting: https://weiner-schwarze.de
+[Worker 5] ✓ mst-laucha.de: 2 emails
+[Worker 5] Visiting: https://rompel-metallbau.de
+[Worker 2] ✓ schleicher-geruestbau.de: 1 emails
+[Worker 2] Visiting: https://za-hh.de
+[Worker 1] ✓ weiner-schwarze.de: 3 emails
+[Worker 1] Visiting: https://smileandmore.org
+[Worker 4] ✓ ramiengala.de: 1 emails
+[Worker 4] Visiting: https://senn-bau.de
+[Worker 3] ✓ zahnaerzte-kolb.de: 2 emails
+[Worker 5] ✓ rompel-metallbau.de: 2 emails
+[Worker 3] Visiting: https://reuter-dein-draussen.de
+[Worker 2] ✓ za-hh.de: 2 emails
+[Worker 5] Visiting: https://umformtechnik-stade.de
+[Worker 2] Visiting: https://zahnarztpraxis-hohenwedel.de
+[Worker 5] ✓ umformtechnik-stade.de: 1 emails
+[Worker 5] Visiting: https://implantatzentrum-lueneburg.de
+[Worker 3] ✓ reuter-dein-draussen.de: 5 emails
+[Worker 3] Visiting: https://kfo-murrhardt.de
+[Worker 5] ✓ implantatzentrum-lueneburg.de: 5 emails
+[Worker 4] ✓ senn-bau.de: 1 emails
+[Worker 5] Visiting: https://puschbau.de
+[Worker 4] Visiting: https://struema.de
+[Worker 3] ✓ kfo-murrhardt.de: 2 emails
+[Worker 3] Visiting: https://zahnimradius.de
+[Worker 2] ✓ zahnarztpraxis-hohenwedel.de: 1 emails
+[Worker 2] Visiting: https://zahnarzt-minden.de
+[Worker 3] ✓ zahnimradius.de: 1 emails
+[Worker 3] Visiting: https://esm-selb.de
+[Worker 4] ✓ struema.de: 2 emails
+[Worker 4] Visiting: https://galaservice-herb.de
+[Worker 5] ✓ puschbau.de: 3 emails
+[Worker 5] Visiting: https://zahnzentrum-ryssel.de
+[Worker 1] ✓ smileandmore.org: 1 emails
+[Worker 1] Visiting: https://zahnarzt-kfo-radeberg.de
+[Worker 2] ✓ zahnarzt-minden.de: 1 emails
+[Worker 2] Visiting: https://raiman.de
+[Worker 4] ✓ galaservice-herb.de: 4 emails
+[Worker 4] Visiting: https://zahnarztpraxis-mollath.de
+[Worker 3] ✓ esm-selb.de: 1 emails
+[Worker 3] Visiting: https://wsw-partner.de
+[Worker 3] ✓ wsw-partner.de: 6 emails
+[Worker 3] Visiting: https://pv.de
+[Worker 5] ✓ zahnzentrum-ryssel.de: 4 emails
+[Worker 5] Visiting: https://zahnarzt-kersting-lindau.de
+[Worker 1] ✓ zahnarzt-kfo-radeberg.de: 1 emails
+[Worker 1] Visiting: https://cdc-niebuell.de
+[Worker 2] ✓ raiman.de: 5 emails
+[Worker 2] Visiting: https://kappels-feine-zahnmedizin.de
+[Worker 4] ✓ zahnarztpraxis-mollath.de: 4 emails
+[Worker 4] Visiting: https://kieferorthopaedie-badmergentheim.de
+[Worker 3] ✓ pv.de: 3 emails
+[Worker 3] Restarting browser after 100 domains...
+[Worker 5] ✓ zahnarzt-kersting-lindau.de: 2 emails
+[Worker 3] Initializing with 167 domains...
+[Worker 5] Visiting: https://zahnarzt-herzberg.de
+[Worker 3] Ready to process domains
+[Worker 3] Visiting: https://dr-klewe.de
+[Worker 4] ✓ kieferorthopaedie-badmergentheim.de: 1 emails
+[Worker 4] Visiting: https://praxis-erdmann.dga-medien.com
+[Worker 3] ✓ dr-klewe.de: 2 emails
+[Worker 3] Visiting: https://kfo-saarland.de
+[Worker 1] ✓ cdc-niebuell.de: 2 emails
+[Worker 1] Visiting: https://zahnarzt-krueger-neuss.de
+[Worker 4] ✓ praxis-erdmann.dga-medien.com: 3 emails
+[Worker 1] Error visiting https://zahnarzt-krueger-neuss.de: net::ERR_CERT_COMMON_NAME_INVALID at https://zahnarzt-krueger-neuss.de
+[Worker 1] ✓ zahnarzt-krueger-neuss.de: 0 emails
+[Worker 4] Visiting: https://heussner-nuhn.de
+[Worker 1] Visiting: https://rohde-landschaftsbau.de
+[Worker 2] ✓ kappels-feine-zahnmedizin.de: 1 emails
+[Worker 2] Visiting: https://wolfram-industrie.de
+[Worker 3] ✓ kfo-saarland.de: 1 emails
+[Worker 3] Visiting: https://dr-woest.de
+[Worker 1] ✓ rohde-landschaftsbau.de: 1 emails
+[Worker 4] ✓ heussner-nuhn.de: 2 emails
+[Worker 1] Visiting: https://zahnarzt-mecklenbeck.de
+[Worker 4] Visiting: https://zahnarztpraxis-salzwedel.de
+[Worker 3] ✓ dr-woest.de: 0 emails
+[Worker 3] Visiting: https://kfo-borgmann.de
+[Worker 5] Error visiting https://zahnarzt-herzberg.de: Navigation timeout of 30000 ms exceeded
+[Worker 5] ✓ zahnarzt-herzberg.de: 0 emails
+[Worker 5] Visiting: https://schriewer-zahnaerzte.de
+[Worker 2] ✓ wolfram-industrie.de: 22 emails
+[Worker 2] Visiting: https://zahnarztessen.eu
+[Worker 4] ✓ zahnarztpraxis-salzwedel.de: 3 emails
+[Worker 4] Visiting: https://xn--zahnrzte-tobelwasen-jwb.de
+[Worker 3] ✓ kfo-borgmann.de: 3 emails
+[Worker 3] Visiting: https://zahnarztpraxis-bohne.com
+[Worker 5] ✓ schriewer-zahnaerzte.de: 2 emails
+[Worker 5] Visiting: https://zahnaerzte-duesseldorf-zentrum.de
+[Worker 1] ✓ zahnarzt-mecklenbeck.de: 4 emails
+[Worker 1] Visiting: https://zahnarztpraxis-ulbricht.de
+[Worker 2] ✓ zahnarztessen.eu: 1 emails
+[Worker 2] Visiting: https://arnoldhanl.de
+[Worker 3] ✓ zahnarztpraxis-bohne.com: 3 emails
+[Worker 3] Visiting: https://sommer-bauelemente.de
+[Worker 3] Error visiting https://sommer-bauelemente.de: net::ERR_SSL_PROTOCOL_ERROR at https://sommer-bauelemente.de
+[Worker 3] ✓ sommer-bauelemente.de: 0 emails
+[Worker 3] Visiting: https://eisundfriends.de
+[Worker 5] ✓ zahnaerzte-duesseldorf-zentrum.de: 4 emails
+[Worker 5] Visiting: https://lindner-floss.de
+[Worker 3] ✓ eisundfriends.de: 4 emails
+[Worker 3] Visiting: https://finis-geruestbau.de
+[Worker 1] ✓ zahnarztpraxis-ulbricht.de: 4 emails
+[Worker 1] Visiting: https://zahnarzt-ostfildern.de
+[Worker 4] ✓ xn--zahnrzte-tobelwasen-jwb.de: 4 emails
+[Worker 4] Visiting: https://zahnarzt-in-ellwangen.de
+[Worker 2] ✓ arnoldhanl.de: 1 emails
+[Worker 2] Visiting: https://himmler-bauzentrum.de
+[Worker 4] ✓ zahnarzt-in-ellwangen.de: 2 emails
+[Worker 4] Visiting: https://schmahl-landtechnik.de
+[Worker 5] ✓ lindner-floss.de: 2 emails
+[Worker 5] Visiting: https://bock-metall.de
+[Worker 5] Error visiting https://bock-metall.de: net::ERR_SSL_PROTOCOL_ERROR at https://bock-metall.de
+[Worker 5] ✓ bock-metall.de: 0 emails
+[Worker 5] Visiting: https://zahnarztpraxis-nussloch.de
+[Worker 3] ✓ finis-geruestbau.de: 5 emails
+[Worker 3] Visiting: https://zahnaerzte-golzheim.de
+[Worker 1] ✓ zahnarzt-ostfildern.de: 1 emails
+[Worker 5] ✓ zahnarztpraxis-nussloch.de: 2 emails
+[Worker 1] Visiting: https://zahnarztpraxis-mathes.de
+[Worker 5] Restarting browser after 100 domains...
+[Worker 5] Initializing with 167 domains...
+[Worker 5] Ready to process domains
+[Worker 5] Visiting: https://ebner-kanalreinigung.de
+[Worker 3] ✓ zahnaerzte-golzheim.de: 2 emails
+[Worker 4] ✓ schmahl-landtechnik.de: 4 emails
+[Worker 3] Visiting: https://w-gs.de
+[Worker 4] Visiting: https://bmf-beton.de
+[Worker 5] ✓ ebner-kanalreinigung.de: 1 emails
+[Worker 5] Visiting: https://zahnarzt-dr-hammer.de
+[Worker 2] Error visiting https://himmler-bauzentrum.de: Navigation timeout of 30000 ms exceeded
+[Worker 2] ✓ himmler-bauzentrum.de: 0 emails
+[Worker 2] Visiting: https://derhausmeister.de
+[Worker 4] ✓ bmf-beton.de: 1 emails
+[Worker 4] Visiting: https://123zahnspange.com
+[Worker 1] ✓ zahnarztpraxis-mathes.de: 3 emails
+[Worker 1] Visiting: https://jordanshop.de
+[Worker 5] ✓ zahnarzt-dr-hammer.de: 2 emails
+[Worker 5] Visiting: https://dentaldesign-wrobel.de
+[Worker 2] ✓ derhausmeister.de: 1 emails
+[Worker 2] Restarting browser after 100 domains...
+[Worker 2] Initializing with 167 domains...
+[Worker 2] Ready to process domains
+[Worker 2] Visiting: https://zahnarztpraxissedlak.de
+[Worker 4] ✓ 123zahnspange.com: 2 emails
+[Worker 4] Visiting: https://wolf-strassenbau.de
+[Worker 2] ✓ zahnarztpraxissedlak.de: 2 emails
+[Worker 2] Visiting: https://schroeder-lengerich.de
+[Worker 1] ✓ jordanshop.de: 1 emails
+[Worker 1] Visiting: https://zahnaerztin-neuss.de
+[Worker 3] ✓ w-gs.de: 7 emails
+[Worker 3] Visiting: https://zahnglueck-springe.de
+[Worker 1] ✓ zahnaerztin-neuss.de: 3 emails
+[Worker 1] Restarting browser after 100 domains...
+[Worker 1] Initializing with 167 domains...
+[Worker 1] Ready to process domains
+[Worker 1] Visiting: https://gala-buduri.de
+[Worker 3] ✓ zahnglueck-springe.de: 1 emails
+[Worker 3] Visiting: https://ramrath-holz.de
+[Worker 4] ✓ wolf-strassenbau.de: 3 emails
+[Worker 2] ✓ schroeder-lengerich.de: 1 emails
+[Worker 4] Visiting: https://ozeahn.de
+[Worker 2] Visiting: https://bautenschutz-rudolph.de
+[Worker 5] ✓ dentaldesign-wrobel.de: 2 emails
+[Worker 5] Visiting: https://hbts.de
+[Worker 4] ✓ ozeahn.de: 1 emails
+[Worker 2] ✓ bautenschutz-rudolph.de: 3 emails
+[Worker 4] Visiting: https://kraft-group.com
+[Worker 2] Visiting: https://dr-speyer.de
+[Worker 2] Error visiting https://dr-speyer.de: net::ERR_SSL_PROTOCOL_ERROR at https://dr-speyer.de
+[Worker 2] ✓ dr-speyer.de: 0 emails
+[Worker 2] Visiting: https://zahnmedizin-am-see.de
+[Worker 1] ✓ gala-buduri.de: 2 emails
+[Worker 1] Visiting: https://span-modellbau.com
+[Worker 5] ✓ hbts.de: 1 emails
+[Worker 5] Visiting: https://zahnarzt-bonn-venusberg.de
+[Worker 1] ✓ span-modellbau.com: 1 emails
+[Worker 4] ✓ kraft-group.com: 25 emails
+[Worker 1] Visiting: https://ihr-zahnarzt-gerderath.de
+[Worker 1] Error visiting https://ihr-zahnarzt-gerderath.de: net::ERR_CONNECTION_RESET at https://ihr-zahnarzt-gerderath.de
+[Worker 1] ✓ ihr-zahnarzt-gerderath.de: 0 emails
+[Worker 4] Visiting: https://nextime.de
+[Worker 1] Visiting: https://glas-ist-mehr.de
+[Worker 5] ✓ zahnarzt-bonn-venusberg.de: 1 emails
+[Worker 5] Visiting: https://flint.de
+[Worker 1] ✓ glas-ist-mehr.de: 2 emails
+[Worker 1] Visiting: https://zahnarztpraxis-dinkelsbuehl.de
+[Worker 2] ✓ zahnmedizin-am-see.de: 2 emails
+[Worker 2] Visiting: https://schurig-jungpflanzen.de
+[Worker 4] ✓ nextime.de: 2 emails
+[Worker 4] Visiting: https://zahnarzt-nl.de
+[Worker 3] ✓ ramrath-holz.de: 2 emails
+[Worker 3] Visiting: https://hr-fensterbau.de
+[Worker 4] ✓ zahnarzt-nl.de: 3 emails
+[Worker 4] Visiting: https://zahnarzt-karlsruhe-oststadt.de
+[Worker 4] Error visiting https://zahnarzt-karlsruhe-oststadt.de: net::ERR_SSL_PROTOCOL_ERROR at https://zahnarzt-karlsruhe-oststadt.de
+[Worker 4] ✓ zahnarzt-karlsruhe-oststadt.de: 0 emails
+[Worker 4] Visiting: https://ihr-zahnarzt-duesseldorf.de
+[Worker 1] ✓ zahnarztpraxis-dinkelsbuehl.de: 2 emails
+[Worker 1] Visiting: https://mayer-buehler.de
+[Worker 3] ✓ hr-fensterbau.de: 1 emails
+[Worker 2] ✓ schurig-jungpflanzen.de: 1 emails
+[Worker 5] ✓ flint.de: 3 emails
+[Worker 3] Visiting: https://billiard-royal.com
+[Worker 2] Visiting: https://natursteine-petri.de
+[Worker 5] Visiting: https://zahnarzt-dr-ising.de
+[Worker 4] ✓ ihr-zahnarzt-duesseldorf.de: 3 emails
+[Worker 4] Visiting: https://zahnarzt-bevern.de
+[Worker 1] ✓ mayer-buehler.de: 1 emails
+[Worker 1] Visiting: https://guggenberger-betonwerk.de
+[Worker 3] ✓ billiard-royal.com: 3 emails
+[Worker 3] Visiting: https://fantasywelt.de
+[Worker 4] ✓ zahnarzt-bevern.de: 3 emails
+[Worker 5] ✓ zahnarzt-dr-ising.de: 1 emails
+[Worker 4] Visiting: https://bad-eilsen.info
+[Worker 5] Visiting: https://ginzburg.de
+[Worker 2] ✓ natursteine-petri.de: 1 emails
+[Worker 1] ✓ guggenberger-betonwerk.de: 1 emails
+[Worker 2] Visiting: https://zahnarztpraxis-gitt.de
+[Worker 1] Visiting: https://bwz-schwingungstechnik.de
+[Worker 5] ✓ ginzburg.de: 4 emails
+[Worker 5] Visiting: https://oralchirurgen-duesseldorf.de
+[Worker 3] ✓ fantasywelt.de: 2 emails
+[Worker 3] Visiting: https://bockel-landtechnik.de
+[Worker 4] ✓ bad-eilsen.info: 8 emails
+[Worker 4] Visiting: https://stewe-bauunternehmung.de
+[Worker 1] ✓ bwz-schwingungstechnik.de: 3 emails
+[Worker 1] Visiting: https://zahnzentrum-dinklage.de
+[Worker 4] ✓ stewe-bauunternehmung.de: 1 emails
+[Worker 4] Visiting: https://zahnarzt-kalkan.de
+[Worker 2] ✓ zahnarztpraxis-gitt.de: 1 emails
+[Worker 2] Visiting: https://bartel-kollegen.de
+[Worker 3] ✓ bockel-landtechnik.de: 2 emails
+[Worker 3] Visiting: https://edelmann-gartenbau.de
+[Worker 5] ✓ oralchirurgen-duesseldorf.de: 5 emails
+[Worker 5] Visiting: https://luxlogistik.de
+[Worker 1] ✓ zahnzentrum-dinklage.de: 4 emails
+[Worker 1] Visiting: https://rbt-tiefbau.de
+[Worker 3] ✓ edelmann-gartenbau.de: 8 emails
+[Worker 3] Visiting: https://metallbau-zitzelsberger.com
+[Worker 2] ✓ bartel-kollegen.de: 2 emails
+[Worker 2] Visiting: https://za-kuhn-thormaehlen.de
+[Worker 5] ✓ luxlogistik.de: 2 emails
+[Worker 5] Visiting: https://thorn-metallbau.de
+[Worker 2] ✓ za-kuhn-thormaehlen.de: 2 emails
+[Worker 2] Visiting: https://zahnarzt-forstwald.de
+[Worker 4] ✓ zahnarzt-kalkan.de: 1 emails
+[Worker 4] Visiting: https://zahnaerzte-krauss.de
+[Worker 3] ✓ metallbau-zitzelsberger.com: 1 emails
+[Worker 3] Visiting: https://stz-triptis.de
+[Worker 1] ✓ rbt-tiefbau.de: 1 emails
+[Worker 1] Visiting: https://uwe-scharn.de
+[Worker 2] ✓ zahnarzt-forstwald.de: 1 emails
+[Worker 2] Visiting: https://mkg-langen.de
+[Worker 1] ✓ uwe-scharn.de: 3 emails
+[Worker 1] Visiting: https://bpunktarc.de
+[Worker 3] ✓ stz-triptis.de: 0 emails
+[Worker 2] ✓ mkg-langen.de: 1 emails
+[Worker 3] Visiting: https://tiefbau-schoepf.de
+[Worker 2] Visiting: https://metallbau-oal.de
+[Worker 4] ✓ zahnaerzte-krauss.de: 1 emails
+[Worker 4] Visiting: https://ideal-geruestbau.de
+[Worker 5] ✓ thorn-metallbau.de: 4 emails
+[Worker 5] Visiting: https://zahnarztpraxis-loerrach.de
+[Worker 2] ✓ metallbau-oal.de: 1 emails
+[Worker 2] Visiting: https://thiemt-bau.de
+[Worker 3] ✓ tiefbau-schoepf.de: 2 emails
+[Worker 4] ✓ ideal-geruestbau.de: 3 emails
+[Worker 3] Visiting: https://zahnmedizin-bad-wilhelmshoehe.de
+[Worker 4] Visiting: https://lundborg.de
+[Worker 3] ✓ zahnmedizin-bad-wilhelmshoehe.de: 1 emails
+[Worker 3] Visiting: https://heidelelektro.de
+[Worker 5] ✓ zahnarztpraxis-loerrach.de: 1 emails
+[Worker 5] Visiting: https://zahnarzt-dr-klier.de
+[Worker 4] ✓ lundborg.de: 1 emails
+[Worker 4] Visiting: https://stadtpflege.dessau-rosslau.de
+[Worker 1] ✓ bpunktarc.de: 8 emails
+[Worker 1] Visiting: https://drkuri.de
+[Worker 2] ✓ thiemt-bau.de: 1 emails
+[Worker 2] Visiting: https://praxis-klabunde.de
+[Worker 5] ✓ zahnarzt-dr-klier.de: 3 emails
+[Worker 5] Visiting: https://mpm-logistik.de
+[Worker 4] ✓ stadtpflege.dessau-rosslau.de: 12 emails
+[Worker 3] ✓ heidelelektro.de: 2 emails
+[Worker 4] Visiting: https://zahnarztpraxishahn.de
+[Worker 3] Visiting: https://faass-bs.de
+[Worker 1] ✓ drkuri.de: 2 emails
+[Worker 4] ✓ zahnarztpraxishahn.de: 2 emails
+[Worker 1] Visiting: https://zahnarzt-gera.info
+[Worker 4] Visiting: https://rhauderfehn-zahnarzt.de
+[Worker 5] ✓ mpm-logistik.de: 3 emails
+[Worker 5] Visiting: https://zahnarzt-heeslingen.de
+[Worker 2] ✓ praxis-klabunde.de: 3 emails
+[Worker 2] Visiting: https://station-14.com
+[Worker 1] ✓ zahnarzt-gera.info: 1 emails
+[Worker 1] Visiting: https://antlitz.de
+[Worker 3] ✓ faass-bs.de: 1 emails
+[Worker 3] Visiting: https://schicht.garbe-gruppe.de
+[Worker 2] ✓ station-14.com: 1 emails
+[Worker 2] Visiting: https://regiotrends.de
+[Worker 1] ✓ antlitz.de: 1 emails
+[Worker 1] Visiting: https://bisschop.de
+[Worker 4] ✓ rhauderfehn-zahnarzt.de: 2 emails
+[Worker 4] Visiting: https://zahnklinik-im-bosch-areal.de
+[Worker 5] ✓ zahnarzt-heeslingen.de: 2 emails
+[Worker 5] Visiting: https://bmw-mueller.com
+[Worker 1] ✓ bisschop.de: 1 emails
+[Worker 1] Visiting: https://bodensee-zahnaerzte.de
+[Worker 2] ✓ regiotrends.de: 23 emails
+[Worker 2] Visiting: https://zm-andernach.de
+[Worker 1] ✓ bodensee-zahnaerzte.de: 3 emails
+[Worker 1] Visiting: https://drfriese.de
+[Worker 4] ✓ zahnklinik-im-bosch-areal.de: 1 emails
+[Worker 5] ✓ bmw-mueller.com: 5 emails
+[Worker 4] Visiting: https://dumke-gartengestaltung.de
+[Worker 4] Error visiting https://dumke-gartengestaltung.de: net::ERR_CONNECTION_REFUSED at https://dumke-gartengestaltung.de
+[Worker 4] ✓ dumke-gartengestaltung.de: 0 emails
+[Worker 5] Visiting: https://diezahnaerzte-stuttgart.de
+[Worker 4] Visiting: https://chorbacher.de
+[Worker 4] Error visiting https://chorbacher.de: net::ERR_CERT_AUTHORITY_INVALID at https://chorbacher.de
+[Worker 4] ✓ chorbacher.de: 0 emails
+[Worker 4] Visiting: https://zahnarzt-in-monheim.de
+[Worker 1] ✓ drfriese.de: 2 emails
+[Worker 1] Visiting: https://zahnarzt-dr-kuksen-mannheim.de
+[Worker 2] ✓ zm-andernach.de: 2 emails
+[Worker 2] Visiting: https://zahnarztpraxis-neuerburg.de
+[Worker 4] ✓ zahnarzt-in-monheim.de: 1 emails
+[Worker 4] Visiting: https://zahnarztpraxis-luenen.de
+[Worker 1] ✓ zahnarzt-dr-kuksen-mannheim.de: 1 emails
+[Worker 1] Visiting: https://wirsol.de
+[Worker 2] ✓ zahnarztpraxis-neuerburg.de: 1 emails
+[Worker 2] Visiting: https://mvz-mkg.com
+[Worker 5] ✓ diezahnaerzte-stuttgart.de: 1 emails
+[Worker 5] Visiting: https://oberkassel-kfo.de
+[Worker 4] ✓ zahnarztpraxis-luenen.de: 2 emails
+[Worker 4] Visiting: https://zt-wietzel.de
+[Worker 5] ✓ oberkassel-kfo.de: 1 emails
+[Worker 5] Visiting: https://dirlewanger.de
+[Worker 2] ✓ mvz-mkg.com: 7 emails
+[Worker 2] Visiting: https://guenthermetall.de
+[Worker 1] ✓ wirsol.de: 0 emails
+[Worker 1] Visiting: https://zahnarzt-in-rutesheim.de
+[Worker 2] ✓ guenthermetall.de: 3 emails
+[Worker 2] Visiting: https://praxis-am-theaterwall.de
+[Worker 1] ✓ zahnarzt-in-rutesheim.de: 1 emails
+[Worker 4] ✓ zt-wietzel.de: 2 emails
+[Worker 1] Visiting: https://zahnarzt-henninger.de
+[Worker 4] Visiting: https://flosbach.de
+[Worker 2] ✓ praxis-am-theaterwall.de: 4 emails
+[Worker 2] Visiting: https://jaeger-metall.com
+[Worker 5] ✓ dirlewanger.de: 1 emails
+[Worker 5] Visiting: https://garten-endlich.de
+[Worker 1] ✓ zahnarzt-henninger.de: 2 emails
+[Worker 1] Visiting: https://mvz-nord.de
+[Worker 4] ✓ flosbach.de: 1 emails
+[Worker 4] Visiting: https://heil-kfzteile.de
+[Worker 1] ✓ mvz-nord.de: 4 emails
+[Worker 1] Visiting: https://ruoff.de
+[Worker 5] ✓ garten-endlich.de: 2 emails
+[Worker 5] Visiting: https://baierl-demmelhuber.de
+[Worker 2] ✓ jaeger-metall.com: 4 emails
+[Worker 2] Visiting: https://1a-garten-schmidt.de
+[Worker 3] ✓ schicht.garbe-gruppe.de: 3 emails
+[Worker 2] ✓ 1a-garten-schmidt.de: 1 emails
+[Worker 3] Visiting: https://zahn-zentrum-korbach.de
+[Worker 2] Visiting: https://nwdb.de
+[Worker 1] ✓ ruoff.de: 2 emails
+[Worker 1] Visiting: https://zahnarzt-hauser.de
+[Worker 5] ✓ baierl-demmelhuber.de: 2 emails
+[Worker 5] Visiting: https://garten-groesbrink.de
+[Worker 3] ✓ zahn-zentrum-korbach.de: 4 emails
+[Worker 3] Visiting: https://zahnarzt-satteldorf.de
+[Worker 4] ✓ heil-kfzteile.de: 3 emails
+[Worker 4] Visiting: https://dr-dittmar.de
+[Worker 2] ✓ nwdb.de: 6 emails
+[Worker 2] Visiting: https://kieferchirurg-aachen.de
+[Worker 4] ✓ dr-dittmar.de: 2 emails
+[Worker 4] Visiting: https://zmk-schwetzingen.de
+[Worker 2] ✓ kieferchirurg-aachen.de: 2 emails
+[Worker 5] ✓ garten-groesbrink.de: 1 emails
+[Worker 3] ✓ zahnarzt-satteldorf.de: 4 emails
+[Worker 2] Visiting: https://jaehde.eu
+[Worker 5] Visiting: https://zahnarzt-unterschuepf.de
+[Worker 3] Visiting: https://asc-frankfurt.de
+[Worker 1] ✓ zahnarzt-hauser.de: 4 emails
+[Worker 1] Visiting: https://zahnheimat.de
+[Worker 3] ✓ asc-frankfurt.de: 1 emails
+[Worker 3] Visiting: https://roehse-fischer.de
+[Worker 4] ✓ zmk-schwetzingen.de: 0 emails
+[Worker 4] Visiting: https://veitinger-class.de
+[Worker 4] ✓ veitinger-class.de: 0 emails
+[Worker 4] Visiting: https://kuespert-zahnarzt.de
+[Worker 5] ✓ zahnarzt-unterschuepf.de: 3 emails
+[Worker 5] Visiting: https://praxisklinik-weyer.de
+[Worker 2] ✓ jaehde.eu: 1 emails
+[Worker 2] Visiting: https://duesseldorf-zahnarzt.com
+[Worker 1] ✓ zahnheimat.de: 8 emails
+[Worker 1] Visiting: https://dr-vonschroeter.de
+[Worker 4] ✓ kuespert-zahnarzt.de: 3 emails
+[Worker 4] Visiting: https://keramikzahnbehandlung-badvilbel.de
+[Worker 3] ✓ roehse-fischer.de: 1 emails
+[Worker 3] Visiting: https://civakgmbh.de
+[Worker 1] ✓ dr-vonschroeter.de: 1 emails
+[Worker 1] Visiting: https://doernhoefer.de
+[Worker 4] ✓ keramikzahnbehandlung-badvilbel.de: 1 emails
+[Worker 4] Visiting: https://keep-jugendhilfe.de
+[Worker 2] ✓ duesseldorf-zahnarzt.com: 4 emails
+[Worker 2] Visiting: https://oralchirurgie-just.de
+[Worker 5] ✓ praxisklinik-weyer.de: 8 emails
+[Worker 5] Visiting: https://sadean.de
+[Worker 2] ✓ oralchirurgie-just.de: 2 emails
+[Worker 1] ✓ doernhoefer.de: 2 emails
+[Worker 2] Visiting: https://ugk-schwerin.de
+[Worker 1] Visiting: https://mmgebaeudetechnik.de
+[Worker 5] ✓ sadean.de: 0 emails
+[Worker 5] Visiting: https://zahnaerztin-thurow.de
+[Worker 3] ✓ civakgmbh.de: 2 emails
+[Worker 3] Visiting: https://zahnarzt-oranienburg.de
+[Worker 4] ✓ keep-jugendhilfe.de: 12 emails
+[Worker 4] Visiting: https://zahnarzt-lindau-bodensee.de
+[Worker 2] ✓ ugk-schwerin.de: 5 emails
+[Worker 2] Visiting: https://zahnarzt-stegherr.de
+[Worker 5] ✓ zahnaerztin-thurow.de: 3 emails
+[Worker 5] Visiting: https://hark-treppen.de
+[Worker 5] Error visiting https://hark-treppen.de: net::ERR_CERT_COMMON_NAME_INVALID at https://hark-treppen.de
+[Worker 5] ✓ hark-treppen.de: 0 emails
+[Worker 5] Visiting: https://zahnarztpraxis-sunkur.de
+[Worker 5] Error visiting https://zahnarztpraxis-sunkur.de: net::ERR_SSL_VERSION_OR_CIPHER_MISMATCH at https://zahnarztpraxis-sunkur.de
+[Worker 5] ✓ zahnarztpraxis-sunkur.de: 0 emails
+[Worker 5] Visiting: https://zahnarzt-gehl.de
+[Worker 4] ✓ zahnarzt-lindau-bodensee.de: 0 emails
+[Worker 4] Visiting: https://zahnarzt-dr-mertens.de
+[Worker 1] ✓ mmgebaeudetechnik.de: 1 emails
+[Worker 1] Visiting: https://zahnarzt-sender.de
+[Worker 3] ✓ zahnarzt-oranienburg.de: 1 emails
+[Worker 3] Visiting: https://zahnarzt-schriefer.de
+[Worker 3] ✓ zahnarzt-schriefer.de: 1 emails
+[Worker 3] Visiting: https://zahnarzt-lehrte.de
+[Worker 5] ✓ zahnarzt-gehl.de: 1 emails
+[Worker 5] Visiting: https://arndt-gartenbau.de
+[Worker 1] ✓ zahnarzt-sender.de: 9 emails
+[Worker 1] Visiting: https://zahnaerztinnen-hallertau.de
+[Worker 3] ✓ zahnarzt-lehrte.de: 5 emails
+[Worker 3] Visiting: https://wedekind-kern.de
+[Worker 2] ✓ zahnarzt-stegherr.de: 3 emails
+[Worker 2] Visiting: https://fahl.com
+[Worker 4] Error visiting https://zahnarzt-dr-mertens.de: Navigation timeout of 30000 ms exceeded
+[Worker 4] ✓ zahnarzt-dr-mertens.de: 0 emails
+[Worker 4] Restarting browser after 150 domains...
+[Worker 4] Initializing with 167 domains...
+[Worker 4] Ready to process domains
+[Worker 4] Visiting: https://tibhar.info
+[Worker 3] ✓ wedekind-kern.de: 4 emails
+[Worker 3] Visiting: https://autohaus-ostmann.de
+[Worker 1] ✓ zahnaerztinnen-hallertau.de: 3 emails
+[Worker 1] Visiting: https://walter-massen.de
+[Worker 5] ✓ arndt-gartenbau.de: 2 emails
+[Worker 5] Visiting: https://roleff.com
+[Worker 4] ✓ tibhar.info: 6 emails
+[Worker 4] Visiting: https://drklotz.com
+[Worker 1] ✓ walter-massen.de: 1 emails
+[Worker 1] Visiting: https://baumpflege-rohlfing.de
+[Worker 2] ✓ fahl.com: 5 emails
+[Worker 2] Visiting: https://szukat.de
+[Worker 1] ✓ baumpflege-rohlfing.de: 3 emails
+[Worker 1] Visiting: https://zahnaerzte-olpe.de
+[Worker 2] ✓ szukat.de: 2 emails
+[Worker 3] ✓ autohaus-ostmann.de: 7 emails
+[Worker 2] Visiting: https://hh-gruppe.de
+[Worker 3] Visiting: https://dr-brauchle.de
+[Worker 1] Error visiting https://zahnaerzte-olpe.de: net::ERR_CERT_COMMON_NAME_INVALID at https://zahnaerzte-olpe.de
+[Worker 1] ✓ zahnaerzte-olpe.de: 0 emails
+[Worker 1] Visiting: https://wawerla-kollegen.de
+[Worker 5] ✓ roleff.com: 4 emails
+[Worker 1] ✓ wawerla-kollegen.de: 6 emails
+[Worker 5] Visiting: https://schimang-umweltservice.de
+[Worker 5] Error visiting https://schimang-umweltservice.de: net::ERR_CERT_COMMON_NAME_INVALID at https://schimang-umweltservice.de
+[Worker 5] ✓ schimang-umweltservice.de: 0 emails
+[Worker 1] Visiting: https://foerster-metallbauelemente.de
+[Worker 5] Visiting: https://costa.de
+[Worker 4] ✓ drklotz.com: 1 emails
+[Worker 4] Visiting: https://zahnarzt-efferen-doersam.de
+[Worker 3] ✓ dr-brauchle.de: 3 emails
+[Worker 3] Visiting: https://bedachungen-meyer.de
+[Worker 5] ✓ costa.de: 2 emails
+[Worker 5] Visiting: https://blumenmoebius.de
+[Worker 4] ✓ zahnarzt-efferen-doersam.de: 3 emails
+[Worker 1] ✓ foerster-metallbauelemente.de: 4 emails
+[Worker 4] Visiting: https://meinfachzahnarzt.de
+[Worker 1] Visiting: https://dentapaz.de
+[Worker 4] ✓ meinfachzahnarzt.de: 3 emails
+[Worker 4] Visiting: https://drs-frey.de
+[Worker 3] ✓ bedachungen-meyer.de: 1 emails
+[Worker 3] Visiting: https://zahnarzt-g-simon.de
+[Worker 2] ✓ hh-gruppe.de: 5 emails
+[Worker 3] Error visiting https://zahnarzt-g-simon.de: net::ERR_CERT_AUTHORITY_INVALID at https://zahnarzt-g-simon.de
+[Worker 3] ✓ zahnarzt-g-simon.de: 0 emails
+[Worker 2] Visiting: https://zahnmedizin-grevenbroich.de
+[Worker 3] Visiting: https://endodontie-may.de
+[Worker 5] ✓ blumenmoebius.de: 2 emails
+[Worker 5] Visiting: https://zahnarztpraxis-amdreieck.de
+[Worker 3] ✓ endodontie-may.de: 4 emails
+[Worker 2] ✓ zahnmedizin-grevenbroich.de: 1 emails
+[Worker 3] Visiting: https://demir-galabau.de
+[Worker 3] Error visiting https://demir-galabau.de: net::ERR_SSL_VERSION_OR_CIPHER_MISMATCH at https://demir-galabau.de
+[Worker 3] ✓ demir-galabau.de: 0 emails
+[Worker 2] Visiting: https://kieferorthopaedie-feige.de
+[Worker 3] Visiting: https://zahnarztpraxis-julia-martin.de
+[Worker 1] ✓ dentapaz.de: 3 emails
+[Worker 1] Visiting: https://zahnarzt-wuensch.de
+[Worker 5] ✓ zahnarztpraxis-amdreieck.de: 5 emails
+[Worker 5] Visiting: https://zahnaerztin-wasilewski.de
+[Worker 2] ✓ kieferorthopaedie-feige.de: 1 emails
+[Worker 2] Visiting: https://www.hur.com
+[Worker 3] ✓ zahnarztpraxis-julia-martin.de: 2 emails
+[Worker 3] Visiting: https://elg-dw.de
+[Worker 5] ✓ zahnaerztin-wasilewski.de: 3 emails
+[Worker 4] ✓ drs-frey.de: 4 emails
+[Worker 5] Visiting: https://xn--zahnrztin-bartels-tqb.de
+[Worker 4] Visiting: https://dentalpraxis-wolfsburg.de
+[Worker 1] ✓ zahnarzt-wuensch.de: 3 emails
+[Worker 1] Visiting: https://praxis-mutz.de
+[Worker 3] ✓ elg-dw.de: 1 emails
+[Worker 3] Visiting: https://jobs.siemens.com
+[Worker 1] ✓ praxis-mutz.de: 5 emails
+[Worker 1] Visiting: https://blechprofilbau.de
+[Worker 1] ✓ blechprofilbau.de: 2 emails
+[Worker 1] Visiting: https://mindeldental.de
+[Worker 2] ✓ www.hur.com: 4 emails
+[Worker 2] Visiting: https://mkg-herborn.de
+[Worker 5] ✓ xn--zahnrztin-bartels-tqb.de: 2 emails
+[Worker 5] Visiting: https://zahnarzt-amirsiai.de
+[Worker 3] ✓ jobs.siemens.com: 2 emails
+[Worker 3] Visiting: https://toni-maurer.de
+[Worker 5] ✓ zahnarzt-amirsiai.de: 2 emails
+[Worker 5] Visiting: https://kauer-bau.de
+[Worker 1] ✓ mindeldental.de: 4 emails
+[Worker 1] Visiting: https://telefonica.de
+[Worker 2] ✓ mkg-herborn.de: 4 emails
+[Worker 2] Visiting: https://ihr-zahnarzt-dueren.de
+[Worker 5] ✓ kauer-bau.de: 2 emails
+[Worker 5] Visiting: https://mundwerk-dueren.de
+[Worker 5] ✓ mundwerk-dueren.de: 4 emails
+[Worker 5] Visiting: https://praxis-langrock.de
+[Worker 4] ✓ dentalpraxis-wolfsburg.de: 4 emails
+[Worker 4] Visiting: https://dr-bartels.de
+[Worker 1] ✓ telefonica.de: 3 emails
+[Worker 1] Visiting: https://ahrdentes.de
+[Worker 3] ✓ toni-maurer.de: 4 emails
+[Worker 3] Visiting: https://zahnarztpraxis-kraemer.de
+[Worker 1] ✓ ahrdentes.de: 1 emails
+[Worker 4] ✓ dr-bartels.de: 6 emails
+[Worker 1] Visiting: https://endodontie-schwerin.de
+[Worker 4] Visiting: https://weber-zahnarzt.de
+[Worker 2] ✓ ihr-zahnarzt-dueren.de: 1 emails
+[Worker 2] Visiting: https://rinn.net
+[Worker 5] ✓ praxis-langrock.de: 3 emails
+[Worker 5] Visiting: https://za-klossner.de
+[Worker 3] ✓ zahnarztpraxis-kraemer.de: 1 emails
+[Worker 1] ✓ endodontie-schwerin.de: 4 emails
+[Worker 3] Visiting: https://zahnarzt-rusteberg.de
+[Worker 1] Visiting: https://kfo-nouri.de
+[Worker 4] ✓ weber-zahnarzt.de: 3 emails
+[Worker 4] Visiting: https://westkamp.com
+[Worker 1] ✓ kfo-nouri.de: 1 emails
+[Worker 1] Visiting: https://galabau-rumpf.de
+[Worker 3] ✓ zahnarzt-rusteberg.de: 5 emails
+[Worker 3] Visiting: https://group2e.nickel-digital.de
+[Worker 2] ✓ rinn.net: 1 emails
+[Worker 2] Visiting: https://zahnarzt-kirner.de
+[Worker 3] Error visiting https://group2e.nickel-digital.de: link.href.startsWith is not a function
+pptr:evaluate;WorkerWithBatch.findKeywordLinks%20(%2FUsers%2Fthomassee%2FDocker%2Fcontainers%2Fjob-scraper%2Fsrc%2Fworker-with-batch.js%3A63%3A43):6:59
+[Worker 3] ✓ group2e.nickel-digital.de: 0 emails
+[Worker 3] Visiting: https://dr-poessnecker.de
+[Worker 4] ✓ westkamp.com: 3 emails
+[Worker 4] Visiting: https://zahnaerzte-im-wapeldorf.de
+[Worker 2] ✓ zahnarzt-kirner.de: 6 emails
+[Worker 2] Visiting: https://zahnarzt-guldenbach.de
+[Worker 3] ✓ dr-poessnecker.de: 4 emails
+[Worker 3] Visiting: https://implantatesiegen.de
+[Worker 1] ✓ galabau-rumpf.de: 3 emails
+[Worker 1] Visiting: https://zahnaerzte-herne.com
+[Worker 5] ✓ za-klossner.de: 1 emails
+[Worker 5] Visiting: https://marsavet.com
+[Worker 4] ✓ zahnaerzte-im-wapeldorf.de: 3 emails
+[Worker 4] Visiting: https://zahnaerzte-mannl.de
+[Worker 3] ✓ implantatesiegen.de: 1 emails
+[Worker 3] Visiting: https://vermessungimfokus.de
+[Worker 5] ✓ marsavet.com: 1 emails
+[Worker 4] ✓ zahnaerzte-mannl.de: 1 emails
+[Worker 5] Visiting: https://enders.de
+[Worker 4] Visiting: https://metering.mahr.com
+[Worker 1] ✓ zahnaerzte-herne.com: 4 emails
+[Worker 1] Visiting: https://xn--zahnrzte-benderstrasse-34b.de
+[Worker 3] ✓ vermessungimfokus.de: 1 emails
+[Worker 2] ✓ zahnarzt-guldenbach.de: 6 emails
+[Worker 3] Visiting: https://lehmann-lehmann.de
+[Worker 2] Visiting: https://manhart-garten.de
+[Worker 4] ✓ metering.mahr.com: 31 emails
+[Worker 4] Visiting: https://troendle-bau.de
+[Worker 3] ✓ lehmann-lehmann.de: 1 emails
+[Worker 3] Restarting browser after 150 domains...
+[Worker 3] Initializing with 167 domains...
+[Worker 3] Ready to process domains
+[Worker 3] Visiting: https://kfo-ostbevern.de
+[Worker 2] ✓ manhart-garten.de: 1 emails
+[Worker 1] ✓ xn--zahnrzte-benderstrasse-34b.de: 1 emails
+[Worker 2] Visiting: https://zahnarzt-keitum.de
+[Worker 1] Visiting: https://boppunddietrich.de
+[Worker 4] ✓ troendle-bau.de: 4 emails
+[Worker 4] Visiting: https://paar-gmbh.de
+[Worker 2] ✓ zahnarzt-keitum.de: 2 emails
+[Worker 3] ✓ kfo-ostbevern.de: 1 emails
+[Worker 2] Visiting: https://praxisdres-velcota.com
+[Worker 3] Visiting: https://schmidt-im-ex.de
+[Worker 4] ✓ paar-gmbh.de: 0 emails
+[Worker 4] Visiting: https://dr-entrup.de
+[Worker 2] ✓ praxisdres-velcota.com: 1 emails
+[Worker 2] Visiting: https://buchheister-bau.de
+[Worker 3] ✓ schmidt-im-ex.de: 1 emails
+[Worker 3] Visiting: https://zahngesundheitbaumberg.de
+[Worker 5] ✓ enders.de: 12 emails
+[Worker 1] ✓ boppunddietrich.de: 2 emails
+[Worker 5] Visiting: https://zahnarztpraxis-naundorf.de
+[Worker 1] Visiting: https://xn--zahnrzteteam-mhlenstrasse-oec27d.de
+[Worker 2] ✓ buchheister-bau.de: 2 emails
+[Worker 2] Visiting: https://dentikum.de
+[Worker 4] ✓ dr-entrup.de: 2 emails
+[Worker 3] ✓ zahngesundheitbaumberg.de: 5 emails
+[Worker 4] Visiting: https://zahnaerztin-reinecke.de
+[Worker 3] Visiting: https://ademihaid.de
+[Worker 5] ✓ zahnarztpraxis-naundorf.de: 1 emails
+[Worker 5] Visiting: https://osterburg-zahntechnik.de
+[Worker 1] ✓ xn--zahnrzteteam-mhlenstrasse-oec27d.de: 1 emails
+[Worker 1] Restarting browser after 150 domains...
+[Worker 1] Initializing with 167 domains...
+[Worker 1] Ready to process domains
+[Worker 1] Visiting: https://spasa-dentallabor.de
+[Worker 4] ✓ zahnaerztin-reinecke.de: 2 emails
+[Worker 4] Visiting: https://praxis-dochow.de
+[Worker 1] ✓ spasa-dentallabor.de: 1 emails
+[Worker 1] Visiting: https://niedermeier-galabau.de
+[Worker 4] ✓ praxis-dochow.de: 2 emails
+[Worker 4] DONE: 167 domains, 167 successful, 435 emails
+[Worker 5] ✓ osterburg-zahntechnik.de: 1 emails
+[Worker 5] Visiting: https://he-zeitarbeit.com
+[Worker 2] ✓ dentikum.de: 2 emails
+[Worker 2] Visiting: https://zahnarzthiltrup.de
+[Worker 5] ✓ he-zeitarbeit.com: 1 emails
+[Worker 5] Visiting: https://aundo-gmbh.de
+[Worker 3] ✓ ademihaid.de: 2 emails
+[Worker 3] Visiting: https://strahlweiss.de
+[Worker 5] ✓ aundo-gmbh.de: 14 emails
+[Worker 5] Visiting: https://chi-nue.com
+[Worker 3] ✓ strahlweiss.de: 1 emails
+[Worker 1] ✓ niedermeier-galabau.de: 3 emails
+[Worker 3] Visiting: https://zahnaerzte-theaterstrasse.de
+[Worker 1] Visiting: https://newco-autoline.de
+[Worker 2] ✓ zahnarzthiltrup.de: 2 emails
+[Worker 2] Visiting: https://ulrike-brockmann.de
+[Worker 2] Error visiting https://ulrike-brockmann.de: net::ERR_SSL_VERSION_OR_CIPHER_MISMATCH at https://ulrike-brockmann.de
+[Worker 2] ✓ ulrike-brockmann.de: 0 emails
+[Worker 2] Visiting: https://zahnmedizin-soegel.de
+[Worker 3] ✓ zahnaerzte-theaterstrasse.de: 2 emails
+[Worker 3] Visiting: https://zentrum-zahngesundheit.de
+[Worker 5] ✓ chi-nue.com: 0 emails
+[Worker 5] Visiting: https://gasser-bedachungen.de
+[Worker 1] ✓ newco-autoline.de: 1 emails
+[Worker 1] Visiting: https://wurzel-und-krone.de
+[Worker 3] ✓ zentrum-zahngesundheit.de: 1 emails
+[Worker 2] ✓ zahnmedizin-soegel.de: 1 emails
+[Worker 3] Visiting: https://zahnarzt-dr-vetter.de
+[Worker 2] Restarting browser after 150 domains...
+[Worker 2] Initializing with 167 domains...
+[Worker 5] ✓ gasser-bedachungen.de: 1 emails
+[Worker 2] Ready to process domains
+[Worker 2] Visiting: https://dr-pawlak.de
+[Worker 5] Restarting browser after 150 domains...
+[Worker 5] Initializing with 167 domains...
+[Worker 5] Ready to process domains
+[Worker 5] Visiting: https://dr-wirth-bensheim.de
+[Worker 1] ✓ wurzel-und-krone.de: 2 emails
+[Worker 1] Visiting: https://kfo-grosse.de
+[Worker 3] ✓ zahnarzt-dr-vetter.de: 1 emails
+[Worker 3] Visiting: https://zahngesundheit.jetzt
+[Worker 3] ✓ zahngesundheit.jetzt: 1 emails
+[Worker 3] Visiting: https://gartengeraete-schollenberger.de
+[Worker 5] ✓ dr-wirth-bensheim.de: 2 emails
+[Worker 1] ✓ kfo-grosse.de: 6 emails
+[Worker 5] Visiting: https://zahnkult.berlin
+[Worker 1] Visiting: https://praxisklinik-kaeding.de
+[Worker 2] ✓ dr-pawlak.de: 5 emails
+[Worker 2] Visiting: https://green-team-peter.de
+[Worker 1] ✓ praxisklinik-kaeding.de: 1 emails
+[Worker 1] Visiting: https://zahnspange-dannenbaum.de
+[Worker 2] ✓ green-team-peter.de: 2 emails
+[Worker 1] ✓ zahnspange-dannenbaum.de: 1 emails
+[Worker 2] Visiting: https://schapler.de
+[Worker 1] Visiting: https://zahnarzt-bodem.de
+[Worker 2] Error visiting https://schapler.de: net::ERR_SSL_PROTOCOL_ERROR at https://schapler.de
+[Worker 2] ✓ schapler.de: 0 emails
+[Worker 2] Visiting: https://zahnarztpraxismitherz.de
+[Worker 5] ✓ zahnkult.berlin: 1 emails
+[Worker 5] Visiting: https://zahnaerzte-heikendorf.de
+[Worker 1] ✓ zahnarzt-bodem.de: 4 emails
+[Worker 1] Visiting: https://kurz-logistik.de
+[Worker 3] ✓ gartengeraete-schollenberger.de: 1 emails
+[Worker 3] Visiting: https://sah-eschweiler.de
+[Worker 2] ✓ zahnarztpraxismitherz.de: 2 emails
+[Worker 2] Visiting: https://bluemel-gartenbau.de
+[Worker 5] ✓ zahnaerzte-heikendorf.de: 3 emails
+[Worker 5] Visiting: https://dr-bornemann.com
+[Worker 5] ✓ dr-bornemann.com: 4 emails
+[Worker 5] Visiting: https://gst-sensor.com
+[Worker 2] ✓ bluemel-gartenbau.de: 2 emails
+[Worker 2] Visiting: https://zahnarztpraxis-marker.de
+[Worker 3] ✓ sah-eschweiler.de: 2 emails
+[Worker 3] Visiting: https://getreidesilo.de
+[Worker 2] ✓ zahnarztpraxis-marker.de: 1 emails
+[Worker 2] Visiting: https://ssr.garbe-gruppe.de
+[Worker 5] ✓ gst-sensor.com: 4 emails
+[Worker 5] Visiting: https://dentwork.de
+[Worker 5] ✓ dentwork.de: 0 emails
+[Worker 5] Visiting: https://zahnarzt-ismaning.de
+[Worker 3] ✓ getreidesilo.de: 2 emails
+[Worker 3] Visiting: https://drfriedrich.de
+[Worker 1] ✓ kurz-logistik.de: 5 emails
+[Worker 1] Visiting: https://temp-personal.de
+[Worker 1] Error visiting https://temp-personal.de: net::ERR_CERT_AUTHORITY_INVALID at https://temp-personal.de
+[Worker 1] ✓ temp-personal.de: 0 emails
+[Worker 1] Visiting: https://my-bbs.de
+[Worker 5] ✓ zahnarzt-ismaning.de: 1 emails
+[Worker 5] Visiting: https://zahnarztpraxis-hockenheim.de
+[Worker 3] ✓ drfriedrich.de: 5 emails
+[Worker 3] Visiting: https://damboeck.de
+[Worker 1] ✓ my-bbs.de: 2 emails
+[Worker 1] Visiting: https://kieferorthopaedie-dillingen.de
+[Worker 5] ✓ zahnarztpraxis-hockenheim.de: 4 emails
+[Worker 5] Visiting: https://r-schramm-gmbh.de
+[Worker 3] ✓ damboeck.de: 6 emails
+[Worker 3] Visiting: https://hettich-stuckateur.de
+[Worker 3] ✓ hettich-stuckateur.de: 1 emails
+[Worker 1] ✓ kieferorthopaedie-dillingen.de: 1 emails
+[Worker 3] Visiting: https://heinrich-zahnarzt.de
+[Worker 1] Visiting: https://praxis-dr-imbram.de
+[Worker 5] ✓ r-schramm-gmbh.de: 3 emails
+[Worker 5] Visiting: https://zahnarzt-zons.de
+[Worker 2] ✓ ssr.garbe-gruppe.de: 2 emails
+[Worker 2] Visiting: https://fuerer.de
+[Worker 1] ✓ praxis-dr-imbram.de: 1 emails
+[Worker 1] Visiting: https://zahnarztpraxis-simon-holder.de
+[Worker 2] ✓ fuerer.de: 2 emails
+[Worker 1] ✓ zahnarztpraxis-simon-holder.de: 0 emails
+[Worker 2] Visiting: https://dr-mandic.de
+[Worker 1] Visiting: https://zahnarzt-strahlemann.de
+[Worker 3] ✓ heinrich-zahnarzt.de: 2 emails
+[Worker 3] Visiting: https://avancarte.de
+[Worker 2] ✓ dr-mandic.de: 1 emails
+[Worker 2] Visiting: https://zetieba.de
+[Worker 3] ✓ avancarte.de: 4 emails
+[Worker 3] DONE: 167 domains, 167 successful, 448 emails
+[Worker 1] ✓ zahnarzt-strahlemann.de: 5 emails
+[Worker 5] ✓ zahnarzt-zons.de: 2 emails
+[Worker 1] Visiting: https://die-zahnspezialisten.eu
+[Worker 5] Visiting: https://saphir-grindstar.de
+[Worker 2] ✓ zetieba.de: 2 emails
+[Worker 5] ✓ saphir-grindstar.de: 0 emails
+[Worker 2] Visiting: https://schmidt-zahnmedizin.com
+[Worker 5] Visiting: https://zahnarztpraxis-nienstedten.de
+[Worker 5] ✓ zahnarztpraxis-nienstedten.de: 2 emails
+[Worker 5] Visiting: https://implantate.zahnarztpraxis-bach.de
+[Worker 1] ✓ die-zahnspezialisten.eu: 1 emails
+[Worker 1] Visiting: https://zahnarztpraxis-hassfurt.de
+[Worker 5] ✓ implantate.zahnarztpraxis-bach.de: 1 emails
+[Worker 5] Visiting: https://oralchirurgie-eisenberg.de
+[Worker 1] ✓ zahnarztpraxis-hassfurt.de: 2 emails
+[Worker 1] DONE: 167 domains, 167 successful, 372 emails
+[Worker 2] ✓ schmidt-zahnmedizin.com: 2 emails
+[Worker 2] Visiting: https://zahnarzt-hinte.com
+[Worker 2] Error visiting https://zahnarzt-hinte.com: net::ERR_CONNECTION_RESET at https://zahnarzt-hinte.com
+[Worker 2] ✓ zahnarzt-hinte.com: 0 emails
+[Worker 2] Visiting: https://samoaflowtech.de
+[Worker 5] ✓ oralchirurgie-eisenberg.de: 1 emails
+[Worker 5] Visiting: https://dentalpro.de
+[Worker 2] ✓ samoaflowtech.de: 4 emails
+[Worker 2] Visiting: https://br58.de
+[Worker 5] ✓ dentalpro.de: 1 emails
+[Worker 5] Visiting: https://zahnarzt-arens-steinmeier.de
+[Worker 2] ✓ br58.de: 1 emails
+[Worker 2] Visiting: https://zahnarztpraxis-salzkotten.de
+[Worker 5] ✓ zahnarzt-arens-steinmeier.de: 1 emails
+[Worker 2] ✓ zahnarztpraxis-salzkotten.de: 1 emails
+[Worker 5] Visiting: https://glaserei-haltern.de
+[Worker 2] Visiting: https://ft-containerparts.de
+[Worker 5] ✓ glaserei-haltern.de: 1 emails
+[Worker 5] DONE: 167 domains, 167 successful, 418 emails
+[Worker 2] ✓ ft-containerparts.de: 2 emails
+[Worker 2] Visiting: https://naturstein-wiedemann.de
+[Worker 2] ✓ naturstein-wiedemann.de: 3 emails
+[Worker 2] DONE: 167 domains, 167 successful, 427 emails
+
+4️⃣ Aggregating results...
+Worker 1: 167 domains, 372 emails
+Worker 2: 167 domains, 427 emails
+Worker 3: 167 domains, 448 emails
+Worker 4: 167 domains, 435 emails
+Worker 5: 167 domains, 418 emails
+
+🎉 PARALLEL PROCESSING COMPLETE!
+📊 Results:
+   • Total domains processed: 835
+   • Successful: 835 (100.0%)
+   • Total emails found: 2100
+   • Average emails per domain: 2.51
+   • Processing time: 2381.6 seconds
+   • Processing rate: 21.0 domains/minute
+   • Domains remaining: 0
+   • Estimated time to completion: 0 minutes

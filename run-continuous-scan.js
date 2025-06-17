@@ -1,0 +1,83 @@
+const IntelligentJobScraper = require('./src/intelligent-api-scraper');
+
+/**
+ * Continuous scanning for comprehensive coverage
+ * Multiple rounds with larger batches
+ */
+async function runContinuousScan() {
+    console.log('🔄 CONTINUOUS 28-DAY SCAN');
+    console.log('==========================');
+    console.log('Running multiple rounds for comprehensive coverage\n');
+    
+    const rounds = [
+        { type: 'job', batches: [100, 100, 100] },
+        { type: 'ausbildung', batches: [100, 100, 100] }
+    ];
+    
+    let totalResults = {
+        totalNewEmployers: 0,
+        totalNewPositions: 0,
+        totalSkippedDuplicates: 0,
+        totalApiCalls: 0,
+        totalJobsFound: 0
+    };
+    
+    try {
+        for (const round of rounds) {
+            console.log(`\n🚀 Starting ${round.type.toUpperCase()} rounds...`);
+            
+            for (let i = 0; i < round.batches.length; i++) {
+                const batchSize = round.batches[i];
+                console.log(`\n📋 ${round.type.toUpperCase()} Round ${i + 1}: ${batchSize} postal codes`);
+                
+                const scraper = new IntelligentJobScraper(round.type, 28);
+                const results = await scraper.runIntelligentScraping(batchSize);
+                
+                // Accumulate results
+                totalResults.totalNewEmployers += results.newEmployers;
+                totalResults.totalNewPositions += results.newPositions;
+                totalResults.totalSkippedDuplicates += results.skippedDuplicates;
+                totalResults.totalApiCalls += results.totalApiCalls;
+                totalResults.totalJobsFound += results.totalJobsFound;
+                
+                console.log(`\n📊 Round ${i + 1} Summary:`);
+                console.log(`   New job_scrp_employers: ${results.newEmployers}`);
+                console.log(`   New positions: ${results.newPositions}`);
+                console.log(`   Duplicates skipped: ${results.skippedDuplicates}`);
+                console.log(`   API calls: ${results.totalApiCalls}`);
+                console.log(`   Jobs found: ${results.totalJobsFound}`);
+                
+                // Short break between rounds
+                if (i < round.batches.length - 1) {
+                    console.log('\n⏸️  Taking 10-second break before next round...');
+                    await new Promise(resolve => setTimeout(resolve, 10000));
+                }
+            }
+            
+            // Longer break between job types
+            console.log('\n⏸️  Taking 30-second break before next job type...');
+            await new Promise(resolve => setTimeout(resolve, 30000));
+        }
+        
+        console.log('\n🎉 CONTINUOUS SCAN COMPLETED!');
+        console.log('==============================');
+        
+        console.log('\n🔢 GRAND TOTALS:');
+        console.log(`   Total new job_scrp_employers: ${totalResults.totalNewEmployers}`);
+        console.log(`   Total new positions: ${totalResults.totalNewPositions}`);
+        console.log(`   Total duplicates skipped: ${totalResults.totalSkippedDuplicates}`);
+        console.log(`   Total API calls: ${totalResults.totalApiCalls}`);
+        console.log(`   Total jobs processed: ${totalResults.totalJobsFound}`);
+        console.log(`   Efficiency: ${(totalResults.totalNewPositions / Math.max(totalResults.totalJobsFound, 1) * 100).toFixed(1)}% new positions`);
+        console.log(`   Duplicate detection: ${(totalResults.totalSkippedDuplicates / Math.max(totalResults.totalJobsFound, 1) * 100).toFixed(1)}% already known`);
+        
+        console.log('\n✅ Database is now up-to-date with latest 28-day job market data!');
+        
+    } catch (error) {
+        console.error('❌ Continuous scan failed:', error.message);
+        process.exit(1);
+    }
+}
+
+// Run the continuous scan
+runContinuousScan();

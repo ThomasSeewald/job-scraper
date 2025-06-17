@@ -1,0 +1,106 @@
+[Retry-0] 2025-06-16 20:13:26,685 - INFO - 🚀 Initializing 0 scraper...
+[Retry-0] 2025-06-16 20:13:29,085 - INFO - 🍪 First run - need to accept cookies
+[Retry-0] 2025-06-16 20:13:29,085 - INFO - 📝 Note: Cookie modal will appear on first job page visit
+[Retry-0] 2025-06-16 20:13:29,085 - INFO - ✅ 0 scraper initialized successfully
+[Retry-0] 2025-06-16 20:13:29,085 - INFO - 🔄 Starting continuous retry processing (batch_size=50, delay=5min)
+[Retry-0] 2025-06-16 20:13:29,085 - ERROR - ❌ Error in continuous processing: 'DomainsRetryScraper' object has no attribute 'get_db_connection'
+[Retry-0] 2025-06-16 20:17:43,507 - INFO - 🚀 Initializing 0 scraper...
+[Retry-0] 2025-06-16 20:17:45,170 - INFO - 🍪 First run - need to accept cookies
+[Retry-0] 2025-06-16 20:17:45,170 - INFO - 📝 Note: Cookie modal will appear on first job page visit
+[Retry-0] 2025-06-16 20:17:45,170 - INFO - ✅ 0 scraper initialized successfully
+[Retry-0] 2025-06-16 20:17:45,171 - INFO - 🔄 Starting continuous retry processing (batch_size=50, delay=5min)
+[Retry-0] 2025-06-16 20:17:45,213 - ERROR - ❌ Error in continuous processing: column reference "domain_url" is ambiguous
+LINE 17:         domain_url,
+                 ^
+DETAIL:  It could refer to either a PL/pgSQL variable or a table column.
+QUERY:  UPDATE our_domains_retry_queue 
+    SET status = 'processing',
+        last_retry_at = CURRENT_TIMESTAMP,
+        retry_attempts = retry_attempts + 1
+    WHERE id IN (
+        SELECT q.id 
+        FROM our_domains_retry_queue q
+        WHERE q.status = 'queued' 
+            AND q.retry_attempts < q.max_retries
+            AND (q.next_retry_at IS NULL OR q.next_retry_at <= CURRENT_TIMESTAMP)
+        ORDER BY q.priority ASC, q.created_at ASC
+        LIMIT batch_size
+    )
+    RETURNING 
+        id,
+        our_domains_retry_queue.domain_id,
+        domain_url,
+        retry_category,
+        original_error,
+        retry_attempts
+CONTEXT:  PL/pgSQL function get_next_retry_batch(integer) line 3 at RETURN QUERY
+
+[Retry-0] 2025-06-16 20:18:29,291 - INFO - 🚀 Initializing 0 scraper...
+[Retry-0] 2025-06-16 20:18:30,981 - INFO - 🍪 First run - need to accept cookies
+[Retry-0] 2025-06-16 20:18:30,981 - INFO - 📝 Note: Cookie modal will appear on first job page visit
+[Retry-0] 2025-06-16 20:18:30,981 - INFO - ✅ 0 scraper initialized successfully
+[Retry-0] 2025-06-16 20:18:30,981 - INFO - 🔄 Starting continuous retry processing (batch_size=50, delay=5min)
+[Retry-0] 2025-06-16 20:18:31,011 - ERROR - ❌ Error in continuous processing: structure of query does not match function result type
+DETAIL:  Returned type character varying(255) does not match expected type text in column 3.
+CONTEXT:  SQL statement "UPDATE our_domains_retry_queue 
+    SET status = 'processing',
+        last_retry_at = CURRENT_TIMESTAMP,
+        retry_attempts = our_domains_retry_queue.retry_attempts + 1
+    WHERE id IN (
+        SELECT q.id 
+        FROM our_domains_retry_queue q
+        WHERE q.status = 'queued' 
+            AND q.retry_attempts < q.max_retries
+            AND (q.next_retry_at IS NULL OR q.next_retry_at <= CURRENT_TIMESTAMP)
+        ORDER BY q.priority ASC, q.created_at ASC
+        LIMIT batch_size
+    )
+    RETURNING 
+        id,
+        our_domains_retry_queue.domain_id,
+        our_domains_retry_queue.domain_url,
+        our_domains_retry_queue.retry_category,
+        our_domains_retry_queue.original_error,
+        our_domains_retry_queue.retry_attempts"
+PL/pgSQL function get_next_retry_batch(integer) line 3 at RETURN QUERY
+
+[Retry-0] 2025-06-16 20:23:31,015 - ERROR - ❌ Error in continuous processing: current transaction is aborted, commands ignored until end of transaction block
+
+[Retry-0] 2025-06-16 20:28:31,020 - ERROR - ❌ Error in continuous processing: current transaction is aborted, commands ignored until end of transaction block
+
+[Retry-0] 2025-06-16 20:29:32,538 - INFO - 🚀 Initializing 0 scraper...
+[Retry-0] 2025-06-16 20:29:35,216 - INFO - 🍪 First run - need to accept cookies
+[Retry-0] 2025-06-16 20:29:35,217 - INFO - 📝 Note: Cookie modal will appear on first job page visit
+[Retry-0] 2025-06-16 20:29:35,217 - INFO - ✅ 0 scraper initialized successfully
+[Retry-0] 2025-06-16 20:29:35,217 - INFO - 🔄 Starting continuous retry processing (batch_size=50, delay=5min)
+[Retry-0] 2025-06-16 20:29:35,247 - ERROR - Error getting retry batch: structure of query does not match function result type
+DETAIL:  Returned type character varying(255) does not match expected type text in column 3.
+CONTEXT:  SQL statement "UPDATE our_domains_retry_queue 
+    SET status = 'processing',
+        last_retry_at = CURRENT_TIMESTAMP,
+        retry_attempts = our_domains_retry_queue.retry_attempts + 1
+    WHERE id IN (
+        SELECT q.id 
+        FROM our_domains_retry_queue q
+        WHERE q.status = 'queued' 
+            AND q.retry_attempts < q.max_retries
+            AND (q.next_retry_at IS NULL OR q.next_retry_at <= CURRENT_TIMESTAMP)
+        ORDER BY q.priority ASC, q.created_at ASC
+        LIMIT batch_size
+    )
+    RETURNING 
+        id,
+        our_domains_retry_queue.domain_id,
+        our_domains_retry_queue.domain_url,
+        our_domains_retry_queue.retry_category,
+        our_domains_retry_queue.original_error,
+        our_domains_retry_queue.retry_attempts"
+PL/pgSQL function get_next_retry_batch(integer) line 3 at RETURN QUERY
+
+[Retry-0] 2025-06-16 20:29:35,250 - INFO - No domains available for retry
+[Retry-0] 2025-06-16 20:29:35,250 - INFO - 📊 Batch complete: 0 processed, 0 successful, 0 emails found
+[Retry-0] 2025-06-16 20:29:35,250 - INFO - 😴 No domains to process, sleeping for 5 minutes
+[Retry-0] 2025-06-16 20:34:35,265 - INFO - 🚀 Processing 50 retry domains
+[Retry-0] 2025-06-16 20:34:35,267 - INFO - 🔄 Retrying domain: https://chrono24.de (category: playwright_retry)
+[Retry-0] 2025-06-16 20:34:36,019 - ERROR - ❌ Scraping error: 'DomainsRetryScraper' object has no attribute 'random_delay'
+[Retry-0] 2025-06-16 20:34:36,034 - ERROR - ❌ Error in continuous processing: 'DomainsRetryScraper' object has no attribute 'random_delay'

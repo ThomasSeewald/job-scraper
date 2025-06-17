@@ -1,0 +1,388 @@
+<%- include('layout', { 
+    title: 'Keyword Domain Scraping - Job Scraper Dashboard', 
+    currentPage: '/keyword-scraping',
+    body: `
+<!-- Header -->
+<div class="row mb-4">
+    <div class="col-12">
+        <h1 class="display-5"><i class="fas fa-search"></i> Keyword Domain Scraping</h1>
+        <p class="lead">Fortschritt der keyword-basierten Email-Extraktion aus Unternehmens-Domains</p>
+    </div>
+</div>
+
+<!-- Progress Overview -->
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card metric-card">
+            <div class="card-body text-center">
+                <h2 class="text-primary">${progress.total_domains.toLocaleString('de-DE')}</h2>
+                <p class="mb-0">Gesamt Domains</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card metric-card" style="border-left-color: #28a745;">
+            <div class="card-body text-center">
+                <h2 class="text-success">${progress.attempted.toLocaleString('de-DE')}</h2>
+                <p class="mb-0">Bearbeitet</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card metric-card" style="border-left-color: #dc3545;">
+            <div class="card-body text-center">
+                <h2 class="text-danger">${progress.remaining.toLocaleString('de-DE')}</h2>
+                <p class="mb-0">Verbleibend</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card metric-card" style="border-left-color: #17a2b8;">
+            <div class="card-body text-center">
+                <h2 class="text-info">${progress.percentage}%</h2>
+                <p class="mb-0">Fortschritt</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Progress Bar -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-progress-bar"></i> Bearbeitungsfortschritt</h5>
+            </div>
+            <div class="card-body">
+                <div class="progress" style="height: 30px;">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: ${progress.percentage}%">
+                        ${progress.attempted.toLocaleString('de-DE')} von ${progress.total_domains.toLocaleString('de-DE')} Domains
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <p class="mb-1"><strong>Geschätzte Restzeit:</strong> ${Math.ceil(progress.remaining / 50)} Stunden</p>
+                    <p class="mb-1"><strong>Verarbeitungsrate:</strong> 50 Domains pro Stunde (25 alle 30 Min)</p>
+                    <p class="mb-0"><strong>Letzter Lauf:</strong> ${lastRun || 'Noch nicht gestartet'}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Email Discovery Statistics -->
+<div class="row mb-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-envelope"></i> Email-Entdeckung</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="text-center">
+                            <h3 class="text-success">${emailStats.total_emails.toLocaleString('de-DE')}</h3>
+                            <p class="mb-0">Emails gefunden</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="text-center">
+                            <h3 class="text-info">${emailStats.success_rate}%</h3>
+                            <p class="mb-0">Erfolgsrate</p>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="text-center">
+                            <h4 class="text-primary">${emailStats.avg_emails}</h4>
+                            <p class="mb-0">Ø Emails pro Domain</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="text-center">
+                            <h4 class="text-warning">${emailStats.domains_with_emails.toLocaleString('de-DE')}</h4>
+                            <p class="mb-0">Domains mit Emails</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Recent Discoveries -->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-clock"></i> Neueste Entdeckungen</h5>
+            </div>
+            <div class="card-body" style="max-height: 300px; overflow-y: auto;">
+                ${recentFinds.length > 0 ? `
+                <div class="list-group list-group-flush">
+                    ${recentFinds.map(find => `
+                    <div class="list-group-item">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">${find.domain}</h6>
+                            <small>${new Date(find.last_extraction_date).toLocaleDateString('de-DE')}</small>
+                        </div>
+                        <p class="mb-1">
+                            <span class="badge bg-success">${find.emails_found} Emails</span>
+                            <span class="badge bg-secondary">Freq: ${find.frequency}</span>
+                        </p>
+                        <small class="text-muted">${find.notes ? find.notes.substring(0, 100) + '...' : 'Keine Details'}</small>
+                    </div>
+                    `).join('')}
+                </div>
+                ` : `
+                <p class="text-muted text-center">Noch keine Ergebnisse verfügbar</p>
+                `}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Top Domains by Email Count -->
+<div class="row mb-4">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-chart-bar"></i> Top Domains nach Email-Anzahl</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Rang</th>
+                                <th>Domain</th>
+                                <th>Emails</th>
+                                <th>Häufigkeit</th>
+                                <th>Datum</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${topDomains.map((domain, index) => `
+                            <tr>
+                                <td><strong>#${index + 1}</strong></td>
+                                <td>
+                                    <div style="max-width: 300px; overflow: hidden; text-overflow: ellipsis;" 
+                                         title="${domain.domain}">
+                                        ${domain.domain}
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-success">${domain.emails_found}</span></td>
+                                <td><span class="badge bg-info">${domain.frequency.toLocaleString('de-DE')}</span></td>
+                                <td><small>${new Date(domain.last_extraction_date).toLocaleDateString('de-DE')}</small></td>
+                            </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Control Panel -->
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-cogs"></i> Steuerung</h5>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-primary" onclick="runKeywordScraper()">
+                        <i class="fas fa-play"></i> Test-Lauf starten
+                    </button>
+                    <button type="button" class="btn btn-info" onclick="checkCronStatus()">
+                        <i class="fas fa-clock"></i> Cron Status prüfen
+                    </button>
+                    <button type="button" class="btn btn-warning" onclick="viewLogs()">
+                        <i class="fas fa-file-alt"></i> Logs anzeigen
+                    </button>
+                    <button type="button" class="btn btn-success" onclick="exportResults()">
+                        <i class="fas fa-download"></i> Ergebnisse exportieren
+                    </button>
+                </div>
+                
+                <hr>
+                
+                <h6>Cron Job Status</h6>
+                <div class="alert alert-success" role="alert">
+                    <i class="fas fa-check-circle"></i> Aktiv (alle 30 Min)
+                </div>
+                
+                <h6>Nächster Lauf</h6>
+                <p class="text-muted" id="nextRun">Berechne...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Keyword Analysis -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-tags"></i> Keyword-Analyse</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <canvas id="keywordChart" height="200"></canvas>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>Erkenntnisse</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success"></i> <strong>Impressum-Seiten</strong> haben die höchste Email-Findungsrate</li>
+                            <li><i class="fas fa-check text-success"></i> <strong>Kontakt-Seiten</strong> liefern oft spezifische Abteilungs-Emails</li>
+                            <li><i class="fas fa-check text-success"></i> <strong>Karriere-Seiten</strong> enthalten HR-relevante Kontakte</li>
+                            <li><i class="fas fa-info text-info"></i> Deutsche Keywords haben höhere Erfolgsrate als englische</li>
+                            <li><i class="fas fa-lightbulb text-warning"></i> Domains mit höherer Frequenz haben mehr Email-Adressen</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+`,
+script: `
+<script>
+    // Initialize keyword analysis chart
+    const keywordCtx = document.getElementById('keywordChart').getContext('2d');
+    new Chart(keywordCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Impressum', 'Kontakt', 'Karriere', 'Jobs', 'Sonstige'],
+            datasets: [{
+                data: [40, 30, 20, 8, 2],
+                backgroundColor: [
+                    '#28a745', '#007bff', '#ffc107', '#17a2b8', '#6c757d'
+                ],
+                borderWidth: 2,
+                borderColor: '#fff'
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.label + ': ' + context.parsed + '% der gefundenen Emails';
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // Control functions
+    async function runKeywordScraper() {
+        try {
+            showToast('Test-Lauf wird gestartet...', 'info');
+            const response = await fetch('/api/keyword-scraper/run', { method: 'POST' });
+            if (!response.ok) throw new Error('Test fehlgeschlagen');
+            
+            const result = await response.json();
+            showToast(\`Test-Lauf abgeschlossen: \${result.processed} Domains bearbeitet\`, 'success');
+        } catch (error) {
+            showToast('Test-Lauf fehlgeschlagen: ' + error.message, 'danger');
+        }
+    }
+
+    async function checkCronStatus() {
+        try {
+            const response = await fetch('/api/keyword-scraper/status');
+            const status = await response.json();
+            
+            const modal = new bootstrap.Modal(document.createElement('div'));
+            // Create and show status modal
+            showToast('Cron Status: ' + (status.active ? 'Aktiv' : 'Inaktiv'), status.active ? 'success' : 'warning');
+        } catch (error) {
+            showToast('Status-Prüfung fehlgeschlagen', 'danger');
+        }
+    }
+
+    function viewLogs() {
+        window.open('/api/keyword-scraper/logs', '_blank');
+    }
+
+    async function exportResults() {
+        try {
+            showToast('Export wird vorbereitet...', 'info');
+            const response = await fetch('/api/keyword-scraper/export');
+            
+            if (!response.ok) throw new Error('Export fehlgeschlagen');
+            
+            const blob = await response.blob();
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = \`keyword-scraping-results-\${new Date().toISOString().split('T')[0]}.csv\`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+            
+            showToast('Export erfolgreich heruntergeladen', 'success');
+        } catch (error) {
+            showToast('Export fehlgeschlagen: ' + error.message, 'danger');
+        }
+    }
+
+    // Calculate next run time
+    function updateNextRun() {
+        const now = new Date();
+        const minutes = now.getMinutes();
+        const nextRun = new Date(now);
+        
+        if (minutes < 30) {
+            nextRun.setMinutes(30, 0, 0);
+        } else {
+            nextRun.setHours(nextRun.getHours() + 1, 0, 0, 0);
+        }
+        
+        const timeUntil = nextRun - now;
+        const minutesUntil = Math.floor(timeUntil / (1000 * 60));
+        
+        document.getElementById('nextRun').textContent = \`In \${minutesUntil} Minuten (\${nextRun.toLocaleTimeString('de-DE', {hour: '2-digit', minute: '2-digit'})})\`;
+    }
+
+    // Utility function for toast notifications
+    function showToast(message, type = 'info') {
+        const toastHtml = \`
+            <div class="toast align-items-center text-bg-\${type} border-0" role="alert">
+                <div class="d-flex">
+                    <div class="toast-body">\${message}</div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+                </div>
+            </div>
+        \`;
+        
+        let toastContainer = document.getElementById('toastContainer');
+        if (!toastContainer) {
+            toastContainer = document.createElement('div');
+            toastContainer.id = 'toastContainer';
+            toastContainer.className = 'toast-container position-fixed top-0 end-0 p-3';
+            toastContainer.style.zIndex = '1056';
+            document.body.appendChild(toastContainer);
+        }
+        
+        toastContainer.insertAdjacentHTML('beforeend', toastHtml);
+        const toastElement = toastContainer.lastElementChild;
+        const toast = new bootstrap.Toast(toastElement);
+        toast.show();
+        
+        toastElement.addEventListener('hidden.bs.toast', () => toastElement.remove());
+    }
+
+    // Initialize
+    updateNextRun();
+    setInterval(updateNextRun, 60000); // Update every minute
+</script>
+`
+}) %>

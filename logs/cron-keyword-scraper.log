@@ -1,0 +1,392 @@
+[2025-06-05 22:30:01] === Starting keyword domain scraping cron job ===
+[2025-06-05 22:30:01] No domains left to process. All domains have been scraped for keywords.
+[2025-06-05 23:00:01] === Starting keyword domain scraping cron job ===
+[2025-06-05 23:00:01] No domains left to process. All domains have been scraped for keywords.
+[2025-06-05 23:04:18] === Starting keyword domain scraping cron job ===
+[2025-06-05 23:04:18] Found 6996 domains remaining to scrape for keywords
+[2025-06-05 23:04:18] Starting keyword scraping with batch size: 25
+Starting keyword domain scraping run...
+Initializing keyword domain scraper...
+Keyword domain scraper initialized successfully
+Found 25 domains to scrape for keywords (from domain_analysis table)
+
+Processing domain: jobs.bechtle.com (frequency: 85)
+Visiting domain: https://jobs.bechtle.com
+Found keyword links for jobs.bechtle.com: [ 'impressum', 'kontakt', 'karriere', 'jobs' ]
+Scraping impressum page: https://www.bechtle.com/impressum
+Found 2 emails for impressum on jobs.bechtle.com
+Scraping kontakt page: https://support.google.com/policies/contact/general_privacy_form
+Scraping kontakt page: https://support.google.com/policies/contact/general_privacy_form
+Scraping kontakt page: https://support.google.com/policies/contact/general_privacy_form
+Scraping karriere page: https://jobs.bechtle.com/#content
+Scraping karriere page: https://jobs.bechtle.com/
+Scraping karriere page: https://jobs.bechtle.com/#
+Found 4 emails for karriere on jobs.bechtle.com
+Scraping jobs page: https://jobs.bechtle.com/#content
+Scraping jobs page: https://jobs.bechtle.com/
+Scraping jobs page: https://jobs.bechtle.com/#
+Found 4 emails for jobs on jobs.bechtle.com
+Updated domain_analysis: 6 emails found
+Completed jobs.bechtle.com: 10 emails found
+
+Processing domain: wellergruppe.de (frequency: 74)
+Visiting domain: https://wellergruppe.de
+Found keyword links for wellergruppe.de: [ 'impressum', 'kontakt', 'karriere', 'jobs' ]
+Scraping impressum page: https://wellergruppe.de/impressum
+Found 2 emails for impressum on wellergruppe.de
+Scraping kontakt page: https://wellergruppe.de/unternehmen/kontaktpersonen
+Scraping kontakt page: https://wellergruppe.de/kontakt
+Scraping kontakt page: https://wellergruppe.de/unternehmen/kontaktpersonen
+Found 29 emails for kontakt on wellergruppe.de
+Scraping karriere page: https://wellergruppe.de/karriere
+Scraping karriere page: https://wellergruppe.de/karriere/stellenportal
+Scraping karriere page: https://wellergruppe.de/karriere/ausbildung
+Found 1 emails for karriere on wellergruppe.de
+Scraping jobs page: https://wellergruppe.de/karriere
+Scraping jobs page: https://wellergruppe.de/karriere/stellenportal
+Scraping jobs page: https://wellergruppe.de/karriere/ausbildung
+Found 1 emails for jobs on wellergruppe.de
+Updated domain_analysis: 32 emails found
+Completed wellergruppe.de: 33 emails found
+
+Processing domain: transportsystemboegl.com (frequency: 62)
+Visiting domain: https://transportsystemboegl.com
+Found keyword links for transportsystemboegl.com: [ 'impressum', 'kontakt', 'karriere', 'jobs' ]
+Scraping impressum page: https://transportsystemboegl.com/impressum/
+Scraping impressum page: https://transportsystemboegl.com/impressum/
+Scraping impressum page: https://www.instagram.com/legal/privacy/
+Found 2 emails for impressum on transportsystemboegl.com
+Scraping kontakt page: https://transportsystemboegl.com/kontakt/
+Scraping kontakt page: https://transportsystemboegl.com/kontakt/
+Scraping kontakt page: https://transportsystemboegl.com/kontakt/
+Found 1 emails for kontakt on transportsystemboegl.com
+Scraping karriere page: https://transportsystemboegl.com/karriere/
+Scraping karriere page: https://transportsystemboegl.com/karriere/
+Scraping karriere page: https://transportsystemboegl.com/karriere/
+Found 1 emails for karriere on transportsystemboegl.com
+Scraping jobs page: https://transportsystemboegl.com/karriere/
+Scraping jobs page: https://transportsystemboegl.com/karriere/
+Scraping jobs page: https://transportsystemboegl.com/karriere/
+Found 1 emails for jobs on transportsystemboegl.com
+Updated domain_analysis: 2 emails found
+Completed transportsystemboegl.com: 5 emails found
+
+Processing domain: ziehl-abegg.com (frequency: 52)
+Visiting domain: https://ziehl-abegg.com
+Found keyword links for ziehl-abegg.com: [ 'impressum', 'kontakt', 'karriere', 'jobs' ]
+Scraping impressum page: https://www.ziehl-abegg.com/impressum
+Found 4 emails for impressum on ziehl-abegg.com
+Scraping kontakt page: https://www.ziehl-abegg.com/unternehmen/kontakt
+Scraping kontakt page: https://www.ziehl-abegg.com/unternehmen/kontakt
+Scraping kontakt page: https://www.ziehl-abegg.com/unternehmen/kontakt
+Found 7 emails for kontakt on ziehl-abegg.com
+Scraping karriere page: https://karriere.ziehl-abegg.de/home
+Scraping karriere page: https://karriere.ziehl-abegg.de/home
+Scraping karriere page: https://karriere.ziehl-abegg.de/home
+Found 1 emails for karriere on ziehl-abegg.com
+Scraping jobs page: https://karriere.ziehl-abegg.de/home
+Scraping jobs page: https://karriere.ziehl-abegg.de/home
+Scraping jobs page: https://karriere.ziehl-abegg.de/home
+Found 1 emails for jobs on ziehl-abegg.com
+Updated domain_analysis: 8 emails found
+Completed ziehl-abegg.com: 13 emails found
+
+Processing domain: rw.net (frequency: 47)
+Visiting domain: https://rw.net
+Found keyword links for rw.net: [ 'impressum', 'karriere', 'jobs' ]
+Scraping impressum page: https://www.rw.net/komponenten/impressum-und-agb/agb
+Scraping impressum page: https://www.rw.net/komponenten/impressum-und-agb/impressum
+Found 9 emails for impressum on rw.net
+Scraping karriere page: https://www.rw.net/karriere
+Scraping karriere page: https://www.rw.net/karriere/stellenportal
+Scraping karriere page: https://www.rw.net/jobs
+Scraping jobs page: https://www.rw.net/karriere
+Scraping jobs page: https://www.rw.net/pellets
+Scraping jobs page: https://www.rw.net/karriere/stellenportal
+Found 37 emails for jobs on rw.net
+Updated domain_analysis: 46 emails found
+Completed rw.net: 46 emails found
+
+Processing domain: sternauto.de (frequency: 47)
+Visiting domain: https://sternauto.de
+Found keyword links for sternauto.de: [ 'impressum', 'kontakt', 'karriere', 'jobs' ]
+Scraping impressum page: https://www.sternauto.de/impressum/
+Scraping impressum page: https://www.sternauto.de/impressum/
+Found 1 emails for impressum on sternauto.de
+Scraping kontakt page: https://www.sternauto.de/kontakt/
+Scraping kontakt page: https://www.sternauto.de/kontakt/
+Scraping kontakt page: https://www.sternauto.de/anfrage-allgemein/
+Found 1 emails for kontakt on sternauto.de
+Scraping karriere page: https://www.sternauto.de/ueber-uns/karriere/
+Scraping karriere page: https://www.sternauto.de/ueber-uns/karriere/
+Scraping karriere page: https://www.sternauto.de/ueber-uns/karriere/sternauto-als-arbeitgeber/
+Found 2 emails for karriere on sternauto.de
+Scraping jobs page: https://www.sternauto.de/ueber-uns/karriere/
+Scraping jobs page: https://www.sternauto.de/ueber-uns/karriere/
+Scraping jobs page: https://www.sternauto.de/ueber-uns/karriere/sternauto-als-arbeitgeber/
+Found 2 emails for jobs on sternauto.de
+Updated domain_analysis: 2 emails found
+Completed sternauto.de: 6 emails found
+
+Processing domain: weberhaus.ch (frequency: 47)
+Visiting domain: https://weberhaus.ch
+Found keyword links for weberhaus.ch: [ 'impressum', 'kontakt', 'jobs' ]
+Scraping impressum page: https://www.weberhaus.ch/impressum/
+Scraping impressum page: https://www.weberhaus.ch/impressum/
+Scraping kontakt page: https://www.weberhaus.ch/kontakt-uebersicht/
+Scraping kontakt page: https://www.weberhaus.ch/kontakt-uebersicht/
+Found 3 emails for kontakt on weberhaus.ch
+Scraping jobs page: https://www.weberhaus.ch/magazin/
+Scraping jobs page: https://www.weberhaus.ch/magazin/
+[2025-06-05 23:30:00] === Starting keyword domain scraping cron job ===
+[2025-06-05 23:30:00] No domains left to process. All domains have been scraped for keywords.
+[2025-06-06 00:00:00] === Starting keyword domain scraping cron job ===
+[2025-06-06 00:00:01] No domains left to process. All domains have been scraped for keywords.
+[2025-06-06 00:30:00] === Starting keyword domain scraping cron job ===
+[2025-06-06 00:30:00] No domains left to process. All domains have been scraped for keywords.
+[2025-06-06 01:00:00] === Starting keyword domain scraping cron job ===
+[2025-06-06 01:00:00] No domains left to process. All domains have been scraped for keywords.
+[2025-06-06 01:09:42] === Starting keyword domain scraping cron job ===
+[2025-06-06 01:09:42] Found 6985 domains remaining to scrape for keywords
+[2025-06-06 01:09:42] Starting keyword scraping with batch size: 25
+Starting keyword domain scraping run...
+Initializing keyword domain scraper...
+Keyword domain scraper initialized successfully
+Found 25 domains to scrape for keywords (from domain_analysis table)
+
+Processing domain: rosier.de (frequency: 40)
+Visiting domain: https://rosier.de
+Found keyword links for rosier.de: [ 'impressum', 'kontakt', 'karriere', 'jobs' ]
+Scraping impressum page: https://www.rosier.de/impressum/#ce-5371
+Scraping impressum page: https://www.rosier.de/impressum/
+Scraping impressum page: https://www.rosier.de/impressum/?disableOptIn=1&cHash=bd4bd12474647f397a10eb1ed4906414
+Scraping kontakt page: https://www.rosier.de/servicebereich/e-mail/
+Scraping karriere page: https://rosier.career.softgarden.de/
+Scraping karriere page: https://rosier.career.softgarden.de/
+Scraping karriere page: https://rosier.career.softgarden.de/
+Found 7 emails for karriere on rosier.de
+Scraping jobs page: https://rosier.career.softgarden.de/
+Scraping jobs page: https://rosier.career.softgarden.de/
+Scraping jobs page: https://rosier.career.softgarden.de/
+Found 7 emails for jobs on rosier.de
+Updated domain_analysis: 7 emails found
+Completed rosier.de: 14 emails found
+
+Processing domain: sprint.de (frequency: 40)
+Visiting domain: https://sprint.de
+Found keyword links for sprint.de: [ 'impressum', 'kontakt', 'karriere', 'jobs' ]
+Scraping impressum page: https://www.sprint.de/de/impressum-datenschutz
+Scraping impressum page: https://www.sprint.de/de/impressum-datenschutz
+Scraping impressum page: https://www.linkedin.com/legal/privacy-policy
+Scraping kontakt page: https://www.sprint.de/de/geschaeftskunden/kontakt-geschaeftskunden
+Scraping kontakt page: https://www.sprint.de/de/geschaeftskunden/kontakt-geschaeftskunden/kontakt-2
+Scraping kontakt page: https://www.sprint.de/de/geschaeftskunden/kontakt-geschaeftskunden/sitemap
+Found 1 emails for kontakt on sprint.de
+Scraping karriere page: https://karriere.sprint.de/
+Scraping karriere page: https://www.sprint.de/de/jobs/kontakt-3
+Found 1 emails for karriere on sprint.de
+Scraping jobs page: https://karriere.sprint.de/
+Scraping jobs page: https://www.sprint.de/de/jobs/kontakt-3
+Found 1 emails for jobs on sprint.de
+Updated domain_analysis: 1 emails found
+Completed sprint.de: 3 emails found
+
+Processing domain: bat-agrar.de (frequency: 39)
+Visiting domain: https://bat-agrar.de
+Found keyword links for bat-agrar.de: [ 'impressum', 'kontakt', 'karriere', 'jobs' ]
+Scraping impressum page: https://bat-agrar.de/impressum/
+Found 2 emails for impressum on bat-agrar.de
+Scraping kontakt page: https://bat-agrar.de/kontakt/
+Scraping kontakt page: https://bat-agrar.de/kontakt/
+Scraping kontakt page: https://bat-agrar.de/kontakt/
+Found 5 emails for kontakt on bat-agrar.de
+Scraping karriere page: https://bat-agrar.de/offene-stellen/
+Scraping karriere page: https://bat-agrar.de/offene-stellen/
+Scraping karriere page: https://bat-agrar.de/offene-stellen/
+Found 1 emails for karriere on bat-agrar.de
+Scraping jobs page: https://bat-agrar.de/offene-stellen/
+Scraping jobs page: https://bat-agrar.de/offene-stellen/
+Scraping jobs page: https://bat-agrar.de/offene-stellen/
+Found 1 emails for jobs on bat-agrar.de
+Updated domain_analysis: 6 emails found
+Completed bat-agrar.de: 9 emails found
+
+Processing domain: opel-stanglmair-wielenbach.de (frequency: 39)
+Visiting domain: https://opel-stanglmair-wielenbach.de
+Found keyword links for opel-stanglmair-wielenbach.de: [ 'impressum', 'karriere', 'jobs' ]
+Scraping impressum page: https://www.opel-stanglmair-wielenbach.de/impressum.html
+Found 2 emails for impressum on opel-stanglmair-wielenbach.de
+Scraping karriere page: https://www.opel-stanglmair-wielenbach.de/jobs_karriere.html
+Scraping karriere page: https://opel-stanglmair-murnau.de/jobs_karriere.html
+Scraping karriere page: https://www.opel-stanglmair-wielenbach.de/jobs_karriere.html
+Error scraping https://www.opel-stanglmair-wielenbach.de/jobs_karriere.html: Runtime.callFunctionOn timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.
+Found 1 emails for karriere on opel-stanglmair-wielenbach.de
+Scraping jobs page: https://www.opel-stanglmair-wielenbach.de/jobs_karriere.html
+Error scraping https://www.opel-stanglmair-wielenbach.de/jobs_karriere.html: Navigation timeout of 30000 ms exceeded
+Scraping jobs page: https://opel-stanglmair-murnau.de/jobs_karriere.html
+Error scraping https://opel-stanglmair-murnau.de/jobs_karriere.html: Navigation timeout of 30000 ms exceeded
+Scraping jobs page: https://www.opel-stanglmair-wielenbach.de/jobs_karriere.html
+Error scraping https://www.opel-stanglmair-wielenbach.de/jobs_karriere.html: Navigation timeout of 30000 ms exceeded
+Updated domain_analysis: 2 emails found
+Completed opel-stanglmair-wielenbach.de: 3 emails found
+
+Processing domain: carlgoetz.de (frequency: 38)
+Visiting domain: https://carlgoetz.de
+Error visiting https://carlgoetz.de: Navigation timeout of 30000 ms exceeded
+Updated domain_analysis: 0 emails found
+Completed carlgoetz.de: 0 emails found
+
+Processing domain: shopseite.telekom.de (frequency: 37)
+Visiting domain: https://shopseite.telekom.de
+Error visiting https://shopseite.telekom.de: Navigation timeout of 30000 ms exceeded
+Updated domain_analysis: 0 emails found
+Completed shopseite.telekom.de: 0 emails found
+
+Processing domain: career.zwickroell.com (frequency: 37)
+Visiting domain: https://career.zwickroell.com
+Error visiting https://career.zwickroell.com: Navigation timeout of 30000 ms exceeded
+Updated domain_analysis: 0 emails found
+Completed career.zwickroell.com: 0 emails found
+
+Processing domain: sell.gmbh (frequency: 36)
+Visiting domain: https://sell.gmbh
+Error visiting https://sell.gmbh: Navigation timeout of 30000 ms exceeded
+Updated domain_analysis: 0 emails found
+Completed sell.gmbh: 0 emails found
+
+Processing domain: ottoindustries.com (frequency: 36)
+Visiting domain: https://ottoindustries.com
+Error visiting https://ottoindustries.com: Navigation timeout of 30000 ms exceeded
+Updated domain_analysis: 0 emails found
+Completed ottoindustries.com: 0 emails found
+
+Processing domain: bierschneider.de (frequency: 36)
+Visiting domain: https://bierschneider.de
+Error visiting https://bierschneider.de: Navigation timeout of 30000 ms exceeded
+Updated domain_analysis: 0 emails found
+Completed bierschneider.de: 0 emails found
+
+Processing domain: karcher-design.de (frequency: 35)
+Visiting domain: https://karcher-design.de
+Error visiting https://karcher-design.de: Navigation timeout of 30000 ms exceeded
+Updated domain_analysis: 0 emails found
+Completed karcher-design.de: 0 emails found
+
+Processing domain: wittenstein.de (frequency: 35)
+Visiting domain: https://wittenstein.de
+Error visiting https://wittenstein.de: Navigation timeout of 30000 ms exceeded
+Updated domain_analysis: 0 emails found
+Completed wittenstein.de: 0 emails found
+
+Processing domain: nord-ostsee-automobile.de (frequency: 34)
+Visiting domain: https://nord-ostsee-automobile.de
+Error visiting https://nord-ostsee-automobile.de: Navigation timeout of 30000 ms exceeded
+Updated domain_analysis: 0 emails found
+Completed nord-ostsee-automobile.de: 0 emails found
+
+Processing domain: merbag.de (frequency: 34)
+Visiting domain: https://merbag.de
+Error visiting https://merbag.de: Navigation timeout of 30000 ms exceeded
+Updated domain_analysis: 0 emails found
+Completed merbag.de: 0 emails found
+
+Processing domain: zg-raiffeisen.de (frequency: 34)
+Visiting domain: https://zg-raiffeisen.de
+Error visiting https://zg-raiffeisen.de: Navigation timeout of 30000 ms exceeded
+Updated domain_analysis: 0 emails found
+Completed zg-raiffeisen.de: 0 emails found
+
+Processing domain: elektroforster.de (frequency: 34)
+Visiting domain: https://elektroforster.de
+Error visiting https://elektroforster.de: Navigation timeout of 30000 ms exceeded
+Updated domain_analysis: 0 emails found
+Completed elektroforster.de: 0 emails found
+
+Processing domain: schroeder-bauzentrum.de (frequency: 34)
+Visiting domain: https://schroeder-bauzentrum.de
+Error visiting https://schroeder-bauzentrum.de: Navigation timeout of 30000 ms exceeded
+Updated domain_analysis: 0 emails found
+Completed schroeder-bauzentrum.de: 0 emails found
+
+Processing domain: alois-mueller.com (frequency: 33)
+Visiting domain: https://alois-mueller.com
+Error visiting https://alois-mueller.com: Navigation timeout of 30000 ms exceeded
+Updated domain_analysis: 0 emails found
+Completed alois-mueller.com: 0 emails found
+
+Processing domain: dobler.de (frequency: 33)
+Visiting domain: https://dobler.de
+Error visiting https://dobler.de: Navigation timeout of 30000 ms exceeded
+Updated domain_analysis: 0 emails found
+Completed dobler.de: 0 emails found
+
+Processing domain: opel-stellantisandyou-wiesbaden.de (frequency: 32)
+Visiting domain: https://opel-stellantisandyou-wiesbaden.de
+Error visiting https://opel-stellantisandyou-wiesbaden.de: Navigation timeout of 30000 ms exceeded
+Updated domain_analysis: 0 emails found
+Completed opel-stellantisandyou-wiesbaden.de: 0 emails found
+
+Processing domain: bo.gc-neuheiten-messe.de (frequency: 32)
+Visiting domain: https://bo.gc-neuheiten-messe.de
+Error visiting https://bo.gc-neuheiten-messe.de: Navigation timeout of 30000 ms exceeded
+Updated domain_analysis: 0 emails found
+Completed bo.gc-neuheiten-messe.de: 0 emails found
+
+Processing domain: hanssegmueller-portal.rexx-systems.com (frequency: 32)
+Visiting domain: https://hanssegmueller-portal.rexx-systems.com
+Error visiting https://hanssegmueller-portal.rexx-systems.com: Navigation timeout of 30000 ms exceeded
+Updated domain_analysis: 0 emails found
+Completed hanssegmueller-portal.rexx-systems.com: 0 emails found
+
+Processing domain: onlineshop.suedpack.com (frequency: 31)
+Visiting domain: https://onlineshop.suedpack.com
+Error visiting https://onlineshop.suedpack.com: Navigation timeout of 30000 ms exceeded
+Updated domain_analysis: 0 emails found
+Completed onlineshop.suedpack.com: 0 emails found
+
+Processing domain: shop.brand.de (frequency: 29)
+Visiting domain: https://shop.brand.de
+Error visiting https://shop.brand.de: Navigation timeout of 30000 ms exceeded
+Updated domain_analysis: 0 emails found
+Completed shop.brand.de: 0 emails found
+
+Processing domain: meg.de (frequency: 28)
+Visiting domain: https://meg.de
+Error visiting https://meg.de: Navigation timeout of 30000 ms exceeded
+Updated domain_analysis: 0 emails found
+Completed meg.de: 0 emails found
+
+=== Keyword Scraping Summary ===
+Domains processed: 25
+Successful: 25
+Total emails found: 29
+Average emails per domain: 1.16
+[2025-06-06 01:26:11] Keyword scraping completed successfully
+[2025-06-06 01:26:11] Processed 52 domains, 6933 domains remaining
+[2025-06-06 01:26:11] === Keyword domain scraping cron job completed ===
+[2025-06-06 01:30:01] === Starting keyword domain scraping cron job ===
+[2025-06-06 01:30:01] No domains left to process. All domains have been scraped for keywords.
+[2025-06-06 02:00:01] === Starting keyword domain scraping cron job ===
+[2025-06-06 02:00:01] No domains left to process. All domains have been scraped for keywords.
+[2025-06-06 02:30:00] === Starting keyword domain scraping cron job ===
+[2025-06-06 02:30:00] No domains left to process. All domains have been scraped for keywords.
+[2025-06-06 03:00:01] === Starting keyword domain scraping cron job ===
+[2025-06-06 03:00:01] No domains left to process. All domains have been scraped for keywords.
+[2025-06-06 04:00:00] === Starting keyword domain scraping cron job ===
+[2025-06-06 04:00:00] No domains left to process. All domains have been scraped for keywords.
+[2025-06-06 04:30:00] === Starting keyword domain scraping cron job ===
+[2025-06-06 04:30:01] No domains left to process. All domains have been scraped for keywords.
+[2025-06-06 06:01:37] === Starting keyword domain scraping cron job ===
+[2025-06-06 06:01:37] No domains left to process. All domains have been scraped for keywords.
+[2025-06-06 06:30:00] === Starting keyword domain scraping cron job ===
+[2025-06-06 06:30:01] No domains left to process. All domains have been scraped for keywords.
+[2025-06-06 07:00:01] === Starting keyword domain scraping cron job ===
+[2025-06-06 07:00:01] No domains left to process. All domains have been scraped for keywords.
+[2025-06-06 08:00:01] === Starting keyword domain scraping cron job ===
+[2025-06-06 08:00:01] No domains left to process. All domains have been scraped for keywords.
+[2025-06-06 08:32:47] === Starting keyword domain scraping cron job ===
+[2025-06-06 08:32:47] No domains left to process. All domains have been scraped for keywords.
+[2025-06-06 09:00:00] === Starting keyword domain scraping cron job ===
+[2025-06-06 09:00:01] No domains left to process. All domains have been scraped for keywords.
+[2025-06-06 09:30:00] === Starting keyword domain scraping cron job ===
+[2025-06-06 09:30:00] No domains left to process. All domains have been scraped for keywords.

@@ -1,0 +1,55 @@
+🚀 Starting job detail scrapers with delays...
+
+📌 Starting detail scraper 1
+✅ Detail scraper 1 started (PID: 52403)
+⏳ Waiting 120 seconds before starting scraper 2...
+🔧 Independent CAPTCHA Solver initialized
+📁 CAPTCHA save directory: /tmp/captcha
+Starting detail scraper for up to 5000 jobs...
+🚀 Starting Simplified Detail Scraper
+📧 Focus: Extract emails and domains only
+🚫 Excluded: Jobs with external URLs, arbeitsagentur emails
+🚀 Initializing browser...
+✅ Browser initialized
+🍪 Navigating to main site to handle initial cookies...
+ℹ️ No cookie modal found
+✅ Initial setup complete
+📋 Found 5000 jobs ready for detail scraping (newest first, one per employer)
+
+🔄 Processing batch of 10 jobs...
+🔍 Scraping: Sales Consultant (m/w/d) Personaldienstleistung - House of HR Germany GmbH
+🔗 URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/11852-43434706-65-S
+ℹ️ No cookie modal found
+🔒 CAPTCHA detected, solving... (attempt 1/3)
+🖼️ CAPTCHA image URL: https://rest.arbeitsagentur.de/idaas/id-aas-service/ct/v1/captcha/C138D511-62EA-44F8-85B0-7605D5800C38?type=image&languageIso639Code=de
+🌐 Downloading CAPTCHA from URL: https://rest.arbeitsagentur.de/idaas/id-aas-service/ct/v1/captcha/C138D511-62EA-44F8-85B0-7605D5800C38?type=image&languageIso639Code=de
+📥 Downloaded CAPTCHA image (4894 bytes)
+📤 CAPTCHA submitted with ID: 79822502803
+✅ CAPTCHA solved successfully in 2410ms: "tbf7hk" (ID: 79822502803)
+🔑 CAPTCHA solution: tbf7hk
+🔤 Entering CAPTCHA solution: 'tbf7hk' into input field...
+🔤 CAPTCHA solution entered, waiting before clicking submit...
+🔘 Submit button clicked, waiting for CAPTCHA validation...
+✅ CAPTCHA solved successfully on attempt 1!
+🔓 CAPTCHA solved, continuing...
+🎯 Found direct application link via #detail-bewerbung-url
+🌐 No emails found, but found application website: https://house-of-hr-germany-gmbh.contactrh.com/jobs/4353/43434706/de_DE
+🏢 Domain: house-of-hr-germany-gmbh.contactrh.com
+🏢 Updated employer "House of HR Germany GmbH" with website
+💾 Saved results for 11852-43434706-65-S (job_scrp_job_details + job_scrp_employers)
+🔍 Scraping: Lohnbuchhalter (m/w/d) - Vollzeit - Personalvermittlung - Orizon GmbH NL Bautzen
+🔗 URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/11850-328456-1694365-0-S
+ℹ️ No cookie modal found
+🎯 Found direct application link via #detail-bewerbung-url
+🌐 No emails found, but found application website: https://www.orizon.de/de/bewerbung/job?jobid=328456&utm_source=Bundesagentur
+🏢 Domain: orizon.de
+🏢 Updated employer "Orizon GmbH NL Bautzen" with website
+💾 Saved results for 11850-328456-1694365-0-S (job_scrp_job_details + job_scrp_employers)
+🔍 Scraping: S 352.2-24 Ingenieurinnen und Ingenieure (w/m/d) Elektro- bzw. Nachrichtentechnik - Bundesamt für Bauwesen und Raumordnung Dienstsitz Bonn
+🔗 URL: https://www.arbeitsagentur.de/jobsuche/jobdetail/10000-1202732275-S
+ℹ️ No cookie modal found
+🎯 Found direct application link via #detail-bewerbung-url
+🌐 No emails found, but found application website: https://www.interamt.de/koop/app/stelle?id=1312300
+🏢 Domain: interamt.de
+🏢 Updated employer "Bundesamt für Bauwesen und Raumordnung Dienstsitz Bonn" with website
+💾 Saved results for 10000-1202732275-S (job_scrp_job_details + job_scrp_employers)

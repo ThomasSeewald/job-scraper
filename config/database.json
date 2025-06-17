@@ -1,0 +1,43 @@
+{
+  "development": {
+    "host": "localhost",
+    "port": 5473,
+    "database": "jetzt",
+    "user": "odoo",
+    "password": "odoo",
+    "max": 20,
+    "idleTimeoutMillis": 30000,
+    "connectionTimeoutMillis": 5000
+  },
+  "production": {
+    "host": "localhost",
+    "port": 5473,
+    "database": "jetzt",
+    "user": "odoo",
+    "password": "odoo",
+    "max": 50,
+    "idleTimeoutMillis": 30000,
+    "connectionTimeoutMillis": 5000
+  },
+  "scraping": {
+    "batchSize": 100,
+    "delayBetweenRequests": 500,
+    "maxRetries": 3,
+    "timeout": 30000,
+    "rateLimit": {
+      "requestsPerMinute": 80,
+      "burstLimit": 15
+    }
+  },
+  "arbeitsagentur": {
+    "baseURL": "https://rest.arbeitsagentur.de/jobboerse/jobsuche-service/pc/v4/jobs",
+    "apiKey": "jobboerse-jobsuche",
+    "userAgent": "jobboerse-jobsuche",
+    "defaultParams": {
+      "size": 100,
+      "page": 1,
+      "umkreis": 5,
+      "angebotsart": 1
+    }
+  }
+}

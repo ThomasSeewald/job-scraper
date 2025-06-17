@@ -1,0 +1,151 @@
+#!/usr/bin/env node
+
+const EnhancedIntelligentJobScraper = require('./src/enhanced-intelligent-scraper');
+const { Pool } = require('pg');
+const fs = require('fs');
+const path = require('path');
+
+const config = JSON.parse(fs.readFileSync(path.join(__dirname, 'config/database.json'), 'utf8'));
+const pool = new Pool(config.production);
+
+/**
+ * Enhanced Background Scanner with Detail Scraping
+ * Replaces the original background scanner with enhanced version
+ */
+async function runEnhancedBackgroundScan() {
+    console.log('🚀 Enhanced Background Scan Starting...');
+    console.log('==================================');
+    
+    const startTime = new Date();
+    
+    try {
+        // Update scan status
+        updateScanStatus('running', 'Enhanced background scan with detail scraping started');
+        
+        // Job scanner with detail scraping (28 days, prioritized PLZ)
+        console.log('\n📋 Starting ENHANCED JOB scanning (28 days) with detail scraping...');
+        const jobScraper = new EnhancedIntelligentJobScraper(
+            'job',          // Job type
+            28,             // Published since (days) 
+            true            // Enable detail scraping
+        );
+        
+        const jobResults = await jobScraper.runEnhancedScraping(
+            50,             // 50 postal codes
+            5               // Detail scrape every 5 new jobs
+        );
+        
+        // Ausbildung scanner with detail scraping (28 days, prioritized PLZ)
+        console.log('\n🎓 Starting ENHANCED AUSBILDUNG scanning (28 days) with detail scraping...');
+        const ausbildungScraper = new EnhancedIntelligentJobScraper(
+            'ausbildung',   // Job type
+            28,             // Published since (days)
+            true            // Enable detail scraping
+        );
+        
+        const ausbildungResults = await ausbildungScraper.runEnhancedScraping(
+            50,             // 50 postal codes
+            5               // Detail scrape every 5 new jobs
+        );
+        
+        // Calculate totals
+        const totalStats = {
+            processedPostcodes: jobResults.processedPostcodes + ausbildungResults.processedPostcodes,
+            totalApiCalls: jobResults.totalApiCalls + ausbildungResults.totalApiCalls,
+            totalJobsFound: jobResults.totalJobsFound + ausbildungResults.totalJobsFound,
+            newEmployers: jobResults.newEmployers + ausbildungResults.newEmployers,
+            updatedEmployers: jobResults.updatedEmployers + ausbildungResults.updatedEmployers,
+            newPositions: jobResults.newPositions + ausbildungResults.newPositions,
+            skippedDuplicates: jobResults.skippedDuplicates + ausbildungResults.skippedDuplicates,
+            errorCount: jobResults.errorCount + ausbildungResults.errorCount,
+            // Detail scraping totals
+            detailsAttempted: jobResults.detailsAttempted + ausbildungResults.detailsAttempted,
+            detailsSuccessful: jobResults.detailsSuccessful + ausbildungResults.detailsSuccessful,
+            detailsWithContact: jobResults.detailsWithContact + ausbildungResults.detailsWithContact,
+            detailErrors: jobResults.detailErrors + ausbildungResults.detailErrors
+        };
+        
+        const duration = Math.round((new Date() - startTime) / 1000);
+        
+        console.log('\n🎉 Enhanced Background Scan completed successfully!');
+        console.log('================================================');
+        console.log(`📊 COMBINED RESULTS:`);
+        console.log(`   Duration: ${duration} seconds`);
+        console.log(`   Processed postal codes: ${totalStats.processedPostcodes}`);
+        console.log(`   Total API calls: ${totalStats.totalApiCalls}`);
+        console.log(`   Total jobs found: ${totalStats.totalJobsFound}`);
+        console.log(`   New employers: ${totalStats.newEmployers}`);
+        console.log(`   Updated employers: ${totalStats.updatedEmployers}`);
+        console.log(`   New positions: ${totalStats.newPositions}`);
+        console.log(`   Skipped duplicates: ${totalStats.skippedDuplicates}`);
+        console.log(`   Errors: ${totalStats.errorCount}`);
+        
+        console.log(`\n🔍 DETAIL SCRAPING RESULTS:`);
+        console.log(`   Details attempted: ${totalStats.detailsAttempted}`);
+        console.log(`   Details successful: ${totalStats.detailsSuccessful}`);
+        console.log(`   Details with contact: ${totalStats.detailsWithContact}`);
+        console.log(`   Detail errors: ${totalStats.detailErrors}`);
+        
+        if (totalStats.detailsAttempted > 0) {
+            const detailSuccessRate = (totalStats.detailsSuccessful / totalStats.detailsAttempted * 100).toFixed(1);
+            const contactRate = totalStats.detailsSuccessful > 0 ? 
+                (totalStats.detailsWithContact / totalStats.detailsSuccessful * 100).toFixed(1) : 0;
+            console.log(`   Detail success rate: ${detailSuccessRate}%`);
+            console.log(`   Contact extraction rate: ${contactRate}%`);
+        }
+        
+        // Update scan status with success
+        updateScanStatus('completed', `Enhanced scan completed. ${totalStats.newPositions} new positions, ${totalStats.detailsSuccessful} details scraped`, {
+            duration: duration,
+            totalJobsFound: totalStats.totalJobsFound,
+            newPositions: totalStats.newPositions,
+            detailsScraped: totalStats.detailsSuccessful,
+            detailsWithContact: totalStats.detailsWithContact
+        });
+        
+    } catch (error) {
+        console.error('❌ Enhanced background scan failed:', error.message);
+        updateScanStatus('error', `Enhanced scan failed: ${error.message}`);
+        process.exit(1);
+    } finally {
+        await pool.end();
+    }
+}
+
+/**
+ * Update scan status file for dashboard monitoring
+ */
+function updateScanStatus(status, message, additionalData = {}) {
+    const statusData = {
+        status: status,
+        message: message,
+        lastUpdate: new Date().toISOString(),
+        nextScan: getNextScanTime(),
+        ...additionalData
+    };
+    
+    const statusFile = path.join(__dirname, 'scan-status.json');
+    
+    try {
+        fs.writeFileSync(statusFile, JSON.stringify(statusData, null, 2));
+        console.log(`📊 Status updated: ${status} - ${message}`);
+    } catch (error) {
+        console.error('❌ Failed to update status file:', error.message);
+    }
+}
+
+/**
+ * Calculate next scan time (every 4 hours)
+ */
+function getNextScanTime() {
+    const now = new Date();
+    const next = new Date(now.getTime() + (4 * 60 * 60 * 1000)); // +4 hours
+    return next.toISOString();
+}
+
+// Run the enhanced background scan
+if (require.main === module) {
+    runEnhancedBackgroundScan();
+}
+
+module.exports = runEnhancedBackgroundScan;
