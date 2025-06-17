@@ -144,4 +144,4 @@ PGPASSWORD=odoo psql -h localhost -p 5473 -U odoo -d jetzt -c \
 - [ ] Add retry mechanism for failed CAPTCHA
 - [ ] Implement smart employer prioritization
 - [ ] Add webhook notifications for extracted emails
-- [ ] Create dashboard for monitoring progress
+- [ ] Create dashboard for monitoring progress# Last updated: Di 17 Jun 2025 11:46:47 CEST
