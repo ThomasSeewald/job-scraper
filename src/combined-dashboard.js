@@ -451,6 +451,66 @@ app.get('/', async (req, res) => {
                             </div>
                         </div>
 
+                        <!-- Google Search Section -->
+                        <div class="row g-4 mb-4">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header bg-primary text-white">
+                                        <h5 class="mb-0">🔍 Google Search for Employer Domains</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <form id="googleSearchForm" onsubmit="searchEmployerWithGoogle(event)">
+                                                    <div class="row g-3">
+                                                        <div class="col-md-6">
+                                                            <label for="googleEmployerName" class="form-label">Employer Name</label>
+                                                            <input type="text" class="form-control" id="googleEmployerName" 
+                                                                   placeholder="e.g. Mercedes-Benz GmbH" required>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <label for="googlePostalCode" class="form-label">Postal Code</label>
+                                                            <input type="text" class="form-control" id="googlePostalCode" 
+                                                                   placeholder="70327" pattern="[0-9]{5}">
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <label class="form-label">&nbsp;</label>
+                                                            <button type="submit" class="btn btn-primary d-block w-100">
+                                                                <i class="bi bi-search"></i> Search
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <div id="googleSearchResults" class="mt-3"></div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="card bg-light">
+                                                    <div class="card-body">
+                                                        <h6>Google API Usage Today</h6>
+                                                        <div id="googleUsageWidget">
+                                                            <div class="d-flex justify-content-between mb-2">
+                                                                <span>Queries:</span>
+                                                                <strong id="googleQueriesUsed">0</strong>
+                                                            </div>
+                                                            <div class="d-flex justify-content-between mb-2">
+                                                                <span>Cost:</span>
+                                                                <strong id="googleCostToday">$0.00</strong>
+                                                            </div>
+                                                            <div class="progress" style="height: 20px;">
+                                                                <div id="googleCostProgress" class="progress-bar" role="progressbar" 
+                                                                     style="width: 0%">0%</div>
+                                                            </div>
+                                                            <small class="text-muted">Limit: $100.00/day</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- Cron Job Monitoring -->
                         <div class="card mb-4">
                             <div class="card-header bg-info text-white">
@@ -568,6 +628,9 @@ app.get('/', async (req, res) => {
                             checkScraperStatus();
                             // Poll status every 5 seconds
                             setInterval(checkScraperStatus, 5000);
+                            
+                            // Initialize Google usage display
+                            checkGoogleUsage();
                         });
                         
                         async function checkScraperStatus() {
@@ -650,40 +713,52 @@ app.get('/', async (req, res) => {
                         }
 
                         function checkGoogleUsage() {
-                            document.getElementById('google-usage-info').innerHTML = '<div class="spinner-border spinner-border-sm" role="status"></div>';
+                            // Update small widget
+                            const smallWidget = document.getElementById('google-usage-info');
+                            if (smallWidget) {
+                                smallWidget.innerHTML = '<div class="spinner-border spinner-border-sm" role="status"></div>';
+                            }
+                            
                             fetch('/api/google-usage')
                                 .then(response => response.json())
                                 .then(data => {
-                                    const usageInfo = document.getElementById('google-usage-info');
-                                    if (data.success) {
-                                        let colorClass = 'success';
-                                        if (data.usage_percentage >= 100) colorClass = 'danger';
-                                        else if (data.usage_percentage >= 80) colorClass = 'warning';
-                                        else if (data.usage_percentage >= 50) colorClass = 'info';
-                                        
-                                        const sourceIndicator = data.source === 'real-time' ? 
-                                            '<span class="badge bg-success ms-1" style="font-size: 9px;">LIVE</span>' : 
-                                            '<span class="badge bg-secondary ms-1" style="font-size: 9px;">DB</span>';
-                                        
-                                        usageInfo.innerHTML = 
-                                            '<div class="mt-1">' +
-                                                '<div class="text-' + colorClass + ' small fw-bold">' +
-                                                    data.queries_used + '/' + data.daily_limit + ' (' + data.usage_percentage + '%)' +
-                                                    sourceIndicator +
-                                                '</div>' +
-                                                '<div class="progress" style="height: 10px;">' +
-                                                    '<div class="progress-bar bg-' + colorClass + '" style="width: ' + data.usage_percentage + '%"></div>' +
-                                                '</div>' +
-                                                (data.last_query_time ? 
-                                                    '<div class="text-muted" style="font-size: 11px;">Last: ' + 
-                                                    new Date(data.last_query_time).toLocaleTimeString('de-DE') + '</div>' : '') +
-                                            '</div>';
-                                    } else {
-                                        usageInfo.innerHTML = '<div class="text-muted small">No data</div>';
+                                    // Update small widget
+                                    if (smallWidget) {
+                                        if (data.success) {
+                                            let colorClass = 'success';
+                                            if (data.usage_percentage >= 100) colorClass = 'danger';
+                                            else if (data.usage_percentage >= 80) colorClass = 'warning';
+                                            else if (data.usage_percentage >= 50) colorClass = 'info';
+                                            
+                                            const sourceIndicator = data.source === 'real-time' ? 
+                                                '<span class="badge bg-success ms-1" style="font-size: 9px;">LIVE</span>' : 
+                                                '<span class="badge bg-secondary ms-1" style="font-size: 9px;">DB</span>';
+                                            
+                                            smallWidget.innerHTML = 
+                                                '<div class="mt-1">' +
+                                                    '<div class="text-' + colorClass + ' small fw-bold">' +
+                                                        data.queries_used + '/' + data.daily_limit + ' (' + data.usage_percentage + '%)' +
+                                                        sourceIndicator +
+                                                    '</div>' +
+                                                    '<div class="progress" style="height: 10px;">' +
+                                                        '<div class="progress-bar bg-' + colorClass + '" style="width: ' + data.usage_percentage + '%"></div>' +
+                                                    '</div>' +
+                                                    (data.last_query_time ? 
+                                                        '<div class="text-muted" style="font-size: 11px;">Last: ' + 
+                                                        new Date(data.last_query_time).toLocaleTimeString('de-DE') + '</div>' : '') +
+                                                '</div>';
+                                        } else {
+                                            smallWidget.innerHTML = '<div class="text-muted small">No data</div>';
+                                        }
                                     }
+                                    
+                                    // Update large widget in Google Search section
+                                    updateGoogleUsageWidget(data);
                                 })
                                 .catch(error => {
-                                    document.getElementById('google-usage-info').innerHTML = '<div class="text-danger small">Error</div>';
+                                    if (smallWidget) {
+                                        smallWidget.innerHTML = '<div class="text-danger small">Error</div>';
+                                    }
                                 });
                         }
 
@@ -710,10 +785,100 @@ app.get('/', async (req, res) => {
                                 });
                         }
 
+                        function updateGoogleUsageWidget(data) {
+                            // Update Google Search section widget
+                            const queriesUsed = document.getElementById('googleQueriesUsed');
+                            const costToday = document.getElementById('googleCostToday');
+                            const costProgress = document.getElementById('googleCostProgress');
+                            
+                            if (queriesUsed && costToday && costProgress) {
+                                if (data.success) {
+                                    queriesUsed.textContent = data.queries_used || '0';
+                                    const cost = (data.queries_used || 0) * 0.005; // $5 per 1000 queries
+                                    costToday.textContent = '$' + cost.toFixed(2);
+                                    
+                                    // Update progress bar
+                                    const percentage = (cost / 100) * 100; // $100 daily limit
+                                    let colorClass = 'bg-success';
+                                    if (percentage >= 100) colorClass = 'bg-danger';
+                                    else if (percentage >= 80) colorClass = 'bg-warning';
+                                    else if (percentage >= 50) colorClass = 'bg-info';
+                                    
+                                    costProgress.style.width = Math.min(percentage, 100) + '%';
+                                    costProgress.className = 'progress-bar ' + colorClass;
+                                    costProgress.textContent = Math.round(percentage) + '%';
+                                } else {
+                                    queriesUsed.textContent = '0';
+                                    costToday.textContent = '$0.00';
+                                    costProgress.style.width = '0%';
+                                }
+                            }
+                        }
+
+                        async function searchEmployerWithGoogle(event) {
+                            event.preventDefault();
+                            
+                            const employerName = document.getElementById('googleEmployerName').value.trim();
+                            const postalCode = document.getElementById('googlePostalCode').value.trim();
+                            const resultsDiv = document.getElementById('googleSearchResults');
+                            
+                            if (!employerName) {
+                                alert('Please enter an employer name');
+                                return;
+                            }
+                            
+                            // Show loading
+                            resultsDiv.innerHTML = '<div class="text-center"><div class="spinner-border" role="status"><span class="visually-hidden">Searching...</span></div></div>';
+                            
+                            try {
+                                const response = await fetch('/api/google-search-employer', {
+                                    method: 'POST',
+                                    headers: { 'Content-Type': 'application/json' },
+                                    body: JSON.stringify({ employerName, postalCode })
+                                });
+                                
+                                const data = await response.json();
+                                
+                                if (data.success) {
+                                    let html = '<div class="alert alert-success mt-3">';
+                                    html += '<h6>Search Results:</h6>';
+                                    
+                                    if (data.domain) {
+                                        html += '<p><strong>Domain found:</strong> ' + data.domain + '</p>';
+                                    }
+                                    
+                                    if (data.emails && data.emails.length > 0) {
+                                        html += '<p><strong>Emails found:</strong></p>';
+                                        html += '<ul>';
+                                        data.emails.forEach(email => {
+                                            html += '<li>' + email + '</li>';
+                                        });
+                                        html += '</ul>';
+                                    } else {
+                                        html += '<p>No emails found on the domain.</p>';
+                                    }
+                                    
+                                    if (data.fromCache) {
+                                        html += '<p class="text-muted"><small>Results from cache</small></p>';
+                                    }
+                                    
+                                    html += '</div>';
+                                    resultsDiv.innerHTML = html;
+                                    
+                                    // Refresh Google usage display
+                                    checkGoogleUsage();
+                                } else {
+                                    resultsDiv.innerHTML = '<div class="alert alert-danger mt-3">Error: ' + (data.error || 'Search failed') + '</div>';
+                                }
+                            } catch (error) {
+                                resultsDiv.innerHTML = '<div class="alert alert-danger mt-3">Network error: ' + error.message + '</div>';
+                            }
+                        }
+
                         // Auto-refresh every 30 seconds (disabled - using dynamic updates instead)
                         // setInterval(function() {
                         //     window.location.reload();
-                        }, 30000);
+                        // }, 30000);
                     </script>
                 </body>
                 </html>
@@ -4404,6 +4569,172 @@ app.post('/api/test-google-quota', async (req, res) => {
         res.json({ 
             success: false, 
             error: error.message 
+        });
+    }
+});
+
+// API endpoint to search for employer with Google
+app.post('/api/google-search-employer', async (req, res) => {
+    try {
+        const { employerName, postalCode } = req.body;
+        
+        if (!employerName) {
+            return res.status(400).json({
+                success: false,
+                error: 'Employer name is required'
+            });
+        }
+        
+        // Get access to Python scripts and data providers
+        const { spawn } = require('child_process');
+        const path = require('path');
+        
+        // First check if we have this in cache
+        const client = await pool.connect();
+        try {
+            // Check our_domains cache
+            const cacheQuery = `
+                SELECT 
+                    domain, best_domain, best_email,
+                    email_impressum, email_contact, email_jobs
+                FROM our_domains
+                WHERE LOWER(the_name) = LOWER($1) 
+                ${postalCode ? 'AND zip = $2' : ''}
+                LIMIT 1
+            `;
+            
+            const cacheParams = postalCode ? [employerName, postalCode] : [employerName];
+            const cacheResult = await client.query(cacheQuery, cacheParams);
+            
+            if (cacheResult.rows.length > 0) {
+                const cached = cacheResult.rows[0];
+                const emails = [];
+                
+                // Extract emails from various fields
+                ['best_email', 'email_impressum', 'email_contact', 'email_jobs'].forEach(field => {
+                    if (cached[field]) {
+                        cached[field].split(',').forEach(email => {
+                            const trimmed = email.trim();
+                            if (trimmed && !emails.includes(trimmed)) {
+                                emails.push(trimmed);
+                            }
+                        });
+                    }
+                });
+                
+                return res.json({
+                    success: true,
+                    domain: cached.best_domain || cached.domain,
+                    emails: emails,
+                    fromCache: true
+                });
+            }
+            
+            // Check our_google_domains cache
+            const googleCacheQuery = `
+                SELECT website
+                FROM our_google_domains
+                WHERE LOWER(title) LIKE LOWER($1)
+                LIMIT 1
+            `;
+            
+            const googleResult = await client.query(googleCacheQuery, [`%${employerName}%`]);
+            
+            if (googleResult.rows.length > 0) {
+                return res.json({
+                    success: true,
+                    domain: googleResult.rows[0].website,
+                    emails: [],
+                    fromCache: true,
+                    note: 'Domain found in cache, but no emails available'
+                });
+            }
+            
+        } finally {
+            client.release();
+        }
+        
+        // If not in cache, perform Google search using Python script
+        const pythonPath = path.join(__dirname, '..', 'python_scrapers', 'google_api_search_single.py');
+        
+        const args = [pythonPath, employerName];
+        if (postalCode) {
+            args.push(postalCode);
+        }
+        
+        const pythonProcess = spawn('python3', args);
+        
+        let output = '';
+        let errorOutput = '';
+        
+        pythonProcess.stdout.on('data', (data) => {
+            output += data.toString();
+        });
+        
+        pythonProcess.stderr.on('data', (data) => {
+            errorOutput += data.toString();
+        });
+        
+        pythonProcess.on('close', async (code) => {
+            if (code !== 0) {
+                console.error('Python script error:', errorOutput);
+                return res.json({
+                    success: false,
+                    error: 'Search failed',
+                    details: errorOutput
+                });
+            }
+            
+            try {
+                const result = JSON.parse(output);
+                
+                if (result.success) {
+                    // Save to cache if we found a domain
+                    if (result.domain) {
+                        const client = await pool.connect();
+                        try {
+                            await client.query(`
+                                INSERT INTO our_domains (
+                                    the_name, zip, domain, best_domain, 
+                                    best_email, source, create_date
+                                ) VALUES ($1, $2, $3, $3, $4, 'google_api_dashboard', CURRENT_TIMESTAMP)
+                                ON CONFLICT (the_name, zip) DO UPDATE SET
+                                    domain = COALESCE(EXCLUDED.domain, our_domains.domain),
+                                    best_domain = COALESCE(EXCLUDED.best_domain, our_domains.best_domain),
+                                    best_email = COALESCE(EXCLUDED.best_email, our_domains.best_email),
+                                    write_date = CURRENT_TIMESTAMP
+                            `, [
+                                employerName,
+                                postalCode || '',
+                                result.domain,
+                                result.emails && result.emails.length > 0 ? result.emails[0] : null
+                            ]);
+                        } finally {
+                            client.release();
+                        }
+                    }
+                    
+                    res.json(result);
+                } else {
+                    res.json({
+                        success: false,
+                        error: result.error || 'No results found'
+                    });
+                }
+            } catch (parseError) {
+                console.error('Failed to parse Python output:', output);
+                res.json({
+                    success: false,
+                    error: 'Failed to parse search results'
+                });
+            }
+        });
+        
+    } catch (error) {
+        console.error('Google search employer error:', error);
+        res.status(500).json({
+            success: false,
+            error: error.message
         });
     }
 });

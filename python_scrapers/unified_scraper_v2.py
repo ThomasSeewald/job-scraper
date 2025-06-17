@@ -12,6 +12,7 @@ from psycopg2.extras import RealDictCursor
 
 from base_scraper import BaseScraper
 from config import DB_CONFIG
+from data_providers import DomainCacheProvider, GoogleSearchQueueProvider
 
 logger = logging.getLogger(__name__)
 
@@ -27,6 +28,11 @@ class UnifiedScraperV2(BaseScraper):
         self.batch_size = batch_size
         self.delay_seconds = delay_seconds
         self.headless = headless
+        
+        # Initialize data providers for cache checking
+        self.domain_cache = DomainCacheProvider()
+        self.google_queue = GoogleSearchQueueProvider()
+        self.cache_hits = 0
         
     def claim_next_employer(self) -> Optional[Dict[str, Any]]:
         """Atomically claim next employer for processing"""
@@ -150,6 +156,30 @@ class UnifiedScraperV2(BaseScraper):
             
     async def process_job(self, employer_name: str, refnr: str, job_title: str) -> Dict[str, Any]:
         """Process a single job"""
+        
+        # First check domain cache to avoid unnecessary scraping
+        postal_code = self._get_job_postal_code(refnr)
+        cached_domain = self.domain_cache.check_domain_cache(employer_name, postal_code)
+        
+        if cached_domain and cached_domain.get('has_emails'):
+            self.cache_hits += 1
+            logger.info(f"✓ Cache hit: Found {len(cached_domain['emails'])} emails in our_domains")
+            return {
+                'success': True,
+                'has_emails': True,
+                'emails': cached_domain['emails'],
+                'primary_email': cached_domain['emails'][0] if cached_domain['emails'] else None,
+                'primary_domain': cached_domain.get('domain'),
+                'email_count': len(cached_domain['emails']),
+                'source': 'domain_cache'
+            }
+        
+        # Also check Google domains cache
+        google_cached = self.domain_cache.check_google_domains_cache(employer_name)
+        if google_cached:
+            logger.info(f"Found in Google cache: {google_cached['domain']}")
+        
+        # If not in cache, proceed with scraping
         url = f"https://www.arbeitsagentur.de/jobsuche/jobdetail/{refnr}"
         
         # Navigate to job
@@ -187,7 +217,35 @@ class UnifiedScraperV2(BaseScraper):
             logger.warning(f"Failed to check external URL: {e}")
             
         email_data['success'] = True
+        
+        # If no emails found and we have postal code, add to Google search queue
+        if not email_data.get('has_emails') and postal_code:
+            logger.info("No emails found - adding to Google search queue")
+            self.google_queue.add_to_queue(employer_name, refnr, postal_code)
+        
         return email_data
+    
+    def _get_job_postal_code(self, refnr: str) -> Optional[str]:
+        """Get postal code for a job reference"""
+        conn = psycopg2.connect(**DB_CONFIG)
+        cursor = conn.cursor()
+        
+        try:
+            cursor.execute("""
+                SELECT arbeitsort_plz 
+                FROM job_scrp_arbeitsagentur_jobs_v2 
+                WHERE refnr = %s
+            """, (refnr,))
+            
+            result = cursor.fetchone()
+            return result[0] if result else None
+            
+        except Exception as e:
+            logger.error(f"Error getting postal code: {e}")
+            return None
+        finally:
+            cursor.close()
+            conn.close()
         
     async def run(self):
         """Main execution loop"""
@@ -255,8 +313,10 @@ class UnifiedScraperV2(BaseScraper):
         logger.info(f"   Processed: {self.processed_count}")
         logger.info(f"   Successful: {self.success_count}")
         logger.info(f"   With emails: {self.email_count}")
+        logger.info(f"   Cache hits: {self.cache_hits}")
         if self.processed_count > 0:
             logger.info(f"   Success rate: {self.email_count/self.processed_count*100:.1f}%")
+            logger.info(f"   Cache hit rate: {self.cache_hits/self.processed_count*100:.1f}%")
 
 
 async def main():
