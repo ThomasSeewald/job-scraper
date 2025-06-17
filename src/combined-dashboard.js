@@ -2060,9 +2060,9 @@ app.post('/api/start-targeted-extraction', async (req, res) => {
             console.log(`Temp file: ${tempFilePath}`);
             console.log(`Headless mode: ${headlessMode}`);
             
-            // Start targeted scraper with the reference numbers file
+            // Start targeted scraper V2 with the reference numbers file
             const args = [
-                'python_scrapers/targeted_scraper.py',
+                'python_scrapers/targeted_scraper_v2.py',
                 '--refs-file', tempFilePath,  // Use full path instead of just filename
                 '--worker-id', '99',
                 '--delay', '0'
