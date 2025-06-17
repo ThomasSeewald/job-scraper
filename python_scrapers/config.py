@@ -7,14 +7,21 @@ config_path = Path(__file__).parent.parent / 'config' / 'database.json'
 with open(config_path, 'r') as f:
     db_config = json.load(f)
 
-# Database settings
-DB_CONFIG = db_config['production']
+# Database settings - filter out non-psycopg2 keys
+raw_config = db_config['production']
+DB_CONFIG = {
+    'host': raw_config['host'],
+    'port': raw_config['port'],
+    'database': raw_config['database'],
+    'user': raw_config['user'],
+    'password': raw_config['password']
+}
 
 # CAPTCHA settings
 CAPTCHA_API_KEY = '2946675bf95f4081c1941d7a5f4141b6'  # From independent-captcha-solver.js
 
 # Browser settings
-BROWSER_HEADLESS = False  # Always show browser for today
+BROWSER_HEADLESS = True  # Default to headless, can be overridden
 BROWSER_TIMEOUT = 30000  # 30 seconds
 
 # Scraping settings

@@ -36,8 +36,10 @@ class FourWindowScraper(UnifiedScraper):
         self.playwright = await async_playwright().start()
         
         # Launch browser with specific window position
+        # When headless=False: Full browser with chrome (visible for monitoring)
+        # When headless=True: Traditional headless (invisible)
         self.browser = await self.playwright.chromium.launch(
-            headless=False,  # Always visible for 4-window
+            headless=self.headless,
             args=[
                 '--no-sandbox',
                 '--disable-setuid-sandbox',
@@ -172,11 +174,12 @@ class FourWindowScraper(UnifiedScraper):
         return result
 
 
-async def run_four_workers():
+async def run_four_workers(headless=False):
     """Run 4 workers in split screen"""
     
     print("\n" + "="*60)
     print("🚀 Starting 4-Window Unified Scraper")
+    print(f"🖥️  Mode: {'Headless (invisible)' if headless else 'Visible (full browser)'}")
     print("🔒 Using atomic employer claiming - no duplicates!")
     print("📊 Each worker processes different employers")
     print("🆕 Newest jobs first, skipping external URLs")
@@ -190,7 +193,7 @@ async def run_four_workers():
             worker_id=worker_id,
             mode='continuous',  # Run continuously
             delay_seconds=0,    # No delay between jobs
-            headless=False      # Always visible
+            headless=headless   # Use parameter from command line
         )
         task = worker.run()
         workers.append(task)
@@ -212,7 +215,14 @@ async def run_four_workers():
 
 
 if __name__ == '__main__':
+    import argparse
+    
+    parser = argparse.ArgumentParser(description='Four Window Unified Scraper')
+    parser.add_argument('--headless', action='store_true', 
+                        help='Run in traditional headless mode (invisible)')
+    args = parser.parse_args()
+    
     try:
-        asyncio.run(run_four_workers())
+        asyncio.run(run_four_workers(headless=args.headless))
     except KeyboardInterrupt:
         print("\n✅ Gracefully stopped!")

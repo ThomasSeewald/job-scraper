@@ -87,6 +87,15 @@ class BaseScraper:
         self.playwright = await async_playwright().start()
         
         # Launch browser
+        # Old launch code:
+        # self.browser = await self.playwright.chromium.launch(
+        #     headless=BROWSER_HEADLESS,
+        #     args=['--no-sandbox', '--disable-setuid-sandbox', '--disable-blink-features=AutomationControlled']
+        # )
+        
+        # Launch browser
+        # When BROWSER_HEADLESS is False: Full browser with chrome (visible for debugging)
+        # When BROWSER_HEADLESS is True: Traditional headless (completely invisible)
         self.browser = await self.playwright.chromium.launch(
             headless=BROWSER_HEADLESS,
             args=['--no-sandbox', '--disable-setuid-sandbox', '--disable-blink-features=AutomationControlled']
@@ -148,12 +157,12 @@ class BaseScraper:
                 if modal_gone:
                     logger.info("✅ Cookie modal successfully removed")
                     # Take screenshot after cookie acceptance
-                    await self.page.screenshot(path='after_cookie_acceptance.png')
+                    # await self.page.screenshot(path='after_cookie_acceptance.png')
                     return True
                 else:
                     logger.warning("⚠️ Cookie modal still visible after click!")
                     # Take screenshot to debug
-                    await self.page.screenshot(path='cookie_still_visible.png')
+                    # await self.page.screenshot(path='cookie_still_visible.png')
                     return False
         except:
             pass
@@ -170,7 +179,7 @@ class BaseScraper:
             
         try:
             # Strategy 3: XPath
-            button = await self.page.locator('//button[contains(text(), "Alle Cookies akzeptieren")]').first
+            button = await self.page.query_selector('xpath=//button[contains(text(), "Alle Cookies akzeptieren")]')
             if await button.is_visible():
                 await button.click()
                 await self.page.wait_for_timeout(3000)
@@ -251,7 +260,7 @@ class BaseScraper:
             if not image_loaded:
                 logger.error("❌ CAPTCHA image failed to load after all retries")
                 # Take screenshot for debugging
-                await page.screenshot(path='captcha_blocked.png')
+                # await page.screenshot(path='captcha_blocked.png')
                 return None
             
             if captcha_src.startswith('data:'):
@@ -346,7 +355,23 @@ class BaseScraper:
                                     
                                     # Wait for page to load after CAPTCHA
                                     logger.info("⏳ Waiting for page to load after CAPTCHA...")
-                                    await page.wait_for_timeout(5000)  # Wait 5 seconds for content
+                                    await page.wait_for_timeout(1000)  # Wait 1 second for content
+                                    
+                                    # Verify CAPTCHA was actually solved
+                                    logger.info("🔍 Verifying CAPTCHA was solved...")
+                                    captcha_img = await page.query_selector('img[src*="captcha"]')
+                                    try:
+                                        security_header = await page.query_selector('h3:text("Sicherheitsabfrage")')
+                                    except:
+                                        security_header = None
+                                    captcha_still_present = captcha_img or security_header
+                                    contact_section = await page.query_selector('#jobdetails-kontaktdaten-container, [class*="kontakt"]')
+                                    
+                                    if captcha_still_present and not contact_section:
+                                        logger.error("❌ CAPTCHA still present after submission - solution was incorrect")
+                                        return None  # Return None to indicate failure
+                                    else:
+                                        logger.info("✅ CAPTCHA solved successfully - contact section accessible")
                                     
                             return solution
                             
@@ -367,7 +392,7 @@ class BaseScraper:
             
         try:
             # Take screenshot for debugging
-            await page.screenshot(path='404_check_debug.png')
+            # await page.screenshot(path='404_check_debug.png')
             
             # Check for 404 indicators - be specific to avoid false positives
             not_found_indicators = [
@@ -419,16 +444,13 @@ class BaseScraper:
     async def navigate_to_job(self, job_url: str) -> bool:
         """Navigate to job URL with 404 checking, cookie handling, and CAPTCHA handling"""
         try:
-            # Navigate to URL
-            response = await self.page.goto(job_url, wait_until='domcontentloaded')
+            # Navigate to URL with networkidle to reduce flickering
+            response = await self.page.goto(job_url, wait_until='networkidle')
             
             # Check response status
             if response and response.status == 404:
                 logger.info("💀 404 response - job no longer exists")
                 return False
-                
-            # Small wait for initial page load
-            await self.page.wait_for_timeout(500)
             
             # Check if cookie modal appeared (only on first run)
             if not self.cookie_marker.exists():
@@ -457,32 +479,105 @@ class BaseScraper:
             if await self.check_for_404():
                 return False
             
-            # Faster content loading check
-            await self.page.wait_for_timeout(1000)  # Quick wait for content
+            # Always scroll to contact section for visual inspection
+            logger.info("📜 Scrolling to contact section...")
+            await self.page.evaluate('''
+                const element = document.getElementById('jobdetails-kontaktdaten-container') || 
+                               document.querySelector('[class*="kontakt"]') ||
+                               Array.from(document.querySelectorAll('h3')).find(h => h.textContent.includes('Kontaktdaten')) ||
+                               Array.from(document.querySelectorAll('h3')).find(h => h.textContent.includes('Sicherheitsabfrage'));
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            ''')
+            await self.page.wait_for_timeout(1000)  # Wait for scroll to complete
             
-            # Check for CAPTCHA
+            # Check for CAPTCHA with improved detection
             logger.info("🔍 Checking for CAPTCHA...")
             
-            # Check if there's a Sicherheitsabfrage (Security check) section
-            security_check = await self.page.query_selector('h3:has-text("Sicherheitsabfrage")')
-            if security_check:
-                logger.info("🔒 Security check section found - CAPTCHA present")
-                # Wait for CAPTCHA image to load
-                await self.page.wait_for_timeout(3000)
+            # Multiple strategies to detect CAPTCHA
+            captcha_detected = False
             
-            # Handle CAPTCHA if present
-            captcha_solved = await self.solve_captcha()
+            # Strategy 1: Check for security header
+            try:
+                security_check = await self.page.query_selector('h3:text("Sicherheitsabfrage")')
+                if security_check:
+                    captcha_detected = True
+                    logger.info("🔒 Security check header found")
+            except:
+                pass
+            
+            # Strategy 2: Check for CAPTCHA image
+            try:
+                captcha_img = await self.page.query_selector('img[src*="captcha"], img[src*="/idaas/id-aas-service/ct/v1/captcha/"]')
+                if captcha_img:
+                    captcha_detected = True
+                    logger.info("🔒 CAPTCHA image found")
+            except:
+                pass
+            
+            # Strategy 3: Check for CAPTCHA input field
+            try:
+                captcha_input = await self.page.query_selector('#kontaktdaten-captcha-input, input[formcontrolname="captchaLoesungControl"]')
+                if captcha_input:
+                    captcha_detected = True
+                    logger.info("🔒 CAPTCHA input field found")
+            except:
+                pass
+            
+            if captcha_detected:
+                logger.info("🔒 CAPTCHA detected - will attempt to solve")
+                # Wait for CAPTCHA image to load
+                await self.page.wait_for_timeout(2000)
+            
+            # Handle CAPTCHA if present with retry logic
+            max_captcha_attempts = 3
+            captcha_attempt = 0
+            captcha_solved = False
+            
+            while captcha_attempt < max_captcha_attempts:
+                captcha_result = await self.solve_captcha()
+                
+                if captcha_result is None:
+                    # No CAPTCHA found or solving failed
+                    if captcha_attempt == 0:
+                        # First attempt and no CAPTCHA found - that's fine
+                        break
+                    else:
+                        # CAPTCHA solving failed
+                        captcha_attempt += 1
+                        if captcha_attempt < max_captcha_attempts:
+                            logger.warning(f"🔄 Retrying CAPTCHA (attempt {captcha_attempt + 1}/{max_captcha_attempts})...")
+                            await self.page.wait_for_timeout(2000)
+                            continue
+                        else:
+                            logger.error("❌ CAPTCHA solving failed after all attempts")
+                            return False
+                else:
+                    # CAPTCHA was supposedly solved
+                    captcha_solved = True
+                    break
+            
             if captcha_solved:
                 # Extra wait after CAPTCHA to ensure content loads
                 logger.info("⏳ Waiting for content after CAPTCHA...")
-                await self.page.wait_for_timeout(3000)
+                await self.page.wait_for_timeout(2000)
                 
                 # IMPORTANT: Save updated cookies after CAPTCHA solving
                 logger.info("🔄 Saving updated cookies after CAPTCHA...")
                 await self.context.storage_state(path=str(self.state_file))
-            
-            # Final wait for content
-            await self.page.wait_for_timeout(2000)
+                
+                # Scroll again to contact section after CAPTCHA is solved
+                logger.info("📜 Scrolling to contact section after CAPTCHA...")
+                await self.page.evaluate('''
+                    const element = document.getElementById('jobdetails-kontaktdaten-container') || 
+                                   document.querySelector('[class*="kontakt"]') ||
+                                   Array.from(document.querySelectorAll('h3')).find(h => h.textContent.includes('Kontaktdaten'));
+                    if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                ''')
+                await self.page.wait_for_timeout(500)
             
             return True
             

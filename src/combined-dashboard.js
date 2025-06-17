@@ -11,6 +11,12 @@ const app = express();
 const pool = new Pool(dbConfig);
 const PORT = process.env.PORT || 3001;
 
+// Global scraper process tracking
+const runningScrapers = {
+    emailExtraction: null,
+    fourWindow: null
+};
+
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -184,9 +190,22 @@ app.get('/', async (req, res) => {
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <title>Job Scraper Dashboard</title>
                     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+                    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
                     <style>
                         .stats-card { border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
                         .nav-section { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+                        .form-check-input:checked {
+                            background-color: #198754;
+                            border-color: #198754;
+                        }
+                        /* Ensure checkboxes are visible */
+                        input[type="checkbox"] {
+                            -webkit-appearance: checkbox !important;
+                            -moz-appearance: checkbox !important;
+                            appearance: checkbox !important;
+                            opacity: 1 !important;
+                            position: static !important;
+                        }
                     </style>
                 </head>
                 <body>
@@ -412,6 +431,24 @@ app.get('/', async (req, res) => {
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <h5>🪟 4-Window Scraper</h5>
+                                        <p>Parallel Email Extraction</p>
+                                        <div id="fourWindowStatus" class="mb-2">
+                                            <span class="badge bg-secondary">Status wird geladen...</span>
+                                        </div>
+                                        <div style="margin-bottom: 15px;">
+                                            <input type="checkbox" id="fourWindowVisible" style="width: 20px; height: 20px; margin-right: 8px; vertical-align: middle; cursor: pointer;">
+                                            <label for="fourWindowVisible" style="display: inline; vertical-align: middle; cursor: pointer; user-select: none;">
+                                                Visible (unchecked = headless)
+                                            </label>
+                                        </div>
+                                        <button onclick="toggleFourWindow()" class="btn btn-success" id="fourWindowBtn">Start 4-Window</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Cron Job Monitoring -->
@@ -515,6 +552,82 @@ app.get('/', async (req, res) => {
                     </div>
 
                     <script>
+                        // Check scraper status on page load
+                        document.addEventListener('DOMContentLoaded', function() {
+                            // Restore checkbox state from localStorage
+                            const fourWindowVisible = localStorage.getItem('fourWindowVisible');
+                            if (fourWindowVisible !== null) {
+                                document.getElementById('fourWindowVisible').checked = fourWindowVisible === 'true';
+                            }
+                            
+                            // Save checkbox state on change
+                            document.getElementById('fourWindowVisible').addEventListener('change', function() {
+                                localStorage.setItem('fourWindowVisible', this.checked);
+                            });
+                            
+                            checkScraperStatus();
+                            // Poll status every 5 seconds
+                            setInterval(checkScraperStatus, 5000);
+                        });
+                        
+                        async function checkScraperStatus() {
+                            try {
+                                const response = await fetch('/api/scraper-status');
+                                const status = await response.json();
+                                
+                                // Update 4-window scraper status
+                                const fourWindowStatus = document.getElementById('fourWindowStatus');
+                                const fourWindowBtn = document.getElementById('fourWindowBtn');
+                                
+                                if (status.fourWindow) {
+                                    fourWindowStatus.innerHTML = '<span class="badge bg-success">✓ Running</span>';
+                                    fourWindowBtn.textContent = 'Stop 4-Window';
+                                    fourWindowBtn.className = 'btn btn-danger';
+                                } else {
+                                    fourWindowStatus.innerHTML = '<span class="badge bg-secondary">Not running</span>';
+                                    fourWindowBtn.textContent = 'Start 4-Window';
+                                    fourWindowBtn.className = 'btn btn-success';
+                                }
+                            } catch (error) {
+                                console.error('Error checking scraper status:', error);
+                            }
+                        }
+                        
+                        async function toggleFourWindow() {
+                            const response = await fetch('/api/scraper-status');
+                            const status = await response.json();
+                            
+                            if (status.fourWindow) {
+                                // Stop the scraper
+                                if (confirm('Stop the 4-window scraper?')) {
+                                    const stopResponse = await fetch('/api/stop-four-window', { method: 'POST' });
+                                    const result = await stopResponse.json();
+                                    if (result.success) {
+                                        alert('4-window scraper stopped');
+                                    } else {
+                                        alert('Error: ' + result.message);
+                                    }
+                                }
+                            } else {
+                                // Start the scraper
+                                const visible = document.getElementById('fourWindowVisible').checked;
+                                const headless = !visible; // Invert: if visible is checked, headless is false
+                                const startResponse = await fetch('/api/start-four-window', {
+                                    method: 'POST',
+                                    headers: { 'Content-Type': 'application/json' },
+                                    body: JSON.stringify({ headless })
+                                });
+                                const result = await startResponse.json();
+                                if (result.success) {
+                                    alert('4-window scraper started in ' + (visible ? 'visible' : 'headless') + ' mode');
+                                } else {
+                                    alert('Error: ' + result.message);
+                                }
+                            }
+                            
+                            // Refresh status
+                            checkScraperStatus();
+                        }
 
                         function checkBalance() {
                             document.getElementById('balance-info').innerHTML = '<div class="spinner-border spinner-border-sm" role="status"></div>';
@@ -597,9 +710,9 @@ app.get('/', async (req, res) => {
                                 });
                         }
 
-                        // Auto-refresh every 30 seconds
-                        setInterval(function() {
-                            window.location.reload();
+                        // Auto-refresh every 30 seconds (disabled - using dynamic updates instead)
+                        // setInterval(function() {
+                        //     window.location.reload();
                         }, 30000);
                     </script>
                 </body>
@@ -752,6 +865,9 @@ app.get('/email-search', async (req, res) => {
                             <button type="button" class="btn btn-warning ms-2" onclick="startEmailExtraction()" id="extractBtn" style="display:none;">
                                 <i class="bi bi-envelope-plus"></i> Email-Extraktion starten
                             </button>
+                            <button type="button" class="btn btn-danger ms-2" onclick="stopEmailExtraction()" id="stopExtractBtn" style="display:none;">
+                                <i class="bi bi-stop-circle"></i> Stop Email-Extraktion
+                            </button>
                         </div>
                     </div>
                 </form>
@@ -769,6 +885,58 @@ app.get('/email-search', async (req, res) => {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         let lastSearchResults = [];
+
+        // Check email extraction status on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            checkEmailExtractionStatus();
+            // Check status every 3 seconds
+            setInterval(checkEmailExtractionStatus, 3000);
+        });
+
+        async function checkEmailExtractionStatus() {
+            try {
+                const response = await fetch('/api/scraper-status');
+                const status = await response.json();
+                
+                const extractBtn = document.getElementById('extractBtn');
+                const stopExtractBtn = document.getElementById('stopExtractBtn');
+                
+                if (status.emailExtraction) {
+                    // Email extraction is running
+                    if (extractBtn) extractBtn.style.display = 'none';
+                    if (stopExtractBtn) stopExtractBtn.style.display = 'inline-block';
+                } else {
+                    // Email extraction is not running
+                    if (stopExtractBtn) stopExtractBtn.style.display = 'none';
+                    // Only show extract button if we have search results
+                    if (extractBtn && lastSearchResults.length > 0) {
+                        const jobsWithoutEmails = lastSearchResults.filter(job => !job.best_email || job.best_email.trim() === '');
+                        if (jobsWithoutEmails.length > 0) {
+                            extractBtn.style.display = 'inline-block';
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error('Error checking extraction status:', error);
+            }
+        }
+
+        async function stopEmailExtraction() {
+            if (confirm('Stop email extraction scraper?')) {
+                try {
+                    const response = await fetch('/api/stop-email-extraction', { method: 'POST' });
+                    const result = await response.json();
+                    if (result.success) {
+                        alert('Email extraction stopped');
+                        checkEmailExtractionStatus();
+                    } else {
+                        alert('Error: ' + result.message);
+                    }
+                } catch (error) {
+                    alert('Error stopping extraction: ' + error.message);
+                }
+            }
+        }
 
         // Handle form submission
         document.getElementById('searchForm').addEventListener('submit', function(e) {
@@ -815,10 +983,8 @@ app.get('/email-search', async (req, res) => {
                         exportBtn.style.display = 'inline-block';
                     }
                     
-                    if (extractBtn && data.results && data.results.length > 0) {
-                        const jobsWithoutEmails = data.results.filter(job => !job.best_email || job.best_email.trim() === '');
-                        extractBtn.style.display = jobsWithoutEmails.length > 0 ? 'inline-block' : 'none';
-                    }
+                    // Check status and show appropriate button
+                    checkEmailExtractionStatus();
                 } else {
                     alert('Fehler bei der Suche: ' + (data.error || 'Unbekannter Fehler'));
                 }
@@ -886,12 +1052,25 @@ app.get('/email-search', async (req, res) => {
             resultsSection.style.display = 'block';
         }
 
-        function clearForm() {
+        async function clearForm() {
+            // Check if email extraction is running and stop it
+            const statusResponse = await fetch('/api/scraper-status');
+            const status = await statusResponse.json();
+            
+            if (status.emailExtraction) {
+                if (confirm('Email extraction is running. Do you want to stop it?')) {
+                    await fetch('/api/stop-email-extraction', { method: 'POST' });
+                    alert('Email extraction stopped.');
+                }
+            }
+            
             document.getElementById('searchForm').reset();
             document.getElementById('resultsSection').style.display = 'none';
             document.getElementById('exportBtn').style.display = 'none';
             document.getElementById('extractBtn').style.display = 'none';
+            document.getElementById('stopExtractBtn').style.display = 'none';
             lastSearchResults = [];
+            checkEmailExtractionStatus();
         }
 
         async function startEmailExtraction() {
@@ -2080,6 +2259,13 @@ app.post('/api/start-targeted-extraction', async (req, res) => {
                 cwd: path.join(__dirname, '..')
             });
             
+            // Store the process for tracking
+            runningScrapers.emailExtraction = {
+                pid: extractionProcess.pid,
+                startTime: new Date(),
+                jobCount: refNumbersToProcess.length
+            };
+            
             // Log output for debugging
             extractionProcess.stdout.on('data', (data) => {
                 console.log(`Scraper output: ${data}`);
@@ -2091,6 +2277,11 @@ app.post('/api/start-targeted-extraction', async (req, res) => {
             
             extractionProcess.on('error', (error) => {
                 console.error('Failed to start scraper:', error);
+            });
+            
+            extractionProcess.on('exit', (code) => {
+                console.log(`Scraper process exited with code ${code}`);
+                runningScrapers.emailExtraction = null;
             });
             
             extractionProcess.unref();
@@ -4229,6 +4420,143 @@ app.get('/employer-domains', (req, res) => domainsIntegrationRoute(req, res, poo
 // Health check
 app.get('/health', (req, res) => {
     res.json({ status: 'OK', timestamp: new Date().toISOString() });
+});
+
+// API endpoint to get scraper status
+app.get('/api/scraper-status', async (req, res) => {
+    const { exec } = require('child_process');
+    const { promisify } = require('util');
+    const execAsync = promisify(exec);
+    
+    // Check for actual running processes if our tracking shows nothing
+    let emailExtractionStatus = runningScrapers.emailExtraction;
+    let fourWindowStatus = runningScrapers.fourWindow;
+    
+    try {
+        // Check for worker 99 (email extraction)
+        const { stdout: worker99 } = await execAsync('ps aux | grep "python.*worker-id 99" | grep -v grep || true');
+        if (worker99.trim() && !emailExtractionStatus) {
+            // Process is running but not tracked
+            const pidMatch = worker99.match(/^\w+\s+(\d+)/);
+            if (pidMatch) {
+                emailExtractionStatus = {
+                    pid: parseInt(pidMatch[1]),
+                    startTime: 'Unknown (started before tracking)',
+                    detected: true
+                };
+            }
+        }
+        
+        // Check for four window scraper
+        const { stdout: fourWindow } = await execAsync('ps aux | grep "python.*four_window_unified" | grep -v grep || true');
+        if (fourWindow.trim() && !fourWindowStatus) {
+            const pidMatch = fourWindow.match(/^\w+\s+(\d+)/);
+            if (pidMatch) {
+                fourWindowStatus = {
+                    pid: parseInt(pidMatch[1]),
+                    startTime: 'Unknown (started before tracking)',
+                    detected: true
+                };
+            }
+        }
+    } catch (error) {
+        console.error('Error checking process status:', error);
+    }
+    
+    res.json({
+        emailExtraction: emailExtractionStatus,
+        fourWindow: fourWindowStatus
+    });
+});
+
+// API endpoint to stop email extraction scraper
+app.post('/api/stop-email-extraction', async (req, res) => {
+    const { exec } = require('child_process');
+    const { promisify } = require('util');
+    const execAsync = promisify(exec);
+    
+    try {
+        // First check if we're tracking it
+        if (runningScrapers.emailExtraction && runningScrapers.emailExtraction.pid) {
+            await execAsync(`kill ${runningScrapers.emailExtraction.pid}`);
+            runningScrapers.emailExtraction = null;
+            res.json({ success: true, message: 'Email extraction stopped' });
+        } else {
+            // Not tracked, try to find and kill worker-id 99
+            const { stdout } = await execAsync('ps aux | grep "python.*worker-id 99" | grep -v grep || true');
+            if (stdout.trim()) {
+                // Kill all processes with worker-id 99
+                await execAsync('pkill -f "python.*worker-id 99"');
+                res.json({ success: true, message: 'Email extraction stopped (detected process)' });
+            } else {
+                res.json({ success: false, message: 'No email extraction running' });
+            }
+        }
+    } catch (error) {
+        console.error('Error stopping email extraction:', error);
+        res.json({ success: false, error: error.message });
+    }
+});
+
+// API endpoint to start 4-window scraper
+app.post('/api/start-four-window', (req, res) => {
+    const { spawn } = require('child_process');
+    const { headless = false } = req.body;
+    
+    if (runningScrapers.fourWindow) {
+        return res.json({ success: false, message: '4-window scraper already running' });
+    }
+    
+    const args = ['python_scrapers/four_window_unified.py'];
+    if (headless) {
+        args.push('--headless');
+    }
+    
+    const fourWindowProcess = spawn('python3', args, {
+        detached: true,
+        stdio: ['ignore', 'pipe', 'pipe'],
+        cwd: path.join(__dirname, '..')
+    });
+    
+    runningScrapers.fourWindow = {
+        pid: fourWindowProcess.pid,
+        startTime: new Date()
+    };
+    
+    fourWindowProcess.on('exit', () => {
+        runningScrapers.fourWindow = null;
+    });
+    
+    fourWindowProcess.unref();
+    
+    res.json({ 
+        success: true, 
+        message: '4-window scraper started',
+        pid: fourWindowProcess.pid 
+    });
+});
+
+// API endpoint to stop 4-window scraper
+app.post('/api/stop-four-window', async (req, res) => {
+    const { exec } = require('child_process');
+    const { promisify } = require('util');
+    const execAsync = promisify(exec);
+    
+    try {
+        // Always try to kill any four_window_unified processes
+        const { stdout } = await execAsync('ps aux | grep "python.*four_window_unified" | grep -v grep || true');
+        if (stdout.trim() || (runningScrapers.fourWindow && runningScrapers.fourWindow.pid)) {
+            // Kill all four_window_unified processes
+            await execAsync('pkill -f "python.*four_window_unified" || true');
+            runningScrapers.fourWindow = null;
+            res.json({ success: true, message: '4-window scraper stopped' });
+        } else {
+            res.json({ success: false, message: 'No 4-window scraper running' });
+        }
+    } catch (error) {
+        console.error('Error stopping 4-window scraper:', error);
+        res.json({ success: false, error: error.message });
+    }
 });
 
 // Start server
